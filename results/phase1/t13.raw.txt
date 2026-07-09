@@ -1,0 +1,6 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires writing a conclusion section for a report, but the body sections that the conclusion must summarize do not yet exist in shared memory. The prompt explicitly states that the expected location 'root/sections' is empty. Therefore, I cannot competently execute the task because there is no content to conclude. I must defer execution until the body sections are available.",
+  "action": "DEFER",
+  "wake_condition": "done(\"root/sections\")"
+}

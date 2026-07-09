@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires gathering specific, up-to-date information on three distinct dimensions (features, pricing, performance) for three different products. This is too large for a single execution step and benefits from parallel decomposition. I will spawn three agents, one for each top vector database (Pinecone, Milvus, Weaviate), to research and compile their specific details. A final synthesis step is needed to compare them and write the recommendation, but since I can only spawn one level deep, I will assign the final report writing to a fourth agent that depends on the completion of the first three.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research Pinecone's features, pricing, and performance benchmarks.",
+      "capsule": "This agent gathers all necessary data on Pinecone, one of the top managed vector databases. It serves the root goal by providing one-third of the comparative data needed for the final report.",
+      "outputs": [
+        {
+          "path": "root.1/pinecone_data",
+          "description": "JSON object containing features, pricing tiers, and performance metrics for Pinecone."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Research Milvus's features, pricing, and performance benchmarks.",
+      "capsule": "This agent gathers all necessary data on Milvus, a leading open-source vector database. It serves the root goal by providing one-third of the comparative data needed for the final report.",
+      "outputs": [
+        {
+          "path": "root.2/milvus_data",
+          "description": "JSON object containing features, pricing tiers (including cloud options), and performance metrics for Milvus."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.3",
+      "goal": "Research Weaviate's features, pricing, and performance benchmarks.",
+      "capsule": "This agent gathers all necessary data on Weaviate, a popular vector database with hybrid search capabilities. It serves the root goal by providing one-third of the comparative data needed for the final report.",
+      "outputs": [
+        {
+          "path": "root.3/weaviate_data",
+          "description": "JSON object containing features, pricing tiers, and performance metrics for Weaviate."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Write the final comparative report and recommendation based on data from root.1, root.2, and root.3.",
+      "capsule": "This agent synthesizes the data collected by the previous three agents into a cohesive comparative report. It serves the root goal by producing the final deliverable: a report ending with a recommendation.",
+      "outputs": [
+        {
+          "path": "root/final_report",
+          "description": "Markdown formatted comparative report on Pinecone, Milvus, and Weaviate, including features, pricing, performance, and a final recommendation."
+        }
+      ],
+      "condition": "done(\"root.1/pinecone_data\") AND done(\"root.2/milvus_data\") AND done(\"root.3/weaviate_data\")",
+      "budget": 2
+    }
+  ]
+}

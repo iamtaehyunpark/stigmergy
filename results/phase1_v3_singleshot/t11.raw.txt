@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires a comprehensive evaluation across three distinct dimensions: cost, migration effort, and feature parity. These dimensions are independent and can be researched and analyzed in parallel to save time. Once these three analyses are complete, a final synthesis step is needed to combine them into a decision memo. Therefore, I will spawn three parallel subtasks for the analysis and one sequential subtask for the final memo.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Analyze the cost implications of migrating from AWS to GCP.",
+      "capsule": "This subtask evaluates the financial impact of the migration, comparing current AWS spend with projected GCP costs. It serves the ROOT GOAL by providing the financial data necessary for the decision memo.",
+      "outputs": [
+        {
+          "path": "root.1/cost_analysis",
+          "description": "A detailed comparison of AWS vs GCP costs, including potential savings or increases."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Assess the migration effort and technical challenges.",
+      "capsule": "This subtask estimates the time, resources, and complexity required to move infrastructure from AWS to GCP. It serves the ROOT GOAL by quantifying the operational burden of the migration.",
+      "outputs": [
+        {
+          "path": "root.2/migration_effort",
+          "description": "An assessment of migration complexity, timeline, and resource requirements."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.3",
+      "goal": "Evaluate feature parity between AWS and GCP for our specific stack.",
+      "capsule": "This subtask checks if GCP offers equivalent services to our current AWS usage, identifying any gaps or advantages. It serves the ROOT GOAL by ensuring technical feasibility and feature compatibility.",
+      "outputs": [
+        {
+          "path": "root.3/feature_parity",
+          "description": "A comparison of AWS and GCP features relevant to our startup's tech stack."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Write the final decision memo based on cost, effort, and feature parity analyses.",
+      "capsule": "This subtask synthesizes the findings from the previous three analyses into a coherent decision memo. It serves the ROOT GOAL by producing the final deliverable.",
+      "outputs": [
+        {
+          "path": "root.4/decision_memo",
+          "description": "A formal decision memo recommending whether to migrate, stay, or further investigate."
+        }
+      ],
+      "condition": "done(\"root.1/cost_analysis\") AND done(\"root.2/migration_effort\") AND done(\"root.3/feature_parity\")",
+      "budget": 2
+    }
+  ]
+}

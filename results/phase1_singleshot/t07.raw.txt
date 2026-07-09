@@ -1,0 +1,85 @@
+{
+  "task_id": "root",
+  "reasoning": "The task involves translating five distinct chapters and then synthesizing a translator's note. The translation of each chapter is an independent task that can be performed in parallel to maximize efficiency. The translator's note depends on the completion of all five translations to analyze stylistic choices across the entire work. Therefore, I will spawn five agents for the chapters and one agent for the final note, conditioned on the completion of the chapters.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Translate Chapter 1 from Korean to English.",
+      "capsule": "This agent handles the translation of the first chapter. It serves the root goal by providing the first segment of the novella's English text.",
+      "outputs": [
+        {
+          "path": "root.1/translation",
+          "description": "The English translation of Chapter 1."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.2",
+      "goal": "Translate Chapter 2 from Korean to English.",
+      "capsule": "This agent handles the translation of the second chapter. It serves the root goal by providing the second segment of the novella's English text.",
+      "outputs": [
+        {
+          "path": "root.2/translation",
+          "description": "The English translation of Chapter 2."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.3",
+      "goal": "Translate Chapter 3 from Korean to English.",
+      "capsule": "This agent handles the translation of the third chapter. It serves the root goal by providing the third segment of the novella's English text.",
+      "outputs": [
+        {
+          "path": "root.3/translation",
+          "description": "The English translation of Chapter 3."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.4",
+      "goal": "Translate Chapter 4 from Korean to English.",
+      "capsule": "This agent handles the translation of the fourth chapter. It serves the root goal by providing the fourth segment of the novella's English text.",
+      "outputs": [
+        {
+          "path": "root.4/translation",
+          "description": "The English translation of Chapter 4."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.5",
+      "goal": "Translate Chapter 5 from Korean to English.",
+      "capsule": "This agent handles the translation of the fifth chapter. It serves the root goal by providing the final segment of the novella's English text.",
+      "outputs": [
+        {
+          "path": "root.5/translation",
+          "description": "The English translation of Chapter 5."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.6",
+      "goal": "Write a translator's note about stylistic choices across all chapters.",
+      "capsule": "This agent synthesizes the translations from all five chapters to write a comprehensive translator's note. It serves the root goal by documenting the stylistic decisions made during the translation process.",
+      "outputs": [
+        {
+          "path": "root.6/translator_note",
+          "description": "A translator's note discussing stylistic choices across the novella."
+        }
+      ],
+      "condition": "done(\"root.1/translation\") AND done(\"root.2/translation\") AND done(\"root.3/translation\") AND done(\"root.4/translation\") AND done(\"root.5/translation\")",
+      "budget": 2
+    }
+  ]
+}

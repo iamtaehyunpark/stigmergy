@@ -1,0 +1,72 @@
+{
+  "task_id": "root",
+  "reasoning": "The task of creating a complete business plan is complex and naturally decomposes into five distinct, largely independent sections: market analysis, competitor analysis, revenue model, go-to-market strategy, and financial projections. These sections can be developed in parallel by separate agents, as they rely on general knowledge of the Korean market rather than sequential data dependencies. Spawning five subtasks allows for comprehensive coverage within the budget constraints.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Conduct a market analysis for a Korean local-review platform.",
+      "capsule": "This subtask analyzes the size, growth, and trends of the local review and O2O (Online-to-Offline) market in South Korea. It serves the ROOT GOAL by establishing the market opportunity and target audience demographics.",
+      "outputs": [
+        {
+          "path": "root.1/market_analysis",
+          "description": "Detailed market analysis including TAM/SAM/SOM, growth trends, and user behavior insights."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.2",
+      "goal": "Perform a competitor analysis of existing Korean local-review platforms.",
+      "capsule": "This subtask identifies key competitors like Naver Place, Google Maps, and specialized apps, analyzing their strengths, weaknesses, and market share. It serves the ROOT GOAL by defining the competitive landscape and identifying gaps for differentiation.",
+      "outputs": [
+        {
+          "path": "root.2/competitor_analysis",
+          "description": "Competitor landscape report including SWOT analysis and differentiation opportunities."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.3",
+      "goal": "Design a revenue model for the Korean local-review platform.",
+      "capsule": "This subtask defines how the platform will make money, considering models like advertising, premium listings, and affiliate marketing suitable for the Korean market. It serves the ROOT GOAL by establishing the economic viability and monetization strategy.",
+      "outputs": [
+        {
+          "path": "root.3/revenue_model",
+          "description": "Revenue model specification including pricing strategies, monetization channels, and unit economics."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.4",
+      "goal": "Develop a go-to-market strategy for the Korean local-review platform.",
+      "capsule": "This subtask outlines the launch strategy, user acquisition channels, and partnership plans specific to the Korean digital ecosystem. It serves the ROOT GOAL by providing a roadmap for initial traction and growth.",
+      "outputs": [
+        {
+          "path": "root.4/go_to_market",
+          "description": "Go-to-market strategy including marketing channels, launch phases, and partnership opportunities."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.5",
+      "goal": "Create financial projections for the Korean local-review platform.",
+      "capsule": "This subtask builds a 3-5 year financial forecast including revenue, expenses, and cash flow based on the market and revenue assumptions. It serves the ROOT GOAL by demonstrating financial feasibility and investment potential.",
+      "outputs": [
+        {
+          "path": "root.5/financial_projections",
+          "description": "Financial projections including P&L, cash flow, and key metrics for 3-5 years."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    }
+  ]
+}

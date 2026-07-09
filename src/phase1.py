@@ -14,12 +14,13 @@ from pathlib import Path
 from typing import Any
 
 
-DEFAULT_MODEL = "claude-sonnet-4-6"
-DEFAULT_PROVIDER = "anthropic"
+DEFAULT_MODEL = "qwen3.6"
+DEFAULT_PROVIDER = "local"
+DEFAULT_LOCAL_ENDPOINT = "http://127.0.0.1:8000/v1/chat/completions"
 DEFAULT_MAX_TOKENS = 4000
 DONE_TERM_RE = re.compile(r'done\("([^"]+)"\)')
 PATH_RE = re.compile(r"^root(?:\.\d+)*/[a-z][a-z0-9_]*$")
-SUBTASK_ID_RE = re.compile(r"^root\.\d+$")
+SUBTASK_ID_RE = re.compile(r"^root(?:\.\d+)+$")
 
 
 @dataclass(frozen=True)
@@ -28,6 +29,7 @@ class Config:
     model: str
     temperature: float
     max_tokens: int
+    local_endpoint: str
 
 
 def load_json(path: Path) -> Any:
@@ -52,6 +54,25 @@ def build_context(task: dict[str, Any]) -> str:
             "YOUR CAPSULE (why you exist): (you are the root agent)",
             "REMAINING BUDGET: 20",
             'RELEVANT MEMORY (top-k retrieval stub): (empty)',
+        ]
+    )
+
+
+def build_repair_message(original_message: str, raw: str, notes: list[str]) -> str:
+    return "\n".join(
+        [
+            "Your previous action document failed structural validation.",
+            "Return a corrected action document as strict JSON only.",
+            "Do not wrap it in Markdown fences. Do not add prose.",
+            "Do not change the assigned task or task_id.",
+            "Validation errors:",
+            *[f"- {note}" for note in notes],
+            "",
+            "Original context:",
+            original_message,
+            "",
+            "Previous action document:",
+            raw,
         ]
     )
 
@@ -105,6 +126,27 @@ def call_openai(system_prompt: str, user_message: str, config: Config) -> str:
     return _http_json_text(req, provider="openai")
 
 
+def call_local(system_prompt: str, user_message: str, config: Config) -> str:
+    payload = {
+        "model": config.model,
+        "temperature": config.temperature,
+        "max_tokens": config.max_tokens,
+        "response_format": {"type": "json_object"},
+        "chat_template_kwargs": {"enable_thinking": False},
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"/no_think\n\n{user_message}"},
+        ],
+    }
+    req = urllib.request.Request(
+        config.local_endpoint,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"content-type": "application/json"},
+        method="POST",
+    )
+    return _http_json_text(req, provider="local")
+
+
 def _http_json_text(req: urllib.request.Request, provider: str) -> str:
     try:
         with urllib.request.urlopen(req, timeout=120) as resp:
@@ -112,6 +154,8 @@ def _http_json_text(req: urllib.request.Request, provider: str) -> str:
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"{provider} API error {exc.code}: {body}") from exc
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"{provider} API connection failed: {exc.reason}") from exc
     if provider == "anthropic":
         parts = []
         for item in data.get("content", []):
@@ -119,10 +163,19 @@ def _http_json_text(req: urllib.request.Request, provider: str) -> str:
                 parts.append(item.get("text", ""))
         return "".join(parts).strip()
     choice = data.get("choices", [{}])[0]
-    return choice.get("message", {}).get("content", "").strip()
+    message = choice.get("message", {})
+    content = message.get("content")
+    if isinstance(content, str):
+        return content.strip()
+    reasoning = message.get("reasoning")
+    if isinstance(reasoning, str):
+        return reasoning.strip()
+    return ""
 
 
 def call_model(system_prompt: str, user_message: str, config: Config) -> str:
+    if config.provider == "local":
+        return call_local(system_prompt, user_message, config)
     if config.provider == "anthropic":
         return call_anthropic(system_prompt, user_message, config)
     if config.provider == "openai":
@@ -131,11 +184,15 @@ def call_model(system_prompt: str, user_message: str, config: Config) -> str:
 
 
 def ensure_credentials(config: Config) -> None:
+    if config.provider == "local":
+        if not config.local_endpoint:
+            raise RuntimeError("RATD_LOCAL_ENDPOINT is not set")
+        return
     if config.provider == "anthropic" and not os.environ.get("ANTHROPIC_API_KEY"):
         raise RuntimeError("ANTHROPIC_API_KEY is not set")
     if config.provider == "openai" and not os.environ.get("OPENAI_API_KEY"):
         raise RuntimeError("OPENAI_API_KEY is not set")
-    if config.provider not in {"anthropic", "openai"}:
+    if config.provider not in {"local", "anthropic", "openai"}:
         raise RuntimeError(f"Unsupported provider: {config.provider}")
 
 
@@ -147,6 +204,7 @@ def run_phase1(args: argparse.Namespace) -> int:
         model=args.model,
         temperature=args.temperature,
         max_tokens=args.max_tokens,
+        local_endpoint=args.local_endpoint,
     )
     ensure_credentials(config)
     out_dir = Path(args.out_dir)
@@ -156,6 +214,7 @@ def run_phase1(args: argparse.Namespace) -> int:
         "model": config.model,
         "temperature": config.temperature,
         "max_tokens": config.max_tokens,
+        "local_endpoint": config.local_endpoint if config.provider == "local" else None,
         "harness": args.harness,
         "started_at": utc_timestamp(),
     }
@@ -170,17 +229,47 @@ def run_phase1(args: argparse.Namespace) -> int:
             print(f"skip {task_id}: raw response exists")
             continue
         user_message = build_context(task)
-        print(f"calling {task_id}...", flush=True)
-        raw = call_model(harness, user_message, config)
+        raw = ""
+        parsed: dict[str, Any] | None = None
+        notes: list[str] = []
+        for attempt in range(args.retries + 1):
+            label = "calling" if attempt == 0 else f"repairing {attempt}"
+            print(f"{label} {task_id}...", flush=True)
+            prompt_message = user_message if attempt == 0 else build_repair_message(user_message, raw, notes)
+            raw = call_model(harness, prompt_message, config)
+            parsed, notes = parse_and_validate_action(raw)
+            if parsed is not None and not notes:
+                break
         raw_path.write_text(raw + "\n", encoding="utf-8")
-        try:
-            parsed = json.loads(raw)
-        except json.JSONDecodeError as exc:
-            print(f"{task_id}: invalid strict JSON: {exc}", file=sys.stderr)
+        if parsed is None:
+            print(f"{task_id}: invalid strict JSON: {'; '.join(notes)}", file=sys.stderr)
+            continue
+        if notes:
+            print(f"{task_id}: invalid action document: {'; '.join(notes)}", file=sys.stderr)
             continue
         write_json(action_path, parsed)
         time.sleep(args.sleep)
     return 0
+
+
+def parse_and_validate_action(raw: str) -> tuple[dict[str, Any] | None, list[str]]:
+    try:
+        maybe = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        return None, [f"raw strict JSON parse failed: {exc.msg}"]
+    if not isinstance(maybe, dict):
+        return None, ["raw strict JSON is not an object"]
+    notes: list[str] = []
+    schema_ok, schema_notes = validate_schema(maybe)
+    budget_ok, budget_notes = validate_budget(maybe, budget=20)
+    namespace_ok, namespace_notes = score_namespace(maybe)
+    if not schema_ok:
+        notes.extend(schema_notes)
+    if not budget_ok:
+        notes.extend(budget_notes)
+    if not namespace_ok:
+        notes.extend(namespace_notes)
+    return maybe, notes
 
 
 def score_phase1(args: argparse.Namespace) -> int:
@@ -543,10 +632,15 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--out-dir", default="results/phase1")
     run.add_argument("--provider", default=os.environ.get("RATD_PROVIDER", DEFAULT_PROVIDER))
     run.add_argument("--model", default=os.environ.get("RATD_MODEL", DEFAULT_MODEL))
+    run.add_argument(
+        "--local-endpoint",
+        default=os.environ.get("RATD_LOCAL_ENDPOINT", DEFAULT_LOCAL_ENDPOINT),
+    )
     run.add_argument("--temperature", type=float, default=0.0)
     run.add_argument("--max-tokens", type=int, default=DEFAULT_MAX_TOKENS)
     run.add_argument("--sleep", type=float, default=0.0)
     run.add_argument("--limit", type=int, default=0)
+    run.add_argument("--retries", type=int, default=2)
     run.add_argument("--skip-existing", action="store_true")
     run.set_defaults(func=run_phase1)
 

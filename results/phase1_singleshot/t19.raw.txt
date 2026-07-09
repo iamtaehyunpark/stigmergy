@@ -1,0 +1,72 @@
+{
+  "task_id": "root",
+  "reasoning": "The task of organizing a company offsite involves several distinct, complex domains: venue selection, catering, activities, and transport. These are largely independent and can be researched and planned in parallel. A final logistics document depends on the outputs of all these subtasks. Therefore, spawning four parallel agents for the specific domains and one sequential agent for the final compilation is the most efficient approach. The budget allows for 5 children with a total allocation of 15 (3 each), which fits within the limit of 20 - 5 = 15.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research and select a suitable venue for a 40-person company offsite.",
+      "capsule": "This subtask identifies potential venues that can accommodate 40 people, including necessary facilities like meeting rooms and breakout spaces. It serves the ROOT GOAL by securing the physical location for the event.",
+      "outputs": [
+        {
+          "path": "root.1/venue_selection",
+          "description": "Details of the selected venue including name, address, capacity, cost, and available dates."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.2",
+      "goal": "Plan catering options for a 40-person company offsite.",
+      "capsule": "This subtask explores catering services that can handle 40 people, considering dietary restrictions and meal types (lunch, dinner, snacks). It serves the ROOT GOAL by ensuring food and beverage logistics are covered.",
+      "outputs": [
+        {
+          "path": "root.2/catering_plan",
+          "description": "Details of catering options including menu, cost per person, dietary accommodations, and service times."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.3",
+      "goal": "Design team-building activities and agenda for a 40-person company offsite.",
+      "capsule": "This subtask creates a schedule of engaging activities suitable for 40 employees, balancing work and leisure. It serves the ROOT GOAL by providing the content and structure of the offsite experience.",
+      "outputs": [
+        {
+          "path": "root.3/activities_plan",
+          "description": "A detailed list of activities, including descriptions, duration, required equipment, and costs."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.4",
+      "goal": "Arrange transport logistics for 40 people to and from the offsite venue.",
+      "capsule": "This subtask determines the best transport options (buses, shuttles, etc.) for moving 40 people to the venue. It serves the ROOT GOAL by ensuring smooth arrival and departure for all attendees.",
+      "outputs": [
+        {
+          "path": "root.4/transport_plan",
+          "description": "Details of transport arrangements including vehicle type, pickup/drop-off points, schedule, and cost."
+        }
+      ],
+      "condition": null,
+      "budget": 3
+    },
+    {
+      "id": "root.5",
+      "goal": "Compile a final logistics document integrating venue, catering, activities, and transport details.",
+      "capsule": "This subtask aggregates the outputs from the previous four subtasks into a single, coherent logistics document. It serves the ROOT GOAL by providing the final deliverable that organizes all aspects of the offsite.",
+      "outputs": [
+        {
+          "path": "root.5/final_logistics_document",
+          "description": "A comprehensive document containing all details about the venue, catering, activities, and transport for the company offsite."
+        }
+      ],
+      "condition": "done(\"root.1/venue_selection\") AND done(\"root.2/catering_plan\") AND done(\"root.3/activities_plan\") AND done(\"root.4/transport_plan\")",
+      "budget": 3
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires gathering distinct types of information (attractions, restaurants, transport) before synthesizing them into a final itinerary. These research phases are independent and can be executed in parallel to save time. Once the data is collected, a final assembly step is needed to create the day-by-day schedule. I will spawn three parallel research agents and one sequential assembly agent.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research top attractions in Kyoto for a 3-day trip.",
+      "capsule": "This subtask identifies key cultural and scenic sites in Kyoto, such as temples, shrines, and gardens. It provides the primary content for the itinerary's daily activities.",
+      "outputs": [
+        {
+          "path": "root.1/attractions",
+          "description": "A list of recommended attractions with brief descriptions and suggested visit durations."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Research highly-rated restaurants in Kyoto.",
+      "capsule": "This subtask finds dining options that complement the itinerary, including traditional kaiseki, casual ramen, and cafes. It ensures the traveler has good food recommendations near their activities.",
+      "outputs": [
+        {
+          "path": "root.2/restaurants",
+          "description": "A list of recommended restaurants with cuisine type, price range, and location."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.3",
+      "goal": "Research transport options in Kyoto.",
+      "capsule": "This subtask outlines how to get around Kyoto, including buses, subways, and walking routes. It provides the logistical framework for connecting attractions and restaurants efficiently.",
+      "outputs": [
+        {
+          "path": "root.3/transport",
+          "description": "A guide to Kyoto's transport system, including key lines, passes, and travel times between major areas."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Assemble a 3-day Kyoto itinerary.",
+      "capsule": "This subtask combines the researched attractions, restaurants, and transport info into a coherent day-by-day schedule. It serves the ROOT GOAL by producing the final planned itinerary.",
+      "outputs": [
+        {
+          "path": "root/itinerary",
+          "description": "A detailed 3-day itinerary with morning, afternoon, and evening plans, including transport and dining suggestions."
+        }
+      ],
+      "condition": "done(\"root.1/attractions\") AND done(\"root.2/restaurants\") AND done(\"root.3/transport\")",
+      "budget": 2
+    }
+  ]
+}

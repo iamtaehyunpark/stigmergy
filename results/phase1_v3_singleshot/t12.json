@@ -1,0 +1,6 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires writing unit tests for a module, but the module's implementation is explicitly stated to be missing from shared memory (expected at root.1/module_code). Without the implementation, it is impossible to write meaningful unit tests that verify specific behaviors, inputs, and outputs. Therefore, the task cannot proceed until the implementation is available. I must defer execution and register a wake condition that checks for the presence of the module code.",
+  "action": "DEFER",
+  "wake_condition": "done(\"root.1/module_code\")"
+}

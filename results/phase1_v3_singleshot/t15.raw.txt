@@ -1,0 +1,72 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires a comprehensive business plan with five distinct major sections. These sections are largely independent in their research and drafting phases, making them ideal for parallel decomposition. I will spawn five subtasks, one for each section (Market Analysis, Competitor Analysis, Revenue Model, Go-to-Market Strategy, and Financial Projections). Each subtask will be assigned a budget of 2 to allow for further refinement if necessary, though they are likely executable directly. The sum of budgets (5 * 2 = 10) is well within the remaining budget of 20, and the number of children (5) is within the limit of 6.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Conduct a detailed market analysis for a Korean local-review platform.",
+      "capsule": "This subtask analyzes the size, growth, and trends of the local review market in Korea. It provides the foundational context for the business plan by identifying target demographics and market opportunities.",
+      "outputs": [
+        {
+          "path": "root.1/market_analysis",
+          "description": "A comprehensive market analysis report including TAM/SAM/SOM, growth trends, and user demographics."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Perform a competitor analysis of existing local-review platforms in Korea.",
+      "capsule": "This subtask identifies key competitors like Naver Maps, Google Maps, and specialized review sites. It analyzes their strengths, weaknesses, and market positioning to identify gaps for the new platform.",
+      "outputs": [
+        {
+          "path": "root.2/competitor_analysis",
+          "description": "A detailed competitor analysis report including SWOT analysis and differentiation strategies."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.3",
+      "goal": "Develop a revenue model for the Korean local-review platform.",
+      "capsule": "This subtask defines how the platform will make money, exploring options like advertising, premium listings, and data services. It ensures the business has a viable path to profitability.",
+      "outputs": [
+        {
+          "path": "root.3/revenue_model",
+          "description": "A detailed revenue model document outlining income streams, pricing strategies, and monetization tactics."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Create a go-to-market strategy for the Korean local-review platform.",
+      "capsule": "This subtask outlines the launch plan, marketing channels, and user acquisition strategies. It details how the platform will gain traction and build a user base in the competitive Korean market.",
+      "outputs": [
+        {
+          "path": "root.4/go_to_market_strategy",
+          "description": "A comprehensive go-to-market strategy including marketing channels, launch timeline, and user acquisition plans."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.5",
+      "goal": "Generate financial projections for the Korean local-review platform.",
+      "capsule": "This subtask creates 3-5 year financial forecasts including revenue, expenses, and cash flow. It provides the quantitative basis for the business plan's viability and investment potential.",
+      "outputs": [
+        {
+          "path": "root.5/financial_projections",
+          "description": "A detailed financial projection document including income statements, cash flow, and key assumptions."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    }
+  ]
+}

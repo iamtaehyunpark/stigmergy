@@ -1,0 +1,6 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires writing unit tests for a module, but the module's implementation is explicitly stated to be missing from shared memory (expected at root.1/module_code). Without the implementation, I cannot know the function signatures, expected behaviors, or edge cases to test. Therefore, I cannot execute the task nor spawn subtasks to do so. I must defer until the implementation is available.",
+  "action": "DEFER",
+  "wake_condition": "done(\"root.1/module_code\")"
+}

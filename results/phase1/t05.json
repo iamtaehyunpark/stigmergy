@@ -1,0 +1,11 @@
+{
+  "task_id": "root",
+  "reasoning": "The task is to explain the difference between TCP and UDP for a beginner. This is a standard, well-defined educational topic that can be covered comprehensively in a single response. It does not require complex decomposition, external data retrieval, or parallel processing. The explanation can be structured logically (definitions, key differences, analogies, use cases) within one agent's output. Therefore, EXECUTE is the most efficient and appropriate action.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root/explanation",
+      "description": "A clear, beginner-friendly explanation of the differences between TCP and UDP, including analogies and use cases."
+    }
+  ]
+}

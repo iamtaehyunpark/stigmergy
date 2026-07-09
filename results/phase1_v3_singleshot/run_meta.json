@@ -1,0 +1,9 @@
+{
+  "provider": "local",
+  "model": "qwen3.6",
+  "temperature": 0.0,
+  "max_tokens": 4000,
+  "local_endpoint": "http://127.0.0.1:8000/v1/chat/completions",
+  "harness": "prompts/harness_v3.md",
+  "started_at": "2026-07-09T07:33:18Z"
+}

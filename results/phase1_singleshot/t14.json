@@ -1,0 +1,11 @@
+{
+  "task_id": "root",
+  "reasoning": "The task is to proofread a single, short sentence. This is a trivial task that can be completed immediately without any need for decomposition or external data. Spawning subtasks would be inefficient and unnecessary for such a small scope.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root/proofread_result",
+      "description": "The corrected version of the sentence with explanations of errors."
+    }
+  ]
+}

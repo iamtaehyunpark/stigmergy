@@ -1,0 +1,46 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires a comprehensive literature review covering at least 8 papers, which is too large for a single execution step due to the need for extensive search, synthesis, and organization. I will decompose this into three parallel subtasks: identifying relevant papers, analyzing them to build a taxonomy, and drafting the final review. This allows for efficient parallel processing of the research and writing phases. The budget of 20 allows for spawning 3 children with sufficient remaining budget for their own potential sub-decompositions.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Identify and summarize at least 10 key papers on LLM agent memory architectures.",
+      "capsule": "This subtask is responsible for the initial literature search and retrieval. It must find relevant academic papers and provide concise summaries to serve as the raw material for the taxonomy and review. This serves the ROOT GOAL by ensuring sufficient coverage of the field.",
+      "outputs": [
+        {
+          "path": "root.1/paper_summaries",
+          "description": "A list of at least 10 papers with titles, authors, years, and brief summaries focusing on memory mechanisms."
+        }
+      ],
+      "condition": null,
+      "budget": 5
+    },
+    {
+      "id": "root.2",
+      "goal": "Develop a taxonomy of LLM agent memory architectures based on the identified papers.",
+      "capsule": "This subtask analyzes the paper summaries to categorize memory architectures into a coherent taxonomy (e.g., short-term vs. long-term, parametric vs. non-parametric). It defines the structure for the final review. This serves the ROOT GOAL by providing the organizational framework required.",
+      "outputs": [
+        {
+          "path": "root.2/taxonomy",
+          "description": "A structured taxonomy defining categories of LLM agent memory architectures with definitions and examples."
+        }
+      ],
+      "condition": "done(\"root.1/paper_summaries\")",
+      "budget": 5
+    },
+    {
+      "id": "root.3",
+      "goal": "Draft the final literature review organized by the developed taxonomy.",
+      "capsule": "This subtask synthesizes the paper summaries and taxonomy into a cohesive narrative review. It writes the final output, ensuring all papers are discussed within the context of the taxonomy. This serves the ROOT GOAL by producing the final deliverable.",
+      "outputs": [
+        {
+          "path": "root.3/literature_review",
+          "description": "A complete literature review document covering at least 8 papers, organized by the taxonomy."
+        }
+      ],
+      "condition": "done(\"root.1/paper_summaries\") AND done(\"root.2/taxonomy\")",
+      "budget": 5
+    }
+  ]
+}

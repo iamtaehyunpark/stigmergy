@@ -1,0 +1,11 @@
+{
+  "task_id": "root",
+  "reasoning": "The task is to compute a standard cryptographic hash of a short, fixed string. This is a trivial computation that can be performed instantly without any need for decomposition, external data, or parallel processing. Spawning subtasks would incur unnecessary overhead and budget consumption for a task that fits entirely within a single execution step.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root/sha256_hash",
+      "description": "The SHA-256 hash of the string 'hello'."
+    }
+  ]
+}

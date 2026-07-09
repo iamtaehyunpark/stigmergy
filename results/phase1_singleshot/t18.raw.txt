@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires analyzing three distinct data sources (application logs, database metrics, network traces) and synthesizing them into a final report. These analyses are independent and can be performed in parallel. After all three analyses are complete, a final subtask will synthesize the findings into the root-cause report. This decomposition allows for efficient parallel processing of the data sources.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Analyze application logs to identify latency spikes, errors, or slow endpoints.",
+      "capsule": "This subtask examines the application layer for signs of degradation, such as increased error rates, slow query logs, or thread pool exhaustion. It serves the ROOT GOAL by providing the application-level context for the latency increase.",
+      "outputs": [
+        {
+          "path": "root.1/app_log_analysis",
+          "description": "Summary of application log findings related to latency, including timestamps, error rates, and slow endpoints."
+        }
+      ],
+      "condition": null,
+      "budget": 5
+    },
+    {
+      "id": "root.2",
+      "goal": "Analyze database metrics to identify performance bottlenecks.",
+      "capsule": "This subtask examines database performance metrics such as query latency, connection pool usage, and lock contention. It serves the ROOT GOAL by identifying if the database layer is the source of the latency increase.",
+      "outputs": [
+        {
+          "path": "root.2/db_metrics_analysis",
+          "description": "Summary of database metric findings, including slow queries, connection issues, and resource utilization."
+        }
+      ],
+      "condition": null,
+      "budget": 5
+    },
+    {
+      "id": "root.3",
+      "goal": "Analyze network traces to identify connectivity or propagation delays.",
+      "capsule": "This subtask examines network traces for packet loss, increased round-trip times, or DNS resolution issues. It serves the ROOT GOAL by identifying if network infrastructure is contributing to the latency increase.",
+      "outputs": [
+        {
+          "path": "root.3/network_trace_analysis",
+          "description": "Summary of network trace findings, including latency spikes, packet loss, and connectivity issues."
+        }
+      ],
+      "condition": null,
+      "budget": 5
+    },
+    {
+      "id": "root.4",
+      "goal": "Synthesize findings from all analyses into a root-cause report.",
+      "capsule": "This subtask combines the results from the application, database, and network analyses to determine the root cause of the p99 latency doubling. It serves the ROOT GOAL by producing the final deliverable: a comprehensive root-cause report.",
+      "outputs": [
+        {
+          "path": "root.4/root_cause_report",
+          "description": "Final root-cause report detailing the cause of the latency increase and recommended actions."
+        }
+      ],
+      "condition": "done(\"root.1/app_log_analysis\") AND done(\"root.2/db_metrics_analysis\") AND done(\"root.3/network_trace_analysis\")",
+      "budget": 5
+    }
+  ]
+}

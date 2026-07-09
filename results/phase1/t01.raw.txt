@@ -1,0 +1,11 @@
+{
+  "task_id": "root",
+  "reasoning": "The task of converting a single integer to Roman numerals is a trivial, deterministic computation that can be performed instantly. It does not require decomposition, parallel processing, or external data. Therefore, executing the task directly is the most efficient and correct approach.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root/roman_numeral",
+      "description": "The Roman numeral representation of the number 1847."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root",
+  "reasoning": "The task is to summarize a well-known plot in exactly five sentences. This is a small, self-contained creative writing task that does not require external data, complex decomposition, or parallel processing. I can generate the summary directly and efficiently without spawning child agents.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root/summary",
+      "description": "A 5-sentence summary of the plot of Romeo and Juliet."
+    }
+  ]
+}

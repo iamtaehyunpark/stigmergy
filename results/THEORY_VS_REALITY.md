@@ -6,6 +6,12 @@
 - What actually happened: The local environment has no `ANTHROPIC_API_KEY`, no `OPENAI_API_KEY`, and no provider SDKs installed.
 - Implication for `RATD_Theory.md`: The feasibility probe needs to separate architectural failure from execution-environment incompleteness. Missing credentials should gate empirical claims without counting as Q1 failure.
 
+## 2026-07-09 - Local model execution replaces cloud API as default
+
+- Assumption or gap: The initial scaffold assumed a cloud API provider would be the default execution path.
+- What actually happened: The server already has `/data/tpark45/engramtrace-env`, `HF_HOME=/data/tpark45/hugginface`, and local VLLM endpoints. The Phase 1 runner now defaults to `RATD_PROVIDER=local`, model `qwen3.6`, and `http://127.0.0.1:8000/v1/chat/completions`.
+- Implication for `RATD_Theory.md`: Phase 1 empirical claims should name the local model and endpoint used, because routing quality may differ materially from the original API-model assumption.
+
 ## 2026-07-09 - Phase 1 memory stub conflicts with one task premise
 
 - Assumption or gap: Section 1.3 says all Phase 1 tasks use empty memory, while task `t04` says the buggy function is provided at `root/buggy_fn`.

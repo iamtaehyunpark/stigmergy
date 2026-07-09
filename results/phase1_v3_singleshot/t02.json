@@ -1,0 +1,11 @@
+{
+  "task_id": "root",
+  "reasoning": "The task is to write a single haiku, which is a very small and self-contained creative writing exercise. It does not require decomposition, external data, or parallel processing. Therefore, the most efficient action is to execute the task directly.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root/haiku",
+      "description": "A haiku about autumn in Seoul."
+    }
+  ]
+}

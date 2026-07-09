@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires analyzing three distinct data sources (application logs, database metrics, network traces) and synthesizing them into a final report. These analyses are independent and can be performed in parallel to save time. Once all three analyses are complete, a final subtask will synthesize the findings into the root-cause report. This decomposition fits within the budget constraints.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Analyze application logs for latency anomalies.",
+      "capsule": "This subtask examines application logs to identify slow endpoints, error spikes, or garbage collection pauses that correlate with the latency increase. It serves the root goal by isolating application-level causes.",
+      "outputs": [
+        {
+          "path": "root.1/app_log_analysis",
+          "description": "Summary of application log findings related to latency."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Analyze database metrics for performance degradation.",
+      "capsule": "This subtask reviews database metrics such as query latency, connection pool usage, and lock waits to detect bottlenecks. It serves the root goal by isolating data-layer causes.",
+      "outputs": [
+        {
+          "path": "root.2/db_metrics_analysis",
+          "description": "Summary of database metric findings related to latency."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.3",
+      "goal": "Analyze network traces for connectivity issues.",
+      "capsule": "This subtask inspects network traces for packet loss, increased round-trip times, or DNS resolution delays. It serves the root goal by isolating infrastructure-level causes.",
+      "outputs": [
+        {
+          "path": "root.3/network_trace_analysis",
+          "description": "Summary of network trace findings related to latency."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Write the root-cause report synthesizing all analyses.",
+      "capsule": "This subtask combines the findings from the application, database, and network analyses to determine the primary cause of the p99 latency doubling. It serves the root goal by producing the final deliverable.",
+      "outputs": [
+        {
+          "path": "root.4/root_cause_report",
+          "description": "Final root-cause report explaining the latency increase."
+        }
+      ],
+      "condition": "done(\"root.1/app_log_analysis\") AND done(\"root.2/db_metrics_analysis\") AND done(\"root.3/network_trace_analysis\")",
+      "budget": 2
+    }
+  ]
+}

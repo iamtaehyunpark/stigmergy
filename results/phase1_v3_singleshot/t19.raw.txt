@@ -1,0 +1,72 @@
+{
+  "task_id": "root",
+  "reasoning": "The task of organizing a company offsite involves several distinct, complex domains (venue, catering, activities, transport) that can be researched and planned in parallel. Since these components are largely independent at the initial planning stage, spawning parallel subtasks is the most efficient approach. A final subtask will depend on the outputs of the others to compile the logistics document. This decomposition fits within the budget constraints.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research and select a suitable venue for 40 people.",
+      "capsule": "This subtask identifies potential venues that can accommodate 40 people for an offsite event. It serves the ROOT GOAL by securing the physical location necessary for the event.",
+      "outputs": [
+        {
+          "path": "root.1/venue_selection",
+          "description": "Details of the selected venue including name, address, capacity, and cost."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Plan catering options for 40 people.",
+      "capsule": "This subtask explores catering services suitable for 40 people, considering dietary restrictions and budget. It serves the ROOT GOAL by ensuring food and beverage needs are met.",
+      "outputs": [
+        {
+          "path": "root.2/catering_plan",
+          "description": "Details of catering options including menu, cost per person, and service style."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.3",
+      "goal": "Design team-building activities for 40 people.",
+      "capsule": "This subtask proposes engaging activities suitable for a group of 40. It serves the ROOT GOAL by providing entertainment and team-building opportunities.",
+      "outputs": [
+        {
+          "path": "root.3/activities_plan",
+          "description": "List of proposed activities with descriptions, duration, and costs."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Arrange transport logistics for 40 people.",
+      "capsule": "This subtask plans transportation to and from the venue for 40 people. It serves the ROOT GOAL by ensuring all attendees can reach the event location.",
+      "outputs": [
+        {
+          "path": "root.4/transport_plan",
+          "description": "Details of transport arrangements including vehicle type, cost, and schedule."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.5",
+      "goal": "Compile a final logistics document.",
+      "capsule": "This subtask aggregates all planning details into a single comprehensive document. It serves the ROOT GOAL by providing a unified reference for the offsite event.",
+      "outputs": [
+        {
+          "path": "root.5/final_logistics_doc",
+          "description": "A comprehensive document summarizing venue, catering, activities, and transport details."
+        }
+      ],
+      "condition": "done(\"root.1/venue_selection\") AND done(\"root.2/catering_plan\") AND done(\"root.3/activities_plan\") AND done(\"root.4/transport_plan\")",
+      "budget": 2
+    }
+  ]
+}

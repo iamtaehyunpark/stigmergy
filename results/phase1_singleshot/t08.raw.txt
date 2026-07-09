@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires gathering distinct types of information (attractions, restaurants, transport) which are independent and can be researched in parallel. Once this data is collected, a final assembly step is needed to create the coherent itinerary. This structure fits the SPAWN action perfectly, allowing for parallel data gathering followed by sequential synthesis. I will spawn three research agents and one assembly agent.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research top attractions in Kyoto for a 3-day trip.",
+      "capsule": "This agent identifies key cultural and scenic sites in Kyoto, categorized by area (e.g., Eastern, Western, Northern) to facilitate logical grouping. It serves the ROOT GOAL by providing the primary content for the itinerary.",
+      "outputs": [
+        {
+          "path": "root.1/attractions",
+          "description": "A list of recommended attractions with locations, estimated visit times, and brief descriptions."
+        }
+      ],
+      "condition": null,
+      "budget": 5
+    },
+    {
+      "id": "root.2",
+      "goal": "Research highly-rated restaurants in Kyoto near major attractions.",
+      "capsule": "This agent finds dining options suitable for lunch and dinner, focusing on proximity to the attractions identified by root.1. It serves the ROOT GOAL by ensuring the itinerary includes practical and enjoyable meal stops.",
+      "outputs": [
+        {
+          "path": "root.2/restaurants",
+          "description": "A list of recommended restaurants with cuisine type, location, price range, and proximity to major sites."
+        }
+      ],
+      "condition": null,
+      "budget": 5
+    },
+    {
+      "id": "root.3",
+      "goal": "Research transport options in Kyoto for tourists.",
+      "capsule": "This agent details the best ways to get around Kyoto, including buses, trains, and walking routes between key areas. It serves the ROOT GOAL by providing the logistical framework to connect the attractions and restaurants.",
+      "outputs": [
+        {
+          "path": "root.3/transport",
+          "description": "A guide to Kyoto's transport system, including key lines, pass recommendations, and travel times between major districts."
+        }
+      ],
+      "condition": null,
+      "budget": 5
+    },
+    {
+      "id": "root.4",
+      "goal": "Assemble a day-by-day 3-day Kyoto itinerary.",
+      "capsule": "This agent combines the outputs from root.1, root.2, and root.3 into a coherent, time-ordered schedule for three days. It serves the ROOT GOAL by delivering the final planned itinerary.",
+      "outputs": [
+        {
+          "path": "root.4/itinerary",
+          "description": "A detailed 3-day itinerary including morning, afternoon, and evening activities, meals, and transport instructions."
+        }
+      ],
+      "condition": "done(\"root.1/attractions\") AND done(\"root.2/restaurants\") AND done(\"root.3/transport\")",
+      "budget": 5
+    }
+  ]
+}

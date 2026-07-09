@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The previous action failed because the sum of child budgets (20) exceeded the allowed maximum (16). With 4 subtasks, the maximum total budget for children is B - k = 20 - 4 = 16. I will reduce the budget for each child from 5 to 4, resulting in a total sum of 16, which satisfies the constraint. The decomposition logic remains valid: three parallel analysis tasks and one sequential synthesis task.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Analyze application logs to identify latency spikes, errors, or slow endpoints.",
+      "capsule": "This subtask examines the application layer for signs of degradation, such as increased error rates, slow query logs, or thread pool exhaustion. It serves the ROOT GOAL by providing the application-level context for the latency increase.",
+      "outputs": [
+        {
+          "path": "root.1/app_log_analysis",
+          "description": "Summary of application log findings related to latency, including timestamps, error rates, and slow endpoints."
+        }
+      ],
+      "condition": null,
+      "budget": 4
+    },
+    {
+      "id": "root.2",
+      "goal": "Analyze database metrics to identify slow queries, connection pool issues, or resource contention.",
+      "capsule": "This subtask examines the database layer for performance bottlenecks, such as long-running queries, lock contention, or high CPU/memory usage. It serves the ROOT GOAL by identifying if the database is the source of the latency.",
+      "outputs": [
+        {
+          "path": "root.2/db_metrics_analysis",
+          "description": "Summary of database metric findings, including slow queries, connection pool stats, and resource utilization trends."
+        }
+      ],
+      "condition": null,
+      "budget": 4
+    },
+    {
+      "id": "root.3",
+      "goal": "Analyze network traces to identify packet loss, high latency between services, or DNS issues.",
+      "capsule": "This subtask examines the network layer for connectivity issues, such as increased round-trip times, packet loss, or DNS resolution delays. It serves the ROOT GOAL by identifying if network issues are contributing to the latency.",
+      "outputs": [
+        {
+          "path": "root.3/network_trace_analysis",
+          "description": "Summary of network trace findings, including latency between services, packet loss, and DNS resolution times."
+        }
+      ],
+      "condition": null,
+      "budget": 4
+    },
+    {
+      "id": "root.4",
+      "goal": "Synthesize findings from application logs, database metrics, and network traces into a root-cause report.",
+      "capsule": "This subtask combines the results from the previous three analyses to determine the root cause of the p99 latency increase. It serves the ROOT GOAL by producing the final deliverable: a comprehensive root-cause report.",
+      "outputs": [
+        {
+          "path": "root.4/root_cause_report",
+          "description": "Final root-cause report detailing the cause of the p99 latency increase, supported by evidence from all three data sources."
+        }
+      ],
+      "condition": "done(\"root.1/app_log_analysis\") AND done(\"root.2/db_metrics_analysis\") AND done(\"root.3/network_trace_analysis\")",
+      "budget": 4
+    }
+  ]
+}
