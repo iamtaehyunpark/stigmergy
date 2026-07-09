@@ -1,0 +1,22 @@
+[
+  {
+    "id": "d01",
+    "task": "Build a full-stack todo app: design schema, implement backend API, implement frontend, write integration tests.",
+    "source": "t09 carryover - regression check that removing budget breaks nothing (known depth-2 shape)"
+  },
+  {
+    "id": "d02",
+    "task": "Create a complete business plan for a Korean local-review platform: market analysis, competitor analysis, revenue model, go-to-market, and financial projections.",
+    "source": "t15 carryover - probe spec expected depth 3 here and never got it; with tiers gone, does it appear?"
+  },
+  {
+    "id": "d03",
+    "task": "Write a 4-chapter technical field guide to LLM agent memory systems. Each chapter needs its own research, a draft, and a consistency edit; the book needs a unified glossary and a final assembly pass.",
+    "source": "new, constructed deep - three natural levels (book -> chapter -> research/draft/edit) plus an integrator"
+  },
+  {
+    "id": "d04",
+    "task": "Produce localized launch kits (announcement post, FAQ, pricing page copy) for a product in 6 markets: US, KR, JP, DE, BR, IN; then a global consistency review.",
+    "source": "new, breadth stress - wide fan-out; over-spawn stress case now that nothing limits fan-out but judgment"
+  }
+]

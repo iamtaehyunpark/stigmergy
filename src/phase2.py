@@ -27,7 +27,6 @@ from .phase1 import (
 )
 
 
-PHASE2_TASK_IDS = ("t06", "t15", "t09")
 WORKER_PROMPT = """You are a worker agent in a shared-memory multi-agent run.
 Complete the assigned task using the relevant memory provided. Return strict JSON only:
 {
@@ -44,11 +43,11 @@ class AgentSpec:
     root_goal: str
     task: str
     capsule: str
-    budget: int
     depth: int
     parent: str | None
     expected_outputs: list[dict[str, str]]
     condition: str | None = None
+    worker_only: bool = False
 
 
 @dataclass
@@ -61,15 +60,21 @@ class RunMetrics:
     llm_calls: int
     max_depth: int
     agent_count: int
+    total_spawns: int
     conflict_count: int
-    budget_violations: int
     schema_mismatches: int
     trigger_refs: int
     schema_agreements: int
     trigger_fire_errors: int
     trigger_never_fired_ready: int
     defer_count: int
-    cross_branch_reads: int
+    cross_branch_read_events: int
+    cross_branch_unique_pairs: int
+    self_role_parallel: int
+    self_role_gated: int
+    interface_owed_self: int
+    interface_owed_delegated: int
+    termination: str
     rail_hit: str
     qualitative: str
 
@@ -168,9 +173,11 @@ class Runtime:
         self.root_outputs: list[str] = []
         self.rail_hit = ""
         self.started = time.time()
-        self.max_calls = 60
-        self.max_depth = 6
-        self.wall_clock = 20 * 60
+        self.max_calls = 120
+        self.max_depth = 8
+        self.wall_clock = 40 * 60
+        self.owed_self = 0
+        self.owed_delegated = 0
         self._init_db()
 
     def _init_db(self) -> None:
@@ -181,12 +188,17 @@ class Runtime:
         self.db.commit()
 
     def run(self) -> RunMetrics:
-        root = AgentSpec("root", self.root_task["task"], self.root_task["task"], "(you are the root agent)", 20, 0, None, [])
+        root = AgentSpec("root", self.root_task["task"], self.root_task["task"], "(you are the root agent)", 0, None, [])
         self.enqueue(root)
         while self.queue:
             if self._rails_hit():
                 break
             agent = self.queue.pop(0)
+            if agent.worker_only:
+                self.log("self_role_start", agent=agent.task_id, condition=agent.condition)
+                self.execute(agent, {})
+                self.fire_ready_triggers()
+                continue
             self.agent_count += 1
             self.log("agent_start", agent=asdict(agent))
             action = self.route(agent)
@@ -260,7 +272,7 @@ class Runtime:
                 f"YOUR TASK ID: {agent.task_id}",
                 f"YOUR TASK: {agent.task}",
                 f"YOUR CAPSULE (why you exist): {agent.capsule}",
-                f"REMAINING BUDGET: {agent.budget}",
+                f"GLOBAL CALLS REMAINING: {max(0, self.max_calls - self.llm_calls)}",
                 f"EXPECTED OUTPUTS FROM PARENT: {expected}",
                 f"RELEVANT MEMORY (exact namespace/context listing): {memory}",
             ]
@@ -293,22 +305,14 @@ class Runtime:
         subtasks = action.get("subtasks", [])
         if not isinstance(subtasks, list):
             return
-        allowed = max(0, agent.budget - len(subtasks))
-        allocated = sum(int(s.get("budget", 0)) for s in subtasks if isinstance(s, dict))
-        if allocated > allowed:
-            self.log("budget_violation", agent=agent.task_id, allocated=allocated, allowed=allowed)
         for idx, subtask in enumerate(subtasks, start=1):
             if not isinstance(subtask, dict):
                 continue
-            budget = int(subtask.get("budget", 0))
-            if allocated > allowed:
-                budget = max(0, min(budget, allowed // max(1, len(subtasks))))
             child = AgentSpec(
                 task_id=str(subtask["id"]),
                 root_goal=agent.root_goal,
                 task=str(subtask["goal"]),
                 capsule=str(subtask["capsule"]),
-                budget=budget,
                 depth=agent.depth + 1,
                 parent=agent.task_id,
                 expected_outputs=list(subtask.get("outputs", [])),
@@ -321,6 +325,37 @@ class Runtime:
                 self.add_trigger(f"{self.run_id}:{child.task_id}", child.condition, child)
             else:
                 self.enqueue(child)
+        self.register_self_role(agent, action)
+
+    def register_self_role(self, agent: AgentSpec, action: dict[str, Any]) -> None:
+        role = action.get("self_role")
+        if not isinstance(role, dict):
+            return
+        outputs = [o for o in role.get("outputs", []) if isinstance(o, dict) and "path" in o]
+        condition = role.get("condition")
+        condition = condition if isinstance(condition, str) and condition.strip() else None
+        cont = AgentSpec(
+            task_id=agent.task_id,
+            root_goal=agent.root_goal,
+            task=str(role.get("goal", "")),
+            capsule=agent.capsule,
+            depth=agent.depth,
+            parent=agent.parent,
+            expected_outputs=outputs,
+            condition=condition,
+            worker_only=True,
+        )
+        paths = [str(o["path"]) for o in outputs]
+        self.log("self_role", agent=agent.task_id, kind="gated" if condition else "parallel", condition=condition, outputs=paths)
+        owed = {o["path"] for o in agent.expected_outputs if isinstance(o, dict) and "path" in o}
+        self.owed_self += len(owed & set(paths))
+        self.owed_delegated += len(owed - set(paths))
+        if agent.task_id == "root":
+            self.root_outputs.extend(p for p in paths if p not in self.root_outputs)
+        if condition:
+            self.add_trigger(f"{self.run_id}:{agent.task_id}:self", condition, cont)
+        else:
+            self.enqueue(cont)
 
     def add_trigger(self, trigger_id: str, condition: str, agent: AgentSpec) -> None:
         self.db.execute(
@@ -350,6 +385,8 @@ class Runtime:
 
     def execute(self, agent: AgentSpec, action: dict[str, Any]) -> None:
         declared = agent.expected_outputs or list(action.get("result_outputs", []))
+        if agent.task_id == "root" and not self.root_outputs:
+            self.root_outputs.extend(str(o["path"]) for o in declared if isinstance(o, dict) and "path" in o)
         prompt = "\n".join(
             [
                 f"ROOT GOAL: {agent.root_goal}",
@@ -449,12 +486,14 @@ class Runtime:
         max_depth = max((rec.get("child", {}).get("depth", 0) for rec in events if rec.get("event") == "spawn"), default=0)
         conflicts = self.db.execute("SELECT COUNT(*) FROM conflicts").fetchone()[0]
         schema_mismatch = sum(1 for rec in events if rec.get("event") == "schema_mismatch")
-        budget_violations = sum(1 for rec in events if rec.get("event") == "budget_violation")
         trigger_errors = sum(1 for rec in events if rec.get("event") == "trigger_error")
         defers = sum(1 for rec in events if rec.get("event") == "defer")
-        cross_reads = sum(1 for rec in events if rec.get("event") == "cross_branch_read")
+        total_spawns = sum(1 for rec in events if rec.get("event") == "spawn")
+        cross_read_events = sum(1 for rec in events if rec.get("event") == "cross_branch_read")
+        cross_read_pairs = len({(rec.get("agent"), rec.get("path")) for rec in events if rec.get("event") == "cross_branch_read"})
+        self_roles = [rec for rec in events if rec.get("event") == "self_role"]
         converged = bool(self.root_outputs) and set(self.root_outputs).issubset(done) and not self.rail_hit
-        qualitative = self.qualitative_assessment(converged, max_depth, budget_violations, schema_mismatch)
+        qualitative = self.qualitative_assessment(converged, max_depth, schema_mismatch)
         return RunMetrics(
             self.run_id,
             self.root_task["id"],
@@ -464,25 +503,29 @@ class Runtime:
             self.llm_calls,
             max_depth,
             self.agent_count,
+            total_spawns,
             int(conflicts),
-            budget_violations,
             schema_mismatch,
             len(refs),
             sum(1 for ref in refs if ref in done),
             trigger_errors,
             ready_unfired,
             defers,
-            cross_reads,
+            cross_read_events,
+            cross_read_pairs,
+            sum(1 for rec in self_roles if rec.get("kind") == "parallel"),
+            sum(1 for rec in self_roles if rec.get("kind") == "gated"),
+            self.owed_self,
+            self.owed_delegated,
+            "rail" if self.rail_hit else "natural",
             self.rail_hit,
             qualitative,
         )
 
-    def qualitative_assessment(self, converged: bool, max_depth: int, budget_violations: int, schema_mismatch: int) -> str:
+    def qualitative_assessment(self, converged: bool, max_depth: int, schema_mismatch: int) -> str:
         if not converged:
             return "Did not converge to the declared root output within rails."
         issues = []
-        if budget_violations:
-            issues.append("budget repairs were needed")
         if schema_mismatch:
             issues.append("worker path mismatches occurred")
         if max_depth >= 2:
@@ -533,7 +576,6 @@ def parse_and_validate_action_for_agent(raw: str, agent: AgentSpec) -> tuple[dic
         else:
             expected_ids = [f"{agent.task_id}.{i}" for i in range(1, len(subtasks) + 1)]
             seen: set[str] = set()
-            child_budgets: list[int] = []
             declared_outputs: set[str] = set()
             for idx, subtask in enumerate(subtasks):
                 if not isinstance(subtask, dict):
@@ -561,32 +603,46 @@ def parse_and_validate_action_for_agent(raw: str, agent: AgentSpec) -> tuple[dic
                 condition = subtask.get("condition")
                 if condition is not None and not isinstance(condition, str):
                     notes.append(f"subtask {sid} condition must be null or string")
-                budget = subtask.get("budget")
-                if not isinstance(budget, int):
-                    notes.append(f"subtask {sid} budget must be int")
+            role = maybe.get("self_role")
+            self_paths: set[str] = set()
+            role_condition: str | None = None
+            if not isinstance(role, dict):
+                notes.append("SPAWN requires a self_role object: the job you yourself take (a parallel share, the gated integrating job, or a review job) with at least one output")
+            else:
+                if not isinstance(role.get("goal"), str) or not role["goal"].strip():
+                    notes.append("self_role missing non-empty goal")
+                role_outputs = role.get("outputs")
+                if not valid_outputs(role_outputs):
+                    notes.append("self_role requires outputs with path/description (declare at least one output YOU will write)")
                 else:
-                    child_budgets.append(budget)
-            missing_interface = owed - declared_outputs
+                    for output in role_outputs:
+                        path = output["path"]
+                        self_paths.add(path)
+                        if not path.startswith(f"{agent.task_id}/") and path not in owed:
+                            notes.append(f"self_role output {path} must be under {agent.task_id}/ or one of your assigned output paths")
+                if role.get("condition") is not None and not isinstance(role["condition"], str):
+                    notes.append("self_role condition must be null or string")
+                elif isinstance(role.get("condition"), str):
+                    role_condition = role["condition"]
+            missing_interface = owed - declared_outputs - self_paths
             if missing_interface:
                 notes.append(
                     "your assigned output paths "
                     + ", ".join(sorted(missing_interface))
-                    + " are not produced by any subtask; assign each to the subtask that completes your task (usually the final integrating subtask)"
+                    + " are not produced by any subtask or by your self_role; assign each to exactly one producer (usually your own integrating self_role)"
                 )
-            if sum(child_budgets) > agent.budget - len(subtasks):
-                notes.append(f"child budget sum {sum(child_budgets)} exceeds {agent.budget - len(subtasks)}")
-            if any(b < 0 for b in child_budgets):
-                notes.append("negative child budget")
-            for subtask in subtasks:
-                if not isinstance(subtask, dict) or not isinstance(subtask.get("condition"), str):
-                    continue
-                for ref in condition_refs(subtask["condition"]):
-                    if ref not in declared_outputs:
-                        notes.append(f"condition references undeclared sibling output {ref}")
+            referencable = declared_outputs | self_paths
+            conditions_to_check = [(str(s.get("id")), s["condition"]) for s in subtasks if isinstance(s, dict) and isinstance(s.get("condition"), str)]
+            if role_condition is not None:
+                conditions_to_check.append(("self_role", role_condition))
+            for owner, condition in conditions_to_check:
+                for ref in condition_refs(condition):
+                    if ref not in referencable:
+                        notes.append(f"{owner} condition references undeclared output {ref}")
                 try:
-                    ConditionParser(subtask["condition"], set()).parse()
+                    ConditionParser(condition, set()).parse()
                 except ValueError as exc:
-                    notes.append(f"condition uses unsupported syntax: {exc}")
+                    notes.append(f"{owner} condition uses unsupported syntax: {exc}")
     elif action == "DEFER":
         if not isinstance(maybe.get("wake_condition"), str) or not maybe["wake_condition"].strip():
             notes.append("DEFER requires wake_condition")
@@ -606,10 +662,12 @@ def valid_outputs(outputs: Any) -> bool:
     return True
 
 
-def select_tasks(path: Path) -> list[dict[str, Any]]:
+def select_tasks(path: Path, task_ids: tuple[str, ...] = ()) -> list[dict[str, Any]]:
     tasks = load_json(path)
+    if not task_ids:
+        return tasks
     by_id = {task["id"]: task for task in tasks}
-    return [by_id[tid] for tid in PHASE2_TASK_IDS]
+    return [by_id[tid] for tid in task_ids]
 
 
 def run_phase2(args: argparse.Namespace) -> int:
@@ -617,8 +675,9 @@ def run_phase2(args: argparse.Namespace) -> int:
     ensure_credentials(config)
     harness = Path(args.harness).read_text(encoding="utf-8")
     base = Path(args.out_dir)
+    task_ids = tuple(t for t in args.task_ids.split(",") if t)
     all_metrics: list[RunMetrics] = []
-    for task in select_tasks(Path(args.tasks)):
+    for task in select_tasks(Path(args.tasks), task_ids):
         for rep in range(1, args.repetitions + 1):
             run_id = f"{task['id']}_r{rep}"
             print(f"running {run_id}...", flush=True)
@@ -635,8 +694,10 @@ def write_summary(base: Path, metrics: list[RunMetrics]) -> None:
     converged = sum(1 for m in metrics if m.converged)
     trigger_refs = sum(m.trigger_refs for m in metrics)
     agreements = sum(m.schema_agreements for m in metrics)
+    owed_self = sum(m.interface_owed_self for m in metrics)
+    owed_total = owed_self + sum(m.interface_owed_delegated for m in metrics)
     lines = [
-        "# Phase 2 Summary",
+        "# E0 Summary",
         "",
         f"- Runs: {len(metrics)}",
         f"- Convergence: {converged}/{len(metrics)}",
@@ -644,10 +705,12 @@ def write_summary(base: Path, metrics: list[RunMetrics]) -> None:
         f"- Trigger fire errors: {sum(m.trigger_fire_errors for m in metrics)}",
         f"- Ready-but-unfired triggers: {sum(m.trigger_never_fired_ready for m in metrics)}",
         f"- Conflicts: {sum(m.conflict_count for m in metrics)}",
-        f"- Budget violations attempted: {sum(m.budget_violations for m in metrics)}",
         f"- Worker schema mismatches: {sum(m.schema_mismatches for m in metrics)}",
-        f"- Rail hits: {sum(1 for m in metrics if m.rail_hit)}",
-        f"- Cross-branch reads: {sum(m.cross_branch_reads for m in metrics)}",
+        f"- Rail hits: {sum(1 for m in metrics if m.rail_hit)} ({', '.join(sorted({m.rail_hit for m in metrics if m.rail_hit})) or 'none'})",
+        f"- Natural terminations: {sum(1 for m in metrics if m.termination == 'natural')}/{len(metrics)}",
+        f"- Cross-branch reads (unique agent,path pairs): {sum(m.cross_branch_unique_pairs for m in metrics)} (event fallback: {sum(m.cross_branch_read_events for m in metrics)})",
+        f"- self_role distribution: parallel {sum(m.self_role_parallel for m in metrics)}, gated {sum(m.self_role_gated for m in metrics)}",
+        f"- Interface self-fulfillment: {(owed_self / owed_total if owed_total else 0):.2%} ({owed_self}/{owed_total} owed paths taken by the parent's own self_role)",
         "",
         "## Runs",
         "",
@@ -663,8 +726,11 @@ def write_summary(base: Path, metrics: list[RunMetrics]) -> None:
                 f"- Root outputs done: {', '.join(m.root_outputs_done) or '(none)'}",
                 f"- LLM calls: {m.llm_calls}",
                 f"- Graph depth: {m.max_depth}",
-                f"- Agent count: {m.agent_count}",
+                f"- Agent count: {m.agent_count} (spawns: {m.total_spawns})",
                 f"- Defer count: {m.defer_count}",
+                f"- Termination: {m.termination}{f' ({m.rail_hit})' if m.rail_hit else ''}",
+                f"- self_role: parallel {m.self_role_parallel}, gated {m.self_role_gated}; owed self/delegated {m.interface_owed_self}/{m.interface_owed_delegated}",
+                f"- Cross-branch reads (unique pairs): {m.cross_branch_unique_pairs}",
                 f"- Qualitative: {m.qualitative}",
                 "",
             ]
@@ -673,11 +739,12 @@ def write_summary(base: Path, metrics: list[RunMetrics]) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="RATD Phase 2 sequential runtime")
-    parser.add_argument("--harness", default="prompts/harness_v1.md")
-    parser.add_argument("--tasks", default="tasks/phase1_tasks.json")
-    parser.add_argument("--out-dir", default="results/phase2")
-    parser.add_argument("--repetitions", type=int, default=2)
+    parser = argparse.ArgumentParser(description="RATD sequential runtime (E0-min: no budget machinery, rails only)")
+    parser.add_argument("--harness", default="prompts/harness_v6.md")
+    parser.add_argument("--tasks", default="tasks/e0_tasks.json")
+    parser.add_argument("--task-ids", default="", help="comma-separated task ids; empty = all tasks in the file, in order")
+    parser.add_argument("--out-dir", default="results/e0")
+    parser.add_argument("--repetitions", type=int, default=3)
     parser.add_argument("--provider", default=os.environ.get("RATD_PROVIDER", DEFAULT_PROVIDER))
     parser.add_argument("--model", default=os.environ.get("RATD_MODEL", DEFAULT_MODEL))
     parser.add_argument("--local-endpoint", default=os.environ.get("RATD_LOCAL_ENDPOINT", DEFAULT_LOCAL_ENDPOINT))
