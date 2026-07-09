@@ -1,0 +1,33 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task is to implement the backend API. The schema is available in shared memory. The task involves creating the server code and the API specification. Given the budget of 8, I can spawn subtasks. However, implementing a full backend API (code + spec) is a cohesive unit that can be done by a single agent or split into two parallel agents (one for code, one for spec). Splitting into two allows parallelism. The code agent needs the schema. The spec agent also needs the schema. They are independent of each other but both depend on the schema which is already present. I will spawn two subtasks: one to generate the API spec and one to generate the backend code. Both can run in parallel. The budget rule for B=8 allows spawning up to 6 children with budget 2 each, or if one is large, budget 8 for one and 2 for others (max 4 children). Here, both tasks are moderate. I'll spawn 2 children with budget 2 each. Wait, the rule says 'B >= 18: spawn up to 6... B < 6: do not spawn'. My B is 8. The rule for 6 <= B < 18 is 'spawn at most 2 children, budget 2 each'. This fits perfectly.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Generate the OpenAPI/Swagger specification for the backend API based on the schema.",
+      "capsule": "This subtask creates the API contract. It reads the schema from root.1/schema.json and defines the endpoints, request/response formats, and authentication requirements. This serves the ROOT GOAL by providing a clear interface for the frontend and tests.",
+      "outputs": [
+        {
+          "path": "root.2/api_spec.json",
+          "description": "OpenAPI/Swagger specification for the backend API."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Implement the backend API source code based on the schema and API spec.",
+      "capsule": "This subtask implements the server-side logic. It uses the schema from root.1/schema.json and the API spec from root.2/api_spec.json (if available, otherwise infers from schema) to create the backend code. It serves the ROOT GOAL by providing the functional backend service.",
+      "outputs": [
+        {
+          "path": "root.2/backend_code.zip",
+          "description": "Zipped source code for the backend API."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    }
+  ]
+}

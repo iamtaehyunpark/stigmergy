@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires gathering specific, factual information about Milvus (features, pricing, performance). With a budget of 2, I cannot spawn subtasks (which would require B >= 6 for even 2 children with budget 2 each, or B >= 18 for more). Therefore, I must EXECUTE the task myself. I will synthesize the required data into the specified output format.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/milvus_data",
+      "description": "Structured summary of Milvus's features, pricing models (including cloud vs self-hosted), and performance metrics."
+    }
+  ]
+}

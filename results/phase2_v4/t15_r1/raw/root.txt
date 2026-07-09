@@ -1,0 +1,85 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires a comprehensive business plan with five distinct sections. These sections are largely independent in their research phase but must be integrated into a final document. Given the budget of 20, I can spawn 5 children. I will assign budget 8 to the 'Financial Projections' subtask as it is the most complex and likely requires iterative calculation and assumption-setting. The other four subtasks (Market, Competitor, Revenue, GTM) will receive budget 2 each. A final integration step is implicitly handled by the fact that the root task is to 'Create a complete business plan', but since I am spawning children to produce the *components*, I must ensure one child produces the *final integrated artifact* or I must execute the integration myself. However, the instructions say 'one of your subtasks must be the subtask that produces it'. Therefore, I will spawn 5 research subtasks and 1 integration subtask. Wait, the budget rule says 'spawn up to 6 children'. If I spawn 6, I use 6 budget. Remaining budget for children is 14. If I give one child 8, I have 6 left for 5 children (budget 1 each? No, budget must be 2 or 8). Let's re-read carefully. 'B >= 18: spawn up to 6 children with budget 2 each. EXCEPTION: if exactly one subtask is itself clearly large enough... give THAT child budget 8, give every other child budget 2, and spawn at most 4 children total.' My B is 20. So I can spawn up to 6 children with budget 2 each. OR I can spawn up to 4 children total, with one having budget 8 and others budget 2. If I spawn 4 children (Market, Competitor, Revenue, GTM) with budget 2 each, and one child (Financials) with budget 8, that's 5 children. This violates the 'at most 4 children total' rule for the exception case. So I cannot use the exception case if I need 5 research tasks + 1 integration task. I must use the standard case: spawn up to 6 children with budget 2 each. This means I cannot give any child budget 8. I will spawn 5 children for the 5 sections, each with budget 2. Then I, the root agent, will EXECUTE the final integration? No, the completeness rule says 'one of your subtasks must be the subtask that produces it'. So I need a 6th child to integrate. Total 6 children. All budget 2. This fits the 'spawn up to 6 children with budget 2 each' rule. Child 1: Market Analysis. Child 2: Competitor Analysis. Child 3: Revenue Model. Child 4: Go-to-Market. Child 5: Financial Projections. Child 6: Final Business Plan Integration. Child 6 depends on 1-5.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Conduct market analysis for a Korean local-review platform.",
+      "capsule": "This subtask analyzes the Korean local services market, user demographics, and trends. It provides the foundational market context for the business plan.",
+      "outputs": [
+        {
+          "path": "root.1/market_analysis",
+          "description": "A detailed market analysis report including TAM/SAM/SOM, user personas, and market trends in Korea."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Conduct competitor analysis for a Korean local-review platform.",
+      "capsule": "This subtask identifies and analyzes key competitors like Naver, Daum, and specialized review apps. It highlights gaps and opportunities for differentiation.",
+      "outputs": [
+        {
+          "path": "root.2/competitor_analysis",
+          "description": "A competitor analysis report detailing strengths, weaknesses, and market positioning of existing players."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.3",
+      "goal": "Define the revenue model for a Korean local-review platform.",
+      "capsule": "This subtask designs the monetization strategy, including advertising, premium listings, and data services. It ensures the business model is viable and aligned with Korean market norms.",
+      "outputs": [
+        {
+          "path": "root.3/revenue_model",
+          "description": "A detailed revenue model document outlining pricing strategies, revenue streams, and unit economics."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Develop the go-to-market strategy for a Korean local-review platform.",
+      "capsule": "This subtask creates the launch and growth strategy, including marketing channels, user acquisition tactics, and partnership plans. It drives the initial user and merchant base.",
+      "outputs": [
+        {
+          "path": "root.4/go_to_market",
+          "description": "A go-to-market strategy document detailing launch phases, marketing mix, and growth hacks."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.5",
+      "goal": "Create financial projections for a Korean local-review platform.",
+      "capsule": "This subtask builds the 3-5 year financial forecast, including P&L, cash flow, and balance sheet. It quantifies the business potential and funding needs.",
+      "outputs": [
+        {
+          "path": "root.5/financial_projections",
+          "description": "A financial projections document with detailed assumptions, revenue forecasts, cost structures, and break-even analysis."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.6",
+      "goal": "Integrate all components into a complete business plan.",
+      "capsule": "This subtask synthesizes the market, competitor, revenue, GTM, and financial analyses into a cohesive, professional business plan document. It ensures consistency and narrative flow.",
+      "outputs": [
+        {
+          "path": "root.6/business_plan",
+          "description": "The final, complete business plan document integrating all previous sections."
+        }
+      ],
+      "condition": "done(\"root.1/market_analysis\") AND done(\"root.2/competitor_analysis\") AND done(\"root.3/revenue_model\") AND done(\"root.4/go_to_market\") AND done(\"root.5/financial_projections\")",
+      "budget": 2
+    }
+  ]
+}

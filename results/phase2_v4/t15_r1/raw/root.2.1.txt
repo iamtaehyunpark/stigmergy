@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.1",
+  "reasoning": "The budget is 0, which strictly prohibits spawning any subtasks. The task requires a detailed analysis of major generalist competitors (Naver, Daum) for the Korean local-review market. This is a self-contained research and synthesis task that can be completed in a single execution step by leveraging internal knowledge about these platforms' features, market share, and monetization strategies.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.1/generalist_competitors",
+      "description": "Analysis of Naver, Daum, and other generalist platforms including features, user base, and monetization."
+    }
+  ]
+}

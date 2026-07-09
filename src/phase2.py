@@ -163,6 +163,7 @@ class Runtime:
         self.db = sqlite3.connect(self.out_dir / "state.sqlite")
         self.queue: list[AgentSpec] = []
         self.llm_calls = 0
+        self.defer_seq = 0
         self.agent_count = 0
         self.root_outputs: list[str] = []
         self.rail_hit = ""
@@ -197,7 +198,12 @@ class Runtime:
             elif kind == "SPAWN":
                 self.spawn(agent, action)
             elif kind == "DEFER":
-                self.log("defer", agent=agent.task_id, wake_condition=action.get("wake_condition"))
+                wake = action.get("wake_condition")
+                self.log("defer", agent=agent.task_id, wake_condition=wake)
+                if isinstance(wake, str) and wake.strip():
+                    self.defer_seq += 1
+                    sleeper = AgentSpec(**{**asdict(agent), "condition": wake})
+                    self.add_trigger(f"{self.run_id}:{agent.task_id}:defer{self.defer_seq}", wake, sleeper)
             self.fire_ready_triggers()
         self.render_graph()
         metrics = self.metrics()
@@ -500,6 +506,7 @@ def parse_and_validate_action_for_agent(raw: str, agent: AgentSpec) -> tuple[dic
         return None, ["raw strict JSON is not an object"]
 
     notes: list[str] = []
+    owed = {o["path"] for o in agent.expected_outputs if isinstance(o, dict) and "path" in o}
     if maybe.get("task_id") != agent.task_id:
         notes.append(f"task_id must be {agent.task_id}")
     reasoning = maybe.get("reasoning")
@@ -517,8 +524,8 @@ def parse_and_validate_action_for_agent(raw: str, agent: AgentSpec) -> tuple[dic
         else:
             for output in outputs:
                 path = output["path"]
-                if not path.startswith(f"{agent.task_id}/"):
-                    notes.append(f"EXECUTE output {path} must be under {agent.task_id}/")
+                if not path.startswith(f"{agent.task_id}/") and path not in owed:
+                    notes.append(f"EXECUTE output {path} must be under {agent.task_id}/ or one of your assigned output paths")
     elif action == "SPAWN":
         subtasks = maybe.get("subtasks")
         if not isinstance(subtasks, list) or not subtasks:
@@ -549,8 +556,8 @@ def parse_and_validate_action_for_agent(raw: str, agent: AgentSpec) -> tuple[dic
                     for output in outputs:
                         path = output["path"]
                         declared_outputs.add(path)
-                        if not path.startswith(f"{sid}/"):
-                            notes.append(f"output {path} must be under {sid}/")
+                        if not path.startswith(f"{sid}/") and path not in owed:
+                            notes.append(f"output {path} must be under {sid}/ or one of your own assigned output paths")
                 condition = subtask.get("condition")
                 if condition is not None and not isinstance(condition, str):
                     notes.append(f"subtask {sid} condition must be null or string")
@@ -559,6 +566,13 @@ def parse_and_validate_action_for_agent(raw: str, agent: AgentSpec) -> tuple[dic
                     notes.append(f"subtask {sid} budget must be int")
                 else:
                     child_budgets.append(budget)
+            missing_interface = owed - declared_outputs
+            if missing_interface:
+                notes.append(
+                    "your assigned output paths "
+                    + ", ".join(sorted(missing_interface))
+                    + " are not produced by any subtask; assign each to the subtask that completes your task (usually the final integrating subtask)"
+                )
             if sum(child_budgets) > agent.budget - len(subtasks):
                 notes.append(f"child budget sum {sum(child_budgets)} exceeds {agent.budget - len(subtasks)}")
             if any(b < 0 for b in child_budgets):

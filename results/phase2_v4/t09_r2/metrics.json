@@ -1,0 +1,27 @@
+{
+  "run_id": "t09_r2",
+  "task_id": "t09",
+  "converged": false,
+  "root_outputs": [
+    "root.2/backend_code",
+    "root.2/api_spec",
+    "root.3/frontend_code",
+    "root.4/test_code",
+    "root.4/test_report"
+  ],
+  "root_outputs_done": [],
+  "llm_calls": 8,
+  "max_depth": 2,
+  "agent_count": 5,
+  "conflict_count": 0,
+  "budget_violations": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 5,
+  "schema_agreements": 2,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_reads": 1,
+  "rail_hit": "",
+  "qualitative": "Did not converge to the declared root output within rails."
+}

@@ -1,0 +1,23 @@
+{
+  "run_id": "t15_r1",
+  "task_id": "t15",
+  "converged": false,
+  "root_outputs": [
+    "root.6/business_plan"
+  ],
+  "root_outputs_done": [],
+  "llm_calls": 14,
+  "max_depth": 2,
+  "agent_count": 8,
+  "conflict_count": 0,
+  "budget_violations": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 5,
+  "schema_agreements": 4,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_reads": 0,
+  "rail_hit": "",
+  "qualitative": "Did not converge to the declared root output within rails."
+}

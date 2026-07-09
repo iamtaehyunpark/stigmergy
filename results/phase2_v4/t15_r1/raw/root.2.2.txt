@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The remaining budget is 0, which strictly prohibits spawning any subtasks. Therefore, I must execute the task myself. The task requires analyzing specialized and niche competitors in the Korean local-review space, which can be accomplished in a single focused effort by identifying key players like Naver Blog/Cafe communities, Instagram-based reviews, and vertical-specific apps, and synthesizing their impact on the market.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.2/niche_competitors",
+      "description": "Analysis of specialized review apps, social media review features, and emerging niche players."
+    }
+  ]
+}

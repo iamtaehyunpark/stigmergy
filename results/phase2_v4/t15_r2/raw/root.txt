@@ -1,0 +1,85 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires a comprehensive business plan with five distinct sections. These sections are largely independent in their research phase but must be integrated into a final document. Given the budget of 20, I can spawn 5 children (one for each section) and one integrator. The budget rule for B >= 18 allows up to 6 children with budget 2 each, or 4 children with one having budget 8. Since the integration step is complex and requires synthesizing all parts, I will assign the integration task a higher budget if possible, but the rule says 'spawn up to 6 children with budget 2 each' is the standard. However, the exception allows one child to have budget 8 if it's large. The integration is the most complex part. Let's use the exception: 4 children total? No, I have 5 distinct research areas. I will spawn 5 research agents (budget 2 each) and 1 integration agent (budget 8). Total children = 6. Sum of budgets = 5*2 + 8 = 18. Remaining budget = 20 - 6 = 14. 18 <= 14 is FALSE. Wait. The rule says: 'if you SPAWN k subtasks, the sum of child budgets must be <= B - k'. B=20. k=6. B-k = 14. Sum of budgets must be <= 14. The standard pattern '6 children with budget 2 each' sums to 12, which is <= 14. This fits. The exception pattern '4 children, one budget 8, others budget 2' sums to 8+2+2+2 = 14. This also fits. I will use the standard pattern of 6 children with budget 2 each because the integration task, while complex, can be done by a single agent if the inputs are well-structured. Actually, the integration is the final deliverable. I will spawn 5 parallel research tasks and 1 sequential integration task. All get budget 2.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Conduct market analysis for a Korean local-review platform.",
+      "capsule": "This subtask analyzes the Korean market size, growth trends, user demographics, and cultural nuances regarding local reviews. It serves the ROOT GOAL by providing the foundational market context for the business plan.",
+      "outputs": [
+        {
+          "path": "root.1/market_analysis",
+          "description": "A detailed market analysis report including TAM/SAM/SOM, growth rates, and user behavior insights."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Conduct competitor analysis for the Korean local-review landscape.",
+      "capsule": "This subtask identifies key competitors (e.g., Naver Maps, KakaoMap, TripAdvisor Korea), analyzes their strengths/weaknesses, and identifies gaps. It serves the ROOT GOAL by defining the competitive positioning strategy.",
+      "outputs": [
+        {
+          "path": "root.2/competitor_analysis",
+          "description": "A detailed competitor analysis report including feature comparison, market share estimates, and SWOT analysis."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.3",
+      "goal": "Develop a revenue model for the platform.",
+      "capsule": "This subtask defines how the platform will make money, considering Korean business practices (e.g., B2B advertising, premium listings, data monetization). It serves the ROOT GOAL by establishing the financial viability of the business.",
+      "outputs": [
+        {
+          "path": "root.3/revenue_model",
+          "description": "A detailed revenue model report including pricing strategies, revenue streams, and unit economics."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Create a go-to-market strategy for the Korean market.",
+      "capsule": "This subtask outlines user acquisition, partnership strategies, and marketing channels specific to Korea (e.g., KakaoTalk, Naver Blog). It serves the ROOT GOAL by defining how the platform will gain traction.",
+      "outputs": [
+        {
+          "path": "root.4/go_to_market",
+          "description": "A detailed go-to-market strategy report including launch phases, marketing channels, and partnership plans."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.5",
+      "goal": "Create financial projections for the first 3-5 years.",
+      "capsule": "This subtask builds a financial model including P&L, cash flow, and balance sheet projections based on the revenue model and market assumptions. It serves the ROOT GOAL by providing the financial roadmap for investors.",
+      "outputs": [
+        {
+          "path": "root.5/financial_projections",
+          "description": "A detailed financial projection report including 3-5 year P&L, cash flow, and key assumptions."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.6",
+      "goal": "Integrate all sections into a complete business plan.",
+      "capsule": "This subtask synthesizes the market, competitor, revenue, GTM, and financial analyses into a cohesive, professional business plan document. It serves the ROOT GOAL by producing the final deliverable.",
+      "outputs": [
+        {
+          "path": "root.6/business_plan",
+          "description": "The complete, integrated business plan document."
+        }
+      ],
+      "condition": "done(\"root.1/market_analysis\") AND done(\"root.2/competitor_analysis\") AND done(\"root.3/revenue_model\") AND done(\"root.4/go_to_market\") AND done(\"root.5/financial_projections\")",
+      "budget": 2
+    }
+  ]
+}

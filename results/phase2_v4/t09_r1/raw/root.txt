@@ -1,0 +1,63 @@
+{
+  "task_id": "root",
+  "reasoning": "The task of building a full-stack todo app naturally decomposes into four distinct phases: schema design, backend implementation, frontend implementation, and integration testing. These phases have clear dependencies: the backend depends on the schema, the frontend depends on the backend API, and the tests depend on both. Given the budget of 20, I can spawn 4 children. The backend and frontend are substantial tasks, but the schema is foundational. I will assign budget 8 to the backend subtask as it is the most complex component requiring database connection, routing, and logic. The other subtasks (schema, frontend, tests) will get budget 2 each. This sums to 8+2+2+2 = 14, which is <= 20 - 4 = 16. This satisfies the budget rule.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Design the database schema for the todo app.",
+      "capsule": "This subtask defines the data model (e.g., Todo table with id, title, completed, created_at). It serves as the foundation for the backend and frontend. It must output the schema definition to be consumed by the backend agent.",
+      "outputs": [
+        {
+          "path": "root.1/schema",
+          "description": "Database schema definition (e.g., SQL DDL or ORM model definition)"
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Implement the backend API for the todo app.",
+      "capsule": "This subtask builds the server-side logic, including CRUD endpoints for todos, based on the schema. It is the core of the application and requires the most effort, hence the higher budget. It must output the backend code and API documentation.",
+      "outputs": [
+        {
+          "path": "root.2/backend_code",
+          "description": "Source code for the backend API (e.g., Express, FastAPI, etc.)"
+        },
+        {
+          "path": "root.2/api_spec",
+          "description": "API specification (endpoints, methods, request/response formats)"
+        }
+      ],
+      "condition": "done(\"root.1/schema\")",
+      "budget": 8
+    },
+    {
+      "id": "root.3",
+      "goal": "Implement the frontend for the todo app.",
+      "capsule": "This subtask builds the user interface that interacts with the backend API. It allows users to create, view, update, and delete todos. It depends on the API spec to know how to communicate with the backend.",
+      "outputs": [
+        {
+          "path": "root.3/frontend_code",
+          "description": "Source code for the frontend application (e.g., React, Vue, HTML/JS)"
+        }
+      ],
+      "condition": "done(\"root.2/api_spec\")",
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Write integration tests for the full-stack todo app.",
+      "capsule": "This subtask ensures the backend and frontend work together correctly. It tests the API endpoints and potentially the UI interactions. It depends on both the backend and frontend being implemented.",
+      "outputs": [
+        {
+          "path": "root.4/integration_tests",
+          "description": "Integration test suite code"
+        }
+      ],
+      "condition": "done(\"root.2/backend_code\") AND done(\"root.3/frontend_code\")",
+      "budget": 2
+    }
+  ]
+}

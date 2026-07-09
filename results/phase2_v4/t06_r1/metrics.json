@@ -1,0 +1,31 @@
+{
+  "run_id": "t06_r1",
+  "task_id": "t06",
+  "converged": true,
+  "root_outputs": [
+    "root.2/features_summary",
+    "root.3/pricing_summary",
+    "root.4/performance_summary",
+    "root.5/final_report"
+  ],
+  "root_outputs_done": [
+    "root.2/features_summary",
+    "root.3/pricing_summary",
+    "root.4/performance_summary",
+    "root.5/final_report"
+  ],
+  "llm_calls": 12,
+  "max_depth": 1,
+  "agent_count": 6,
+  "conflict_count": 0,
+  "budget_violations": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 6,
+  "schema_agreements": 6,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_reads": 12,
+  "rail_hit": "",
+  "qualitative": "Converged with a shallow graph matching the broad human decomposition."
+}

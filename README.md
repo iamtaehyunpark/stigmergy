@@ -7,9 +7,9 @@ Phase 2 is intentionally not implemented until Phase 1 passes the spec's kill-or
 
 **Q1: PASS.** With `prompts/harness_v3.md`, a single-shot run (no repair loop) on local `qwen3.6` scores valid_json 20/20, action_match 20/20, mean decomposition_sanity 2.00, condition_correctness 100% — above the §1.5 bar. Full iteration history (v1 13/20 → v2 15/20 → v3 20/20) is in `results/phase1/iteration_log.md`. Residual outside the bar: namespace_discipline 18/20 (aggregator children on t06/t08 wrote to the parent namespace).
 
-**Q2: In progress.** The Phase 1 gate is open; `src/phase2.py` is implemented but not yet validly run (one interrupted partial at `results/phase2/t06_r1`, not evidence).
+**Q2: PASS.** Schema agreement 100% (26/26) in the final `results/phase2_v5b/` runs: every namespace/key referenced in a trigger condition was independently written by the producing agent at the exact declared path. Zero conflicts, zero trigger-fire errors across all 6 runs.
 
-**Q3: Not evaluated.**
+**Q3: PASS.** 6/6 runs converged within rails under `prompts/harness_v5.md`, including the recursive t09 (depth 2, interface delegation across levels, one defer/wake cycle per run). Two architecture-level defects were found and fixed on the way — interface orphaning under recursion (fixed by the v5 interface contract + validator support) and dropped DEFERs (runtime never registered wake conditions as triggers) — full history in `results/phase1/iteration_log.md`.
 
 ## Configuration
 

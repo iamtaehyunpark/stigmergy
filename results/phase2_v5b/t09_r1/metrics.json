@@ -1,0 +1,33 @@
+{
+  "run_id": "t09_r1",
+  "task_id": "t09",
+  "converged": true,
+  "root_outputs": [
+    "root.2/backend_code.zip",
+    "root.2/api_spec.json",
+    "root.3/frontend_code.zip",
+    "root.4/test_results.json",
+    "root.4/test_code.zip"
+  ],
+  "root_outputs_done": [
+    "root.2/backend_code.zip",
+    "root.2/api_spec.json",
+    "root.3/frontend_code.zip",
+    "root.4/test_results.json",
+    "root.4/test_code.zip"
+  ],
+  "llm_calls": 13,
+  "max_depth": 2,
+  "agent_count": 8,
+  "conflict_count": 0,
+  "budget_violations": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 5,
+  "schema_agreements": 5,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 1,
+  "cross_branch_reads": 9,
+  "rail_hit": "",
+  "qualitative": "Converged with a recursive multi-level graph matching the broad human decomposition."
+}

@@ -1,0 +1,33 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires a comprehensive competitor analysis for a Korean local-review platform. With a budget of 2, I can spawn two subtasks to divide the workload effectively. One subtask will focus on the dominant generalist platforms (Naver, Daum), while the other will analyze specialized or niche competitors. This parallel approach ensures coverage of the entire competitive landscape. Since the budget is low (B=2), I must assign budget 0 to children, meaning they will execute their tasks directly without further spawning.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Analyze major generalist competitors (Naver, Daum) for the Korean local-review market.",
+      "capsule": "This subtask identifies the strengths, weaknesses, and market share of the dominant players like Naver and Daum. It serves the ROOT GOAL by establishing the baseline competitive pressure and identifying gaps in the mainstream offerings.",
+      "outputs": [
+        {
+          "path": "root.2.1/generalist_competitors",
+          "description": "Analysis of Naver, Daum, and other generalist platforms including features, user base, and monetization."
+        }
+      ],
+      "condition": null,
+      "budget": 0
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Analyze specialized and niche competitors in the Korean local-review space.",
+      "capsule": "This subtask examines smaller, specialized apps or emerging platforms that target specific demographics or verticals. It serves the ROOT GOAL by highlighting potential differentiation opportunities and underserved niches.",
+      "outputs": [
+        {
+          "path": "root.2.2/niche_competitors",
+          "description": "Analysis of specialized review apps, social media review features, and emerging niche players."
+        }
+      ],
+      "condition": null,
+      "budget": 0
+    }
+  ]
+}

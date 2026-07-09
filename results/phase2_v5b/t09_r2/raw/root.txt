@@ -1,0 +1,67 @@
+{
+  "task_id": "root",
+  "reasoning": "The task of building a full-stack todo app naturally decomposes into four distinct phases: schema design, backend implementation, frontend implementation, and integration testing. Schema design is a prerequisite for both backend and frontend. Backend and frontend can be developed in parallel once the schema is defined. Integration tests depend on both backend and frontend being complete. Given the budget of 20, I can spawn 4 children. I will assign budget 8 to the backend task as it is the most complex component requiring database connection, API logic, and error handling. The other tasks (schema, frontend, tests) are smaller and can be handled with budget 2 each. The sum of child budgets (8+2+2+2=14) plus the number of children (4) equals 18, which is within the remaining budget of 20.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Design the database schema for the todo app.",
+      "capsule": "This subtask defines the data model for todos, including fields like id, title, completed status, and timestamps. It serves as the foundational contract for both the backend and frontend components.",
+      "outputs": [
+        {
+          "path": "root.1/schema.json",
+          "description": "JSON representation of the database schema."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Implement the backend API for the todo app.",
+      "capsule": "This subtask builds the server-side logic, including CRUD endpoints for todos, database connectivity, and error handling. It is the core service that the frontend will consume and tests will validate.",
+      "outputs": [
+        {
+          "path": "root.2/backend_code.zip",
+          "description": "Zipped source code for the backend API."
+        },
+        {
+          "path": "root.2/api_spec.json",
+          "description": "OpenAPI/Swagger specification for the backend API."
+        }
+      ],
+      "condition": "done(\"root.1/schema.json\")",
+      "budget": 8
+    },
+    {
+      "id": "root.3",
+      "goal": "Implement the frontend for the todo app.",
+      "capsule": "This subtask creates the user interface, including components for listing, adding, and toggling todos. It connects to the backend API to perform data operations.",
+      "outputs": [
+        {
+          "path": "root.3/frontend_code.zip",
+          "description": "Zipped source code for the frontend application."
+        }
+      ],
+      "condition": "done(\"root.1/schema.json\")",
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Write integration tests for the full-stack todo app.",
+      "capsule": "This subtask creates tests that verify the interaction between the frontend and backend, ensuring end-to-end functionality. It ensures the entire system works together as expected.",
+      "outputs": [
+        {
+          "path": "root.4/test_results.json",
+          "description": "JSON report of integration test results."
+        },
+        {
+          "path": "root.4/test_code.zip",
+          "description": "Zipped source code for the integration tests."
+        }
+      ],
+      "condition": "done(\"root.2/backend_code.zip\") AND done(\"root.3/frontend_code.zip\")",
+      "budget": 2
+    }
+  ]
+}
