@@ -1,0 +1,102 @@
+[
+  {
+    "id": "t01",
+    "task": "Convert the number 1847 to Roman numerals.",
+    "expected": "EXECUTE"
+  },
+  {
+    "id": "t02",
+    "task": "Write a haiku about autumn in Seoul.",
+    "expected": "EXECUTE"
+  },
+  {
+    "id": "t03",
+    "task": "Summarize the plot of Romeo and Juliet in 5 sentences.",
+    "expected": "EXECUTE"
+  },
+  {
+    "id": "t04",
+    "task": "Fix the off-by-one bug in a given 15-line Python function (function provided in memory at root/buggy_fn).",
+    "expected": "EXECUTE"
+  },
+  {
+    "id": "t05",
+    "task": "Explain the difference between TCP and UDP for a beginner.",
+    "expected": "EXECUTE"
+  },
+  {
+    "id": "t06",
+    "task": "Write a comparative report on the top 3 vector database products: features, pricing, and performance, ending with a recommendation.",
+    "expected": "SPAWN"
+  },
+  {
+    "id": "t07",
+    "task": "Translate a 5-chapter novella from Korean to English (chapters at root/ch1..ch5), then write a translator's note about stylistic choices across all chapters.",
+    "expected": "SPAWN"
+  },
+  {
+    "id": "t08",
+    "task": "Plan a 3-day Kyoto itinerary: research attractions, research restaurants, research transport, then assemble a day-by-day schedule.",
+    "expected": "SPAWN"
+  },
+  {
+    "id": "t09",
+    "task": "Build a full-stack todo app: design schema, implement backend API, implement frontend, write integration tests.",
+    "expected": "SPAWN"
+  },
+  {
+    "id": "t10",
+    "task": "Conduct a literature review on LLM agent memory architectures covering at least 8 papers, organized by taxonomy.",
+    "expected": "SPAWN"
+  },
+  {
+    "id": "t11",
+    "task": "Evaluate whether our startup should migrate from AWS to GCP, considering cost, migration effort, and feature parity, and write a decision memo.",
+    "expected": "SPAWN"
+  },
+  {
+    "id": "t12",
+    "task": "Write unit tests for a module whose implementation has not been written yet (implementation expected at root.1/module_code \u2014 not present in memory).",
+    "expected": "DEFER"
+  },
+  {
+    "id": "t13",
+    "task": "Write the conclusion section of a report whose body sections do not exist yet (expected at root/sections but memory is empty).",
+    "expected": "DEFER"
+  },
+  {
+    "id": "t14",
+    "task": "Proofread this paragraph: \"Their going to the park tomorow, weather permiting.\"",
+    "expected": "EXECUTE"
+  },
+  {
+    "id": "t15",
+    "task": "Create a complete business plan for a Korean local-review platform: market analysis, competitor analysis, revenue model, go-to-market, and financial projections.",
+    "expected": "SPAWN"
+  },
+  {
+    "id": "t16",
+    "task": "Determine whether 2,147,483,647 is prime, showing reasoning.",
+    "expected": "EXECUTE"
+  },
+  {
+    "id": "t17",
+    "task": "Write a 500-word blog post about remote work trends.",
+    "expected": "EXECUTE"
+  },
+  {
+    "id": "t18",
+    "task": "Debug why a distributed system's p99 latency doubled last week: analyze application logs, database metrics, and network traces, then write a root-cause report.",
+    "expected": "SPAWN"
+  },
+  {
+    "id": "t19",
+    "task": "Organize a company offsite for 40 people: venue, catering, activities, transport, and a final logistics document.",
+    "expected": "SPAWN"
+  },
+  {
+    "id": "t20",
+    "task": "Compute the SHA-256 hash of the string \"hello\".",
+    "expected": "EXECUTE"
+  }
+]
