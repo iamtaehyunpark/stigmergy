@@ -75,8 +75,15 @@ interface paths that *no agent was permitted to write* (see §5.1).
 Whenever writing was legal, independently-generated strings matched —
 including when the model drifted off the snake_case convention (it
 consistently used `schema.json`, `backend_code.zip` on both sides of
-each contract). Zero write conflicts and zero trigger-fire errors
-occurred in all 24 runs across all four iterations.
+each contract). One caveat on that last point: the two phases enforce
+different path rules. Phase 1 scoring applies the full path grammar
+(`PATH_RE`: snake_case keys, no dots) at four sites; the Phase 2
+validator checks only namespace prefixes, never the grammar. So
+`schema.json` would have failed Phase 1 and passed Phase 2 — the drift
+is evidence that string *matching* is robust, not that the system
+tolerates convention drift under enforcement; the grammar was silently
+relaxed between phases. Zero write conflicts and zero trigger-fire
+errors occurred in all 24 runs across all four iterations.
 
 **Q2: YES.** String-level composition of trigger conditions across
 independently-prompted agents is reliable at this scale.
@@ -99,9 +106,14 @@ and delegates its parent-assigned interface (`root.2/api_spec.json`) to
 a grandchild; that grandchild, blind to a sibling branch, DEFERs on the
 memory it needs; the wake trigger fires (condition already true), the
 woken agent gains visibility through its condition refs, writes the
-inherited interface path, and unblocks the test agent. 46 cross-branch
-reads in the final run set show memory-mediated coordination operating
-routinely.
+inherited interface path, and unblocks the test agent. Cross-branch
+reads — flagged in the theory as a Figure-1 candidate — show
+memory-mediated coordination operating routinely, but the defensible
+count is **26 unique (agent, path) pairs** across the final run set,
+not the raw event counts (46 in metrics, 50 in traces): visibility is
+relogged on every context build (route + worker), roughly doubling
+event-level figures. Any future use of this metric should count unique
+pairs.
 
 **Q3: YES** — with the honest qualifier that depth ≤ 2 is what B=20
 economics affords (see §6).
@@ -169,9 +181,12 @@ revisiting.
   The Phase 2 runtime allows up to 3 validation-feedback attempts per
   action — declared as a system component, consistent with the
   validator-as-type-checker stance.
-- **Fixed budget tiers are rails, not intelligence** (see §5.3). Depth
-  beyond 2 was never affordable at B=20 with the fan-outs the model
-  chooses; Q3's "recursive" evidence is depth 2.
+- **Fixed budget tiers are rails, not intelligence** (see §5.3), and
+  the depth limit is the tiers' doing, not pure economics: the v4/v5
+  tier table caps reachable depth at 3 by construction (20 → 8 → 2),
+  and the observed maximum was 2. Q3's "recursive" evidence is depth
+  2 — the tier maximum in practice — and should not be attributed to
+  B=20 alone.
 - **One small model, temperature 0, n=2 replicates per task.**
   Deterministic replication is weak evidence of robustness; no
   cross-model check was run.
