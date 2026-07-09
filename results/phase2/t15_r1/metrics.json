@@ -1,0 +1,21 @@
+{
+  "run_id": "t15_r1",
+  "task_id": "t15",
+  "converged": false,
+  "root_outputs": [],
+  "root_outputs_done": [],
+  "llm_calls": 11,
+  "max_depth": 1,
+  "agent_count": 6,
+  "conflict_count": 0,
+  "budget_violations": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 0,
+  "schema_agreements": 0,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_reads": 0,
+  "rail_hit": "",
+  "qualitative": "Did not converge to the declared root output within rails."
+}

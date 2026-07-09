@@ -1,0 +1,156 @@
+[
+  {
+    "run_id": "t06_r1",
+    "task_id": "t06",
+    "converged": true,
+    "root_outputs": [
+      "root.4/comparative_report"
+    ],
+    "root_outputs_done": [
+      "root.4/comparative_report"
+    ],
+    "llm_calls": 9,
+    "max_depth": 1,
+    "agent_count": 5,
+    "conflict_count": 0,
+    "budget_violations": 0,
+    "schema_mismatches": 0,
+    "trigger_refs": 3,
+    "schema_agreements": 3,
+    "trigger_fire_errors": 0,
+    "trigger_never_fired_ready": 0,
+    "defer_count": 0,
+    "cross_branch_reads": 6,
+    "rail_hit": "",
+    "qualitative": "Converged with a shallow graph matching the broad human decomposition."
+  },
+  {
+    "run_id": "t06_r2",
+    "task_id": "t06",
+    "converged": true,
+    "root_outputs": [
+      "root.4/comparative_report"
+    ],
+    "root_outputs_done": [
+      "root.4/comparative_report"
+    ],
+    "llm_calls": 9,
+    "max_depth": 1,
+    "agent_count": 5,
+    "conflict_count": 0,
+    "budget_violations": 0,
+    "schema_mismatches": 0,
+    "trigger_refs": 3,
+    "schema_agreements": 3,
+    "trigger_fire_errors": 0,
+    "trigger_never_fired_ready": 0,
+    "defer_count": 0,
+    "cross_branch_reads": 6,
+    "rail_hit": "",
+    "qualitative": "Converged with a shallow graph matching the broad human decomposition."
+  },
+  {
+    "run_id": "t15_r1",
+    "task_id": "t15",
+    "converged": false,
+    "root_outputs": [],
+    "root_outputs_done": [],
+    "llm_calls": 11,
+    "max_depth": 1,
+    "agent_count": 6,
+    "conflict_count": 0,
+    "budget_violations": 0,
+    "schema_mismatches": 0,
+    "trigger_refs": 0,
+    "schema_agreements": 0,
+    "trigger_fire_errors": 0,
+    "trigger_never_fired_ready": 0,
+    "defer_count": 0,
+    "cross_branch_reads": 0,
+    "rail_hit": "",
+    "qualitative": "Did not converge to the declared root output within rails."
+  },
+  {
+    "run_id": "t15_r2",
+    "task_id": "t15",
+    "converged": false,
+    "root_outputs": [],
+    "root_outputs_done": [],
+    "llm_calls": 11,
+    "max_depth": 1,
+    "agent_count": 6,
+    "conflict_count": 0,
+    "budget_violations": 0,
+    "schema_mismatches": 0,
+    "trigger_refs": 0,
+    "schema_agreements": 0,
+    "trigger_fire_errors": 0,
+    "trigger_never_fired_ready": 0,
+    "defer_count": 0,
+    "cross_branch_reads": 0,
+    "rail_hit": "",
+    "qualitative": "Did not converge to the declared root output within rails."
+  },
+  {
+    "run_id": "t09_r1",
+    "task_id": "t09",
+    "converged": true,
+    "root_outputs": [
+      "root.2/backend_code",
+      "root.2/api_spec",
+      "root.3/frontend_code",
+      "root.4/integration_tests"
+    ],
+    "root_outputs_done": [
+      "root.2/backend_code",
+      "root.2/api_spec",
+      "root.3/frontend_code",
+      "root.4/integration_tests"
+    ],
+    "llm_calls": 9,
+    "max_depth": 1,
+    "agent_count": 5,
+    "conflict_count": 0,
+    "budget_violations": 0,
+    "schema_mismatches": 0,
+    "trigger_refs": 4,
+    "schema_agreements": 4,
+    "trigger_fire_errors": 0,
+    "trigger_never_fired_ready": 0,
+    "defer_count": 0,
+    "cross_branch_reads": 8,
+    "rail_hit": "",
+    "qualitative": "Converged with a shallow graph matching the broad human decomposition."
+  },
+  {
+    "run_id": "t09_r2",
+    "task_id": "t09",
+    "converged": true,
+    "root_outputs": [
+      "root.2/backend_code",
+      "root.2/api_spec",
+      "root.3/frontend_code",
+      "root.4/integration_tests"
+    ],
+    "root_outputs_done": [
+      "root.2/backend_code",
+      "root.2/api_spec",
+      "root.3/frontend_code",
+      "root.4/integration_tests"
+    ],
+    "llm_calls": 9,
+    "max_depth": 1,
+    "agent_count": 5,
+    "conflict_count": 0,
+    "budget_violations": 0,
+    "schema_mismatches": 0,
+    "trigger_refs": 4,
+    "schema_agreements": 4,
+    "trigger_fire_errors": 0,
+    "trigger_never_fired_ready": 0,
+    "defer_count": 0,
+    "cross_branch_reads": 8,
+    "rail_hit": "",
+    "qualitative": "Converged with a shallow graph matching the broad human decomposition."
+  }
+]

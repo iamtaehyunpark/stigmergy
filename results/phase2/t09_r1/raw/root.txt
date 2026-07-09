@@ -1,0 +1,63 @@
+{
+  "task_id": "root",
+  "reasoning": "The task of building a full-stack todo app is complex and naturally decomposes into four distinct phases: schema design, backend implementation, frontend implementation, and integration testing. These phases have clear dependencies: the backend depends on the schema, the frontend depends on the backend API, and the tests depend on both. I will spawn four subtasks to handle these components. The first subtask (schema) starts immediately. The second (backend) waits for the schema. The third (frontend) waits for the backend. The fourth (tests) waits for both backend and frontend. This ensures a logical build order while allowing parallel execution where possible within the constraints of the dependencies.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Design the database schema for the todo app.",
+      "capsule": "This subtask defines the data model for todos, including fields like id, title, completed status, and timestamps. It serves the ROOT GOAL by providing the foundational structure that the backend and frontend will rely on.",
+      "outputs": [
+        {
+          "path": "root.1/schema",
+          "description": "JSON or SQL definition of the todo database schema."
+        }
+      ],
+      "condition": null,
+      "budget": 2
+    },
+    {
+      "id": "root.2",
+      "goal": "Implement the backend API for the todo app.",
+      "capsule": "This subtask builds the server-side logic, including CRUD endpoints for todos, using the schema defined in root.1. It serves the ROOT GOAL by providing the API that the frontend will consume.",
+      "outputs": [
+        {
+          "path": "root.2/backend_code",
+          "description": "Source code for the backend API server."
+        },
+        {
+          "path": "root.2/api_spec",
+          "description": "Documentation or OpenAPI spec describing the available endpoints."
+        }
+      ],
+      "condition": "done(\"root.1/schema\")",
+      "budget": 2
+    },
+    {
+      "id": "root.3",
+      "goal": "Implement the frontend for the todo app.",
+      "capsule": "This subtask creates the user interface, allowing users to add, view, and toggle todos, by interacting with the backend API defined in root.2. It serves the ROOT GOAL by providing the user-facing application.",
+      "outputs": [
+        {
+          "path": "root.3/frontend_code",
+          "description": "Source code for the frontend application."
+        }
+      ],
+      "condition": "done(\"root.2/backend_code\")",
+      "budget": 2
+    },
+    {
+      "id": "root.4",
+      "goal": "Write integration tests for the todo app.",
+      "capsule": "This subtask creates tests that verify the interaction between the frontend and backend, ensuring the full stack works correctly. It serves the ROOT GOAL by validating the quality and functionality of the built application.",
+      "outputs": [
+        {
+          "path": "root.4/integration_tests",
+          "description": "Source code for integration tests."
+        }
+      ],
+      "condition": "done(\"root.2/backend_code\") AND done(\"root.3/frontend_code\")",
+      "budget": 2
+    }
+  ]
+}
