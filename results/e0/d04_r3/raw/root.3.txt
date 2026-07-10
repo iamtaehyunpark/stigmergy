@@ -1,0 +1,43 @@
+{
+  "task_id": "root.3",
+  "reasoning": "The task requires producing three distinct but related artifacts (announcement post, FAQ, pricing page copy) for the Japanese market. These can be generated in parallel as they are independent pieces of copy, though they share the same cultural and linguistic context. Spawning allows for parallel generation of these three components, which is efficient given the global call limit. I will take the self_role of reviewing and integrating the outputs to ensure consistency in tone and terminology across the three documents.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.3.1",
+      "goal": "Write the localized announcement post for the Japan market.",
+      "capsule": "This subtask creates the main announcement post tailored for Japanese audiences, considering cultural nuances and appropriate tone. It serves the ROOT GOAL by providing the primary communication piece for the JP launch.",
+      "outputs": [
+        {"path": "root.3.1/announcement_post", "description": "Draft of the localized announcement post for JP."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.2",
+      "goal": "Write the localized FAQ for the Japan market.",
+      "capsule": "This subtask creates a comprehensive FAQ addressing common questions from a Japanese perspective, using appropriate language and addressing local concerns. It serves the ROOT GOAL by providing support content for the JP launch.",
+      "outputs": [
+        {"path": "root.3.2/faq", "description": "Draft of the localized FAQ for JP."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.3",
+      "goal": "Write the localized pricing page copy for the Japan market.",
+      "capsule": "This subtask creates pricing page copy that is culturally appropriate for Japan, including proper formatting for currency and value propositions. It serves the ROOT GOAL by providing the commercial content for the JP launch.",
+      "outputs": [
+        {"path": "root.3.3/pricing_page_copy", "description": "Draft of the localized pricing page copy for JP."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Review and integrate the three localized artifacts into the final JP launch kit.",
+    "outputs": [
+      {"path": "root.3/announcement_post", "description": "Final localized announcement post for JP."},
+      {"path": "root.3/faq", "description": "Final localized FAQ for JP."},
+      {"path": "root.3/pricing_page_copy", "description": "Final localized pricing page copy for JP."}
+    ],
+    "condition": "done(\"root.3.1/announcement_post\") AND done(\"root.3.2/faq\") AND done(\"root.3.3/pricing_page_copy\")"
+  }
+}

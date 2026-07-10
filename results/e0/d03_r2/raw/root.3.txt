@@ -1,0 +1,41 @@
+{
+  "task_id": "root.3",
+  "reasoning": "The task requires producing a high-quality technical chapter, which involves distinct phases: research, drafting, and editing. To ensure quality and parallelize effort where possible, I will decompose this into three subtasks. First, an agent will conduct the research on long-term memory architectures. Second, an agent will draft the chapter based on that research. Third, I will perform the consistency edit and final assembly. This ensures a clear dependency chain (Research -> Draft -> Edit) and allows me to fulfill my self-role as the editor/integrator, which is critical for the final output quality.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.3.1",
+      "goal": "Research long-term memory architectures for LLM agents.",
+      "capsule": "This subtask gathers technical details on vector databases, knowledge graphs, and RAG patterns. It provides the factual foundation required for the chapter draft, serving the ROOT GOAL by ensuring the guide is technically accurate and comprehensive.",
+      "outputs": [
+        {
+          "path": "root.3.1/research_notes",
+          "description": "Structured notes and key concepts on vector DBs, KGs, and RAG for Chapter 3."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.2",
+      "goal": "Draft Chapter 3 based on research notes.",
+      "capsule": "This subtask converts the research notes into a coherent, readable draft of Chapter 3. It serves the ROOT GOAL by creating the primary content artifact that will be edited and assembled into the final field guide.",
+      "outputs": [
+        {
+          "path": "root.3.2/chapter_3_raw_draft",
+          "description": "The initial draft of Chapter 3, covering long-term memory architectures."
+        }
+      ],
+      "condition": "done(\"root.3.1/research_notes\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Edit the raw draft for consistency, clarity, and technical accuracy to produce the final chapter.",
+    "outputs": [
+      {
+        "path": "root.3/chapter_3_draft",
+        "description": "The final edited draft of Chapter 3."
+      }
+    ],
+    "condition": "done(\"root.3.2/chapter_3_raw_draft\")"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.2.3.3",
+  "reasoning": "The task requires a focused analysis of trust factors specific to the Korean market. This involves synthesizing knowledge about local user behaviors, regulatory environments (like the Korean Fair Trade Commission's rules on fake reviews), and platform features (like Naver's verification systems). This is a discrete analytical task that can be completed in a single execution without needing to decompose into sub-agents or wait for external data.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1.2.3.3/trust_factors",
+      "description": "Analysis of credibility indicators, fake review concerns, and trust-building features valued by users."
+    }
+  ]
+}

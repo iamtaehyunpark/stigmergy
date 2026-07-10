@@ -1,0 +1,61 @@
+{
+  "task_id": "root.5",
+  "reasoning": "The task requires producing three distinct but related artifacts (announcement post, FAQ, pricing page copy) for the Brazilian market. These can be generated in parallel by separate subtasks, as they are independent pieces of content that only share the common context of the BR market localization. I will spawn three subtasks to handle each artifact and take on a self-role to perform a final quality check and integration to ensure consistency across the kit.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.5.1",
+      "goal": "Write the localized announcement post for the Brazil market.",
+      "capsule": "This subtask creates the main announcement post in Portuguese (BR), tailored to Brazilian cultural nuances and marketing tone. It serves the ROOT GOAL by delivering the first component of the BR launch kit.",
+      "outputs": [
+        {
+          "path": "root.5.1/announcement_post",
+          "description": "Localized announcement post for BR in Portuguese (BR)."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5.2",
+      "goal": "Write the localized FAQ for the Brazil market.",
+      "capsule": "This subtask creates a comprehensive FAQ in Portuguese (BR), addressing common questions relevant to Brazilian users, including payment methods and local support. It serves the ROOT GOAL by delivering the second component of the BR launch kit.",
+      "outputs": [
+        {
+          "path": "root.5.2/faq",
+          "description": "Localized FAQ for BR in Portuguese (BR)."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5.3",
+      "goal": "Write the localized pricing page copy for the Brazil market.",
+      "capsule": "This subtask creates the pricing page copy in Portuguese (BR), ensuring prices are formatted correctly (BRL) and value propositions resonate with the Brazilian market. It serves the ROOT GOAL by delivering the third component of the BR launch kit.",
+      "outputs": [
+        {
+          "path": "root.5.3/pricing_page_copy",
+          "description": "Localized pricing page copy for BR in Portuguese (BR)."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate and review the BR launch kit components for consistency and quality.",
+    "outputs": [
+      {
+        "path": "root.5/announcement_post",
+        "description": "Final localized announcement post for BR."
+      },
+      {
+        "path": "root.5/faq",
+        "description": "Final localized FAQ for BR."
+      },
+      {
+        "path": "root.5/pricing_page_copy",
+        "description": "Final localized pricing page copy for BR."
+      }
+    ],
+    "condition": "done(\"root.5.1/announcement_post\") AND done(\"root.5.2/faq\") AND done(\"root.5.3/pricing_page_copy\")"
+  }
+}

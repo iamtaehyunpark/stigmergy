@@ -1,0 +1,53 @@
+{
+  "task_id": "root.3.1",
+  "reasoning": "The task requires researching three distinct but related technical areas: vector databases, knowledge graphs, and RAG patterns. These topics are independent enough to be researched in parallel to save time, but they must be integrated into a single coherent set of notes for the chapter draft. I will spawn three subtasks for the specific research areas and take the integration role myself to ensure the final output is unified and meets the interface contract.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.3.1.1",
+      "goal": "Research vector database architectures for LLM long-term memory.",
+      "capsule": "This subtask investigates vector stores, embedding models, and similarity search algorithms. It provides the foundational technical details on how semantic memory is stored and retrieved, serving the ROOT GOAL by ensuring the guide accurately covers the most common long-term memory implementation.",
+      "outputs": [
+        {
+          "path": "root.3.1.1/vector_db_notes",
+          "description": "Structured notes on vector DBs, embeddings, and indexing strategies."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.1.2",
+      "goal": "Research knowledge graph architectures for LLM long-term memory.",
+      "capsule": "This subtask explores graph databases, entity-relationship modeling, and graph traversal for agents. It provides the technical basis for structured, relational memory systems, serving the ROOT GOAL by covering the alternative to vector-based memory.",
+      "outputs": [
+        {
+          "path": "root.3.1.2/kg_notes",
+          "description": "Structured notes on knowledge graphs, ontologies, and graph-based retrieval."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.1.3",
+      "goal": "Research RAG patterns and hybrid memory systems.",
+      "capsule": "This subtask examines Retrieval-Augmented Generation patterns, hybrid search, and memory management strategies. It connects storage architectures to actual agent usage patterns, serving the ROOT GOAL by explaining how memory is practically utilized in agent loops.",
+      "outputs": [
+        {
+          "path": "root.3.1.3/rag_notes",
+          "description": "Structured notes on RAG patterns, hybrid retrieval, and memory lifecycle management."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate research notes from vector DBs, KGs, and RAG into a unified document.",
+    "outputs": [
+      {
+        "path": "root.3.1/research_notes",
+        "description": "Structured notes and key concepts on vector DBs, KGs, and RAG for Chapter 3."
+      }
+    ],
+    "condition": "done(\"root.3.1.1/vector_db_notes\") AND done(\"root.3.1.2/kg_notes\") AND done(\"root.3.1.3/rag_notes\")"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.2.3.2.2.2.2.2",
+  "reasoning": "The task requires designing a cohesive system of non-financial incentives including gamification mechanics and loyalty tiers. This is a creative but contained design task that can be completed in a single focused effort without the overhead of spawning sub-agents. I will define specific badge categories, a leveling system, leaderboard structures, and exclusive status perks tailored to a Korean local-review context.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.2.3.2.2.2.2.2/gamification_loyalty",
+      "description": "Detailed gamification mechanics, loyalty tier structures, and non-monetary rewards."
+    }
+  ]
+}

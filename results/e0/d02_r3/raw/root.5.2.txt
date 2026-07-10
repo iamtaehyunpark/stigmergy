@@ -1,0 +1,11 @@
+{
+  "task_id": "root.5.2",
+  "reasoning": "The task requires generating a detailed financial forecast for operating expenses and capital expenditures over a 3-5 year period. This is a specialized but contained analytical task that can be performed in a single focused effort by synthesizing standard industry benchmarks for tech startups (SaaS/Marketplace) in the Korean market. It does not require complex decomposition or external data dependencies that are not yet available, as the estimates can be based on reasonable assumptions for a startup of this type.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.5.2/expense_forecast",
+      "description": "A detailed breakdown of operating expenses and capex for 3-5 years."
+    }
+  ]
+}

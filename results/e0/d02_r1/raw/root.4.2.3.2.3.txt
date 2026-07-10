@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.2.3.2.3",
+  "reasoning": "The task is to create specific SEO and discoverability tactics for YouTube, focusing on the Korean market. This is a focused content creation task that involves synthesizing knowledge about YouTube SEO, Korean search behavior, and metadata best practices. It does not require complex decomposition or external data dependencies, so it is best handled by executing the task directly to produce the required output.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.2.3.2.3/seo_tactics",
+      "description": "Detailed SEO strategy including keyword targets, metadata templates, and optimization best practices."
+    }
+  ]
+}

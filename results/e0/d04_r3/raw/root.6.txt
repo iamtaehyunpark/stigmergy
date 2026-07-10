@@ -1,0 +1,61 @@
+{
+  "task_id": "root.6",
+  "reasoning": "The task requires producing three distinct but related artifacts (announcement post, FAQ, pricing page copy) for the Indian market. These can be generated in parallel as they share the same cultural and linguistic context but are structurally independent. Spawning allows for focused generation of each piece, while I will handle the final integration and quality check to ensure consistency across the kit.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.6.1",
+      "goal": "Write the localized announcement post for the India market.",
+      "capsule": "This subtask creates the main announcement post tailored for Indian audiences, using appropriate English (IN) nuances and cultural references. It serves the ROOT GOAL by providing the primary communication asset for the IN launch.",
+      "outputs": [
+        {
+          "path": "root.6.1/announcement_post",
+          "description": "Draft of the localized announcement post for IN."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.6.2",
+      "goal": "Write the localized FAQ for the India market.",
+      "capsule": "This subtask creates a FAQ section addressing common questions relevant to Indian users, such as payment methods (UPI, etc.), support hours, and local compliance. It serves the ROOT GOAL by providing customer support content for the IN launch.",
+      "outputs": [
+        {
+          "path": "root.6.2/faq",
+          "description": "Draft of the localized FAQ for IN."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.6.3",
+      "goal": "Write the localized pricing page copy for the India market.",
+      "capsule": "This subtask creates pricing page copy adapted for the Indian market, including currency (INR), tax implications (GST), and value propositions relevant to local purchasing power. It serves the ROOT GOAL by providing the commercial conversion asset for the IN launch.",
+      "outputs": [
+        {
+          "path": "root.6.3/pricing_page_copy",
+          "description": "Draft of the localized pricing page copy for IN."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the three localized artifacts into the final IN launch kit and ensure consistency.",
+    "outputs": [
+      {
+        "path": "root.6/announcement_post",
+        "description": "Final localized announcement post for IN."
+      },
+      {
+        "path": "root.6/faq",
+        "description": "Final localized FAQ for IN."
+      },
+      {
+        "path": "root.6/pricing_page_copy",
+        "description": "Final localized pricing page copy for IN."
+      }
+    ],
+    "condition": "done(\"root.6.1/announcement_post\") AND done(\"root.6.2/faq\") AND done(\"root.6.3/pricing_page_copy\")"
+  }
+}

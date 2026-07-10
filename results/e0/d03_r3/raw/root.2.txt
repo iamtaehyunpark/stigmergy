@@ -1,0 +1,41 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task of producing a high-quality technical chapter involves distinct phases: gathering technical details, writing the narrative, and refining for consistency. These phases are sequential and benefit from specialized focus. I will decompose this into three subtasks: research, drafting, and editing. The draft depends on the research, and the final edit depends on the draft. I will take the role of the editor to ensure the final output meets the quality standards required by the root goal.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Research short-term and working memory architectures in LLM agents.",
+      "capsule": "This subtask gathers the technical foundation for Chapter 2. It identifies key mechanisms like context windows, sliding windows, and attention-based retrieval, providing the raw material needed for the draft.",
+      "outputs": [
+        {
+          "path": "root.2.1/research_notes",
+          "description": "Structured notes on short-term memory mechanisms, including definitions, examples, and architectural patterns."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Draft Chapter 2 based on research notes.",
+      "capsule": "This subtask transforms research notes into a coherent, readable chapter draft. It structures the content logically, explaining concepts clearly for a technical audience, serving as the primary content for the final chapter.",
+      "outputs": [
+        {
+          "path": "root.2.2/chapter_2_draft",
+          "description": "A complete first draft of Chapter 2, including introduction, main sections, and conclusion."
+        }
+      ],
+      "condition": "done(\"root.2.1/research_notes\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Edit and finalize Chapter 2.",
+    "outputs": [
+      {
+        "path": "root.2/chapter_2_final",
+        "description": "The final, edited text for Chapter 2, ready for assembly."
+      }
+    ],
+    "condition": "done(\"root.2.2/chapter_2_draft\")"
+  }
+}

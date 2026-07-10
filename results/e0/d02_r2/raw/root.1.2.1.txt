@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.2.1",
+  "reasoning": "The task requires analyzing specific demographic segments for a Korean local review platform. This is a focused research and synthesis task that can be completed in a single effort by aggregating known market data about Korean internet users, review platform habits, and general demographic trends. It does not require complex decomposition or external dependencies.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1.2.1/demographic_segments",
+      "description": "Detailed breakdown of user demographics including age groups, gender distribution, urban vs. rural split, and income levels."
+    }
+  ]
+}

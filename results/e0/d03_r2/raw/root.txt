@@ -1,0 +1,51 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires producing a 4-chapter technical guide, which is too large for a single execution step. It naturally decomposes into parallel research and drafting for each chapter, followed by integration steps (glossary and assembly). I will spawn four agents to handle the research, drafting, and internal consistency editing for each chapter. I will take the self_role of integrating these chapters, creating the unified glossary, and performing the final assembly pass to ensure the book is cohesive.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research, draft, and edit Chapter 1: Introduction to LLM Agent Memory Systems.",
+      "capsule": "This subtask handles the foundational concepts of agent memory, defining the problem space and basic terminology. It serves the ROOT GOAL by providing the first chapter of the field guide.",
+      "outputs": [
+        {"path": "root.1/chapter_1_draft", "description": "The final edited draft of Chapter 1."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Research, draft, and edit Chapter 2: Short-Term and Context Window Management.",
+      "capsule": "This subtask focuses on immediate memory mechanisms, including context window optimization and short-term retention strategies. It serves the ROOT GOAL by providing the second chapter of the field guide.",
+      "outputs": [
+        {"path": "root.2/chapter_2_draft", "description": "The final edited draft of Chapter 2."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Research, draft, and edit Chapter 3: Long-Term Memory Architectures.",
+      "capsule": "This subtask covers persistent memory systems, such as vector databases, knowledge graphs, and retrieval-augmented generation (RAG) patterns. It serves the ROOT GOAL by providing the third chapter of the field guide.",
+      "outputs": [
+        {"path": "root.3/chapter_3_draft", "description": "The final edited draft of Chapter 3."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Research, draft, and edit Chapter 4: Advanced Patterns and Future Directions.",
+      "capsule": "This subtask explores complex memory interactions, multi-agent memory sharing, and emerging trends in agent memory systems. It serves the ROOT GOAL by providing the fourth chapter of the field guide.",
+      "outputs": [
+        {"path": "root.4/chapter_4_draft", "description": "The final edited draft of Chapter 4."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Create a unified glossary and assemble the final 4-chapter field guide.",
+    "outputs": [
+      {"path": "root/glossary", "description": "A unified glossary of terms used across all chapters."},
+      {"path": "root/final_guide", "description": "The fully assembled 4-chapter technical field guide."}
+    ],
+    "condition": "done(\"root.1/chapter_1_draft\") AND done(\"root.2/chapter_2_draft\") AND done(\"root.3/chapter_3_draft\") AND done(\"root.4/chapter_4_draft\")"
+  }
+}

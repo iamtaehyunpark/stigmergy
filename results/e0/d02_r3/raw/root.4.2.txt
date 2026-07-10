@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4.2",
+  "reasoning": "The task requires a comprehensive analysis of specific Korean marketing channels (Naver, Kakao, Instagram) and partnership strategies. This involves distinct research areas: platform-specific mechanics, influencer landscape, and B2B partnership models. Decomposing this allows for parallel, deep-dive analysis of each major channel ecosystem, which are complex and distinct in the Korean market. I will spawn subtasks for Naver, Kakao, and Social/Influencers, and then integrate these findings into the final marketing channels analysis.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.2.1",
+      "goal": "Analyze Naver as a marketing channel.",
+      "capsule": "Naver is the dominant search and content ecosystem in Korea. This subtask evaluates Naver Search Ads, Naver Blog SEO, and Naver Cafes for user acquisition and brand building, serving the ROOT GOAL by identifying the primary organic and paid search strategies.",
+      "outputs": [
+        {
+          "path": "root.4.2.1/naver_channel_analysis",
+          "description": "Detailed analysis of Naver-specific marketing tactics, costs, and effectiveness."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.2",
+      "goal": "Analyze KakaoTalk and Kakao ecosystem as a marketing channel.",
+      "capsule": "KakaoTalk is the ubiquitous messaging app in Korea with high engagement. This subtask evaluates Kakao Ads, Official Accounts, and KakaoStory for direct user engagement and viral growth, serving the ROOT GOAL by defining the mobile-first communication strategy.",
+      "outputs": [
+        {
+          "path": "root.4.2.2/kakao_channel_analysis",
+          "description": "Detailed analysis of Kakao-specific marketing tactics, costs, and effectiveness."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3",
+      "goal": "Analyze Instagram, YouTube, and Influencer partnerships.",
+      "capsule": "Visual social media and influencer marketing are critical for lifestyle and local review platforms. This subtask evaluates Instagram Reels, YouTube reviews, and influencer tiers (macro vs. micro) for brand awareness and trust, serving the ROOT GOAL by outlining the social proof and visual content strategy.",
+      "outputs": [
+        {
+          "path": "root.4.2.3/social_influencer_analysis",
+          "description": "Detailed analysis of social media platforms and influencer partnership models."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate channel analyses into a comprehensive marketing channels report.",
+    "outputs": [
+      {
+        "path": "root.4.2/marketing_channels_analysis",
+        "description": "Analysis of optimal marketing channels, including social media, search, and partnership opportunities."
+      }
+    ],
+    "condition": "done(\"root.4.2.1/naver_channel_analysis\") AND done(\"root.4.2.2/kakao_channel_analysis\") AND done(\"root.4.2.3/social_influencer_analysis\")"
+  }
+}

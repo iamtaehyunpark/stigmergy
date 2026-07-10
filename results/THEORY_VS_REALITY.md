@@ -47,3 +47,26 @@
 - Assumption or gap: The theory argues misclassified-parallel conflicts are inevitable under bounded retrieval and are the mechanism that completes local routing.
 - What actually happened: Across all Phase 2 runs (24 total over four iterations), zero write conflicts occurred. Namespace isolation plus explicit interface assignment prevented every WAW hazard at this scale.
 - Implication for `RATD_Theory.md`: The necessity argument is untested, not falsified: 3-8 agents, depth <= 2, and parent-declared interfaces may simply be below the conflict threshold. The crossover/scale experiment must measure conflict rate as tasks grow; if it stays zero at depth 4-6 with wider fan-out, section 4 needs revisiting.
+## 2026-07-10 - E0-min: SPAWN is spawn-and-continue; the terminal-step model of section 1.2 is wrong
+
+- Assumption or gap: Theory section 1.2 models an agent's step as terminal - emit (Delta-D, Delta-C) and exit; a spawning agent contributes only Delta-C. The E0 participation rule (spec 0.2) forces every spawner to also declare a self_role job it executes itself.
+- What actually happened: 12/12 E0 runs converged with the rule in force; validation rejected-and-repaired SPAWNs lacking self_role without any convergence cost. The self_role was the gated integrator in 62/62 cases (0 parallel shares, 0 review jobs).
+- Implication for `RATD_Theory.md`: Section 1.2 should model SPAWN as spawn-and-continue: the agent's step returns (Delta-D, Delta-C) where Delta-D may be deferred behind a trigger the agent registers for itself. Every agent contributes data, not just rules - there are no pure-router nodes. This is also the cleanest statement of why interface orphaning (probe finding) cannot recur: the interface owner stays alive until its interface is written.
+
+## 2026-07-10 - E0-min: parent-as-integrator is universal; interface delegation is dead code so far
+
+- Assumption or gap: The v5 interface contract made delegation-to-a-subtask the normal way a spawning agent discharges its owed paths, with spec 0.2 predicting parent-as-integrator would become the common case under the participation rule.
+- What actually happened: Stronger than predicted - interface self-fulfillment was 93/93 (100%) across all 12 runs. Every spawning agent kept its owed paths in its own self_role; the v5 delegation exception to namespace discipline was never exercised once. DEFER was also never used (0/12 runs) - the gated self_role absorbs the wait-for-siblings case that previously surfaced as mid-branch DEFERs.
+- Implication for `RATD_Theory.md`: Section 1.3's interface contract should present self-fulfillment as the rule and delegation as an untested fallback. Note the measurement consequence: with integration pulled into parents, DEFER/wake and cross-branch reads (theory 4.5) nearly vanish from natural traces (cross-branch pairs: only d01's 4/run) - Figure-1 must engineer its cross-branch dependency deliberately, exactly as the spec anticipated.
+
+## 2026-07-10 - E0-min: removing budget unlocks depth but not proportionality; termination held without it
+
+- Assumption or gap: Theory section 6 ties safe recursion to budget conservation; E0-min bet that rails alone (120 calls, code-enforced) preserve termination, deferring allocation entirely.
+- What actually happened: Termination: confirmed - 12/12 natural terminations, zero rail hits (max 96/120 calls). Depth: unlocked - d03 hit depth 3 with the task's natural levels (E0 PASS), d02 hit depth 8. But d02_r1's depth-8 branch is globally disproportionate: a YouTube-creator-incentive micro-topic received 5 more decomposition levels than market analysis, and its leaf artifacts barely surface in the 4.4k-char root plan. GLOBAL CALLS REMAINING in context did not curb it.
+- Implication for `RATD_Theory.md`: Split section 6's claim: termination needs only a global, code-enforced bound (conservation at the coarsest grain); what per-branch budget actually buys is proportionality - matching subtree size to subtree importance. Local judgment is locally sensible but has no global cost signal. This is Appendix A's motivating evidence when/if promoted, and depth>=4 branches now make section 5 goal-drift measurable for the first time.
+
+## 2026-07-10 - E0-min: zero conflicts persists at depth 8 / 48 agents; temp-0 replication is not deterministic
+
+- Assumption or gap: The probe left section 4 untested at 3-8 agents / depth <= 2 and treated temperature-0 replicates as near-deterministic.
+- What actually happened: 36 total runs (probe + E0) with zero write conflicts, now including 48-agent depth-8 graphs - parent-owned interfaces plus namespace discipline keep eliminating WAW hazards as scale grows. Meanwhile d02's reps diverged sharply in shape (depth 8 vs 4, 48 vs 21 agents) from identical initial contexts: vLLM batching nondeterminism, amplified by recursive structure; d04's reps were byte-identical.
+- Implication for `RATD_Theory.md`: Section 4's inevitability argument now needs engineered dependency overlap (Figure-1 f01) to be tested at all - organic conflict has a much higher threshold than theorized, which is itself a positive coordination result worth stating. And replicate variance at temp 0 is real: shape metrics need distributional reporting, not single-trace claims, even before sampling temperature enters.

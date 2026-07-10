@@ -1,0 +1,50 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires producing a 4-chapter technical guide, which is too large for a single execution step. It naturally decomposes into parallel chapter creation (research, draft, edit) and a final assembly phase. I will spawn four agents to handle the individual chapters in parallel, and take the role of integrating their outputs into the final book with a glossary.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research, draft, and edit Chapter 1: Introduction to LLM Agent Memory Systems.",
+      "capsule": "This subtask produces the first chapter, covering foundational concepts and definitions. It serves the ROOT GOAL by providing the introductory context for the field guide.",
+      "outputs": [
+        {"path": "root.1/chapter_1_final", "description": "The final, edited text for Chapter 1."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Research, draft, and edit Chapter 2: Short-Term and Working Memory Architectures.",
+      "capsule": "This subtask produces the second chapter, focusing on immediate context handling and working memory mechanisms. It serves the ROOT GOAL by detailing the transient memory aspects of agents.",
+      "outputs": [
+        {"path": "root.2/chapter_2_final", "description": "The final, edited text for Chapter 2."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Research, draft, and edit Chapter 3: Long-Term Memory and Retrieval-Augmented Generation.",
+      "capsule": "This subtask produces the third chapter, covering persistent storage, vector databases, and retrieval strategies. It serves the ROOT GOAL by explaining how agents retain and access knowledge over time.",
+      "outputs": [
+        {"path": "root.3/chapter_3_final", "description": "The final, edited text for Chapter 3."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Research, draft, and edit Chapter 4: Advanced Memory Patterns and Future Directions.",
+      "capsule": "This subtask produces the fourth chapter, discussing complex memory interactions, multi-agent memory, and emerging trends. It serves the ROOT GOAL by providing advanced insights and future outlooks.",
+      "outputs": [
+        {"path": "root.4/chapter_4_final", "description": "The final, edited text for Chapter 4."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Assemble the final field guide by integrating the four chapters and creating a unified glossary.",
+    "outputs": [
+      {"path": "root/field_guide_final", "description": "The complete, assembled 4-chapter technical field guide with a unified glossary."}
+    ],
+    "condition": "done(\"root.1/chapter_1_final\") AND done(\"root.2/chapter_2_final\") AND done(\"root.3/chapter_3_final\") AND done(\"root.4/chapter_4_final\")"
+  }
+}

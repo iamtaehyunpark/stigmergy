@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4.2.3.2.2.2.2",
+  "reasoning": "The task requires designing a comprehensive incentive model for content creators and reviewers. This involves multiple distinct components: financial incentives (revenue sharing), non-financial incentives (gamification/loyalty), and collaborative opportunities (co-creation). These components are logically distinct and can be developed in parallel to ensure a holistic approach. I will spawn subtasks for each component and then integrate them into the final deliverable.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.2.3.2.2.2.2.1",
+      "goal": "Design financial incentive models for creators.",
+      "capsule": "This subtask defines how creators earn money, including ad-revenue sharing, sponsored review fees, and tipping mechanisms. It serves the root goal by providing tangible economic motivation for high-quality content generation.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.2.2.2.1/financial_incentives",
+          "description": "Detailed financial incentive structures including revenue share percentages, payout thresholds, and sponsored content guidelines."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.2.2.2.2.2",
+      "goal": "Design non-financial incentive models (gamification and loyalty).",
+      "capsule": "This subtask creates engagement loops through badges, leaderboards, levels, and exclusive status perks. It serves the root goal by fostering community engagement and habitual usage among reviewers.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.2.2.2.2/gamification_loyalty",
+          "description": "Detailed gamification mechanics, loyalty tier structures, and non-monetary rewards."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.2.2.2.2.3",
+      "goal": "Design co-creation and community incentive frameworks.",
+      "capsule": "This subtask outlines opportunities for users to collaborate on content, such as group reviews or curated lists, and the incentives for such collaboration. It serves the root goal by enhancing content depth and community cohesion.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.2.2.2.3/co_creation_frameworks",
+          "description": "Frameworks for collaborative content creation and associated incentives."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate financial, gamification, and co-creation models into a unified creator incentive strategy.",
+    "outputs": [
+      {
+        "path": "root.4.2.3.2.2.2.2/creator_incentive_models",
+        "description": "Detailed incentive models for creators, including revenue sharing, gamification, and co-creation frameworks."
+      }
+    ],
+    "condition": "done(\"root.4.2.3.2.2.2.2.1/financial_incentives\") AND done(\"root.4.2.3.2.2.2.2.2/gamification_loyalty\") AND done(\"root.4.2.3.2.2.2.2.3/co_creation_frameworks\")"
+  }
+}

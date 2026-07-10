@@ -1,0 +1,61 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires producing three distinct but related marketing artifacts (announcement post, FAQ, pricing page copy) for a single market (US). Since the product details are not provided in shared memory, I must assume a generic but plausible SaaS product context to fulfill the request. These three artifacts are independent enough to be generated in parallel by sub-agents, which will speed up execution. I will spawn three subtasks, one for each artifact, and take on a self-role to review and ensure consistency across the generated content before finalizing the outputs.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Write the localized announcement post for the US market.",
+      "capsule": "This subtask generates the main announcement post tailored to US cultural and linguistic norms. It serves the ROOT GOAL by providing the primary communication piece for the US launch kit.",
+      "outputs": [
+        {
+          "path": "root.1.1/announcement_post",
+          "description": "Draft of the US announcement post."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Write the localized FAQ for the US market.",
+      "capsule": "This subtask generates a comprehensive FAQ addressing common user questions, tailored to US expectations and terminology. It serves the ROOT GOAL by providing support content for the US launch kit.",
+      "outputs": [
+        {
+          "path": "root.1.2/faq",
+          "description": "Draft of the US FAQ."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.3",
+      "goal": "Write the localized pricing page copy for the US market.",
+      "capsule": "This subtask generates persuasive pricing page copy, including tier descriptions and value propositions, tailored to the US market. It serves the ROOT GOAL by providing the conversion-focused content for the US launch kit.",
+      "outputs": [
+        {
+          "path": "root.1.3/pricing_page_copy",
+          "description": "Draft of the US pricing page copy."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Review and finalize the US launch kit artifacts, ensuring consistency and quality.",
+    "outputs": [
+      {
+        "path": "root.1/announcement_post",
+        "description": "Finalized localized announcement post for US."
+      },
+      {
+        "path": "root.1/faq",
+        "description": "Finalized localized FAQ for US."
+      },
+      {
+        "path": "root.1/pricing_page_copy",
+        "description": "Finalized localized pricing page copy for US."
+      }
+    ],
+    "condition": "done(\"root.1.1/announcement_post\") AND done(\"root.1.2/faq\") AND done(\"root.1.3/pricing_page_copy\")"
+  }
+}

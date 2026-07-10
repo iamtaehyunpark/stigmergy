@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4.2.3.2.2",
+  "reasoning": "The task requires developing a comprehensive strategy for creator collaborations, which involves distinct but related components: identifying the right creators, structuring the financial and operational partnerships, and defining the recruitment process. These components are complex enough to warrant parallel decomposition to ensure depth in each area, but small enough to be handled by a single level of subtasks. I will spawn subtasks for creator segmentation, partnership structures, and recruitment strategies, and then integrate them myself.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.2.3.2.2.1",
+      "goal": "Define creator segmentation and identification criteria.",
+      "capsule": "This subtask identifies which Korean creators (mid-to-macro) are best suited for the platform based on niche, engagement, and audience demographics. It serves the root goal by ensuring partnership efforts are targeted at influencers who can effectively drive platform adoption.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.2.1/creator_segments",
+          "description": "Detailed segmentation of target creators including niches, follower ranges, and selection criteria."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.2.2.2",
+      "goal": "Develop partnership structures and incentive models.",
+      "capsule": "This subtask designs the specific collaboration models, including sponsorship tiers, revenue sharing, and co-creation opportunities. It serves the root goal by creating attractive and sustainable value propositions for creators to join the platform.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.2.2/partnership_models",
+          "description": "Detailed partnership structures, compensation models, and co-creation frameworks."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.2.2.3",
+      "goal": "Outline recruitment and management strategies.",
+      "capsule": "This subtask defines the process for recruiting creators and managing ongoing relationships. It serves the root goal by establishing a scalable operational workflow for acquiring and retaining key influencer partners.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.2.3/recruitment_strategy",
+          "description": "Step-by-step recruitment plan, outreach tactics, and relationship management protocols."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate subtask outputs into a cohesive creator collaboration strategy.",
+    "outputs": [
+      {
+        "path": "root.4.2.3.2.2/creator_collaboration",
+        "description": "Strategy for identifying, recruiting, and managing creator partnerships."
+      }
+    ],
+    "condition": "done(\"root.4.2.3.2.2.1/creator_segments\") AND done(\"root.4.2.3.2.2.2/partnership_models\") AND done(\"root.4.2.3.2.2.3/recruitment_strategy\")"
+  }
+}

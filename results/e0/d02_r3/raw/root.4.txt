@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The task requires a comprehensive go-to-market strategy for a Korean local-review platform. This involves distinct but related components: defining the target audience and value proposition, selecting appropriate marketing channels specific to the Korean digital ecosystem (e.g., Naver, Kakao), and outlining a phased launch plan. These components are sufficiently complex to warrant decomposition into parallel subtasks to ensure depth and specificity, while the final integration ensures a cohesive strategy.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Define target audience segments and core value propositions for the Korean market.",
+      "capsule": "This subtask identifies the primary user groups (e.g., Gen Z, local business owners) and the specific pain points the platform solves in the Korean context. It serves the ROOT GOAL by establishing the foundational 'who' and 'why' for the marketing strategy.",
+      "outputs": [
+        {
+          "path": "root.4.1/target_audience_and_value_prop",
+          "description": "Detailed segmentation of target users and the unique value proposition for each segment."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Identify and analyze key marketing channels and partnerships in Korea.",
+      "capsule": "This subtask evaluates the effectiveness of platforms like Naver, KakaoTalk, Instagram, and local influencers for user acquisition. It serves the ROOT GOAL by determining the most efficient 'where' and 'how' to reach the target audience.",
+      "outputs": [
+        {
+          "path": "root.4.2/marketing_channels_analysis",
+          "description": "Analysis of optimal marketing channels, including social media, search, and partnership opportunities."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Develop a phased launch plan and user acquisition tactics.",
+      "capsule": "This subtask outlines the timeline for launch, from beta testing to full public release, including specific tactics for acquiring early adopters. It serves the ROOT GOAL by providing the actionable 'when' and 'what' for execution.",
+      "outputs": [
+        {
+          "path": "root.4.3/launch_plan_and_acquisition_tactics",
+          "description": "A step-by-step launch timeline with specific user acquisition strategies for each phase."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate subtask outputs into a cohesive go-to-market strategy document.",
+    "outputs": [
+      {
+        "path": "root.4/go_to_market",
+        "description": "A comprehensive go-to-market strategy including launch phases, marketing channels, and user acquisition plans."
+      }
+    ],
+    "condition": "done(\"root.4.1/target_audience_and_value_prop\") AND done(\"root.4.2/marketing_channels_analysis\") AND done(\"root.4.3/launch_plan_and_acquisition_tactics\")"
+  }
+}

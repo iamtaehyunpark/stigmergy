@@ -1,0 +1,65 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The task requires producing a high-quality technical chapter involving research, drafting, and editing. To ensure depth and quality, I will decompose this into parallel research streams for the three main topics (complex interactions, multi-agent sharing, future trends), followed by a drafting phase, and finally an editing phase. This structure allows for focused expertise in each area while maintaining a clear dependency chain for integration and quality control.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Research complex memory interactions and hierarchical memory structures.",
+      "capsule": "This subtask investigates how agents manage multiple memory types (working, episodic, semantic) and how they interact. It provides the foundational content for the first section of Chapter 4, serving the ROOT GOAL by ensuring technical accuracy on advanced internal memory patterns.",
+      "outputs": [
+        {
+          "path": "root.4.1/research_complex_interactions",
+          "description": "Structured notes and key concepts on complex memory interactions."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Research multi-agent memory sharing and distributed memory systems.",
+      "capsule": "This subtask explores how multiple agents share, synchronize, and conflict-resolve memory in decentralized systems. It provides the foundational content for the second section of Chapter 4, serving the ROOT GOAL by covering the critical topic of collaborative agent memory.",
+      "outputs": [
+        {
+          "path": "root.4.2/research_multi_agent_sharing",
+          "description": "Structured notes and key concepts on multi-agent memory sharing."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Research emerging trends and future directions in LLM agent memory.",
+      "capsule": "This subtask identifies cutting-edge developments, theoretical limits, and future research directions in agent memory. It provides the foundational content for the third section of Chapter 4, serving the ROOT GOAL by providing forward-looking insights.",
+      "outputs": [
+        {
+          "path": "root.4.3/research_future_directions",
+          "description": "Structured notes and key concepts on future directions in agent memory."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.4",
+      "goal": "Draft Chapter 4 based on research outputs.",
+      "capsule": "This subtask synthesizes the research from siblings into a coherent, well-structured draft of Chapter 4. It serves the ROOT GOAL by creating the primary artifact for this chapter, integrating the three research streams into a unified narrative.",
+      "outputs": [
+        {
+          "path": "root.4.4/chapter_4_raw_draft",
+          "description": "The initial draft of Chapter 4, incorporating all research findings."
+        }
+      ],
+      "condition": "done(\"root.4.1/research_complex_interactions\") AND done(\"root.4.2/research_multi_agent_sharing\") AND done(\"root.4.3/research_future_directions\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Edit and finalize Chapter 4 draft.",
+    "outputs": [
+      {
+        "path": "root.4/chapter_4_draft",
+        "description": "The final edited draft of Chapter 4."
+      }
+    ],
+    "condition": "done(\"root.4.4/chapter_4_raw_draft\")"
+  }
+}

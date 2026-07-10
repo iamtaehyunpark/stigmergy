@@ -1,0 +1,41 @@
+{
+  "task_id": "root.5",
+  "reasoning": "The task requires generating a comprehensive 5-year financial projection, which involves creating multiple interconnected statements (P&L, Cash Flow, Balance Sheet) based on a set of assumptions. While I could execute this in one go, decomposing it into defining assumptions and then generating the specific financial statements ensures accuracy and logical consistency. The assumptions must be established first to drive the projections. I will spawn two subtasks: one to define the key financial assumptions and another to generate the detailed projections based on those assumptions. I will take the self-role of integrating these into the final deliverable.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.5.1",
+      "goal": "Define key financial assumptions for the Korean local-review platform.",
+      "capsule": "This subtask establishes the foundational inputs for the financial model, including user growth rates, monetization metrics (ARPU, ad rates), and cost structures. It serves the ROOT GOAL by providing the realistic parameters needed to generate credible financial projections.",
+      "outputs": [
+        {
+          "path": "root.5.1/financial_assumptions",
+          "description": "Detailed assumptions for revenue drivers, cost structure, and growth rates."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5.2",
+      "goal": "Generate 5-year P&L, Cash Flow, and Balance Sheet projections.",
+      "capsule": "This subtask uses the assumptions from root.5.1 to build the detailed financial statements. It serves the ROOT GOAL by producing the quantitative forecasts required for investment and operational planning.",
+      "outputs": [
+        {
+          "path": "root.5.2/projections_detail",
+          "description": "Year-by-year P&L, Cash Flow, and Balance Sheet data."
+        }
+      ],
+      "condition": "done(\"root.5.1/financial_assumptions\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate assumptions and projections into the final financial projections document.",
+    "outputs": [
+      {
+        "path": "root.5/financial_projections",
+        "description": "5-year financial projections including P&L, cash flow, and key assumptions."
+      }
+    ],
+    "condition": "done(\"root.5.1/financial_assumptions\") AND done(\"root.5.2/projections_detail\")"
+  }
+}

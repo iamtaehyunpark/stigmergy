@@ -1,0 +1,41 @@
+{
+  "task_id": "root.3",
+  "reasoning": "The task of producing a high-quality technical chapter involves distinct phases: gathering technical details, writing the narrative, and refining for consistency. These phases are sequential and benefit from decomposition to ensure depth and quality. I will spawn subtasks for research and drafting, which are independent of each other in terms of initial effort but logically sequential, and then take the editing role myself to ensure the final output meets the interface contract.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.3.1",
+      "goal": "Research long-term memory architectures and RAG techniques for LLM agents.",
+      "capsule": "This subtask gathers the necessary technical content, including vector database mechanisms, embedding strategies, and retrieval algorithms. It serves the ROOT GOAL by providing the factual foundation for Chapter 3.",
+      "outputs": [
+        {
+          "path": "root.3.1/research_notes",
+          "description": "Structured notes on long-term memory systems, vector DBs, and RAG strategies."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.2",
+      "goal": "Draft Chapter 3 based on the research notes.",
+      "capsule": "This subtask converts the research into a coherent, technical narrative suitable for a field guide. It serves the ROOT GOAL by producing the initial text for Chapter 3, which will later be edited.",
+      "outputs": [
+        {
+          "path": "root.3.2/chapter_3_draft",
+          "description": "The first draft of Chapter 3: Long-Term Memory and Retrieval-Augmented Generation."
+        }
+      ],
+      "condition": "done(\"root.3.1/research_notes\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Edit the Chapter 3 draft for consistency, clarity, and technical accuracy, then produce the final chapter text.",
+    "outputs": [
+      {
+        "path": "root.3/chapter_3_final",
+        "description": "The final, edited text for Chapter 3."
+      }
+    ],
+    "condition": "done(\"root.3.2/chapter_3_draft\")"
+  }
+}

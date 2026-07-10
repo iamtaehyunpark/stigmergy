@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.1",
+  "reasoning": "The task requires comprehensive research on a specific technical topic (long-term memory and RAG) to produce a single structured output. This is a focused information synthesis task that does not benefit from decomposition into smaller sub-agents, as the overhead of coordination would exceed the value of parallelization. I will execute the research and compile the notes directly.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.1/research_notes",
+      "description": "Structured notes on long-term memory systems, vector DBs, and RAG strategies."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "task_id": "root.3",
+  "reasoning": "The task is to implement the frontend for a todo app. This is a substantial task involving multiple components (list, form, individual items), state management, and API integration. It naturally decomposes into parallel subtasks for different UI concerns, followed by an integration step to bundle everything. I will spawn subtasks for the core components and the API service layer, then take the self-role of integrating them into the final deliverable.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.3.1",
+      "goal": "Implement the API service layer and state management for the frontend.",
+      "capsule": "This subtask creates the abstraction layer for communicating with the backend API (root.2) and manages the application state (loading, error, todo list). It serves the ROOT GOAL by ensuring the frontend can reliably fetch and mutate todo data.",
+      "outputs": [
+        {
+          "path": "root.3.1/api_service.js",
+          "description": "JavaScript module containing API client functions for CRUD operations on todos."
+        },
+        {
+          "path": "root.3.1/state_manager.js",
+          "description": "JavaScript module handling application state and side effects."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.2",
+      "goal": "Implement the core UI components for the todo app.",
+      "capsule": "This subtask builds the visual components: TodoList, TodoItem, and AddTodoForm. It serves the ROOT GOAL by providing the interactive user interface elements that users will see and use.",
+      "outputs": [
+        {
+          "path": "root.3.2/components.js",
+          "description": "JavaScript/JSX file containing the React components for the todo UI."
+        },
+        {
+          "path": "root.3.2/styles.css",
+          "description": "CSS file containing styles for the todo app components."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the API service, state management, and UI components into a complete frontend application and package it.",
+    "outputs": [
+      {
+        "path": "root.3/frontend_code.tar.gz",
+        "description": "Compressed frontend code including components, styles, and API integration."
+      }
+    ],
+    "condition": "done(\"root.3.1/api_service.js\") AND done(\"root.3.1/state_manager.js\") AND done(\"root.3.2/components.js\") AND done(\"root.3.2/styles.css\")"
+  }
+}

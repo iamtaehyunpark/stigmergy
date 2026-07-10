@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.2.3.2.1",
+  "reasoning": "The task requires defining specific video content formats and series ideas for a Korean local-review platform. This is a creative and analytical task that can be completed in a single focused effort by synthesizing knowledge of Korean digital culture, YouTube trends, and the specific needs of a review platform. It does not require decomposition into subtasks as the scope is limited to defining formats and ideas, not producing the content itself.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.2.3.2.1/content_formats",
+      "description": "List of recommended video formats, series concepts, and production guidelines."
+    }
+  ]
+}

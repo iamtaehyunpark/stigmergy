@@ -1,0 +1,41 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task of producing a high-quality technical chapter involves distinct phases: gathering accurate information, structuring and writing the narrative, and refining for clarity and consistency. These phases are sequential and benefit from specialized focus. I will decompose this into three subtasks: research, drafting, and editing. The draft depends on the research, and the final edit depends on the draft. I will take the role of the editor to ensure the final output meets quality standards and integrates the previous work.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Research foundational concepts of LLM agent memory systems.",
+      "capsule": "This subtask gathers the necessary technical background, definitions, and architectural patterns required for Chapter 1. It serves the ROOT GOAL by ensuring the chapter is factually accurate and comprehensive.",
+      "outputs": [
+        {
+          "path": "root.1.1/research_notes",
+          "description": "Structured notes covering definitions, types of memory (short-term, long-term, episodic, semantic), and key challenges in LLM agent memory."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Draft Chapter 1 based on research notes.",
+      "capsule": "This subtask converts the research notes into a coherent, engaging narrative suitable for a technical field guide. It serves the ROOT GOAL by producing the initial content for the first chapter.",
+      "outputs": [
+        {
+          "path": "root.1.2/chapter_1_draft",
+          "description": "A complete draft of Chapter 1, including introduction, core concepts, and summary."
+        }
+      ],
+      "condition": "done(\"root.1.1/research_notes\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Edit and finalize Chapter 1.",
+    "outputs": [
+      {
+        "path": "root.1/chapter_1_final",
+        "description": "The final, polished, and consistency-edited text for Chapter 1."
+      }
+    ],
+    "condition": "done(\"root.1.2/chapter_1_draft\")"
+  }
+}

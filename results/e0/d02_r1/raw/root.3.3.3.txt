@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.3.3",
+  "reasoning": "The task requires identifying specific partnership opportunities for a Korean local-review platform. This involves analyzing the Korean market landscape for payment (e.g., KakaoPay, Naver Pay) and delivery (e.g., Baemin, Yogiyo) platforms to determine strategic fit. This is a focused research and synthesis task that can be completed in a single execution step without the overhead of spawning sub-agents.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.3.3/partnership_opportunities",
+      "description": "List of potential partners, partnership models, and strategic value."
+    }
+  ]
+}

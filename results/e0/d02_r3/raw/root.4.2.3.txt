@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4.2.3",
+  "reasoning": "The task requires a comprehensive analysis of three distinct but related areas: Instagram, YouTube, and Influencer partnerships. These areas have different dynamics (visual short-form vs. long-form video vs. creator economics) and can be analyzed in parallel to save time. I will spawn three subtasks to handle each area and then integrate the findings into the final required output.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.2.3.1",
+      "goal": "Analyze Instagram strategy for a Korean local-review platform.",
+      "capsule": "This subtask evaluates Instagram Reels, Stories, and visual aesthetics as tools for brand awareness and user engagement. It serves the ROOT GOAL by defining how visual content drives traffic to the review platform.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.1/instagram_analysis",
+          "description": "Analysis of Instagram features, content types, and engagement strategies relevant to local reviews."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.2",
+      "goal": "Analyze YouTube strategy for a Korean local-review platform.",
+      "capsule": "This subtask evaluates YouTube reviews, vlogs, and long-form content as tools for deep trust-building and SEO. It serves the ROOT GOAL by outlining how video reviews complement written text reviews.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2/youtube_analysis",
+          "description": "Analysis of YouTube content formats, creator collaborations, and search visibility for local businesses."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.3",
+      "goal": "Analyze Influencer partnership models (Macro vs. Micro).",
+      "capsule": "This subtask compares the cost-effectiveness, reach, and trust levels of macro vs. micro influencers in the Korean market. It serves the ROOT GOAL by recommending a tiered influencer strategy for go-to-market.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.3/influencer_model_analysis",
+          "description": "Comparison of influencer tiers, partnership structures, and ROI expectations."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate Instagram, YouTube, and Influencer analyses into a cohesive social media strategy.",
+    "outputs": [
+      {
+        "path": "root.4.2.3/social_influencer_analysis",
+        "description": "Detailed analysis of social media platforms and influencer partnership models."
+      }
+    ],
+    "condition": "done(\"root.4.2.3.1/instagram_analysis\") AND done(\"root.4.2.3.2/youtube_analysis\") AND done(\"root.4.2.3.3/influencer_model_analysis\")"
+  }
+}

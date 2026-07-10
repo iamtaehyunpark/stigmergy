@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.2.3.3",
+  "reasoning": "The task requires a specific comparative analysis of influencer models within the Korean market context. This is a focused analytical task that can be completed in a single effort by synthesizing market knowledge regarding engagement rates, costs, and trust levels for macro versus micro influencers. It does not require decomposition into further subtasks.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.2.3.3/influencer_model_analysis",
+      "description": "Comparison of influencer tiers, partnership structures, and ROI expectations."
+    }
+  ]
+}

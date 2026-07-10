@@ -1,0 +1,81 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires producing localized content for six distinct markets, which involves significant independent work per market (translation, cultural adaptation, local pricing norms). This naturally decomposes into parallel subtasks. After all markets are complete, a global consistency review is needed, which depends on all prior outputs. I will spawn one agent per market to handle the localization, and take the integration/review role myself to ensure consistency and compile the final deliverables.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Produce localized launch kit for the US market.",
+      "capsule": "This agent creates the announcement post, FAQ, and pricing page copy tailored for the US audience. It serves the ROOT GOAL by delivering the first of six required market-specific launch kits.",
+      "outputs": [
+        {"path": "root.1/announcement_post", "description": "Localized announcement post for US."},
+        {"path": "root.1/faq", "description": "Localized FAQ for US."},
+        {"path": "root.1/pricing_page_copy", "description": "Localized pricing page copy for US."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Produce localized launch kit for the South Korea (KR) market.",
+      "capsule": "This agent creates the announcement post, FAQ, and pricing page copy tailored for the South Korean audience, including Korean language and cultural nuances. It serves the ROOT GOAL by delivering the KR-specific launch kit.",
+      "outputs": [
+        {"path": "root.2/announcement_post", "description": "Localized announcement post for KR."},
+        {"path": "root.2/faq", "description": "Localized FAQ for KR."},
+        {"path": "root.2/pricing_page_copy", "description": "Localized pricing page copy for KR."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Produce localized launch kit for the Japan (JP) market.",
+      "capsule": "This agent creates the announcement post, FAQ, and pricing page copy tailored for the Japanese audience, including Japanese language and cultural nuances. It serves the ROOT GOAL by delivering the JP-specific launch kit.",
+      "outputs": [
+        {"path": "root.3/announcement_post", "description": "Localized announcement post for JP."},
+        {"path": "root.3/faq", "description": "Localized FAQ for JP."},
+        {"path": "root.3/pricing_page_copy", "description": "Localized pricing page copy for JP."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Produce localized launch kit for the Germany (DE) market.",
+      "capsule": "This agent creates the announcement post, FAQ, and pricing page copy tailored for the German audience, including German language and cultural nuances. It serves the ROOT GOAL by delivering the DE-specific launch kit.",
+      "outputs": [
+        {"path": "root.4/announcement_post", "description": "Localized announcement post for DE."},
+        {"path": "root.4/faq", "description": "Localized FAQ for DE."},
+        {"path": "root.4/pricing_page_copy", "description": "Localized pricing page copy for DE."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Produce localized launch kit for the Brazil (BR) market.",
+      "capsule": "This agent creates the announcement post, FAQ, and pricing page copy tailored for the Brazilian audience, including Portuguese (BR) language and cultural nuances. It serves the ROOT GOAL by delivering the BR-specific launch kit.",
+      "outputs": [
+        {"path": "root.5/announcement_post", "description": "Localized announcement post for BR."},
+        {"path": "root.5/faq", "description": "Localized FAQ for BR."},
+        {"path": "root.5/pricing_page_copy", "description": "Localized pricing page copy for BR."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.6",
+      "goal": "Produce localized launch kit for the India (IN) market.",
+      "capsule": "This agent creates the announcement post, FAQ, and pricing page copy tailored for the Indian audience, including English (IN) language and cultural nuances. It serves the ROOT GOAL by delivering the IN-specific launch kit.",
+      "outputs": [
+        {"path": "root.6/announcement_post", "description": "Localized announcement post for IN."},
+        {"path": "root.6/faq", "description": "Localized FAQ for IN."},
+        {"path": "root.6/pricing_page_copy", "description": "Localized pricing page copy for IN."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Conduct global consistency review and compile final launch kits.",
+    "outputs": [
+      {"path": "root/global_consistency_review", "description": "A review document assessing consistency across all 6 markets and noting any discrepancies or recommendations."},
+      {"path": "root/final_launch_kits", "description": "A compiled summary or index of all localized launch kits produced by sub-agents."}
+    ],
+    "condition": "done(\"root.1/announcement_post\") AND done(\"root.1/faq\") AND done(\"root.1/pricing_page_copy\") AND done(\"root.2/announcement_post\") AND done(\"root.2/faq\") AND done(\"root.2/pricing_page_copy\") AND done(\"root.3/announcement_post\") AND done(\"root.3/faq\") AND done(\"root.3/pricing_page_copy\") AND done(\"root.4/announcement_post\") AND done(\"root.4/faq\") AND done(\"root.4/pricing_page_copy\") AND done(\"root.5/announcement_post\") AND done(\"root.5/faq\") AND done(\"root.5/pricing_page_copy\") AND done(\"root.6/announcement_post\") AND done(\"root.6/faq\") AND done(\"root.6/pricing_page_copy\")"
+  }
+}

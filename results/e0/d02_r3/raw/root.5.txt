@@ -1,0 +1,53 @@
+{
+  "task_id": "root.5",
+  "reasoning": "The task requires generating a comprehensive 3-5 year financial projection, which involves multiple distinct components: revenue modeling, expense forecasting, and key metric derivation. These components are logically separable and can be developed in parallel to ensure thoroughness. I will spawn subtasks for revenue, expenses, and metrics, and then integrate them into the final financial projections document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.5.1",
+      "goal": "Develop a detailed revenue model and forecast for 3-5 years.",
+      "capsule": "This subtask defines revenue streams (e.g., advertising, premium listings, transaction fees) and projects growth based on user acquisition and monetization rates. It provides the top-line financial data necessary for the overall business plan.",
+      "outputs": [
+        {
+          "path": "root.5.1/revenue_forecast",
+          "description": "A detailed breakdown of revenue streams and 3-5 year projections."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5.2",
+      "goal": "Estimate operating expenses and capital expenditures for 3-5 years.",
+      "capsule": "This subtask outlines cost structures including technology, marketing, personnel, and overhead. It provides the bottom-line cost data necessary to calculate profitability and cash flow.",
+      "outputs": [
+        {
+          "path": "root.5.2/expense_forecast",
+          "description": "A detailed breakdown of operating expenses and capex for 3-5 years."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5.3",
+      "goal": "Define and project key performance indicators (KPIs) and unit economics.",
+      "capsule": "This subtask establishes metrics such as CAC, LTV, MAU, and conversion rates. It provides the operational context for the financial numbers, linking business activity to financial outcomes.",
+      "outputs": [
+        {
+          "path": "root.5.3/kpi_projections",
+          "description": "Projected KPIs and unit economics for 3-5 years."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate revenue, expense, and KPI data into a comprehensive financial projections document.",
+    "outputs": [
+      {
+        "path": "root.5/financial_projections",
+        "description": "A 3-5 year financial forecast including P&L, cash flow, and key performance indicators."
+      }
+    ],
+    "condition": "done(\"root.5.1/revenue_forecast\") AND done(\"root.5.2/expense_forecast\") AND done(\"root.5.3/kpi_projections\")"
+  }
+}

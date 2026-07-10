@@ -1,0 +1,53 @@
+{
+  "task_id": "root.1.2",
+  "reasoning": "The task requires a comprehensive analysis of user demographics and behavior patterns for a Korean local review platform. This involves distinct but related areas: demographic segmentation, psychographic profiling, and specific review behavior trends. Decomposing this into parallel subtasks allows for a more detailed and structured analysis of each aspect, which can then be integrated into a cohesive report. I will spawn three subtasks to handle these specific dimensions and take on the integration role myself.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.2.1",
+      "goal": "Analyze demographic segments of Korean local review users.",
+      "capsule": "This subtask identifies key demographic groups (age, gender, location, income) likely to use local review platforms in Korea. It provides the foundational 'who' for the target audience analysis.",
+      "outputs": [
+        {
+          "path": "root.1.2.1/demographic_segments",
+          "description": "Detailed breakdown of user demographics including age groups, gender distribution, urban vs. rural split, and income levels."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2.2",
+      "goal": "Analyze psychographic profiles and motivations of Korean local review users.",
+      "capsule": "This subtask explores the 'why' behind user engagement, including values, interests, lifestyle factors, and motivations for reading or writing reviews. It helps in understanding user mindset and preferences.",
+      "outputs": [
+        {
+          "path": "root.1.2.2/psychographic_profiles",
+          "description": "Analysis of user psychographics, including motivations, values, interests, and lifestyle factors influencing review platform usage."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2.3",
+      "goal": "Analyze review behavior patterns and platform preferences in Korea.",
+      "capsule": "This subtask examines the 'how' of user interaction, including frequency of review usage, preferred platforms, content types (text, image, video), and trust factors. It informs product features and go-to-market strategy.",
+      "outputs": [
+        {
+          "path": "root.1.2.3/behavior_patterns",
+          "description": "Analysis of user behavior patterns, including review frequency, platform preferences, content consumption habits, and trust indicators."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate demographic, psychographic, and behavioral analyses into a comprehensive user profile report.",
+    "outputs": [
+      {
+        "path": "root.1.2/demographics",
+        "description": "Analysis of user demographics, psychographics, and review behavior trends in Korea."
+      }
+    ],
+    "condition": "done(\"root.1.2.1/demographic_segments\") AND done(\"root.1.2.2/psychographic_profiles\") AND done(\"root.1.2.3/behavior_patterns\")"
+  }
+}

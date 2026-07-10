@@ -1,0 +1,53 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires a comprehensive competitor analysis of the Korean local-review market. This involves distinct areas of research: identifying major players (Naver, Google, etc.), analyzing their specific features and user experience, and evaluating their market positioning and weaknesses. Decomposing this into parallel subtasks allows for a deeper, more structured analysis of each aspect, which can then be integrated into a cohesive report. I will spawn three subtasks to handle market landscape identification, feature/UX analysis, and strategic positioning analysis, and then integrate these findings myself.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Identify and profile key competitors in the Korean local-review market.",
+      "capsule": "This subtask identifies the primary competitors such as Naver Place, Google Maps, KakaoMap, and specialized niche apps. It provides the foundational list and basic profiles needed for deeper analysis, serving the ROOT GOAL by defining the competitive landscape.",
+      "outputs": [
+        {
+          "path": "root.2.1/competitor_profiles",
+          "description": "A list of key competitors with basic profiles including market share estimates and primary user base."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Analyze features, user experience, and content quality of identified competitors.",
+      "capsule": "This subtask dives into the functional aspects of the competitors, evaluating review systems, map integration, and content authenticity. It serves the ROOT GOAL by highlighting functional strengths and weaknesses that the new platform can exploit.",
+      "outputs": [
+        {
+          "path": "root.2.2/feature_analysis",
+          "description": "A detailed comparison of features, UX, and content quality across key competitors."
+        }
+      ],
+      "condition": "done(\"root.2.1/competitor_profiles\")"
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Evaluate strategic positioning, business models, and vulnerabilities of competitors.",
+      "capsule": "This subtask analyzes the business strategies, monetization methods, and strategic gaps of the competitors. It serves the ROOT GOAL by identifying market gaps and strategic opportunities for the new platform.",
+      "outputs": [
+        {
+          "path": "root.2.3/strategic_analysis",
+          "description": "An analysis of competitors' business models, strategic positioning, and key vulnerabilities."
+        }
+      ],
+      "condition": "done(\"root.2.1/competitor_profiles\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate competitor profiles, feature analysis, and strategic analysis into a comprehensive competitor analysis report.",
+    "outputs": [
+      {
+        "path": "root.2/competitor_analysis",
+        "description": "A detailed report on key competitors, their features, market share, and strategic weaknesses."
+      }
+    ],
+    "condition": "done(\"root.2.1/competitor_profiles\") AND done(\"root.2.2/feature_analysis\") AND done(\"root.2.3/strategic_analysis\")"
+  }
+}

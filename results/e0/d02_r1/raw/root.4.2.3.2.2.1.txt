@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.2.3.2.2.1",
+  "reasoning": "The task requires defining specific segmentation criteria for Korean creators. This is a focused analytical task that involves synthesizing market knowledge about the Korean influencer landscape (niches, engagement metrics, demographics) into a structured framework. It does not require external data fetching or complex parallel decomposition, so it is best handled by executing the analysis directly.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.2.3.2.2.1/creator_segments",
+      "description": "Detailed segmentation of target creators including niches, follower ranges, and selection criteria."
+    }
+  ]
+}

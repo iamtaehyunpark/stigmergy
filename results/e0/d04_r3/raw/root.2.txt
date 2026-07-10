@@ -1,0 +1,61 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires producing three distinct but related artifacts (announcement post, FAQ, pricing page copy) for the South Korean market. These artifacts can be generated in parallel as they rely on the same core product information but require different structural and tonal approaches. Spawning allows for focused generation of each piece while ensuring cultural and linguistic accuracy for the KR market. I will take the self-role of reviewing and integrating the outputs to ensure consistency across the kit.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Generate localized announcement post for South Korea.",
+      "capsule": "This subtask creates the main announcement post tailored for Korean social media or blog platforms. It serves the ROOT GOAL by providing the primary marketing hook for the KR launch.",
+      "outputs": [
+        {
+          "path": "root.2.1/announcement_post",
+          "description": "Korean language announcement post with cultural nuances."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Generate localized FAQ for South Korea.",
+      "capsule": "This subtask creates a Frequently Asked Questions document addressing common concerns specific to Korean users. It serves the ROOT GOAL by reducing friction and building trust in the KR market.",
+      "outputs": [
+        {
+          "path": "root.2.2/faq",
+          "description": "Korean language FAQ with locally relevant questions and answers."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Generate localized pricing page copy for South Korea.",
+      "capsule": "This subtask creates the pricing page text, including currency conversion (KRW) and local payment method references. It serves the ROOT GOAL by ensuring the commercial offer is clear and accessible to Korean customers.",
+      "outputs": [
+        {
+          "path": "root.2.3/pricing_page_copy",
+          "description": "Korean language pricing page copy with KRW pricing."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate and review the KR launch kit components for consistency and quality.",
+    "outputs": [
+      {
+        "path": "root.2/announcement_post",
+        "description": "Final localized announcement post for KR."
+      },
+      {
+        "path": "root.2/faq",
+        "description": "Final localized FAQ for KR."
+      },
+      {
+        "path": "root.2/pricing_page_copy",
+        "description": "Final localized pricing page copy for KR."
+      }
+    ],
+    "condition": "done(\"root.2.1/announcement_post\") AND done(\"root.2.2/faq\") AND done(\"root.2.3/pricing_page_copy\")"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.1",
+  "reasoning": "The task requires defining target audience segments and value propositions for a specific market (Korea). This is a focused strategic analysis task that can be completed in a single coherent document without needing to decompose into further subtasks. The output is a single integrated artifact, so EXECUTE is the most efficient action.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.1/target_audience_and_value_prop",
+      "description": "Detailed segmentation of target users (e.g., Gen Z, Millennials, Local Business Owners) and the unique value proposition for each segment in the Korean market."
+    }
+  ]
+}

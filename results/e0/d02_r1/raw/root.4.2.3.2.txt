@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4.2.3.2",
+  "reasoning": "The task requires developing a comprehensive YouTube strategy, which involves distinct components: content formats, creator collaboration models, and SEO tactics. These components are independent enough to be developed in parallel by specialized sub-agents, ensuring depth in each area. I will spawn three subtasks to handle these specific aspects and then integrate them into the final strategy document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.2.3.2.1",
+      "goal": "Define long-form video content formats and series ideas.",
+      "capsule": "This subtask identifies specific video formats like 'hidden gem' tours and honest reviews that resonate with Korean audiences. It serves the root goal by establishing the core content pillars for the platform's YouTube presence.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.1/content_formats",
+          "description": "List of recommended video formats, series concepts, and production guidelines."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.2.2",
+      "goal": "Develop creator collaboration models and partnership strategies.",
+      "capsule": "This subtask outlines how to partner with mid-to-macro Korean creators, including sponsorship structures and co-creation opportunities. It serves the root goal by leveraging existing influencer audiences to drive platform adoption.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.2/creator_collaboration",
+          "description": "Strategy for identifying, recruiting, and managing creator partnerships."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.2.3",
+      "goal": "Create SEO and discoverability tactics for YouTube.",
+      "capsule": "This subtask details keyword research, metadata optimization, and thumbnail strategies specific to the Korean market. It serves the root goal by ensuring the platform's content is easily discoverable via YouTube search.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.3/seo_tactics",
+          "description": "Detailed SEO strategy including keyword targets, metadata templates, and optimization best practices."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate subtask outputs into a cohesive YouTube strategy document.",
+    "outputs": [
+      {
+        "path": "root.4.2.3.2/youtube_strategy",
+        "description": "Detailed YouTube strategy including video formats, creator collaboration models, SEO tactics, and campaign ideas."
+      }
+    ],
+    "condition": "done(\"root.4.2.3.2.1/content_formats\") AND done(\"root.4.2.3.2.2/creator_collaboration\") AND done(\"root.4.2.3.2.3/seo_tactics\")"
+  }
+}

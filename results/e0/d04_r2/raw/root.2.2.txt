@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task is to draft a localized FAQ for the South Korean market. This is a focused writing task that does not require decomposition into subtasks. I have all the necessary context to generate the content directly, including the specific requirements for local payment methods, support channels, and regulatory concerns. Therefore, I will execute the task myself.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.2/faq",
+      "description": "Draft of the localized FAQ for KR."
+    }
+  ]
+}

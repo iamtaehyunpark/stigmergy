@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.2.2",
+  "reasoning": "The task requires a detailed analysis of psychographic profiles for a specific user base (Korean local review users). This involves synthesizing cultural insights, behavioral motivations, and lifestyle factors. It is a focused analytical task that can be completed in a single effort without the overhead of spawning sub-agents. The output is a single integrated document.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1.2.2/psychographic_profiles",
+      "description": "Analysis of user psychographics, including motivations, values, interests, and lifestyle factors influencing review platform usage."
+    }
+  ]
+}

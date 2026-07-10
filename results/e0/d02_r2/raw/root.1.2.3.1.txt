@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.2.3.1",
+  "reasoning": "The task requires a comprehensive analysis of the Korean review platform landscape, covering major players like Naver and Daum, as well as specialized apps. This is a focused research and synthesis task that can be completed in a single effort without needing to decompose into further subtasks. The output is a single document describing the competitive landscape.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1.2.3.1/platform_landscape",
+      "description": "Overview of major Korean review platforms, their market positioning, and key differentiators."
+    }
+  ]
+}

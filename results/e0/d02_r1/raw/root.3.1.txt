@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.1",
+  "reasoning": "The task requires a comprehensive analysis of advertising revenue opportunities, including market benchmarks, ad formats, and financial projections specific to the Korean market. This is a focused analytical task that can be completed in a single effort by synthesizing known industry data for Korean digital advertising (e.g., Naver, Kakao ecosystems) and applying standard review platform monetization models. Decomposing this further would add unnecessary overhead for a single output artifact.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.1/advertising_analysis",
+      "description": "Analysis of ad formats, CPM/CPC benchmarks in Korea, and projected ad revenue."
+    }
+  ]
+}

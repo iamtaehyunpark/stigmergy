@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.3.1",
+  "reasoning": "The task requires defining specific data products and insights for a Korean local-review platform. This is a conceptual and analytical task that can be completed in a single focused effort by synthesizing knowledge of review platforms, data monetization strategies, and the specific context of the Korean market. It does not require complex decomposition or external dependencies.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.3.1/data_products_definition",
+      "description": "List of potential data products, target buyers, and value propositions."
+    }
+  ]
+}

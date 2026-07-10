@@ -1,0 +1,53 @@
+{
+  "task_id": "root.1.2.3",
+  "reasoning": "The task requires a comprehensive analysis of Korean user review behaviors, covering multiple distinct dimensions such as platform preferences, content types, and trust factors. These dimensions are independent enough to be researched in parallel but require a final synthesis to form a coherent report. I will spawn three subtasks to handle platform landscape, content/interaction patterns, and trust factors, and then integrate them myself.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.2.3.1",
+      "goal": "Analyze the competitive landscape of review platforms in Korea.",
+      "capsule": "This subtask identifies dominant platforms like Naver, Daum, and specialized apps, analyzing their market share and unique features. It provides the context for understanding where users currently engage in review activities.",
+      "outputs": [
+        {
+          "path": "root.1.2.3.1/platform_landscape",
+          "description": "Overview of major Korean review platforms, their market positioning, and key differentiators."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2.3.2",
+      "goal": "Analyze user interaction patterns and content preferences.",
+      "capsule": "This subtask examines how users interact with reviews, including frequency, preferred content formats (text vs. image vs. video), and engagement metrics. It informs the product feature set regarding content creation and consumption.",
+      "outputs": [
+        {
+          "path": "root.1.2.3.2/interaction_patterns",
+          "description": "Data on review frequency, content type preferences, and user engagement behaviors."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2.3.3",
+      "goal": "Analyze trust factors and credibility indicators in Korean reviews.",
+      "capsule": "This subtask investigates what makes a review trustworthy to Korean users, such as verification badges, user reputation, and sentiment analysis. It helps define the trust and safety mechanisms for the new platform.",
+      "outputs": [
+        {
+          "path": "root.1.2.3.3/trust_factors",
+          "description": "Analysis of credibility indicators, fake review concerns, and trust-building features valued by users."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Synthesize subtask outputs into a comprehensive behavior patterns analysis.",
+    "outputs": [
+      {
+        "path": "root.1.2.3/behavior_patterns",
+        "description": "Integrated analysis of user behavior patterns, including review frequency, platform preferences, content consumption habits, and trust indicators."
+      }
+    ],
+    "condition": "done(\"root.1.2.3.1/platform_landscape\") AND done(\"root.1.2.3.2/interaction_patterns\") AND done(\"root.1.2.3.3/trust_factors\")"
+  }
+}

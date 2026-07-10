@@ -1,0 +1,39 @@
+{
+  "run_id": "d01_r2",
+  "task_id": "d01",
+  "converged": true,
+  "root_outputs": [
+    "root.2/backend_code",
+    "root.2/api_spec",
+    "root.3/frontend_code",
+    "root.4/integration_tests",
+    "root/final_report"
+  ],
+  "root_outputs_done": [
+    "root.2/backend_code",
+    "root.2/api_spec",
+    "root.3/frontend_code",
+    "root.4/integration_tests",
+    "root/final_report"
+  ],
+  "llm_calls": 10,
+  "max_depth": 1,
+  "agent_count": 5,
+  "total_spawns": 4,
+  "conflict_count": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 8,
+  "schema_agreements": 8,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_read_events": 8,
+  "cross_branch_unique_pairs": 4,
+  "self_role_parallel": 0,
+  "self_role_gated": 1,
+  "interface_owed_self": 0,
+  "interface_owed_delegated": 0,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Converged with a shallow graph matching the broad human decomposition."
+}

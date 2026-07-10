@@ -1,0 +1,61 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The task requires producing three distinct but related artifacts (announcement post, FAQ, pricing page copy) for the German market. These can be generated in parallel by separate subtasks to maximize efficiency, as they rely on the same general product knowledge but have different structural and tonal requirements. I will spawn three subtasks, one for each artifact, and take on a self-role to review and ensure cultural and linguistic consistency across the DE kit before finalizing.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Write the localized announcement post for the German market.",
+      "capsule": "This subtask creates the initial public-facing announcement post tailored for German audiences, ensuring appropriate tone, language, and cultural references. It serves the ROOT GOAL by delivering the first component of the DE launch kit.",
+      "outputs": [
+        {
+          "path": "root.4.1/announcement_post",
+          "description": "Draft of the localized announcement post for DE."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Write the localized FAQ for the German market.",
+      "capsule": "This subtask creates a comprehensive FAQ addressing common customer questions, tailored with German language and specific local concerns (e.g., GDPR, local support). It serves the ROOT GOAL by delivering the second component of the DE launch kit.",
+      "outputs": [
+        {
+          "path": "root.4.2/faq",
+          "description": "Draft of the localized FAQ for DE."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Write the localized pricing page copy for the German market.",
+      "capsule": "This subtask creates the pricing page copy, ensuring correct currency (EUR), tax implications (MwSt.), and local value propositions. It serves the ROOT GOAL by delivering the third component of the DE launch kit.",
+      "outputs": [
+        {
+          "path": "root.4.3/pricing_page_copy",
+          "description": "Draft of the localized pricing page copy for DE."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Review and integrate the DE launch kit components for consistency and quality.",
+    "outputs": [
+      {
+        "path": "root.4/announcement_post",
+        "description": "Final localized announcement post for DE."
+      },
+      {
+        "path": "root.4/faq",
+        "description": "Final localized FAQ for DE."
+      },
+      {
+        "path": "root.4/pricing_page_copy",
+        "description": "Final localized pricing page copy for DE."
+      }
+    ],
+    "condition": "done(\"root.4.1/announcement_post\") AND done(\"root.4.2/faq\") AND done(\"root.4.3/pricing_page_copy\")"
+  }
+}

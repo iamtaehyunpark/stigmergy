@@ -1,0 +1,41 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires a comprehensive competitor analysis of the Korean local-review landscape. This involves identifying key players (Naver, Google, etc.), analyzing their specific features, market share, and user sentiment, and synthesizing this into a SWOT analysis and gap identification. This is a complex research and synthesis task that benefits from parallel decomposition: one agent can focus on the dominant local players (Naver/Daum), another on international players (Google) and niche apps, and the parent agent can synthesize these findings into the final structured report. This ensures depth in analysis while maintaining a clear integration path.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Analyze dominant Korean local platforms (Naver Maps, Daum/Kakao Maps).",
+      "capsule": "This subtask focuses on the primary incumbents in the Korean market. It must detail their review systems, user base, integration with other services, and specific strengths/weaknesses relevant to a new entrant. This serves the ROOT GOAL by identifying the main barriers to entry and established user habits.",
+      "outputs": [
+        {
+          "path": "root.2.1/local_incumbents_analysis",
+          "description": "Detailed analysis of Naver Maps and Kakao/Daum Maps including features, market share, and user sentiment."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Analyze international competitors (Google Maps) and niche Korean review apps.",
+      "capsule": "This subtask evaluates Google Maps' presence in Korea and specialized apps like Yanolja or local food review sites. It assesses their relevance to the target demographic and any gaps they leave open. This serves the ROOT GOAL by identifying secondary competitive threats and potential niche opportunities.",
+      "outputs": [
+        {
+          "path": "root.2.2/international_niche_analysis",
+          "description": "Analysis of Google Maps and niche Korean review platforms, focusing on their market position and limitations."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Synthesize competitor analyses into a final SWOT and gap analysis report.",
+    "outputs": [
+      {
+        "path": "root.2/competitor_analysis",
+        "description": "Detailed competitor analysis including SWOT analysis of major players and identification of market gaps."
+      }
+    ],
+    "condition": "done(\"root.2.1/local_incumbents_analysis\") AND done(\"root.2.2/international_niche_analysis\")"
+  }
+}

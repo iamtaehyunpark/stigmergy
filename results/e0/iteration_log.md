@@ -89,3 +89,51 @@ Decision rule for the runs (spec §0.5): PASS = depth ≥ 3 convergence
 on d03 in ≥ 1/3 reps with a sensible shape AND no regression on d01.
 Rail-terminated non-convergence on d04 is an expected, recorded
 finding (motivates Appendix A), not a failure to engineer around.
+
+## Run results (12/12) and decision — E0-min: PASS
+
+Runs 2026-07-10, `results/e0/` (first invocation killed mid-d03_r2 by
+session teardown; resumed per build iteration 1 — d03_r2 was wiped and
+rerun clean, 7 completed runs reused with zero LLM calls).
+
+- Convergence 12/12, all natural terminations, zero rail hits (max
+  observed 96/120 calls, d02_r1). Schema agreement 271/271 (100%).
+  Zero conflicts, zero trigger errors, zero ready-but-unfired.
+- **§0.5 PASS**: d03_r2 reached depth 3 with the task's natural
+  levels — root → 4 chapters → (research, draft) → research
+  subtopics (vector DB / KG / RAG), root's gated self_role producing
+  root/glossary + root/final_guide (the task's "unified glossary and
+  final assembly pass"). d01 no regression: 3/3 converged; r1/r2
+  reproduce the probe-era 5-agent shape.
+- Depth by task: d01 1,1,2 · d02 8,4,4 · d03 2,3,2 · d04 2,2,2.
+  The fixed-tier depth cap is gone; depth now varies with the task.
+- **Participation rule results**: self_role distribution 62/62 gated
+  integrator, 0 parallel — parent-as-integrator is not just dominant
+  but universal. Interface self-fulfillment 93/93 (100%): the v5
+  delegation exception was never used once. DEFER: 0 uses in 12 runs.
+- **Finding — depth is unlocked but unbalanced (d02_r1)**: depth 8 /
+  48 agents, all sensible locally, globally disproportionate — one
+  YouTube-creator-incentive micro-branch got 5 extra levels
+  (root.4.2.3.2.2.2.2.*) while market analysis got 1, and its ~2–4k-
+  char leaf artifacts barely surface in the 4.4k-char
+  root/business_plan. No cost signal → local judgment recurses on
+  minutiae. Not rail-dependence (terminated naturally), so Appendix A
+  stays deferred per §0.5, but this is its motivating evidence:
+  proportionality, not termination, is what budget machinery buys.
+- **Finding — temp-0 replication is not deterministic**: d02 reps
+  diverge wildly in shape (depth 8 vs 4, 48 vs 21 agents) from
+  identical initial contexts — vLLM batching nondeterminism amplified
+  by the recursive structure. d04 was byte-identical across reps.
+  The probe's "deterministic replication" caveat needs restating:
+  variance exists and is structure-amplified.
+- Minor: 3 worker schema mismatches (d01_r3 only) — agents declared
+  archive paths (root.2/backend_code.tar.gz etc.) and the text worker
+  returned empty outputs for them; fallback values kept the run
+  converging. Same phase-grammar drift noted in PROBE_REPORT §3.
+- Conflicts remain zero even at depth 8 / 48 agents (now 36 runs
+  total across probe+E0) — theory §4 threshold pushed further out;
+  Figure-1's conflict-induction design is now the only live path to
+  exercising it.
+
+Next per spec order of work: Figure-1 / E2 (f01 construction + tree
+baseline). E1's deep end (L3/L4) is unlocked by this PASS.

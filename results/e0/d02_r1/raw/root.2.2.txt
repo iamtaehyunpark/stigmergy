@@ -1,0 +1,41 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task requires analyzing two distinct categories of competitors: a global giant (Google Maps) and local niche players. These analyses are independent and can be performed in parallel to save time. I will spawn two subtasks, one for each category, and then integrate their findings into the final required output.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.2.1",
+      "goal": "Analyze Google Maps as a competitor in the Korean market.",
+      "capsule": "This subtask evaluates Google Maps' dominance, user base, and specific limitations within South Korea (e.g., navigation issues, lack of local cultural nuance). It serves the ROOT GOAL by identifying the primary incumbent threat and its weaknesses.",
+      "outputs": [
+        {
+          "path": "root.2.2.1/google_maps_analysis",
+          "description": "Detailed analysis of Google Maps' market position, strengths, and weaknesses in Korea."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2.2",
+      "goal": "Analyze niche Korean review apps and platforms.",
+      "capsule": "This subtask evaluates specialized local platforms (e.g., Yanolja, local food review sites, Naver Blog/Post nuances). It serves the ROOT GOAL by identifying fragmented competitors and niche opportunities that a unified platform could capture.",
+      "outputs": [
+        {
+          "path": "root.2.2.2/niche_apps_analysis",
+          "description": "Detailed analysis of niche Korean review platforms, their target demographics, and market gaps."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate competitor analyses into a comprehensive report.",
+    "outputs": [
+      {
+        "path": "root.2.2/international_niche_analysis",
+        "description": "Analysis of Google Maps and niche Korean review platforms, focusing on their market position and limitations."
+      }
+    ],
+    "condition": "done(\"root.2.2.1/google_maps_analysis\") AND done(\"root.2.2.2/niche_apps_analysis\")"
+  }
+}

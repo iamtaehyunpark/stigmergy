@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.1",
+  "reasoning": "The task is to generate a single localized announcement post for South Korea. This is a focused creative writing task that does not require decomposition into subtasks. I have all the necessary context to perform this task directly without needing external data or parallel agents. Therefore, I will execute the task myself.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.1/announcement_post",
+      "description": "Korean language announcement post with cultural nuances."
+    }
+  ]
+}

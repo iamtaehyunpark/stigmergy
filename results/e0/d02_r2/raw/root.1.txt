@@ -1,0 +1,41 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires a comprehensive market analysis covering multiple distinct dimensions: market sizing (TAM/SAM/SOM), demographic trends, and growth drivers. These components are independent enough to be researched in parallel but require integration into a single coherent report. Spawning allows for focused research on each dimension, while the self-role ensures the final output meets the interface contract.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Analyze market size and growth trends for local review platforms in Korea.",
+      "capsule": "This subtask quantifies the market opportunity by estimating TAM, SAM, and SOM for the Korean local review sector. It provides the numerical foundation for the business plan's financial projections.",
+      "outputs": [
+        {
+          "path": "root.1.1/market_sizing",
+          "description": "Data on TAM, SAM, SOM, and historical/projected growth rates for the Korean local review market."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Analyze user demographics and behavior patterns in the Korean local review market.",
+      "capsule": "This subtask identifies the target audience segments, their review habits, and platform preferences. It informs the go-to-market strategy and product positioning.",
+      "outputs": [
+        {
+          "path": "root.1.2/demographics",
+          "description": "Analysis of user demographics, psychographics, and review behavior trends in Korea."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate market sizing and demographic data into a comprehensive market analysis report.",
+    "outputs": [
+      {
+        "path": "root.1/market_analysis",
+        "description": "Detailed market analysis including TAM/SAM/SOM, growth trends, and user demographics in Korea."
+      }
+    ],
+    "condition": "done(\"root.1.1/market_sizing\") AND done(\"root.1.2/demographics\")"
+  }
+}

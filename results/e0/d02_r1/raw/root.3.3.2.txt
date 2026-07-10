@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.3.2",
+  "reasoning": "The task requires a comprehensive analysis of privacy, legal, and ethical constraints specific to a Korean local-review platform. This involves researching Korean data protection laws (PIPA), international regulations (GDPR/CCPA) if applicable, and ethical norms around user data monetization. Since this is a focused research and synthesis task that can be completed in a single effort without needing parallel sub-agents, EXECUTE is the most efficient choice.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.3.2/privacy_legal_analysis",
+      "description": "Analysis of legal constraints, privacy risks, and mitigation strategies."
+    }
+  ]
+}

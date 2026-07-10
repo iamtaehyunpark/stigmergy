@@ -1,0 +1,41 @@
+{
+  "task_id": "root.4.2.3.2.2.2",
+  "reasoning": "The task requires designing specific partnership structures and incentive models for a Korean local-review platform. This involves creating distinct frameworks for different types of partners (e.g., local businesses, content creators, influencers) and defining the economic incentives for each. Since these components are logically distinct but related, I can decompose them into parallel subtasks for business partnerships and creator incentives, then integrate them into a final comprehensive document. This ensures a thorough and structured approach while maintaining efficiency.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.2.3.2.2.2.1",
+      "goal": "Design partnership structures for local businesses and brands.",
+      "capsule": "This subtask defines how local businesses and brands can partner with the platform, including sponsorship tiers, advertising packages, and B2B collaboration models. It serves the root goal by establishing the primary revenue-generating partnerships that sustain the platform's operations.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.2.2.1/business_partnership_models",
+          "description": "Detailed structures for business partnerships, including sponsorship tiers, ad products, and B2B collaboration frameworks."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.2.2.2.2",
+      "goal": "Develop incentive models for content creators and reviewers.",
+      "capsule": "This subtask designs the incentive mechanisms for individual users, including revenue sharing, loyalty programs, and co-creation opportunities. It serves the root goal by ensuring a sustainable and motivated user base that generates high-quality content for the platform.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2.2.2.2/creator_incentive_models",
+          "description": "Detailed incentive models for creators, including revenue sharing, gamification, and co-creation frameworks."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate business and creator partnership models into a comprehensive partnership strategy document.",
+    "outputs": [
+      {
+        "path": "root.4.2.3.2.2.2/partnership_models",
+        "description": "Detailed partnership structures, compensation models, and co-creation frameworks."
+      }
+    ],
+    "condition": "done(\"root.4.2.3.2.2.2.1/business_partnership_models\") AND done(\"root.4.2.3.2.2.2.2/creator_incentive_models\")"
+  }
+}

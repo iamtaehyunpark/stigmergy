@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.1",
+  "reasoning": "The task is to draft a single localized announcement post for the South Korean market. This is a focused creative writing task that does not require decomposition into subtasks. I have all the necessary context to proceed immediately without waiting for external data. Therefore, I will execute the task directly.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.1/announcement_post",
+      "description": "Draft of the localized announcement post for KR."
+    }
+  ]
+}

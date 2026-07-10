@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.4",
+  "reasoning": "The task is to draft Chapter 4 based on three specific research outputs located in shared memory. All three required inputs (root.4.1/research_complex_interactions, root.4.2/research_multi_agent_memory, and root.4.3/research_future_directions) are present in the context. The task involves synthesizing these notes into a coherent narrative, which is a single focused writing effort suitable for EXECUTE rather than SPAWN. There are no missing dependencies.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.4/chapter_4_draft",
+      "description": "The complete first draft of Chapter 4, synthesizing research on complex interactions, multi-agent systems, and future directions."
+    }
+  ]
+}

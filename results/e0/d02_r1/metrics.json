@@ -1,0 +1,31 @@
+{
+  "run_id": "d02_r1",
+  "task_id": "d02",
+  "converged": true,
+  "root_outputs": [
+    "root/business_plan"
+  ],
+  "root_outputs_done": [
+    "root/business_plan"
+  ],
+  "llm_calls": 96,
+  "max_depth": 8,
+  "agent_count": 48,
+  "total_spawns": 47,
+  "conflict_count": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 47,
+  "schema_agreements": 47,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_read_events": 0,
+  "cross_branch_unique_pairs": 0,
+  "self_role_parallel": 0,
+  "self_role_gated": 16,
+  "interface_owed_self": 15,
+  "interface_owed_delegated": 0,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Converged with a recursive multi-level graph matching the broad human decomposition."
+}

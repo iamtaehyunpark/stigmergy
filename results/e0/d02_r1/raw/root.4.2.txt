@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4.2",
+  "reasoning": "The task requires a detailed marketing channel strategy for the Korean market. This involves analyzing specific platforms (Naver, Kakao, Instagram, YouTube) and defining content and partnership strategies for each. Since these analyses are distinct but related, I can decompose the task into parallel subtasks for each major channel ecosystem to ensure depth and accuracy, and then integrate them into a cohesive strategy.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.2.1",
+      "goal": "Develop strategy for Naver ecosystem (Blog, Cafe, Search, Webtoon).",
+      "capsule": "Naver is the dominant search and content platform in Korea. This subtask defines how to leverage SEO, community engagement, and content marketing on Naver to drive organic traffic and brand trust.",
+      "outputs": [
+        {
+          "path": "root.4.2.1/naver_strategy",
+          "description": "Detailed strategy for Naver Blog, Cafe, Search, and Webtoon including content types and SEO tactics."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.2",
+      "goal": "Develop strategy for Kakao ecosystem (KakaoTalk, Story, Channel).",
+      "capsule": "Kakao is the primary messaging and social platform in Korea. This subtask defines user acquisition and retention strategies via KakaoTalk Official Accounts, Kakao Story, and Kakao Channel.",
+      "outputs": [
+        {
+          "path": "root.4.2.2/kakao_strategy",
+          "description": "Detailed strategy for KakaoTalk, Kakao Story, and Kakao Channel including messaging campaigns and community building."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3",
+      "goal": "Develop strategy for visual and influencer platforms (Instagram, YouTube, TikTok).",
+      "capsule": "Visual platforms are crucial for brand awareness and influencer marketing in Korea. This subtask defines content strategies and influencer partnership models for Instagram, YouTube, and TikTok.",
+      "outputs": [
+        {
+          "path": "root.4.2.3/visual_influencer_strategy",
+          "description": "Detailed strategy for Instagram, YouTube, and TikTok including influencer tiers, content formats, and campaign ideas."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate channel strategies into a comprehensive marketing channel strategy document.",
+    "outputs": [
+      {
+        "path": "root.4.2/channel_strategy",
+        "description": "Detailed marketing channel strategy including platform selection, content types, and partnership opportunities."
+      }
+    ],
+    "condition": "done(\"root.4.2.1/naver_strategy\") AND done(\"root.4.2.2/kakao_strategy\") AND done(\"root.4.2.3/visual_influencer_strategy\")"
+  }
+}

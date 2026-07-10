@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.2.3.2",
+  "reasoning": "The task requires a focused analysis of YouTube strategy for a specific niche (Korean local reviews). This involves evaluating content formats, creator collaborations, and SEO implications. It is a discrete analytical task that can be completed in a single effort without needing to decompose into further subtasks or wait for external data.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.2.3.2/youtube_analysis",
+      "description": "Analysis of YouTube content formats, creator collaborations, and search visibility for local businesses."
+    }
+  ]
+}

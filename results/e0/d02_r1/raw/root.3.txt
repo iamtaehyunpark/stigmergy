@@ -1,0 +1,53 @@
+{
+  "task_id": "root.3",
+  "reasoning": "The task of developing a revenue model is complex enough to benefit from decomposition into distinct monetization streams, which are largely independent. I will spawn subtasks to analyze advertising, premium listings, and data services separately, as these require different market research and pricing logic. I will then integrate these findings into a cohesive revenue model document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.3.1",
+      "goal": "Analyze advertising revenue opportunities for the Korean local-review platform.",
+      "capsule": "This subtask explores display ads, sponsored reviews, and targeted marketing opportunities within the Korean digital ecosystem. It serves the ROOT GOAL by defining a scalable, high-volume revenue stream typical for review platforms.",
+      "outputs": [
+        {
+          "path": "root.3.1/advertising_analysis",
+          "description": "Analysis of ad formats, CPM/CPC benchmarks in Korea, and projected ad revenue."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.2",
+      "goal": "Develop a premium listing and subscription model for local businesses.",
+      "capsule": "This subtask defines value-added services for merchants, such as enhanced profiles, analytics, and lead generation tools. It serves the ROOT GOAL by establishing a direct B2B revenue stream that aligns with merchant growth needs.",
+      "outputs": [
+        {
+          "path": "root.3.2/premium_services_analysis",
+          "description": "Pricing tiers, feature sets, and projected uptake for premium merchant subscriptions."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.3",
+      "goal": "Evaluate data monetization and partnership opportunities.",
+      "capsule": "This subtask investigates selling aggregated consumer insights and forming partnerships with payment or delivery platforms. It serves the ROOT GOAL by identifying high-margin, low-volume revenue streams leveraging the platform's unique data assets.",
+      "outputs": [
+        {
+          "path": "root.3.3/data_monetization_analysis",
+          "description": "Potential data products, privacy considerations, and partnership revenue projections."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate subtask analyses into a comprehensive revenue model document.",
+    "outputs": [
+      {
+        "path": "root.3/revenue_model",
+        "description": "Detailed revenue model including pricing strategies, monetization channels, and unit economics."
+      }
+    ],
+    "condition": "done(\"root.3.1/advertising_analysis\") AND done(\"root.3.2/premium_services_analysis\") AND done(\"root.3.3/data_monetization_analysis\")"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.1",
+  "reasoning": "The task requires defining specific audience segments and value propositions for a Korean local-review platform. This is a focused strategic analysis task that can be completed in a single effort by synthesizing knowledge of the Korean digital landscape, user behaviors, and competitive gaps. It does not require complex decomposition or external data dependencies, so EXECUTE is the most efficient action.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.1/audience_and_value_prop",
+      "description": "Detailed breakdown of target audience segments (e.g., Gen Z/Millennials, Local Business Owners, Tourists) and corresponding core value propositions differentiating from Naver/Google."
+    }
+  ]
+}

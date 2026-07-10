@@ -1,0 +1,77 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires a comprehensive business plan with five distinct, complex sections. Generating all of this in a single execution would likely result in shallow analysis and poor structure. Decomposing the task into parallel subtasks for each major section (Market Analysis, Competitor Analysis, Revenue Model, Go-to-Market, Financial Projections) allows for deeper, more focused research and writing. I will then integrate these components into a final, cohesive business plan document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Conduct a detailed market analysis for a Korean local-review platform.",
+      "capsule": "This subtask analyzes the size, growth, and trends of the Korean local review market. It provides the foundational context for the business plan by identifying target demographics and market opportunities.",
+      "outputs": [
+        {
+          "path": "root.1/market_analysis",
+          "description": "A detailed report on the Korean local review market size, growth trends, and target user demographics."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Perform a competitor analysis of existing Korean local-review platforms.",
+      "capsule": "This subtask identifies key competitors like Naver Place, Google Maps, and specialized apps. It analyzes their strengths, weaknesses, and market positioning to identify gaps for the new platform.",
+      "outputs": [
+        {
+          "path": "root.2/competitor_analysis",
+          "description": "A detailed report on key competitors, their features, market share, and strategic weaknesses."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Develop a revenue model for the Korean local-review platform.",
+      "capsule": "This subtask defines how the platform will make money, exploring options like advertising, premium listings, and data services. It ensures the business has a viable path to profitability.",
+      "outputs": [
+        {
+          "path": "root.3/revenue_model",
+          "description": "A detailed description of the platform's revenue streams, pricing strategies, and monetization tactics."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Create a go-to-market strategy for the Korean local-review platform.",
+      "capsule": "This subtask outlines the launch strategy, user acquisition channels, and marketing tactics specific to the Korean digital landscape. It details how the platform will gain initial traction.",
+      "outputs": [
+        {
+          "path": "root.4/go_to_market",
+          "description": "A comprehensive go-to-market strategy including launch phases, marketing channels, and user acquisition plans."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Generate financial projections for the Korean local-review platform.",
+      "capsule": "This subtask creates a 3-5 year financial forecast, including revenue, expenses, and key metrics. It provides the quantitative basis for the business plan's viability.",
+      "outputs": [
+        {
+          "path": "root.5/financial_projections",
+          "description": "A 3-5 year financial forecast including P&L, cash flow, and key performance indicators."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate all subtask outputs into a single, cohesive business plan document.",
+    "outputs": [
+      {
+        "path": "root/business_plan",
+        "description": "The final, complete business plan document incorporating market analysis, competitor analysis, revenue model, go-to-market strategy, and financial projections."
+      }
+    ],
+    "condition": "done(\"root.1/market_analysis\") AND done(\"root.2/competitor_analysis\") AND done(\"root.3/revenue_model\") AND done(\"root.4/go_to_market\") AND done(\"root.5/financial_projections\")"
+  }
+}

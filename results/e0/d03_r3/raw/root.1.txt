@@ -1,0 +1,53 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task of producing a high-quality technical chapter involves distinct phases: gathering accurate information, structuring and writing the narrative, and refining for clarity and consistency. These phases are sequential and benefit from specialized focus. I will decompose this into three subtasks: research, drafting, and editing. The draft depends on the research, and the final edit depends on the draft. I will take the final integration role to ensure the output matches the required interface path.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Research foundational concepts of LLM agent memory systems.",
+      "capsule": "This subtask gathers the necessary technical definitions, architectures (e.g., short-term, long-term, episodic, semantic), and key challenges. It serves the ROOT GOAL by providing the factual basis for Chapter 1.",
+      "outputs": [
+        {
+          "path": "root.1.1/research_notes",
+          "description": "Structured notes on LLM agent memory types, definitions, and key literature."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Draft Chapter 1 based on research notes.",
+      "capsule": "This subtask converts research notes into a coherent, engaging technical narrative. It serves the ROOT GOAL by creating the initial content for the first chapter of the field guide.",
+      "outputs": [
+        {
+          "path": "root.1.2/chapter_1_draft",
+          "description": "A complete draft of Chapter 1, including introduction, core concepts, and summary."
+        }
+      ],
+      "condition": "done(\"root.1.1/research_notes\")"
+    },
+    {
+      "id": "root.1.3",
+      "goal": "Edit and refine the Chapter 1 draft for consistency and clarity.",
+      "capsule": "This subtask reviews the draft for technical accuracy, flow, tone, and consistency with the field guide's style. It serves the ROOT GOAL by ensuring the chapter meets high-quality standards before final assembly.",
+      "outputs": [
+        {
+          "path": "root.1.3/chapter_1_edited",
+          "description": "The edited and polished version of Chapter 1."
+        }
+      ],
+      "condition": "done(\"root.1.2/chapter_1_draft\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the edited chapter into the final output format.",
+    "outputs": [
+      {
+        "path": "root.1/chapter_1_final",
+        "description": "The final, edited text for Chapter 1, ready for the book assembly."
+      }
+    ],
+    "condition": "done(\"root.1.3/chapter_1_edited\")"
+  }
+}

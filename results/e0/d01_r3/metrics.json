@@ -1,0 +1,37 @@
+{
+  "run_id": "d01_r3",
+  "task_id": "d01",
+  "converged": true,
+  "root_outputs": [
+    "root.2/backend_code.tar.gz",
+    "root.3/frontend_code.tar.gz",
+    "root.4/integration_tests.tar.gz",
+    "root/final_summary.md"
+  ],
+  "root_outputs_done": [
+    "root.2/backend_code.tar.gz",
+    "root.3/frontend_code.tar.gz",
+    "root.4/integration_tests.tar.gz",
+    "root/final_summary.md"
+  ],
+  "llm_calls": 20,
+  "max_depth": 2,
+  "agent_count": 7,
+  "total_spawns": 6,
+  "conflict_count": 0,
+  "schema_mismatches": 3,
+  "trigger_refs": 12,
+  "schema_agreements": 12,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_read_events": 7,
+  "cross_branch_unique_pairs": 4,
+  "self_role_parallel": 0,
+  "self_role_gated": 2,
+  "interface_owed_self": 1,
+  "interface_owed_delegated": 0,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Converged with a recursive multi-level graph matching the broad human decomposition; worker path mismatches occurred."
+}

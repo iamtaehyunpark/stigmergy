@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4.2.3",
+  "reasoning": "The task requires developing a comprehensive strategy for three distinct visual platforms (Instagram, YouTube, TikTok) within the Korean market. Each platform has unique content formats, user demographics, and influencer dynamics that require specific strategic approaches. Decomposing this into parallel subtasks allows for focused, platform-specific strategies that can then be integrated into a cohesive document. I will spawn three subtasks for the individual platforms and take the integration role myself.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.2.3.1",
+      "goal": "Develop Instagram strategy for the Korean local-review platform.",
+      "capsule": "Instagram is key for visual discovery and lifestyle branding in Korea. This subtask defines content pillars (e.g., aesthetic food shots, cafe reviews), hashtag strategies, and micro-influencer partnership models to drive brand awareness and user acquisition.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.1/instagram_strategy",
+          "description": "Detailed Instagram strategy including content types, posting frequency, hashtag strategy, and influencer tier definitions."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.2",
+      "goal": "Develop YouTube strategy for the Korean local-review platform.",
+      "capsule": "YouTube is the primary search engine for video reviews in Korea. This subtask outlines long-form content strategies (e.g., 'hidden gem' tours, honest reviews), collaboration models with mid-to-macro creators, and SEO optimization for review content.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.2/youtube_strategy",
+          "description": "Detailed YouTube strategy including video formats, creator collaboration models, SEO tactics, and campaign ideas."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2.3.3",
+      "goal": "Develop TikTok strategy for the Korean local-review platform.",
+      "capsule": "TikTok drives viral trends and Gen Z engagement in Korea. This subtask defines short-form content hooks, challenge campaigns, and nano-influencer seeding strategies to create viral awareness and drive app downloads.",
+      "outputs": [
+        {
+          "path": "root.4.2.3.3/tiktok_strategy",
+          "description": "Detailed TikTok strategy including content hooks, viral challenge ideas, nano-influencer seeding plans, and trend-jacking tactics."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate platform-specific strategies into a cohesive visual and influencer marketing plan.",
+    "outputs": [
+      {
+        "path": "root.4.2.3/visual_influencer_strategy",
+        "description": "Detailed strategy for Instagram, YouTube, and TikTok including influencer tiers, content formats, and campaign ideas."
+      }
+    ],
+    "condition": "done(\"root.4.2.3.1/instagram_strategy\") AND done(\"root.4.2.3.2/youtube_strategy\") AND done(\"root.4.2.3.3/tiktok_strategy\")"
+  }
+}

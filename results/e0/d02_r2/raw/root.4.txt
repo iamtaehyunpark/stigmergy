@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The go-to-market strategy for a Korean local-review platform is a complex task that benefits from decomposition into distinct, parallelizable components: launch phases, marketing channels, and user acquisition. These components are interrelated but can be researched and drafted independently before being integrated. I will spawn three subtasks to handle these specific areas and take on the integration role myself to ensure a cohesive final strategy.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Define the phased launch plan for the Korean market.",
+      "capsule": "This subtask outlines the timeline and milestones for the platform's launch, from beta testing in specific districts to a nationwide rollout. It serves the ROOT GOAL by providing a structured timeline for market entry.",
+      "outputs": [
+        {
+          "path": "root.4.1/launch_phases",
+          "description": "Detailed launch phases including beta, soft launch, and full launch with timelines and KPIs."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Identify and detail effective marketing channels in Korea.",
+      "capsule": "This subtask analyzes the most effective marketing channels in Korea, such as Naver, Kakao, Instagram, and offline partnerships. It serves the ROOT GOAL by identifying where to allocate marketing budget for maximum visibility.",
+      "outputs": [
+        {
+          "path": "root.4.2/marketing_channels",
+          "description": "Analysis of key marketing channels in Korea with specific tactics for each."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Develop user acquisition strategies for both consumers and businesses.",
+      "capsule": "This subtask details specific tactics to acquire initial users (reviewers) and businesses (listings), addressing the chicken-and-egg problem. It serves the ROOT GOAL by defining how the platform will gain initial traction.",
+      "outputs": [
+        {
+          "path": "root.4.3/user_acquisition",
+          "description": "Strategies for acquiring both consumer reviewers and business listings."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate launch phases, marketing channels, and user acquisition strategies into a cohesive go-to-market document.",
+    "outputs": [
+      {
+        "path": "root.4/go_to_market",
+        "description": "Detailed go-to-market strategy including launch phases, marketing channels, and user acquisition tactics."
+      }
+    ],
+    "condition": "done(\"root.4.1/launch_phases\") AND done(\"root.4.2/marketing_channels\") AND done(\"root.4.3/user_acquisition\")"
+  }
+}
