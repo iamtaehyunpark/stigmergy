@@ -107,7 +107,7 @@ rerun clean, 7 completed runs reused with zero LLM calls).
   reproduce the probe-era 5-agent shape.
 - Depth by task: d01 1,1,2 · d02 8,4,4 · d03 2,3,2 · d04 2,2,2.
   The fixed-tier depth cap is gone; depth now varies with the task.
-- **Participation rule results**: self_role distribution 62/62 gated
+- **Participation rule results**: self_role distribution 69/69 gated
   integrator, 0 parallel — parent-as-integrator is not just dominant
   but universal. Interface self-fulfillment 93/93 (100%): the v5
   delegation exception was never used once. DEFER: 0 uses in 12 runs.

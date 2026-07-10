@@ -50,7 +50,7 @@
 ## 2026-07-10 - E0-min: SPAWN is spawn-and-continue; the terminal-step model of section 1.2 is wrong
 
 - Assumption or gap: Theory section 1.2 models an agent's step as terminal - emit (Delta-D, Delta-C) and exit; a spawning agent contributes only Delta-C. The E0 participation rule (spec 0.2) forces every spawner to also declare a self_role job it executes itself.
-- What actually happened: 12/12 E0 runs converged with the rule in force; validation rejected-and-repaired SPAWNs lacking self_role without any convergence cost. The self_role was the gated integrator in 62/62 cases (0 parallel shares, 0 review jobs).
+- What actually happened: 12/12 E0 runs converged with the rule in force; validation rejected-and-repaired SPAWNs lacking self_role without any convergence cost. The self_role was the gated integrator in 69/69 cases (0 parallel shares, 0 review jobs).
 - Implication for `RATD_Theory.md`: Section 1.2 should model SPAWN as spawn-and-continue: the agent's step returns (Delta-D, Delta-C) where Delta-D may be deferred behind a trigger the agent registers for itself. Every agent contributes data, not just rules - there are no pure-router nodes. This is also the cleanest statement of why interface orphaning (probe finding) cannot recur: the interface owner stays alive until its interface is written.
 
 ## 2026-07-10 - E0-min: parent-as-integrator is universal; interface delegation is dead code so far
