@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.1",
+  "reasoning": "The task is to define a specific set of canonical endpoint nouns and their Korean translations for a payments platform. This is a focused, self-contained knowledge task that does not require complex decomposition or external dependencies. It can be completed competently in a single execution step by listing standard RESTful resources (e.g., transactions, refunds, customers, merchants) and their precise Korean equivalents.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1.1/endpoint_nouns",
+      "description": "A list of canonical endpoint nouns with English and Korean translations."
+    }
+  ]
+}

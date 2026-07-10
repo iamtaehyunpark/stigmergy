@@ -1,0 +1,53 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires defining canonical terminology and naming conventions for a payments API, which involves distinct but related domains: endpoint nouns, error codes, and casing rules. These can be researched and defined in parallel to maximize efficiency. I will spawn three subtasks to handle each domain independently, and then take the integrating role to compile them into the final `canonical_terminology` document, ensuring consistency and adherence to the bilingual requirement.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Define canonical endpoint nouns and their Korean translations.",
+      "capsule": "This subtask identifies standard RESTful resource names for a payments platform (e.g., transactions, refunds, customers) and establishes their precise Korean equivalents. It serves the ROOT GOAL by providing the foundational vocabulary for API paths.",
+      "outputs": [
+        {
+          "path": "root.1.1/endpoint_nouns",
+          "description": "A list of canonical endpoint nouns with English and Korean translations."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Define canonical error-code vocabulary and their Korean translations.",
+      "capsule": "This subtask establishes standard error codes and messages for payment failures (e.g., insufficient funds, expired card) and their Korean equivalents. It serves the ROOT GOAL by ensuring consistent error handling terminology across the API.",
+      "outputs": [
+        {
+          "path": "root.1.2/error_code_vocabulary",
+          "description": "A list of canonical error codes and messages with English and Korean translations."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.3",
+      "goal": "Define casing rules for the API.",
+      "capsule": "This subtask determines the casing conventions for endpoints, parameters, and headers (e.g., snake_case vs camelCase) and how they apply to both English and Korean contexts. It serves the ROOT GOAL by establishing syntactic consistency.",
+      "outputs": [
+        {
+          "path": "root.1.3/casing_rules",
+          "description": "A definition of casing rules for API components."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate subtask outputs into the final canonical terminology document.",
+    "outputs": [
+      {
+        "path": "root.1/canonical_terminology",
+        "description": "A structured definition of endpoint nouns, error-code vocabulary, and casing rules in both English and Korean."
+      }
+    ],
+    "condition": "done(\"root.1.1/endpoint_nouns\") AND done(\"root.1.2/error_code_vocabulary\") AND done(\"root.1.3/casing_rules\")"
+  }
+}

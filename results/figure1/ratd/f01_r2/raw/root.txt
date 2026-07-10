@@ -1,0 +1,41 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires two distinct parts with a strict dependency: Part B (tutorial) must use the terminology defined in Part A. Therefore, Part A must execute first, and Part B must wait for its output. I will spawn Part A to define the conventions and Part B to write the tutorial, with Part B conditioned on Part A's completion. I will take the self_role of integrating the two parts into the final bilingual guide to ensure consistency and format compliance.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Define canonical bilingual (EN/KR) terminology and naming conventions for a payments API.",
+      "capsule": "This subtask establishes the ground truth for all API interactions. It must research and define endpoint nouns, error-code vocabulary, and casing rules in both English and Korean. This output serves as the strict constraint for the tutorial in Part B.",
+      "outputs": [
+        {
+          "path": "root.1/terminology_guide",
+          "description": "A structured document defining canonical EN/KR terms, endpoint naming patterns, error code formats, and casing rules."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write a worked integration tutorial with code samples using the canonical terminology.",
+      "capsule": "This subtask creates the practical guide for developers. It must strictly adhere to the terminology and naming conventions defined in root.1/terminology_guide. Any deviation is a defect. It serves the root goal by providing the 'Part B' of the style guide.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_draft",
+          "description": "A bilingual tutorial with code samples demonstrating API integration, strictly using the terms from root.1."
+        }
+      ],
+      "condition": "done(\"root.1/terminology_guide\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate Part A and Part B into a single, cohesive bilingual API style guide.",
+    "outputs": [
+      {
+        "path": "root/final_style_guide",
+        "description": "The complete bilingual API style guide containing both the terminology definitions and the integration tutorial."
+      }
+    ],
+    "condition": "done(\"root.1/terminology_guide\") AND done(\"root.2/tutorial_draft\")"
+  }
+}

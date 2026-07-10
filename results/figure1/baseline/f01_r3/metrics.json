@@ -1,0 +1,18 @@
+{
+  "run_id": "f01_r3",
+  "task_id": "f01",
+  "system": "baseline_tree",
+  "converged": true,
+  "planned": true,
+  "stalled": false,
+  "task_count": 3,
+  "root_outputs": [
+    "root/api_style_guide"
+  ],
+  "llm_calls": 4,
+  "defer_count": 0,
+  "emergent_cross_edges": 0,
+  "planned_cross_branch_unique_pairs": 5,
+  "rail_hit": "",
+  "termination": "natural"
+}

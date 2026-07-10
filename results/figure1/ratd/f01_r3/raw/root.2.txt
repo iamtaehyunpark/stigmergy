@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires writing a bilingual integration tutorial that strictly adheres to the canonical terminology defined in `root.1/canonical_terminology`. Since the terminology is already available in shared memory, I do not need to defer. The task is a single, cohesive writing effort that involves synthesizing the terminology into code samples and explanations. It does not naturally split into independent parallel subtasks that would benefit from spawning; instead, it requires a unified voice and consistent application of the rules. Therefore, I will execute the task directly.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/integration_tutorial",
+      "description": "A bilingual (EN/KR) worked integration tutorial with code samples, strictly using the terms from root.1/canonical_terminology."
+    }
+  ]
+}

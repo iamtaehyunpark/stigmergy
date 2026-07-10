@@ -1,0 +1,41 @@
+{
+  "tasks": [
+    {
+      "id": "root.1",
+      "goal": "Research and define the canonical bilingual (EN/KR) terminology, naming conventions, and casing rules for the payments platform API.",
+      "outputs": [
+        {
+          "path": "root.1/terminology_glossary",
+          "description": "A JSON mapping of canonical English terms to Korean translations and their specific usage contexts."
+        },
+        {
+          "path": "root.1/naming_conventions",
+          "description": "A JSON object defining rules for endpoint nouns, error-code vocabulary structure, and casing standards (e.g., snake_case vs camelCase)."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Develop the worked integration tutorial with code samples, strictly adhering to the terminology and conventions defined in Part A.",
+      "outputs": [
+        {
+          "path": "root.2/integration_tutorial",
+          "description": "A Markdown document containing the step-by-step integration guide, code snippets, and explanations using the canonical terms."
+        }
+      ],
+      "condition": "done(\"root.1/terminology_glossary\") AND done(\"root.1/naming_conventions\")"
+    },
+    {
+      "id": "root.3",
+      "goal": "Assemble the final bilingual API style guide by combining the terminology definitions and the integration tutorial into a single deliverable.",
+      "outputs": [
+        {
+          "path": "root/api_style_guide",
+          "description": "The final comprehensive Markdown document containing both Part A (Terminology/Conventions) and Part B (Tutorial)."
+        }
+      ],
+      "condition": "done(\"root.1/terminology_glossary\") AND done(\"root.1/naming_conventions\") AND done(\"root.2/integration_tutorial\")"
+    }
+  ]
+}

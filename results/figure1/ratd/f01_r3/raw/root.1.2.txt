@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.2",
+  "reasoning": "The task is to define a specific set of error codes and their translations. This is a focused, self-contained knowledge task that does not require decomposition into subtasks. I can generate the canonical error code vocabulary directly, covering common payment scenarios like authentication, validation, and transaction failures, ensuring high-quality English and Korean translations.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1.2/error_code_vocabulary",
+      "description": "A list of canonical error codes and messages with English and Korean translations."
+    }
+  ]
+}

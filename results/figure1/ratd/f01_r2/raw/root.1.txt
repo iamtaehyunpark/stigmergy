@@ -1,0 +1,41 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires defining a comprehensive set of conventions (nouns, error codes, casing) in two languages. This is a cohesive research and definition task that benefits from parallel exploration of different domains (resource naming vs. error handling) to ensure depth, followed by a strict integration step to guarantee consistency and format compliance. I will spawn two subtasks to research specific domains and take the integration role myself to produce the final unified guide.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Research and propose canonical English and Korean terminology for payment resources and endpoint nouns.",
+      "capsule": "This subtask focuses on the core nouns of the API (e.g., Payment, Refund, Charge, Payer, Payee). It must determine the most standard, unambiguous terms in both languages and define the casing rules (e.g., kebab-case for URLs, camelCase for JSON) for these resources. This serves the ROOT GOAL by establishing the primary vocabulary for Part A.",
+      "outputs": [
+        {
+          "path": "root.1.1/resource_terminology",
+          "description": "A structured list of canonical EN/KR terms for payment resources, including endpoint URL patterns and JSON key casing rules."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Research and propose canonical English and Korean terminology for error codes and status vocabulary.",
+      "capsule": "This subtask focuses on the error handling domain, defining standard error codes (e.g., INSUFFICIENT_FUNDS, INVALID_CARD) and their Korean equivalents, as well as status enums (e.g., PENDING, COMPLETED, FAILED). It must define the format for error codes (e.g., UPPER_SNAKE_CASE) and ensure the Korean translations are precise. This serves the ROOT GOAL by establishing the error vocabulary for Part A.",
+      "outputs": [
+        {
+          "path": "root.1.2/error_terminology",
+          "description": "A structured list of canonical EN/KR error codes, status enums, and their formatting rules."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate resource and error terminology into the final bilingual API style guide.",
+    "outputs": [
+      {
+        "path": "root.1/terminology_guide",
+        "description": "A structured document defining canonical EN/KR terms, endpoint naming patterns, error code formats, and casing rules."
+      }
+    ],
+    "condition": "done(\"root.1.1/resource_terminology\") AND done(\"root.1.2/error_terminology\")"
+  }
+}

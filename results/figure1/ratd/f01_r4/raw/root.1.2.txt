@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.2",
+  "reasoning": "The task requires researching and defining a specific set of terminology (error codes and status values) for a payments platform. This is a focused knowledge-work task that can be completed in a single effort by synthesizing industry standards (like Stripe, PayPal, or general REST API conventions) and providing accurate Korean translations. It does not require decomposition into subtasks as the scope is narrow and the output is a single structured artifact.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1.2/error_terminology",
+      "description": "A structured list of canonical EN/KR error codes, status values, and their formatting rules."
+    }
+  ]
+}

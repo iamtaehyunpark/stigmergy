@@ -1,0 +1,41 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires two distinct parts with a strict dependency: Part B (tutorial) must use the terminology defined in Part A. Therefore, Part A must execute first, and Part B must wait for its output. I will spawn Part A to define the conventions and Part B to write the tutorial, with Part B conditioned on Part A's completion. I will take the self_role of integrating the two parts into the final bilingual style guide document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Define canonical bilingual (EN/KR) terminology and naming conventions for a payments API.",
+      "capsule": "This subtask researches and establishes the standard terms for endpoints, error codes, and casing rules. It serves the ROOT GOAL by creating the single source of truth that Part B must adhere to, preventing term drift.",
+      "outputs": [
+        {
+          "path": "root.1/canonical_terminology",
+          "description": "A structured definition of endpoint nouns, error-code vocabulary, and casing rules in both English and Korean."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write a worked integration tutorial with code samples using the canonical terminology.",
+      "capsule": "This subtask creates the practical guide for developers. It serves the ROOT GOAL by demonstrating the API usage, strictly adhering to the terminology defined in root.1 to ensure consistency.",
+      "outputs": [
+        {
+          "path": "root.2/integration_tutorial",
+          "description": "A bilingual tutorial with code samples, strictly using the terms from root.1/canonical_terminology."
+        }
+      ],
+      "condition": "done(\"root.1/canonical_terminology\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate Part A and Part B into the final bilingual API style guide.",
+    "outputs": [
+      {
+        "path": "root/final_style_guide",
+        "description": "The complete bilingual API style guide containing both the terminology definitions and the integration tutorial."
+      }
+    ],
+    "condition": "done(\"root.1/canonical_terminology\") AND done(\"root.2/integration_tutorial\")"
+  }
+}
