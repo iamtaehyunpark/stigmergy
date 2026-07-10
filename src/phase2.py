@@ -240,6 +240,7 @@ class Runtime:
 
     def route(self, agent: AgentSpec) -> dict[str, Any] | None:
         message = self.context(agent)
+        self.log("route_context", agent=agent.task_id, chars=len(self.harness) + len(message))
         raw = ""
         notes: list[str] = []
         parsed: dict[str, Any] | None = None

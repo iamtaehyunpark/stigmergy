@@ -1,0 +1,22 @@
+[
+  {
+    "id": "L1",
+    "task": "Write a one-page explainer of vector embeddings for junior developers: what they are, how similarity search works at a high level, and three practical do/don't tips for using them in an application.",
+    "source": "L1 small (probe t17-class): single artifact, no decomposition needed. Expect planner wins or ties."
+  },
+  {
+    "id": "L2",
+    "task": "Write a comparative report on the top 3 vector database products: features, pricing, and performance, ending with a recommendation.",
+    "source": "L2 moderate (probe t06 verbatim): 3 parallel + synthesis, ~5 leaves."
+  },
+  {
+    "id": "L3",
+    "task": "Write a 4-chapter technical field guide to LLM agent memory systems. Each chapter needs its own research, a draft, and a consistency edit; the book needs a unified glossary and a final assembly pass.",
+    "source": "L3 deep (E0 d03 verbatim): depth 3, ~12-15 leaves."
+  },
+  {
+    "id": "L4",
+    "task": "Write a 4-chapter technical field guide to LLM agent memory systems. Each chapter needs its own research, a draft, and a consistency edit; the book needs a unified glossary and a final assembly pass. Additionally, a separate standards track must first survey the terminology actually used in each chapter's source domain and publish the guide's canonical terminology standard - the standard emerges from that survey and is not fixed in advance; every chapter and the glossary must use the canonical terms exactly, and term drift anywhere in the guide is a defect.",
+    "source": "L4 deep+discovery (d03 + Figure-1-style mid-execution dependency): the regime where replanning must actually replan. Runnable because E0-min passed."
+  }
+]
