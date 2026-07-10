@@ -680,8 +680,17 @@ def run_phase2(args: argparse.Namespace) -> int:
     for task in select_tasks(Path(args.tasks), task_ids):
         for rep in range(1, args.repetitions + 1):
             run_id = f"{task['id']}_r{rep}"
+            run_dir = base / run_id
+            metrics_path = run_dir / "metrics.json"
+            if metrics_path.exists():
+                print(f"skipping {run_id} (completed; metrics.json exists — delete the dir to rerun)", flush=True)
+                all_metrics.append(RunMetrics(**load_json(metrics_path)))
+                continue
+            if run_dir.exists():
+                print(f"clearing partial {run_id} (no metrics.json; stale trace/state would corrupt the rerun)", flush=True)
+                shutil.rmtree(run_dir)
             print(f"running {run_id}...", flush=True)
-            runtime = Runtime(run_id, task, harness, config, base / run_id)
+            runtime = Runtime(run_id, task, harness, config, run_dir)
             all_metrics.append(runtime.run())
     write_summary(base, all_metrics)
     return 0

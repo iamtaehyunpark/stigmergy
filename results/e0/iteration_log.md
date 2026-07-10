@@ -60,6 +60,31 @@ Spec: `RATD_Experiment_Spec_E0-E2.md` §E0-min. Baseline: probe-final
   recursion, DEFER/wake, natural convergence, and all new metrics
   fields populated as expected.
 
+## Build iteration 1 (mid-protocol) — resume semantics after session-teardown kill
+
+- First 12-run invocation was killed mid-d03_r2 by server session
+  teardown (`Linger=no` for the user: the systemd user instance — and
+  the job under it — dies with the SSH session). Not an experiment
+  bug; d01/d02 (6 runs) and d03_r1 completed with valid metrics.json;
+  d03_r2 partial; d03_r3 and all of d04 never ran.
+- Runtime hazard found while planning the rerun: `Runtime` reuses an
+  existing out dir — it appends to `trace.jsonl` and reopens
+  `state.sqlite`, so rerunning into a completed/partial dir would
+  raise a primary-key conflict on every write (polluting the conflict
+  metric, the §4 headline) and double-count trace events.
+- Fix in `run_phase2` (resume semantics, no per-run behavior change):
+  a run dir with `metrics.json` is skipped and its metrics reloaded
+  into the summary (metrics.json is written only on run completion,
+  so it is a valid completion sentinel); a run dir without it is
+  wiped before the rerun. One re-invocation of the full command now
+  completes the protocol and writes the full 12-run summary.
+  Completed runs are never silently rerun; delete a run dir to force.
+- Verified offline (mock model): completed rep skipped, partial rep
+  wiped and rerun with zero stale conflicts/trace lines, summary
+  rebuilt over all reps.
+- Server durability fix, separate from code: `loginctl enable-linger
+  tpark45` so detached jobs survive disconnects.
+
 Decision rule for the runs (spec §0.5): PASS = depth ≥ 3 convergence
 on d03 in ≥ 1/3 reps with a sensible shape AND no regression on d01.
 Rail-terminated non-convergence on d04 is an expected, recorded
