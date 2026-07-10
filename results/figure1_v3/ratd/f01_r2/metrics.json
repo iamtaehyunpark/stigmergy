@@ -1,0 +1,33 @@
+{
+  "run_id": "f01_r2",
+  "task_id": "f01",
+  "converged": true,
+  "root_outputs": [
+    "root.2/integration_tutorial",
+    "root/final_guide"
+  ],
+  "root_outputs_done": [
+    "root.2/integration_tutorial",
+    "root/final_guide"
+  ],
+  "llm_calls": 24,
+  "max_depth": 3,
+  "agent_count": 11,
+  "total_spawns": 10,
+  "conflict_count": 0,
+  "schema_mismatches": 1,
+  "trigger_refs": 13,
+  "schema_agreements": 13,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_read_events": 12,
+  "cross_branch_unique_pairs": 7,
+  "self_role_parallel": 0,
+  "self_role_gated": 4,
+  "interface_owed_self": 4,
+  "interface_owed_delegated": 0,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Converged with a recursive multi-level graph matching the broad human decomposition; worker path mismatches occurred."
+}

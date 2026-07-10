@@ -1,0 +1,41 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The previous action failed because the condition `done(\"root.1/canonical_standard\")` referenced a key that was not explicitly declared as an output of the parent task `root.1` in the context provided, even though the content was visible in 'Relevant Memory'. To fix this, I will remove the explicit dependency condition on `root.1/canonical_standard` and set the subtask conditions to `null`. Since the content of the standard is already available in the shared memory context provided to me, the subtasks can proceed immediately using that information. I will still decompose the task into English and Korean generation for parallelism, and retain my self-role for consistency verification.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Write the English integration tutorial and migration notes.",
+      "capsule": "This subtask generates the English version of the developer guide. It must cover checkout, refund, error handling, and migration notes using the canonical terms from root.1. It serves the ROOT GOAL by providing the primary language documentation for developers.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_en",
+          "description": "The English version of the integration tutorial, including code samples and migration notes."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Write the Korean integration tutorial and migration notes.",
+      "capsule": "This subtask generates the Korean version of the developer guide. It must cover checkout, refund, error handling, and migration notes using the canonical terms from root.1. It serves the ROOT GOAL by providing the secondary language documentation for developers.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_kr",
+          "description": "The Korean version of the integration tutorial, including code samples and migration notes."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Verify consistency between EN and KR tutorials and ensure strict adherence to the canonical standard.",
+    "outputs": [
+      {
+        "path": "root.2/consistency_check",
+        "description": "A report confirming that both tutorials use the canonical terms exactly and that the migration notes map legacy identifiers correctly."
+      }
+    ],
+    "condition": "done(\"root.2/tutorial_en\") AND done(\"root.2/tutorial_kr\")"
+  }
+}

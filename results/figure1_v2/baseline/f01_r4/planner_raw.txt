@@ -1,0 +1,41 @@
+{
+  "tasks": [
+    {
+      "id": "root.1",
+      "goal": "Research Cheonma legacy code to extract and define the canonical terminology standard, including endpoint nouns, error-code vocabulary, and casing rules.",
+      "outputs": [
+        {
+          "path": "root.1/canonical_standard.json",
+          "description": "JSON object containing the definitive list of allowed endpoint nouns, error codes, and casing conventions derived from legacy code."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write the worked integration tutorial with runnable code samples for checkout and refund flows, strictly adhering to the canonical standard published by root.1.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_content.md",
+          "description": "Markdown content for the tutorial including code blocks for checkout and refund flows, using only terms defined in root.1/canonical_standard.json."
+        }
+      ],
+      "condition": "done(\"root.1/canonical_standard.json\")"
+    },
+    {
+      "id": "root.3",
+      "goal": "Assemble the final bilingual (EN/KR) developer style guide by combining the canonical standard and the tutorial, performing a final validation to ensure zero term drift between parts.",
+      "outputs": [
+        {
+          "path": "root/cheonma_style_guide_en.md",
+          "description": "Final English version of the bilingual style guide."
+        },
+        {
+          "path": "root/cheonma_style_guide_kr.md",
+          "description": "Final Korean version of the bilingual style guide."
+        }
+      ],
+      "condition": "done(\"root.1/canonical_standard.json\") AND done(\"root.2/tutorial_content.md\")"
+    }
+  ]
+}

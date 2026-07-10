@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task requires writing a Korean integration tutorial and migration notes. I have access to the canonical standard (root.1/canonical_standard), the legacy survey (root.1/legacy_survey), and the English tutorial (root.2/tutorial_en) which serves as a structural reference. The task is a single focused writing effort that involves translation and adaptation of technical content, ensuring strict adherence to the canonical terms. It does not require decomposition into subtasks as it is a single document output.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_kr",
+      "description": "The Korean version of the integration tutorial including checkout, refund, error handling, and migration notes."
+    }
+  ]
+}

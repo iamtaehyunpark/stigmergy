@@ -1,0 +1,32 @@
+digraph G {
+rankdir=LR;
+"root" [shape=box];
+"root.1" [shape=box];
+"root.1.1" [shape=box];
+"root.1.1.1" [shape=box];
+"root.1.1.2" [shape=box];
+"root.1.1.3" [shape=box];
+"root.2" [shape=box];
+"root.2.1" [shape=box];
+"root.2.2" [shape=box];
+"root" -> "root.1" [style=solid];
+"root" -> "root.2" [style=solid];
+"root.1" -> "root.2" [style=dashed];
+"root.1" -> "root" [style=dashed];
+"root.2" -> "root" [style=dashed];
+"root.2" -> "root" [style=dashed];
+"root.1" -> "root.1.1" [style=solid];
+"root.1.1" -> "root.1" [style=dashed];
+"root.1.1" -> "root.1.1.1" [style=solid];
+"root.1.1" -> "root.1.1.2" [style=solid];
+"root.1.1" -> "root.1.1.3" [style=solid];
+"root.1.1.1" -> "root.1.1" [style=dashed];
+"root.1.1.2" -> "root.1.1" [style=dashed];
+"root.1.1.3" -> "root.1.1" [style=dashed];
+"root.2" -> "root.2.1" [style=solid];
+"root.2" -> "root.2.2" [style=solid];
+"root.2" -> "root.2" [style=dashed];
+"root.2" -> "root.2" [style=dashed];
+"root.1" -> "root.2.1" [style=dashed];
+"root.1" -> "root.2.2" [style=dashed];
+}

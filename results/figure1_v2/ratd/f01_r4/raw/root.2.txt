@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires writing a bilingual integration tutorial that strictly adheres to the canonical terminology standard published by root.1. The relevant memory shows that root.1/canonical_terminology_standard is already published and available. Since the dependency is met, I can proceed to EXECUTE the task directly. The task involves creating a single coherent document (the tutorial) with code samples for checkout and refund flows, which is a focused effort suitable for a single agent execution rather than decomposition.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/integration_tutorial",
+      "description": "A bilingual (EN/KR) tutorial document with runnable code samples for checkout and refund flows, strictly adhering to the canonical terminology standard."
+    }
+  ]
+}

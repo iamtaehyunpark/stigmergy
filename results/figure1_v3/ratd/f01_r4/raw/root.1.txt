@@ -1,0 +1,29 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The previous action failed validation because the 'action' field was missing. The task involves two distinct phases: surveying legacy services and defining a canonical standard. These are dependent (standard depends on survey data). I will spawn a subtask to perform the survey and take the role of synthesizing the standard based on that survey. This decomposition ensures the standard is grounded in actual legacy usage.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Survey the three legacy services (ledger, checkout, merchant-portal) and record all identifiers, endpoints, and error codes.",
+      "capsule": "This subtask acts as the discovery engine. It must exhaustively list every legacy identifier, endpoint name, and error code used by the ledger, checkout, and merchant-portal services. This data is the prerequisite for defining the canonical standard, serving the ROOT GOAL by ensuring no legacy term is overlooked during the transition.",
+      "outputs": [
+        {
+          "path": "root.1.1/legacy_survey",
+          "description": "A structured record of all legacy identifiers, endpoint names, and error codes found in the ledger, checkout, and merchant-portal services."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Define the canonical terminology standard based on the legacy survey.",
+    "outputs": [
+      {
+        "path": "root.1/canonical_standard",
+        "description": "The canonical terminology standard document containing ONLY the new canonical terms, casing rules, and error-code vocabulary. It must also include the internal mapping of legacy identifiers to canonical ones for reference, though the public standard lists only new terms."
+      }
+    ],
+    "condition": "done(\"root.1.1/legacy_survey\")"
+  }
+}

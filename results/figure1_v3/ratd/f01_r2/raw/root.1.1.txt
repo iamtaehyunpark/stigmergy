@@ -1,0 +1,53 @@
+{
+  "task_id": "root.1.1",
+  "reasoning": "The task requires surveying three distinct legacy services (ledger, checkout, merchant-portal). Since these services are independent, the survey can be decomposed into three parallel subtasks to maximize efficiency. Each subtask will focus on one service, extracting identifiers, endpoints, and error codes. I will then integrate these findings into the final `legacy_survey` output as required by the interface contract.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1.1",
+      "goal": "Survey the 'ledger' legacy service for identifiers, endpoints, and error codes.",
+      "capsule": "This subtask focuses exclusively on the ledger service. It must extract all relevant technical artifacts to serve as the basis for the canonical standard. It serves the ROOT GOAL by providing the raw data needed for Part A's terminology decision.",
+      "outputs": [
+        {
+          "path": "root.1.1.1/ledger_artifacts",
+          "description": "A list of all identifiers, endpoint names, and error codes found in the ledger service."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.1.2",
+      "goal": "Survey the 'checkout' legacy service for identifiers, endpoints, and error codes.",
+      "capsule": "This subtask focuses exclusively on the checkout service. It must extract all relevant technical artifacts to serve as the basis for the canonical standard. It serves the ROOT GOAL by providing the raw data needed for Part A's terminology decision.",
+      "outputs": [
+        {
+          "path": "root.1.1.2/checkout_artifacts",
+          "description": "A list of all identifiers, endpoint names, and error codes found in the checkout service."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.1.3",
+      "goal": "Survey the 'merchant-portal' legacy service for identifiers, endpoints, and error codes.",
+      "capsule": "This subtask focuses exclusively on the merchant-portal service. It must extract all relevant technical artifacts to serve as the basis for the canonical standard. It serves the ROOT GOAL by providing the raw data needed for Part A's terminology decision.",
+      "outputs": [
+        {
+          "path": "root.1.1.3/merchant_portal_artifacts",
+          "description": "A list of all identifiers, endpoint names, and error codes found in the merchant-portal service."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the survey results from all three legacy services into a single comprehensive legacy survey.",
+    "outputs": [
+      {
+        "path": "root.1.1/legacy_survey",
+        "description": "A comprehensive record of all legacy identifiers, endpoint names, and error codes found in the ledger, checkout, and merchant-portal services."
+      }
+    ],
+    "condition": "done(\"root.1.1.1/ledger_artifacts\") AND done(\"root.1.1.2/checkout_artifacts\") AND done(\"root.1.1.3/merchant_portal_artifacts\")"
+  }
+}

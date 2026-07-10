@@ -1,0 +1,41 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires producing two distinct parts of a developer style guide with a strict dependency: Part B (tutorial) must use the terminology defined in Part A (standards). Since Part A's output is unknown and required for Part B to avoid 'term drift', this is a sequential decomposition. I will spawn Part A to run first, then spawn Part B conditioned on Part A's completion. I will take the self_role of integrating the two parts into the final bilingual guide document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research Cheonma's legacy services and write the canonical terminology standard.",
+      "capsule": "This subtask acts as the Platform Standards Team. It must discover the idiosyncratic house style of Cheonma (endpoint nouns, error codes, casing) from legacy code context. This output is the single source of truth for terminology, preventing term drift in the final guide.",
+      "outputs": [
+        {
+          "path": "root.1/canonical_terminology_standard",
+          "description": "A JSON or structured text document defining the canonical endpoint nouns, error-code vocabulary, and casing rules for Cheonma, in both EN and KR."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write the worked integration tutorial with runnable code samples for checkout and refund flows.",
+      "capsule": "This subtask acts as the Developer Relations Team. It must write the tutorial using the exact terminology defined in root.1/canonical_terminology_standard. It cannot proceed until the standard is published to ensure compliance with the company handbook rule against term drift.",
+      "outputs": [
+        {
+          "path": "root.2/integration_tutorial",
+          "description": "A bilingual (EN/KR) tutorial document with runnable code samples for checkout and refund flows, strictly adhering to the canonical terminology standard."
+        }
+      ],
+      "condition": "done(\"root.1/canonical_terminology_standard\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the terminology standard and integration tutorial into the final bilingual developer style guide.",
+    "outputs": [
+      {
+        "path": "root/cheonma_developer_style_guide",
+        "description": "The final, unified bilingual (EN/KR) developer style guide for Cheonma, combining Part A and Part B."
+      }
+    ],
+    "condition": "done(\"root.1/canonical_terminology_standard\") AND done(\"root.2/integration_tutorial\")"
+  }
+}

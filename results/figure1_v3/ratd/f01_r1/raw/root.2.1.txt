@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.1",
+  "reasoning": "The task requires writing a comprehensive English integration tutorial and migration notes. The necessary inputs, `root.1/canonical_standard` and `root.1/legacy_survey`, are present in shared memory. The task is a single coherent writing effort that involves synthesizing these two documents into a structured guide. It does not naturally decompose into independent parallel subtasks that would benefit from spawning, as the sections (checkout, refund, error handling, migration) are tightly coupled by the need for consistent terminology and style. Therefore, I will execute the task directly.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_en",
+      "description": "The English version of the integration tutorial including checkout, refund, error handling, and migration notes."
+    }
+  ]
+}

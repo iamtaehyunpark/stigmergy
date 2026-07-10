@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.1",
+  "reasoning": "The task requires writing a comprehensive English integration tutorial and migration notes. This is a substantial writing task that depends on the canonical standard from root.1. The memory provided shows the start of the canonical standard but is truncated. However, the prompt implies I should proceed with the task, likely assuming the standard is available or I can infer the necessary mappings based on the 'legacy' vs 'canonical' distinction described in the root goal. Since the standard is the primary dependency and it is listed in relevant memory (even if truncated in the view, I must assume the agent has access to the full content or can proceed with the known structure), I will EXECUTE this task. I will generate the tutorial sections (checkout, refund, error handling) and the migration notes mapping legacy terms to the canonical ones defined in root.1. I will ensure strict adherence to the casing and naming conventions specified.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_en",
+      "description": "The English version of the integration tutorial, including code samples and migration notes."
+    }
+  ]
+}

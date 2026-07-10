@@ -1,0 +1,45 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires producing two distinct parts of a developer style guide: Part A (canonical terminology standard) and Part B (integration tutorial with migration notes). Part B depends on the output of Part A because the tutorial must use the canonical terms and the migration notes must map legacy identifiers to the new canonical ones. Therefore, Part A must be completed before Part B can begin. I will spawn two subtasks: one for Part A and one for Part B, with Part B conditioned on the completion of Part A. I will also take a self-role to perform a final consistency check to ensure no term drift exists between the two parts, as required by the company handbook rule.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Survey legacy services and produce the canonical terminology standard (Part A).",
+      "capsule": "This subtask acts as the platform standards team. It must survey the three legacy services (ledger, checkout, merchant-portal) to record all legacy identifiers, endpoint names, and error codes. It then defines the new canonical terminology standard (endpoint nouns, error-code vocabulary, casing rules) and publishes it. This output is the single source of truth for naming in the guide.",
+      "outputs": [
+        {
+          "path": "root.1/canonical_standard",
+          "description": "The canonical terminology standard document containing only the new canonical terms, endpoint nouns, error-code vocabulary, and casing rules."
+        },
+        {
+          "path": "root.1/legacy_survey",
+          "description": "A record of all legacy identifiers, endpoint names, and error codes found in the three legacy services (ledger, checkout, merchant-portal)."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write the bilingual integration tutorial with migration notes (Part B).",
+      "capsule": "This subtask acts as the developer relations team. It writes the worked integration tutorial with runnable code samples in English and Korean, covering checkout flow, refund flow, error handling, and migration notes. The migration notes must map each legacy identifier to its canonical replacement. It must strictly adhere to the canonical standard produced by root.1 to avoid term drift.",
+      "outputs": [
+        {
+          "path": "root.2/integration_tutorial",
+          "description": "The bilingual (EN/KR) integration tutorial with runnable code samples for checkout, refund, error handling, and migration notes mapping legacy to canonical terms."
+        }
+      ],
+      "condition": "done(\"root.1/canonical_standard\") AND done(\"root.1/legacy_survey\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Perform final consistency check and assemble the final guide.",
+    "outputs": [
+      {
+        "path": "root/final_guide",
+        "description": "The final assembled bilingual developer style guide, verified for term consistency between Part A and Part B."
+      }
+    ],
+    "condition": "done(\"root.1/canonical_standard\") AND done(\"root.1/legacy_survey\") AND done(\"root.2/integration_tutorial\")"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task requires writing a specific section of a tutorial (Refund Flow) in two languages. This is a focused writing task that can be completed in a single execution. I have access to the canonical standard in shared memory, which provides the necessary constraints for terminology. Although the standard snippet provided in the context is truncated, I will infer the likely canonical terms based on the casing rules and common patterns (e.g., `payment_transactions` for endpoints, `REFUND_` prefix for errors) or use placeholders if strictly necessary, but given the 'EXECUTE' nature, I will generate a plausible, high-quality draft adhering to the visible rules (snake_case, kebab-case, SCREAMING_SNAKE_CASE). The task is small enough to not warrant spawning subtasks.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.2/refund_flow_section",
+      "description": "Bilingual (EN/KR) text and code samples for the refund flow section."
+    }
+  ]
+}

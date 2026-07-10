@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.1",
+  "reasoning": "The task requires drafting a specific section of a tutorial (Checkout Flow) in two languages. The necessary dependency, the canonical standard, is available in shared memory. This is a focused writing task that can be completed in a single execution without needing further decomposition. I will generate the English and Korean text, ensuring strict adherence to the casing and naming rules defined in root.1/canonical_standard.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.1/checkout_draft",
+      "description": "Bilingual (EN/KR) draft of the checkout flow section with code samples."
+    }
+  ]
+}

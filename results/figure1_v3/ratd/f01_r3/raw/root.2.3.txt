@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.3",
+  "reasoning": "The task requires drafting a bilingual Error Handling section for the Cheonma developer tutorial. I have access to the canonical standard (root.1/canonical_standard) and the legacy survey (root.1/legacy_survey), which are the necessary inputs to map legacy error codes to canonical ones and demonstrate proper error handling patterns. Since the task is a focused writing exercise with clear constraints and available data, I can execute it directly without needing to spawn sub-agents.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.3/error_handling_draft",
+      "description": "Bilingual (EN/KR) draft of the error handling section with code samples."
+    }
+  ]
+}

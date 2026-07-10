@@ -1,0 +1,53 @@
+{
+  "task_id": "root.1.1",
+  "reasoning": "The task requires surveying three distinct legacy services (ledger, checkout, merchant-portal) to extract naming artifacts. Since these services are independent, the survey can be decomposed into three parallel subtasks. This approach allows for focused extraction of identifiers, endpoints, and error codes for each service simultaneously. I will then integrate these findings into the final `legacy_survey` output.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1.1",
+      "goal": "Survey the 'ledger' legacy service for all identifiers, endpoint names, and error codes.",
+      "capsule": "This subtask focuses exclusively on the ledger service. It extracts all relevant naming artifacts to serve as raw data for the canonical standardization process in Part A.",
+      "outputs": [
+        {
+          "path": "root.1.1.1/ledger_artifacts",
+          "description": "A list of all legacy identifiers, endpoint names, and error codes found in the ledger service."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.1.2",
+      "goal": "Survey the 'checkout' legacy service for all identifiers, endpoint names, and error codes.",
+      "capsule": "This subtask focuses exclusively on the checkout service. It extracts all relevant naming artifacts to serve as raw data for the canonical standardization process in Part A.",
+      "outputs": [
+        {
+          "path": "root.1.1.2/checkout_artifacts",
+          "description": "A list of all legacy identifiers, endpoint names, and error codes found in the checkout service."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.1.3",
+      "goal": "Survey the 'merchant-portal' legacy service for all identifiers, endpoint names, and error codes.",
+      "capsule": "This subtask focuses exclusively on the merchant-portal service. It extracts all relevant naming artifacts to serve as raw data for the canonical standardization process in Part A.",
+      "outputs": [
+        {
+          "path": "root.1.1.3/merchant_portal_artifacts",
+          "description": "A list of all legacy identifiers, endpoint names, and error codes found in the merchant-portal service."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the survey results from ledger, checkout, and merchant-portal into a single comprehensive legacy survey.",
+    "outputs": [
+      {
+        "path": "root.1.1/legacy_survey",
+        "description": "A comprehensive record of all legacy identifiers, endpoint names, and error codes found in the ledger, checkout, and merchant-portal services."
+      }
+    ],
+    "condition": "done(\"root.1.1.1/ledger_artifacts\") AND done(\"root.1.1.2/checkout_artifacts\") AND done(\"root.1.1.3/merchant_portal_artifacts\")"
+  }
+}

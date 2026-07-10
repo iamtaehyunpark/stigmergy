@@ -1,0 +1,33 @@
+{
+  "run_id": "f01_r3",
+  "task_id": "f01",
+  "converged": true,
+  "root_outputs": [
+    "root.2/integration_tutorial",
+    "root/cheonma_developer_style_guide"
+  ],
+  "root_outputs_done": [
+    "root.2/integration_tutorial",
+    "root/cheonma_developer_style_guide"
+  ],
+  "llm_calls": 6,
+  "max_depth": 1,
+  "agent_count": 3,
+  "total_spawns": 2,
+  "conflict_count": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 3,
+  "schema_agreements": 3,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_read_events": 2,
+  "cross_branch_unique_pairs": 1,
+  "self_role_parallel": 0,
+  "self_role_gated": 1,
+  "interface_owed_self": 0,
+  "interface_owed_delegated": 0,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Converged with a shallow graph matching the broad human decomposition."
+}

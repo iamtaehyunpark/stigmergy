@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task requires drafting a specific section of a tutorial (Refund Flow) in two languages. The necessary dependency, the canonical standard, is available in shared memory. This is a focused writing task that can be completed in a single execution without needing further decomposition. I will generate the English and Korean text, ensuring strict adherence to the casing and terminology rules defined in `root.1/canonical_standard`.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.2/refund_draft",
+      "description": "Bilingual (EN/KR) draft of the refund flow section with code samples."
+    }
+  ]
+}

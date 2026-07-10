@@ -1,0 +1,49 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires producing two distinct parts of a developer style guide. Part A (terminology standard) must be completed before Part B (tutorial) can be written, because Part B must strictly adhere to the canonical terms defined in Part A to avoid 'term drift'. Therefore, I will spawn Part A first. Once Part A is done, I will spawn Part B, conditioned on the output of Part A. I will also take a self-role to perform a final consistency check to ensure the handbook rule is satisfied.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Survey legacy services and define the canonical terminology standard for Cheonma.",
+      "capsule": "This subtask acts as the Platform Standards Team. It must survey the three legacy services (ledger, checkout, merchant-portal) to record all existing identifiers, endpoints, and error codes. It then defines the new canonical standard (endpoint nouns, error-code vocabulary, casing rules) which will serve as the single source of truth for the entire guide.",
+      "outputs": [
+        {
+          "path": "root.1/canonical_standard",
+          "description": "The canonical terminology standard document containing only the new canonical terms, casing rules, and error-code vocabulary."
+        },
+        {
+          "path": "root.1/legacy_survey",
+          "description": "A comprehensive record of all legacy identifiers, endpoint names, and error codes found in the ledger, checkout, and merchant-portal services."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write the bilingual integration tutorial and migration notes using the canonical standard.",
+      "capsule": "This subtask acts as the Developer Relations Team. It writes the worked integration tutorial with runnable code samples in English and Korean. It covers checkout flow, refund flow, error handling, and migration notes. The migration notes must map legacy identifiers to the canonical terms defined in root.1. It must strictly use the canonical standard to avoid term drift.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_en",
+          "description": "The English version of the integration tutorial including checkout, refund, error handling, and migration notes."
+        },
+        {
+          "path": "root.2/tutorial_kr",
+          "description": "The Korean version of the integration tutorial including checkout, refund, error handling, and migration notes."
+        }
+      ],
+      "condition": "done(\"root.1/canonical_standard\") AND done(\"root.1/legacy_survey\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Perform final consistency check to ensure no term drift between the standard and the tutorial.",
+    "outputs": [
+      {
+        "path": "root/consistency_report",
+        "description": "A report confirming that all identifiers in the tutorial match the canonical standard exactly."
+      }
+    ],
+    "condition": "done(\"root.1/canonical_standard\") AND done(\"root.2/tutorial_en\") AND done(\"root.2/tutorial_kr\")"
+  }
+}

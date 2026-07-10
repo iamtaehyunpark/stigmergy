@@ -1,0 +1,57 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The previous action failed validation likely due to formatting or structural issues, though the logic was sound. The task requires surveying three independent legacy services and then synthesizing a standard. I will SPAWN three parallel subtasks to survey each service (ledger, checkout, merchant-portal). I will take the self_role to aggregate these surveys into the required legacy_survey output and then define the canonical_standard. This decomposition respects the data dependency (standard depends on survey) and parallelizes the independent data gathering.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Survey the 'ledger' legacy service for identifiers, endpoints, and error codes.",
+      "capsule": "This subtask acts as a researcher for the ledger service. It must identify all current naming conventions, endpoint structures, and error codes used in the ledger system to provide raw data for the canonical standard. This serves the ROOT GOAL by ensuring the new standard accounts for existing ledger terminology.",
+      "outputs": [
+        {
+          "path": "root.1.1/ledger_survey",
+          "description": "A list of all legacy identifiers, endpoint names, and error codes found in the ledger service."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Survey the 'checkout' legacy service for identifiers, endpoints, and error codes.",
+      "capsule": "This subtask acts as a researcher for the checkout service. It must identify all current naming conventions, endpoint structures, and error codes used in the checkout system to provide raw data for the canonical standard. This serves the ROOT GOAL by ensuring the new standard accounts for existing checkout terminology.",
+      "outputs": [
+        {
+          "path": "root.1.2/checkout_survey",
+          "description": "A list of all legacy identifiers, endpoint names, and error codes found in the checkout service."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.3",
+      "goal": "Survey the 'merchant-portal' legacy service for identifiers, endpoints, and error codes.",
+      "capsule": "This subtask acts as a researcher for the merchant-portal service. It must identify all current naming conventions, endpoint structures, and error codes used in the merchant-portal system to provide raw data for the canonical standard. This serves the ROOT GOAL by ensuring the new standard accounts for existing merchant-portal terminology.",
+      "outputs": [
+        {
+          "path": "root.1.3/merchant_portal_survey",
+          "description": "A list of all legacy identifiers, endpoint names, and error codes found in the merchant-portal service."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Aggregate legacy surveys and define the canonical terminology standard.",
+    "outputs": [
+      {
+        "path": "root.1/legacy_survey",
+        "description": "A comprehensive record of all legacy identifiers, endpoint names, and error codes found in the ledger, checkout, and merchant-portal services."
+      },
+      {
+        "path": "root.1/canonical_standard",
+        "description": "The canonical terminology standard document containing only the new canonical terms, casing rules, and error-code vocabulary."
+      }
+    ],
+    "condition": "done(\"root.1.1/ledger_survey\") AND done(\"root.1.2/checkout_survey\") AND done(\"root.1.3/merchant_portal_survey\")"
+  }
+}

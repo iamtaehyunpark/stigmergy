@@ -85,6 +85,17 @@ def split_parts(entries: dict[str, str]) -> tuple[list[str], list[str]]:
 def consistency(entries: dict[str, str]) -> dict[str, Any]:
     term_paths, tut_paths = split_parts(entries)
     term_text = "\n".join(entries[p] for p in term_paths)
+    # The tutorial side aggregates the WHOLE producing branch: when the
+    # branch decomposes, the interface artifact can be a stub while the
+    # real content lives in child artifacts (v3 r2/r3: 15-char stub over
+    # 16k chars of sections). The consuming text is what the branch
+    # shipped, at any depth. Terminology side stays interface-level:
+    # the denominator is what consumers could actually reference.
+    tut_branches = {p.split("/")[0] for p in tut_paths}
+    tut_paths = sorted(
+        p for p in entries
+        if any(p.split("/")[0] == b or p.split("/")[0].startswith(b + ".") for b in tut_branches)
+    )
     tut_text = "\n".join(entries[p] for p in tut_paths)
     terms = sorted(extract_terms(term_text))
     matched = sorted(t for t in terms if t in tut_text)

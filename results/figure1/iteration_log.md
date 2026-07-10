@@ -138,3 +138,72 @@ zero rails, RATD schema agreement 22/22.
   `python3 -m src.figure1_score --ratd-dir results/figure1_v2/ratd
   --baseline-dir results/figure1_v2/baseline --out
   results/figure1_v2/FIGURE1_scores.json`.
+
+## Run 2 (task v2) — gap flips but is not claimable; still zero emergent edges
+
+Runs 2026-07-10, 8/8 converged, zero conflicts/rails, RATD schema
+agreement 12/12. Mean consistency under the fixed interface-level
+metric: RATD 53.9%, baseline 33.0%. Verified fair: all 4 baseline
+plans correctly gated the tutorial on the standard; both systems'
+consumers read it through the 4000-char window.
+
+- NOT claimed as decisive: temp-0 clustering collapses each arm to
+  ~2 distinct trajectories (RATD 0.552x3 + 0.500; baseline 0.652 +
+  0.222x3) and the ranges overlap (baseline's best 65% > RATD's best
+  55%). RATD is tighter and higher-mean - suggestive, not evidence
+  at effective n~2.
+- Emergent mechanism still unexercised: root planned the A->B edge
+  8/8 across v1+v2; B executed at depth 1 without decomposing, so no
+  deep agent existed to discover anything mid-execution.
+- interface self-fulfillment 0/0 in these runs = vacuous (depth-1
+  graphs have no owed paths at spawners), not a real 0%.
+- Term-denominator noise noted both arms (section-name meta-tokens
+  like casing_rules); affects both roughly equally, not fixed.
+
+## Iteration → task v3 (final allowed) — pre-registered
+
+`tasks/figure1_v3.json`, two levers: (1) Part B = 4 sections x 2
+languages, heavy enough to force SPAWN, so deep agents exist who can
+author cross-branch edges locally (the scorer's emergent definition:
+non-root-authored, out-of-subtree refs); (2) the migration-notes
+section needs the LEGACY identifiers, which live only in Part A's
+internal survey artifact - the published standard interface
+deliberately excludes them - instantiating spec 1.1 clause (c): a
+dependency not expressible as a parent-declared interface at spawn
+time.
+
+Pre-registered outcomes, all findings: deep locally-authored
+cross-edges appear (the figure exists); a migration agent DEFERs on
+a guessed path that no producer wrote (visibility requires knowing
+the address - memory search is a missing primitive; likely starves);
+legacy names get invented (drift defect, low migration consistency);
+both branches produce duplicate surveys (first organic conflict).
+If emergent edges are still zero AND everything converges by planned
+edges alone, Figure-1 closes as an informative negative: statable
+dependencies get planned; the emergent-DAG corollary requires
+unforeseeable coupling and is untested at this scale.
+
+Run 3 protocol: as run 2 with figure1_v3.json, out-dirs
+results/figure1_v3/{ratd,baseline}, 4+4 reps, then the scorer.
+
+## Run 3 (task v3) — mechanism demonstrated, decisiveness refuted; Figure-1 closed
+
+Runs 2026-07-10, 8/8 converged, zero conflicts/rails. Full verdict in
+`results/figure1/FIGURE1.md`. Summary: emergent defer/wake cross-edges
+appeared organically in r4 only (2 edges, depth-2-authored, the
+exhibit trace); root planned every nameable dependency in the other
+runs and in 3/4 even promoted the survey to a declared interface
+(root-authored at spawn, all three). Corrected (branch-aggregated)
+consistency: promotion runs 94-96% > baseline tree 72-91% >
+unpromoted emergent run 49.5%; survey-term delivery 96-100% with
+promotion vs 51% without. The scorer's depth-1 tutorial detection was
+scoring a 15-char integrator stub in r2/r3 (raw 0.0%) - fixed to
+aggregate the producing branch at any depth; v1/v2 scores verified
+unchanged by the fix. Boundary finding: DEFER read-grant resolves
+timing uncertainty over nameable addresses, not address uncertainty;
+unforeseeable dependencies were resolved by interface promotion
+(planning), and true address discovery needs a memory-search
+primitive the runtime lacks. First observed review-job self_roles
+(root and root.2 in v3 runs). Task iteration budget (3 versions)
+exhausted; Figure-1 closed with the reframed figure proposed in
+FIGURE1.md.

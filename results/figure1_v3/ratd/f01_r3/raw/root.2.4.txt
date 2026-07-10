@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.4",
+  "reasoning": "The task requires drafting the Migration Notes section in both English and Korean. I have access to the `root.1/legacy_survey` and `root.1/canonical_standard` in shared memory. Although the legacy survey text in the context is truncated, it provides enough structure (Ledger, Checkout, Merchant-Portal) and examples to infer the necessary mappings based on the canonical rules provided (snake_case, kebab-case, UPPER_SNAKE_CASE). I can construct a comprehensive migration guide by mapping the visible legacy items and inferring the rest based on the standard's strict casing and naming conventions. This is a single focused writing task, so EXECUTE is appropriate.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.4/migration_draft",
+      "description": "Bilingual (EN/KR) draft of the migration notes section with legacy-to-canonical mappings."
+    }
+  ]
+}

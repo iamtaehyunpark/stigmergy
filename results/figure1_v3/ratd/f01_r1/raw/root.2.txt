@@ -1,0 +1,41 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires writing a comprehensive bilingual tutorial and migration notes. The necessary data (canonical standard and legacy survey) is available in shared memory. Writing the English and Korean versions are independent tasks that can be parallelized to save time, but they must both strictly adhere to the canonical standard to prevent term drift. I will spawn two subtasks, one for each language, ensuring they both reference the same source of truth.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Write the English integration tutorial and migration notes.",
+      "capsule": "This subtask produces the English version of the developer guide. It must cover checkout, refund, error handling, and migration notes. It must strictly use the canonical terms from root.1/canonical_standard and map legacy terms from root.1/legacy_survey.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_en",
+          "description": "The English version of the integration tutorial including checkout, refund, error handling, and migration notes."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Write the Korean integration tutorial and migration notes.",
+      "capsule": "This subtask produces the Korean version of the developer guide. It must cover checkout, refund, error handling, and migration notes. It must strictly use the canonical terms from root.1/canonical_standard and map legacy terms from root.1/legacy_survey.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_kr",
+          "description": "The Korean version of the integration tutorial including checkout, refund, error handling, and migration notes."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Review both tutorials for consistency and term drift.",
+    "outputs": [
+      {
+        "path": "root.2/review_report",
+        "description": "A brief report confirming that both tutorials adhere to the canonical standard and that no term drift exists between EN and KR versions."
+      }
+    ],
+    "condition": "done(\"root.2/tutorial_en\") AND done(\"root.2/tutorial_kr\")"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires writing a comprehensive bilingual integration tutorial. The necessary input data (canonical standard and legacy survey) is available in shared memory. The task is complex enough to benefit from decomposition into parallel subtasks for each section (Checkout, Refund, Error Handling, Migration) to ensure high quality and parallel processing, followed by an integration step to assemble the final bilingual document. I will spawn subtasks for each section, ensuring they all reference the canonical standard to prevent term drift, and then take the self-role of integrating these parts into the final output.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Write the Checkout Flow section of the integration tutorial in EN/KR.",
+      "capsule": "This subtask creates the first section of the tutorial, detailing the checkout flow with runnable code samples. It must strictly use the canonical terms from root.1/canonical_standard for all endpoints and identifiers.",
+      "outputs": [
+        {
+          "path": "root.2.1/checkout_flow_section",
+          "description": "Bilingual (EN/KR) text and code samples for the checkout flow section."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Write the Refund Flow section of the integration tutorial in EN/KR.",
+      "capsule": "This subtask creates the second section of the tutorial, detailing the refund flow with runnable code samples. It must strictly use the canonical terms from root.1/canonical_standard for all endpoints and identifiers.",
+      "outputs": [
+        {
+          "path": "root.2.2/refund_flow_section",
+          "description": "Bilingual (EN/KR) text and code samples for the refund flow section."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Write the Error Handling section of the integration tutorial in EN/KR.",
+      "capsule": "This subtask creates the third section of the tutorial, detailing error handling patterns and code samples. It must strictly use the canonical error codes and vocabulary from root.1/canonical_standard.",
+      "outputs": [
+        {
+          "path": "root.2.3/error_handling_section",
+          "description": "Bilingual (EN/KR) text and code samples for the error handling section."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.4",
+      "goal": "Write the Migration Notes section of the integration tutorial in EN/KR.",
+      "capsule": "This subtask creates the fourth section, mapping legacy identifiers to canonical ones. It must use the mapping from root.1/canonical_standard and root.1/legacy_survey to provide clear old->new migration instructions.",
+      "outputs": [
+        {
+          "path": "root.2.4/migration_notes_section",
+          "description": "Bilingual (EN/KR) text and tables for the migration notes section."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate all section outputs into the final bilingual integration tutorial document.",
+    "outputs": [
+      {
+        "path": "root.2/integration_tutorial",
+        "description": "The complete bilingual (EN/KR) integration tutorial with runnable code samples for checkout, refund, error handling, and migration notes."
+      }
+    ],
+    "condition": "done(\"root.2.1/checkout_flow_section\") AND done(\"root.2.2/refund_flow_section\") AND done(\"root.2.3/error_handling_section\") AND done(\"root.2.4/migration_notes_section\")"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.1",
+  "reasoning": "The task requires writing a specific section of a tutorial (Checkout Flow) in two languages with code samples. The necessary dependency, the canonical standard, is available in shared memory (though truncated in the view, I must assume the relevant checkout terms are present or infer standard patterns based on the provided rules). This is a focused writing task that does not benefit from decomposition. I will execute it directly, ensuring strict adherence to the casing and naming rules defined in root.1/canonical_standard.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.1/checkout_flow_section",
+      "description": "Bilingual (EN/KR) text and code samples for the checkout flow section."
+    }
+  ]
+}

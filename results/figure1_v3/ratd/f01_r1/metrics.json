@@ -1,0 +1,35 @@
+{
+  "run_id": "f01_r1",
+  "task_id": "f01",
+  "converged": true,
+  "root_outputs": [
+    "root.2/tutorial_en",
+    "root.2/tutorial_kr",
+    "root/consistency_report"
+  ],
+  "root_outputs_done": [
+    "root.2/tutorial_en",
+    "root.2/tutorial_kr",
+    "root/consistency_report"
+  ],
+  "llm_calls": 17,
+  "max_depth": 2,
+  "agent_count": 8,
+  "total_spawns": 7,
+  "conflict_count": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 10,
+  "schema_agreements": 10,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_read_events": 10,
+  "cross_branch_unique_pairs": 6,
+  "self_role_parallel": 0,
+  "self_role_gated": 3,
+  "interface_owed_self": 2,
+  "interface_owed_delegated": 2,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Converged with a recursive multi-level graph matching the broad human decomposition."
+}

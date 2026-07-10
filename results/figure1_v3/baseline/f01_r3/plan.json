@@ -1,0 +1,50 @@
+[
+  {
+    "id": "root.1",
+    "goal": "Survey legacy services (ledger, checkout, merchant-portal) to extract all identifiers, endpoint names, and error codes.",
+    "outputs": [
+      {
+        "path": "root.1/legacy_data",
+        "description": "Structured list of all legacy identifiers, endpoints, and error codes from the three services."
+      }
+    ],
+    "condition": null
+  },
+  {
+    "id": "root.2",
+    "goal": "Define the canonical terminology standard (nouns, error vocabulary, casing) based on the legacy survey, outputting only the new terms.",
+    "outputs": [
+      {
+        "path": "root.2/canonical_standard",
+        "description": "The official Cheonma terminology standard containing only new canonical terms."
+      },
+      {
+        "path": "root.2/legacy_to_canonical_map",
+        "description": "A mapping table linking every legacy identifier to its new canonical replacement."
+      }
+    ],
+    "condition": "done(\"root.1/legacy_data\")"
+  },
+  {
+    "id": "root.3",
+    "goal": "Write the bilingual (EN/KR) integration tutorial covering checkout, refund, error handling, and migration notes, strictly using the canonical standard.",
+    "outputs": [
+      {
+        "path": "root.3/tutorial_content",
+        "description": "Bilingual text and code samples for the four required sections, using only canonical terms."
+      }
+    ],
+    "condition": "done(\"root.2/canonical_standard\") AND done(\"root.2/legacy_to_canonical_map\")"
+  },
+  {
+    "id": "root.4",
+    "goal": "Validate that all identifiers in the tutorial match the canonical standard exactly and integrate Part A and Part B into the final deliverable.",
+    "outputs": [
+      {
+        "path": "root/final_style_guide",
+        "description": "The complete, validated bilingual developer style guide for Cheonma."
+      }
+    ],
+    "condition": "done(\"root.2/canonical_standard\") AND done(\"root.3/tutorial_content\")"
+  }
+]

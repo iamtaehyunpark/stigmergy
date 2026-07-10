@@ -1,0 +1,33 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires two distinct phases: first, surveying three legacy services to extract identifiers, and second, synthesizing those findings into a new canonical standard. These phases have a strict data dependency; the standard cannot be defined accurately without the survey results. Therefore, I will spawn two subtasks. The first subtask will perform the survey of the ledger, checkout, and merchant-portal services. The second subtask, which I will handle as my self_role, will wait for the survey to complete and then define the canonical terminology standard based on those findings. This ensures the standard is grounded in the actual legacy usage.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Survey the three legacy services (ledger, checkout, merchant-portal) and record all identifiers, endpoint names, and error codes.",
+      "capsule": "This subtask acts as the discovery engine for the platform standards team. It must exhaustively list every legacy identifier, endpoint name, and error code used by the ledger, checkout, and merchant-portal services. This data is the prerequisite for defining the new canonical standard.",
+      "outputs": [
+        {
+          "path": "root.1.1/legacy_survey",
+          "description": "A comprehensive record of all legacy identifiers, endpoint names, and error codes found in the ledger, checkout, and merchant-portal services."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Define the canonical terminology standard based on the legacy survey results.",
+    "outputs": [
+      {
+        "path": "root.1/canonical_standard",
+        "description": "The canonical terminology standard document containing only the new canonical terms, endpoint nouns, error-code vocabulary, and casing rules."
+      },
+      {
+        "path": "root.1/legacy_survey",
+        "description": "A copy of the legacy survey record, serving as the interface output for root.1."
+      }
+    ],
+    "condition": "done(\"root.1.1/legacy_survey\")"
+  }
+}

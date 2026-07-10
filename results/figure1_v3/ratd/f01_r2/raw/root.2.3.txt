@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.3",
+  "reasoning": "The task requires writing a specific section of a tutorial. I have access to the canonical standard in shared memory, which provides the necessary constraints for error codes and casing. The task is self-contained and small enough to be executed directly without further decomposition. I will generate the bilingual content adhering strictly to the provided standard.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.3/error_handling_section",
+      "description": "Bilingual (EN/KR) text and code samples for the error handling section."
+    }
+  ]
+}
