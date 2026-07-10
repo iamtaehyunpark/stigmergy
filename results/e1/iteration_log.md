@@ -66,3 +66,47 @@ planner ≥ RATD on small tasks; gap reverses and widens with size.
 2. Planner: `python3 -m src.planner_baseline --tasks
    tasks/e1_ladder.json --out-dir results/e1/planner --repetitions 3`
 3. Judge + summary: `python3 -m src.e1_judge`
+
+## Results (24 runs + judging) — cost axis: theory CONFIRMED; quality axis: inconclusive at depth
+
+Full table in `results/e1/summary.md`, curves in `crossover.png`.
+
+- **Context per decision (the theorem's cost half): confirmed exactly
+  as predicted.** RATD flat 7.2k → 8.4k chars L1→L4 (O(1)); planner
+  4.6k → 41.6k (9x growth, O(n)) with 4-5 state-truncation events per
+  L4 run (the degradation mechanism, observed) and plan churn rising
+  to 16 added + 4 modified per run. Cost crossover sits between L2
+  and L3.
+- **Quality: planner wins at shallow levels** (L1 9.7 vs 9.0, L2 10.0
+  vs 9.0 — matching the pre-registered "planner >= RATD on small
+  tasks"); **at L3/L4 BOTH systems collapse bimodally** (per-run 1s
+  and 9s; within-cell sd up to 4.6). Per the pre-registered rule,
+  judge/outcome variance swamps the system gap at depth: only the
+  context-cost axis is claimable there.
+- The deep-level collapse is a shared, architecture-independent
+  failure: 5 converged runs (1 RATD, 4 planner) shipped a 15-char
+  final artifact = the `{"outputs": []}` schema-mismatch fallback.
+  Verified mechanism (ratd L3_r3): the assembly worker emitted
+  18,555 chars against a 4,000-token output cap - unclosed JSON, 3
+  parse failures, stub. The judge scored the stubs 1 across the
+  board, correctly (content-level metrics catching what address-level
+  metrics miss, again). ratd L4_r3 shipped a planning document
+  instead of the guide (shallow root EXECUTE trajectory).
+- **First ORGANIC blind-defer failures** (ratd L3_r1/r2, the 2/24
+  non-convergences): the glossary agent, spawned condition-null with
+  no read grants, DEFERred on guessed addresses
+  (`done("root.1/draft")...`) that no agent ever declared; the wake
+  trigger could never fire; root's integrator starved. Exactly the
+  Figure-1 nameability boundary, now appearing untriggered in a
+  standard task. Harness stayed frozen per pre-registration; the
+  failures stand in the results.
+- Judge behaved sanely: bimodal scores track artifact reality
+  (verified by reading the artifacts), not system identity; empty/
+  stub artifacts scored 1, real guides 5-9.
+
+Verdict for theory §3: the O(1)-vs-O(n) context claim graduates from
+[UNTESTED] to CONFIRMED at feasibility scale on the cost axis. The
+quality-crossover half remains open pending a worker/assembly
+mechanism that can actually produce deep integrated artifacts (the
+binding constraint at L3/L4 is single-call output capacity, not
+coordination).

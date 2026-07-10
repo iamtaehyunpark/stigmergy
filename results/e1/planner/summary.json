@@ -1,0 +1,302 @@
+[
+  {
+    "run_id": "L1_r1",
+    "task_id": "L1",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/vector_embeddings_explainer"
+    ],
+    "llm_calls": 9,
+    "planner_calls": 5,
+    "worker_tasks_completed": 4,
+    "mean_context_chars_per_decision": 4789.2,
+    "max_context_chars": 8179,
+    "truncation_events": 0,
+    "plan_churn": {
+      "added": 4,
+      "removed": 0,
+      "modified": 0
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L1_r2",
+    "task_id": "L1",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/vector_embeddings_explainer"
+    ],
+    "llm_calls": 9,
+    "planner_calls": 5,
+    "worker_tasks_completed": 4,
+    "mean_context_chars_per_decision": 4511.0,
+    "max_context_chars": 7613,
+    "truncation_events": 0,
+    "plan_churn": {
+      "added": 4,
+      "removed": 0,
+      "modified": 0
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L1_r3",
+    "task_id": "L1",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/vector_embeddings_explainer"
+    ],
+    "llm_calls": 9,
+    "planner_calls": 5,
+    "worker_tasks_completed": 4,
+    "mean_context_chars_per_decision": 4515.8,
+    "max_context_chars": 7625,
+    "truncation_events": 0,
+    "plan_churn": {
+      "added": 4,
+      "removed": 0,
+      "modified": 0
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L2_r1",
+    "task_id": "L2",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/report"
+    ],
+    "llm_calls": 11,
+    "planner_calls": 6,
+    "worker_tasks_completed": 5,
+    "mean_context_chars_per_decision": 5540.333333333333,
+    "max_context_chars": 10650,
+    "truncation_events": 0,
+    "plan_churn": {
+      "added": 5,
+      "removed": 0,
+      "modified": 0
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L2_r2",
+    "task_id": "L2",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/report"
+    ],
+    "llm_calls": 11,
+    "planner_calls": 6,
+    "worker_tasks_completed": 5,
+    "mean_context_chars_per_decision": 5501.666666666667,
+    "max_context_chars": 10532,
+    "truncation_events": 0,
+    "plan_churn": {
+      "added": 5,
+      "removed": 0,
+      "modified": 0
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L2_r3",
+    "task_id": "L2",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/report"
+    ],
+    "llm_calls": 11,
+    "planner_calls": 6,
+    "worker_tasks_completed": 5,
+    "mean_context_chars_per_decision": 5473.666666666667,
+    "max_context_chars": 10455,
+    "truncation_events": 0,
+    "plan_churn": {
+      "added": 5,
+      "removed": 0,
+      "modified": 0
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L3_r1",
+    "task_id": "L3",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/final_guide"
+    ],
+    "llm_calls": 17,
+    "planner_calls": 8,
+    "worker_tasks_completed": 7,
+    "mean_context_chars_per_decision": 29626.625,
+    "max_context_chars": 51585,
+    "truncation_events": 0,
+    "plan_churn": {
+      "added": 7,
+      "removed": 0,
+      "modified": 2
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L3_r2",
+    "task_id": "L3",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/final_guide"
+    ],
+    "llm_calls": 17,
+    "planner_calls": 8,
+    "worker_tasks_completed": 7,
+    "mean_context_chars_per_decision": 32149.875,
+    "max_context_chars": 55228,
+    "truncation_events": 0,
+    "plan_churn": {
+      "added": 7,
+      "removed": 0,
+      "modified": 1
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L3_r3",
+    "task_id": "L3",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/final_guide"
+    ],
+    "llm_calls": 17,
+    "planner_calls": 8,
+    "worker_tasks_completed": 7,
+    "mean_context_chars_per_decision": 29640.75,
+    "max_context_chars": 52804,
+    "truncation_events": 0,
+    "plan_churn": {
+      "added": 7,
+      "removed": 0,
+      "modified": 2
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L4_r1",
+    "task_id": "L4",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/final_guide"
+    ],
+    "llm_calls": 33,
+    "planner_calls": 17,
+    "worker_tasks_completed": 16,
+    "mean_context_chars_per_decision": 43902.470588235294,
+    "max_context_chars": 63817,
+    "truncation_events": 5,
+    "plan_churn": {
+      "added": 16,
+      "removed": 0,
+      "modified": 4
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L4_r2",
+    "task_id": "L4",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/final_guide"
+    ],
+    "llm_calls": 35,
+    "planner_calls": 17,
+    "worker_tasks_completed": 16,
+    "mean_context_chars_per_decision": 40194.470588235294,
+    "max_context_chars": 63501,
+    "truncation_events": 4,
+    "plan_churn": {
+      "added": 16,
+      "removed": 0,
+      "modified": 4
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  },
+  {
+    "run_id": "L4_r3",
+    "task_id": "L4",
+    "system": "planner",
+    "converged": true,
+    "planner_done": true,
+    "planner_failed": false,
+    "stalled": false,
+    "root_outputs": [
+      "root/final_guide"
+    ],
+    "llm_calls": 35,
+    "planner_calls": 17,
+    "worker_tasks_completed": 16,
+    "mean_context_chars_per_decision": 40644.58823529412,
+    "max_context_chars": 62737,
+    "truncation_events": 5,
+    "plan_churn": {
+      "added": 16,
+      "removed": 0,
+      "modified": 4
+    },
+    "rail_hit": "",
+    "termination": "natural"
+  }
+]

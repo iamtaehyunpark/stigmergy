@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task is to draft Chapter 2 based on provided research notes. The research notes are available in shared memory at `root.2.1/research_notes`. Although the provided snippet is truncated, it contains sufficient structural information (definitions of STM and WM) to begin drafting. The task is a single, focused writing effort that does not require decomposition into subtasks. I will execute the task by reading the notes and generating the draft.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.2/chapter_2_draft",
+      "description": "The first draft of Chapter 2, covering short-term and working memory architectures."
+    }
+  ]
+}

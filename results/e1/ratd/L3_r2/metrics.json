@@ -1,0 +1,29 @@
+{
+  "run_id": "L3_r2",
+  "task_id": "L3",
+  "converged": false,
+  "root_outputs": [
+    "root/final_book"
+  ],
+  "root_outputs_done": [],
+  "llm_calls": 30,
+  "max_depth": 2,
+  "agent_count": 16,
+  "total_spawns": 15,
+  "conflict_count": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 19,
+  "schema_agreements": 14,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 1,
+  "cross_branch_read_events": 0,
+  "cross_branch_unique_pairs": 0,
+  "self_role_parallel": 0,
+  "self_role_gated": 5,
+  "interface_owed_self": 4,
+  "interface_owed_delegated": 0,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Did not converge to the declared root output within rails."
+}

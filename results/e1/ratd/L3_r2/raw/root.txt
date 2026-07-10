@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires producing a 4-chapter technical guide, which is too large for a single execution step. It naturally decomposes into parallel chapter creation (research, draft, edit) and a final assembly phase. I will spawn four agents to handle the individual chapters in parallel, as they are independent. I will also spawn a glossary agent. My self-role will be the final assembly, integrating the chapters and glossary into the final book, conditioned on the completion of all chapters and the glossary.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research, draft, and edit Chapter 1: Introduction to LLM Agent Memory Systems.",
+      "capsule": "This subtask produces the first chapter of the field guide. It covers foundational concepts, definitions, and the motivation for memory in agents. It serves the ROOT GOAL by providing the introductory content for the book.",
+      "outputs": [
+        {"path": "root.1/chapter_1_final", "description": "The final, edited text for Chapter 1."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Research, draft, and edit Chapter 2: Short-Term and Working Memory Architectures.",
+      "capsule": "This subtask produces the second chapter, focusing on context windows, attention mechanisms, and working memory patterns. It serves the ROOT GOAL by detailing immediate memory processing techniques.",
+      "outputs": [
+        {"path": "root.2/chapter_2_final", "description": "The final, edited text for Chapter 2."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Research, draft, and edit Chapter 3: Long-Term Memory and Retrieval-Augmented Generation.",
+      "capsule": "This subtask produces the third chapter, covering vector databases, embedding strategies, and RAG pipelines. It serves the ROOT GOAL by explaining persistent memory storage and retrieval.",
+      "outputs": [
+        {"path": "root.3/chapter_3_final", "description": "The final, edited text for Chapter 3."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Research, draft, and edit Chapter 4: Advanced Memory Patterns and Future Directions.",
+      "capsule": "This subtask produces the fourth chapter, discussing hierarchical memory, self-reflection, and emerging trends. It serves the ROOT GOAL by covering complex and future-looking memory systems.",
+      "outputs": [
+        {"path": "root.4/chapter_4_final", "description": "The final, edited text for Chapter 4."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Create a unified glossary of terms used across all chapters.",
+      "capsule": "This subtask creates a consistent glossary for the entire book. It serves the ROOT GOAL by ensuring terminology consistency and providing a reference for readers.",
+      "outputs": [
+        {"path": "root.5/glossary", "description": "A unified glossary of terms relevant to LLM agent memory systems."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Assemble the final book by combining the four chapters and the glossary into a single document.",
+    "outputs": [
+      {"path": "root/final_book", "description": "The complete 4-chapter technical field guide with glossary."}
+    ],
+    "condition": "done(\"root.1/chapter_1_final\") AND done(\"root.2/chapter_2_final\") AND done(\"root.3/chapter_3_final\") AND done(\"root.4/chapter_4_final\") AND done(\"root.5/glossary\")"
+  }
+}

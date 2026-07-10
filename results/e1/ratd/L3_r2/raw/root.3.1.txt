@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.1",
+  "reasoning": "The task is to research key concepts for a specific chapter on Long-Term Memory and RAG. This is a focused information retrieval and synthesis task that can be completed in a single effort without needing to decompose into sub-agents. The scope is well-defined (vector DBs, embeddings, RAG architectures) and fits within the capacity of a single execution step.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.1/research_notes",
+      "description": "Structured notes on vector DBs, embeddings, and RAG pipelines."
+    }
+  ]
+}

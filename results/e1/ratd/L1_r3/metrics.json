@@ -1,0 +1,31 @@
+{
+  "run_id": "L1_r3",
+  "task_id": "L1",
+  "converged": true,
+  "root_outputs": [
+    "root/explainer"
+  ],
+  "root_outputs_done": [
+    "root/explainer"
+  ],
+  "llm_calls": 2,
+  "max_depth": 0,
+  "agent_count": 1,
+  "total_spawns": 0,
+  "conflict_count": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 0,
+  "schema_agreements": 0,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_read_events": 0,
+  "cross_branch_unique_pairs": 0,
+  "self_role_parallel": 0,
+  "self_role_gated": 0,
+  "interface_owed_self": 0,
+  "interface_owed_delegated": 0,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Converged with a shallow graph matching the broad human decomposition."
+}

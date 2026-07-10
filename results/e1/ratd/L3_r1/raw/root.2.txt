@@ -1,0 +1,41 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task of producing a high-quality technical chapter involves distinct phases: gathering technical details, writing the narrative, and refining for consistency. These phases are sequential and benefit from decomposition to ensure depth and quality. I will spawn subtasks for research and drafting, which are independent of each other in terms of initial effort but logically sequential, and then take the editing role myself to ensure the final output meets the interface contract.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Research Short-Term and Working Memory Architectures in LLMs.",
+      "capsule": "This subtask gathers technical details on context windows, attention mechanisms, and working memory patterns. It provides the factual foundation required for the chapter draft.",
+      "outputs": [
+        {
+          "path": "root.2.1/research_notes",
+          "description": "Structured notes on context windows, attention mechanisms, and working memory patterns."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Draft Chapter 2 based on research notes.",
+      "capsule": "This subtask converts research notes into a coherent, technical narrative for Chapter 2. It serves the ROOT GOAL by producing the initial text that will be edited and assembled.",
+      "outputs": [
+        {
+          "path": "root.2.2/chapter_2_draft",
+          "description": "The first draft of Chapter 2: Short-Term and Working Memory Architectures."
+        }
+      ],
+      "condition": "done(\"root.2.1/research_notes\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Edit and finalize Chapter 2.",
+    "outputs": [
+      {
+        "path": "root.2/chapter_2_final",
+        "description": "The final, edited text for Chapter 2."
+      }
+    ],
+    "condition": "done(\"root.2.2/chapter_2_draft\")"
+  }
+}

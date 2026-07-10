@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires a complex, multi-stage workflow with strict dependencies. The ROOT GOAL mandates a 'standards track' that must survey terminology and publish a canonical standard *before* chapters and the glossary are finalized to prevent term drift. Therefore, I must decompose this into parallel tracks: (1) Researching the four distinct domains of LLM agent memory, (2) Surveying terminology from those domains to create the canonical standard, and (3) Drafting the chapters based on research and the emerging standard. Finally, an integration phase will handle glossary creation, consistency editing, and final assembly. I will spawn subtasks for the initial research and terminology survey, as these are independent and foundational. I will take the role of coordinating the next phase once these initial artifacts are ready.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research Chapter 1: Short-term/Context Window Memory",
+      "capsule": "This subtask investigates the mechanisms of short-term memory in LLM agents, such as context windows, sliding windows, and attention mechanisms. It serves the ROOT GOAL by providing the technical foundation for the first chapter of the field guide.",
+      "outputs": [
+        {"path": "root.1/research_notes", "description": "Detailed research notes on short-term memory mechanisms, including key concepts, architectures, and limitations."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Research Chapter 2: Long-term/Vector Store Memory",
+      "capsule": "This subtask investigates long-term memory systems, focusing on vector databases, embedding models, and retrieval-augmented generation (RAG) techniques. It serves the ROOT GOAL by providing the technical foundation for the second chapter of the field guide.",
+      "outputs": [
+        {"path": "root.2/research_notes", "description": "Detailed research notes on long-term memory systems, including vector stores, embeddings, and retrieval strategies."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Research Chapter 3: Episodic/Experience Replay Memory",
+      "capsule": "This subtask investigates episodic memory systems, focusing on experience replay, trajectory storage, and learning from past interactions. It serves the ROOT GOAL by providing the technical foundation for the third chapter of the field guide.",
+      "outputs": [
+        {"path": "root.3/research_notes", "description": "Detailed research notes on episodic memory systems, including experience replay and trajectory management."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Research Chapter 4: Semantic/Graph-based Memory",
+      "capsule": "This subtask investigates semantic memory systems, focusing on knowledge graphs, ontologies, and structured reasoning. It serves the ROOT GOAL by providing the technical foundation for the fourth chapter of the field guide.",
+      "outputs": [
+        {"path": "root.4/research_notes", "description": "Detailed research notes on semantic memory systems, including knowledge graphs and structured data representation."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Survey Terminology and Define Canonical Standard",
+      "capsule": "This subtask surveys the terminology used in the source domains of all four chapters to identify variations and conflicts. It serves the ROOT GOAL by producing the canonical terminology standard that all subsequent drafting and glossary creation must adhere to, preventing term drift.",
+      "outputs": [
+        {"path": "root.5/canonical_terminology_standard", "description": "A document defining the canonical terms for the guide, mapping them to common variations, and specifying usage rules."}
+      ],
+      "condition": "done(\"root.1/research_notes\") AND done(\"root.2/research_notes\") AND done(\"root.3/research_notes\") AND done(\"root.4/research_notes\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Orchestrate the drafting phase and final assembly",
+    "outputs": [
+      {"path": "root/drafting_plan", "description": "A plan for the next phase, detailing how chapters will be drafted, edited, and assembled based on the research and terminology standard."}
+    ],
+    "condition": "done(\"root.5/canonical_terminology_standard\")"
+  }
+}

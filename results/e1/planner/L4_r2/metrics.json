@@ -1,0 +1,25 @@
+{
+  "run_id": "L4_r2",
+  "task_id": "L4",
+  "system": "planner",
+  "converged": true,
+  "planner_done": true,
+  "planner_failed": false,
+  "stalled": false,
+  "root_outputs": [
+    "root/final_guide"
+  ],
+  "llm_calls": 35,
+  "planner_calls": 17,
+  "worker_tasks_completed": 16,
+  "mean_context_chars_per_decision": 40194.470588235294,
+  "max_context_chars": 63501,
+  "truncation_events": 4,
+  "plan_churn": {
+    "added": 16,
+    "removed": 0,
+    "modified": 4
+  },
+  "rail_hit": "",
+  "termination": "natural"
+}

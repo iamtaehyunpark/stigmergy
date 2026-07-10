@@ -1,0 +1,482 @@
+[
+  {
+    "system": "ratd",
+    "level": "L1",
+    "run_id": "L1_r1",
+    "converged": true,
+    "llm_calls": 2,
+    "decisions": 1,
+    "mean_context_chars": 7248.0,
+    "max_context_chars": 7248,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 8,
+      "structure": 9,
+      "consistency": 10,
+      "overall": 9,
+      "rationale": "The artifact accurately defines vector embeddings and explains similarity search mechanisms clearly for the target audience. It follows the required top-down structure (What -> How -> Tips) and maintains consistent terminology. However, it scores slightly lower on completeness because the 'Three Practical Do/Don't Tips' are all 'DO' items, whereas the rubric explicitly requests 'do/don't tips' (implying a mix or specific 'don't' guidance like 'don't use for exact match' or 'don't ignore chunking'). The provided tips are valid but miss the explicit 'don't' constraint in the prompt's example list.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L1",
+    "run_id": "L1_r2",
+    "converged": true,
+    "llm_calls": 2,
+    "decisions": 1,
+    "mean_context_chars": 7248.0,
+    "max_context_chars": 7248,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 8,
+      "structure": 9,
+      "consistency": 10,
+      "overall": 9,
+      "rationale": "The artifact is well-structured, accurate, and consistent, adhering to the 'what -> how -> tips' flow. It correctly defines embeddings and explains similarity search without technical errors. However, it slightly misses the specific 'practical guidance' requirement for application-level tips (e.g., chunking, when NOT to use embeddings) by focusing instead on implementation details (ANN libraries, normalization) which are less relevant to a junior developer with no ML background. The scope is appropriate and concise.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L1",
+    "run_id": "L1_r3",
+    "converged": true,
+    "llm_calls": 2,
+    "decisions": 1,
+    "mean_context_chars": 7248.0,
+    "max_context_chars": 7248,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 8,
+      "structure": 9,
+      "consistency": 10,
+      "overall": 9,
+      "rationale": "The artifact is well-structured, accurate, and consistent, adhering to the 'what -> how -> tips' flow. It correctly defines embeddings and explains similarity search without technical errors. However, it slightly misses the specific 'practical guidance' requirement for application-level tips (e.g., chunking, when NOT to use embeddings) by focusing instead on implementation details (ANN libraries, normalization) which are less relevant to a junior developer with no ML background. The scope is appropriate and concise.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L2",
+    "run_id": "L2_r1",
+    "converged": true,
+    "llm_calls": 9,
+    "decisions": 4,
+    "mean_context_chars": 7283.25,
+    "max_context_chars": 7348,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 10,
+      "structure": 9,
+      "consistency": 10,
+      "overall": 9,
+      "rationale": "The artifact strictly adheres to all rubric requirements, covering exactly three products (Pinecone, Milvus, Weaviate) with features, pricing, and performance addressed for each. It provides a clear comparative analysis and a justified final recommendation. The technical characterizations are plausible and internally consistent, with no contradictions found. The structure is logical and easy to follow for the target engineering audience.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L2",
+    "run_id": "L2_r2",
+    "converged": true,
+    "llm_calls": 9,
+    "decisions": 4,
+    "mean_context_chars": 7283.25,
+    "max_context_chars": 7348,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 10,
+      "structure": 9,
+      "consistency": 10,
+      "overall": 9,
+      "rationale": "The artifact strictly adheres to all rubric requirements, covering exactly three products (Pinecone, Milvus, Weaviate) with detailed features, pricing, and performance metrics for each. The comparison is structured effectively using tables and parallel sections, allowing for clear trade-off analysis. The final recommendation is explicit and directly tied to the preceding analysis. Minor deduction in accuracy/structure is reserved for the fact that specific performance numbers (e.g., 'Sub-10ms p99') are highly variable and context-dependent, but they are plausible and internally consistent within the document.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L2",
+    "run_id": "L2_r3",
+    "converged": true,
+    "llm_calls": 9,
+    "decisions": 4,
+    "mean_context_chars": 7283.25,
+    "max_context_chars": 7348,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 10,
+      "structure": 9,
+      "consistency": 10,
+      "overall": 9,
+      "rationale": "The artifact strictly adheres to all rubric requirements, covering exactly three products (Pinecone, Milvus, Weaviate) with detailed features, pricing, and performance metrics for each. The comparison is structured effectively using tables and parallel sections, allowing for clear trade-off analysis. The final recommendation is explicit and directly tied to the preceding analysis. Minor deduction in accuracy/structure is reserved for the fact that specific performance numbers (e.g., 'Sub-10ms p99') are highly variable and context-dependent, but they are presented as plausible benchmarks rather than absolute guarantees, maintaining internal coherence.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L3",
+    "run_id": "L3_r1",
+    "converged": false,
+    "llm_calls": 30,
+    "decisions": 16,
+    "mean_context_chars": 7579.125,
+    "max_context_chars": 8151,
+    "judge": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "consistency": 1,
+      "overall": 1,
+      "rationale": "empty artifact (auto-scored 1)",
+      "artifact_truncated": false,
+      "auto": true
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L3",
+    "run_id": "L3_r2",
+    "converged": false,
+    "llm_calls": 30,
+    "decisions": 16,
+    "mean_context_chars": 7580.6875,
+    "max_context_chars": 8151,
+    "judge": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "consistency": 1,
+      "overall": 1,
+      "rationale": "empty artifact (auto-scored 1)",
+      "artifact_truncated": false,
+      "auto": true
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L3",
+    "run_id": "L3_r3",
+    "converged": true,
+    "llm_calls": 35,
+    "decisions": 16,
+    "mean_context_chars": 7753.125,
+    "max_context_chars": 9722,
+    "judge": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "consistency": 1,
+      "overall": 1,
+      "rationale": "The artifact is an empty JSON object containing no text, chapters, glossary, or technical content. It fails to meet every single requirement of the rubric, including the basic existence of the document. There is no substance to evaluate for accuracy, structure, or consistency.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L4",
+    "run_id": "L4_r1",
+    "converged": true,
+    "llm_calls": 28,
+    "decisions": 13,
+    "mean_context_chars": 8064.615384615385,
+    "max_context_chars": 10181,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 4,
+      "structure": 8,
+      "consistency": 9,
+      "overall": 5,
+      "rationale": "The artifact fails the primary requirement of L4: it does not include a 'published canonical terminology standard' that is visibly the product of a survey. While the text claims adherence to such a standard, the standard itself is missing from the deliverable. The glossary and chapters are present and consistent, but without the explicit standard document required by the rubric, the completeness score is heavily penalized.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L4",
+    "run_id": "L4_r2",
+    "converged": true,
+    "llm_calls": 26,
+    "decisions": 13,
+    "mean_context_chars": 8099.692307692308,
+    "max_context_chars": 10866,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 4,
+      "structure": 8,
+      "consistency": 9,
+      "overall": 5,
+      "rationale": "The artifact fails the primary requirement of Rubric L4: it does not include the 'published canonical terminology standard' as a distinct, visible element within the deliverable. While it references a file path (`root.5/canonical_terminology_standard`), the standard itself is missing from the text, making it impossible to verify that it is the product of a survey or that it explicitly names the chapter domains. The glossary and chapters are well-written and consistent, but the absence of the required standard document constitutes a critical missing element.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "ratd",
+    "level": "L4",
+    "run_id": "L4_r3",
+    "converged": true,
+    "llm_calls": 12,
+    "decisions": 6,
+    "mean_context_chars": 8363.666666666666,
+    "max_context_chars": 10806,
+    "judge": {
+      "accuracy": 2,
+      "completeness": 1,
+      "structure": 3,
+      "consistency": 2,
+      "overall": 1,
+      "rationale": "The artifact is a planning document, not the required field guide. It completely fails to provide the four substantive chapters, the unified glossary, or the final assembled guide. It references a 'canonical terminology standard' but does not include the standard itself or demonstrate its application in actual content. Consequently, it misses every required element of the rubric.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L1",
+    "run_id": "L1_r1",
+    "converged": true,
+    "llm_calls": 9,
+    "decisions": 5,
+    "mean_context_chars": 4789.2,
+    "max_context_chars": 8179,
+    "judge": {
+      "accuracy": 10,
+      "completeness": 10,
+      "structure": 10,
+      "consistency": 10,
+      "overall": 10,
+      "rationale": "The artifact perfectly adheres to the rubric's requirements. It provides a clear, plain-language definition of vector embeddings suitable for junior developers, explains the high-level mechanism of similarity search (including cosine similarity and indexing), and offers exactly three practical do/don't tips grounded in application use. The structure follows the requested top-down flow (What -> How -> Tips), and the tone is consistent and accessible without sacrificing technical accuracy.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L1",
+    "run_id": "L1_r2",
+    "converged": true,
+    "llm_calls": 9,
+    "decisions": 5,
+    "mean_context_chars": 4511.0,
+    "max_context_chars": 7613,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 10,
+      "structure": 10,
+      "consistency": 10,
+      "overall": 9,
+      "rationale": "The artifact perfectly adheres to the one-page scope and required structure (What -> How -> Tips). It provides a clear, accurate definition and mechanism explanation suitable for junior developers. The three tips are practical and grounded in application use. A minor deduction in accuracy is given because the first tip (normalization) is technically a best practice for specific distance metrics (dot product) rather than a universal requirement for all embedding systems (where cosine similarity handles magnitude automatically), but it is not factually incorrect, just slightly prescriptive.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L1",
+    "run_id": "L1_r3",
+    "converged": true,
+    "llm_calls": 9,
+    "decisions": 5,
+    "mean_context_chars": 4515.8,
+    "max_context_chars": 7625,
+    "judge": {
+      "accuracy": 10,
+      "completeness": 10,
+      "structure": 10,
+      "consistency": 10,
+      "overall": 10,
+      "rationale": "The artifact perfectly adheres to the rubric's requirements. It provides a clear, plain-language definition of vector embeddings suitable for junior developers, explains the high-level mechanism of similarity search (including cosine similarity and indexing), and offers exactly three practical do/don't tips grounded in application use. The structure follows the requested top-down flow (What -> How -> Tips), is concise (one-page scope), and maintains consistent terminology throughout without any factual errors.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L2",
+    "run_id": "L2_r1",
+    "converged": true,
+    "llm_calls": 11,
+    "decisions": 6,
+    "mean_context_chars": 5540.333333333333,
+    "max_context_chars": 10650,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 10,
+      "structure": 10,
+      "consistency": 10,
+      "overall": 10,
+      "rationale": "The artifact strictly adheres to all rubric requirements, comparing exactly three named products (Pinecone, Milvus, Weaviate) across features, pricing, and performance. It uses parallel table structures for clear comparison and provides a nuanced final recommendation with explicit justifications tied to the preceding data. The technical characterizations are plausible and internally consistent, with no contradictions in terminology or claims.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L2",
+    "run_id": "L2_r2",
+    "converged": true,
+    "llm_calls": 11,
+    "decisions": 6,
+    "mean_context_chars": 5501.666666666667,
+    "max_context_chars": 10532,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 10,
+      "structure": 10,
+      "consistency": 10,
+      "overall": 10,
+      "rationale": "The artifact strictly adheres to all rubric requirements, comparing exactly three named products (Pinecone, Milvus, Weaviate) across features, pricing, and performance. It provides a clear comparative structure using tables and a final recommendation with explicit justifications tied to the analysis. The technical characterizations are plausible, internally consistent, and free of contradictions.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L2",
+    "run_id": "L2_r3",
+    "converged": true,
+    "llm_calls": 11,
+    "decisions": 6,
+    "mean_context_chars": 5473.666666666667,
+    "max_context_chars": 10455,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 10,
+      "structure": 10,
+      "consistency": 10,
+      "overall": 10,
+      "rationale": "The artifact strictly adheres to all rubric requirements, covering exactly three products (Pinecone, Milvus, Weaviate) with detailed sections on features, pricing, and performance. It provides a clear comparative analysis rather than isolated descriptions, using tables and parallel structures effectively. The final recommendation is explicit, justified by the preceding comparison, and tailored to specific engineering contexts. There are no internal contradictions or factual inaccuracies regarding the general characteristics of these databases.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L3",
+    "run_id": "L3_r1",
+    "converged": true,
+    "llm_calls": 17,
+    "decisions": 8,
+    "mean_context_chars": 29626.625,
+    "max_context_chars": 51585,
+    "judge": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "consistency": 1,
+      "overall": 1,
+      "rationale": "The artifact is an empty JSON object containing no text, chapters, glossary, or technical content. It fails to meet every single requirement of the rubric, including the basic existence of a document. There is no substance to evaluate for accuracy, structure, or consistency.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L3",
+    "run_id": "L3_r2",
+    "converged": true,
+    "llm_calls": 17,
+    "decisions": 8,
+    "mean_context_chars": 32149.875,
+    "max_context_chars": 55228,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 10,
+      "structure": 9,
+      "consistency": 10,
+      "overall": 9,
+      "rationale": "The artifact strictly adheres to all rubric requirements, presenting four distinct, substantive chapters with no placeholders. It includes a comprehensive unified glossary that accurately defines terms used throughout the text, ensuring high consistency. The technical content regarding context windows, vector stores, and retrieval strategies is factually sound and well-organized for the target audience of engineers. The document reads as a cohesive guide rather than a loose collection of notes.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L3",
+    "run_id": "L3_r3",
+    "converged": true,
+    "llm_calls": 17,
+    "decisions": 8,
+    "mean_context_chars": 29640.75,
+    "max_context_chars": 52804,
+    "judge": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "consistency": 1,
+      "overall": 1,
+      "rationale": "The artifact is an empty JSON object containing no text, chapters, glossary, or technical content. It fails to meet every single requirement of the rubric, including the basic existence of a document. There is no substance to evaluate for accuracy, structure, or consistency.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L4",
+    "run_id": "L4_r1",
+    "converged": true,
+    "llm_calls": 33,
+    "decisions": 17,
+    "mean_context_chars": 43902.470588235294,
+    "max_context_chars": 63817,
+    "judge": {
+      "accuracy": 9,
+      "completeness": 6,
+      "structure": 8,
+      "consistency": 9,
+      "overall": 7,
+      "rationale": "The artifact provides a high-quality, technically accurate field guide with excellent internal consistency in terminology usage. However, it fails a critical completeness requirement: it references a 'Canonical Terminology Standard (root.2)' but does not include the standard itself as a distinct, published section within the deliverable. The rubric explicitly requires the standard to be 'visibly the product of a survey' and 'discoverable in the deliverable,' which is missing here. Without the actual standard document, the artifact is incomplete.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L4",
+    "run_id": "L4_r2",
+    "converged": true,
+    "llm_calls": 35,
+    "decisions": 17,
+    "mean_context_chars": 40194.470588235294,
+    "max_context_chars": 63501,
+    "judge": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "consistency": 1,
+      "overall": 1,
+      "rationale": "The artifact is an empty JSON object containing no text, chapters, glossary, or terminology standard. It fails to provide any of the required elements listed in the rubric, including the four substantive chapters and the canonical terminology standard. Consequently, it is impossible to assess accuracy, structure, or consistency, resulting in the lowest possible score.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  },
+  {
+    "system": "planner",
+    "level": "L4",
+    "run_id": "L4_r3",
+    "converged": true,
+    "llm_calls": 35,
+    "decisions": 17,
+    "mean_context_chars": 40644.58823529412,
+    "max_context_chars": 62737,
+    "judge": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "consistency": 1,
+      "overall": 1,
+      "rationale": "The artifact is an empty JSON object containing no text, chapters, glossary, or terminology standard. It fails to provide any of the required elements listed in the rubric, including the four substantive chapters and the canonical terminology standard. Consequently, it is impossible to assess accuracy, structure, or consistency, resulting in the lowest possible score.",
+      "artifact_truncated": false,
+      "auto": false
+    }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.3.3",
+  "reasoning": "The task requires researching specific technical patterns for integrating memory into LLM generation loops. This is a focused research task that can be completed in a single execution step by synthesizing knowledge about context window management, memory-augmented reasoning, and feedback mechanisms. There are no external dependencies or missing data, so DEFER is not appropriate. SPAWN is unnecessary for a single research output.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.3.3/integration_patterns",
+      "description": "Detailed notes on integrating retrieved memory into LLM generation and reasoning loops."
+    }
+  ]
+}

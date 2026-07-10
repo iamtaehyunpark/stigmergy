@@ -1,0 +1,53 @@
+{
+  "task_id": "root.2.3",
+  "reasoning": "The task requires comprehensive research on RAG patterns and memory integration. This is a knowledge-intensive task that can be effectively decomposed into parallel subtasks covering different aspects of RAG (architectures, retrieval strategies, memory integration) to ensure depth and breadth. The results will then be synthesized into a unified research document. I will spawn three parallel subtasks for the specific research areas and take the integration role myself.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.3.1",
+      "goal": "Research core RAG architectures and variations",
+      "capsule": "This subtask investigates the fundamental architectures of Retrieval-Augmented Generation, including naive RAG, modular RAG, and agentic RAG. It serves the ROOT GOAL by providing the structural foundation for understanding how retrieval systems are built.",
+      "outputs": [
+        {
+          "path": "root.2.3.1/architecture_notes",
+          "description": "Detailed notes on RAG architectures, their components, and variations."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.3.2",
+      "goal": "Research hybrid retrieval strategies and optimization techniques",
+      "capsule": "This subtask examines advanced retrieval methods such as hybrid search (dense + sparse), re-ranking, query transformation, and context optimization. It serves the ROOT GOAL by detailing how to improve the quality and relevance of retrieved memory.",
+      "outputs": [
+        {
+          "path": "root.2.3.2/retrieval_strategies",
+          "description": "Detailed notes on hybrid retrieval, re-ranking, and optimization techniques."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.3.3",
+      "goal": "Research memory integration patterns in LLM generation loops",
+      "capsule": "This subtask explores how retrieved information is integrated into the generation process, including context window management, memory-augmented reasoning, and feedback loops. It serves the ROOT GOAL by connecting retrieval to actual agent reasoning and output generation.",
+      "outputs": [
+        {
+          "path": "root.2.3.3/integration_patterns",
+          "description": "Detailed notes on integrating retrieved memory into LLM generation and reasoning loops."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Synthesize research notes into a unified RAG research document",
+    "outputs": [
+      {
+        "path": "root.2.3/rag_research",
+        "description": "Comprehensive research notes on RAG patterns, hybrid retrieval, memory-augmented generation, and integration techniques."
+      }
+    ],
+    "condition": "done(\"root.2.3.1/architecture_notes\") AND done(\"root.2.3.2/retrieval_strategies\") AND done(\"root.2.3.3/integration_patterns\")"
+  }
+}

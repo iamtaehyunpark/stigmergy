@@ -1,0 +1,33 @@
+{
+  "run_id": "L4_r1",
+  "task_id": "L4",
+  "converged": true,
+  "root_outputs": [
+    "root.5/canonical_terminology_standard",
+    "root/final_guide"
+  ],
+  "root_outputs_done": [
+    "root.5/canonical_terminology_standard",
+    "root/final_guide"
+  ],
+  "llm_calls": 28,
+  "max_depth": 3,
+  "agent_count": 13,
+  "total_spawns": 12,
+  "conflict_count": 0,
+  "schema_mismatches": 1,
+  "trigger_refs": 12,
+  "schema_agreements": 12,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_read_events": 8,
+  "cross_branch_unique_pairs": 4,
+  "self_role_parallel": 0,
+  "self_role_gated": 3,
+  "interface_owed_self": 2,
+  "interface_owed_delegated": 0,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Converged with a recursive multi-level graph matching the broad human decomposition; worker path mismatches occurred."
+}

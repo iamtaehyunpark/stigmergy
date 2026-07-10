@@ -1,0 +1,25 @@
+{
+  "run_id": "L2_r3",
+  "task_id": "L2",
+  "system": "planner",
+  "converged": true,
+  "planner_done": true,
+  "planner_failed": false,
+  "stalled": false,
+  "root_outputs": [
+    "root/report"
+  ],
+  "llm_calls": 11,
+  "planner_calls": 6,
+  "worker_tasks_completed": 5,
+  "mean_context_chars_per_decision": 5473.666666666667,
+  "max_context_chars": 10455,
+  "truncation_events": 0,
+  "plan_churn": {
+    "added": 5,
+    "removed": 0,
+    "modified": 0
+  },
+  "rail_hit": "",
+  "termination": "natural"
+}

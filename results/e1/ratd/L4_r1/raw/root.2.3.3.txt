@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.3.3",
+  "reasoning": "The task requires producing a single, cohesive research document on RAG integration with long-term memory systems. This is a focused research and synthesis task that can be completed in one step without needing to decompose into parallel subtasks. The scope is well-defined: context management, retrieval strategies, and hybrid approaches. I will execute this directly to ensure consistency and avoid the overhead of spawning.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.3.3/memory_integration",
+      "description": "Research notes on integrating RAG with long-term memory systems, including context management, memory retrieval strategies, and hybrid approaches."
+    }
+  ]
+}

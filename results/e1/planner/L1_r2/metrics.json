@@ -1,0 +1,25 @@
+{
+  "run_id": "L1_r2",
+  "task_id": "L1",
+  "system": "planner",
+  "converged": true,
+  "planner_done": true,
+  "planner_failed": false,
+  "stalled": false,
+  "root_outputs": [
+    "root/vector_embeddings_explainer"
+  ],
+  "llm_calls": 9,
+  "planner_calls": 5,
+  "worker_tasks_completed": 4,
+  "mean_context_chars_per_decision": 4511.0,
+  "max_context_chars": 7613,
+  "truncation_events": 0,
+  "plan_churn": {
+    "added": 4,
+    "removed": 0,
+    "modified": 0
+  },
+  "rail_hit": "",
+  "termination": "natural"
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task requires producing a comprehensive research summary for Chapter 2 on Long-term and Episodic Memory. This is a substantial research task that benefits from decomposition into parallel subtasks covering different aspects of the domain (vector databases, episodic memory, RAG, etc.). Each subtask can independently research its area and produce notes. I will then integrate these into a unified research document. This approach allows for thorough coverage while maintaining parallelism.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Research vector database architectures and semantic search mechanisms for LLM long-term memory",
+      "capsule": "This subtask investigates vector databases, embedding models, and similarity search techniques that form the infrastructure for long-term memory in LLM agents. It serves the ROOT GOAL by providing the technical foundation for Chapter 2's coverage of scalable memory storage and retrieval.",
+      "outputs": [{"path": "root.2.1/vector_db_research", "description": "Research notes on vector databases, embeddings, indexing strategies, and semantic search for LLM memory."}],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Research episodic memory systems and experience replay mechanisms in LLM agents",
+      "capsule": "This subtask explores how LLM agents store, retrieve, and leverage past experiences and episodic memories. It serves the ROOT GOAL by covering the cognitive-inspired memory architectures that enable agents to learn from history.",
+      "outputs": [{"path": "root.2.2/episodic_memory_research", "description": "Research notes on episodic memory, experience replay, memory consolidation, and temporal reasoning in LLM agents."}],
+      "condition": null
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Research retrieval-augmented generation (RAG) patterns and memory integration techniques",
+      "capsule": "This subtask examines RAG architectures, hybrid retrieval strategies, and how external memory is integrated into LLM generation loops. It serves the ROOT GOAL by covering the practical patterns for connecting long-term memory to agent reasoning.",
+      "outputs": [{"path": "root.2.3/rag_research", "description": "Research notes on RAG patterns, hybrid retrieval, memory-augmented generation, and integration techniques."}],
+      "condition": null
+    },
+    {
+      "id": "root.2.4",
+      "goal": "Research memory management, forgetting, and lifecycle policies in LLM agent systems",
+      "capsule": "This subtask investigates how agents manage memory growth, implement forgetting mechanisms, and handle memory lifecycle. It serves the ROOT GOAL by covering the operational challenges of maintaining long-term memory systems.",
+      "outputs": [{"path": "root.2.4/memory_management_research", "description": "Research notes on memory lifecycle, forgetting mechanisms, pruning strategies, and memory maintenance in LLM agents."}],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate all subtask research into a unified Chapter 2 research document",
+    "outputs": [{"path": "root.2/chapter_2_research", "description": "Comprehensive research notes and key concepts for Chapter 2, integrating all subtask findings."}],
+    "condition": "done(\"root.2.1/vector_db_research\") AND done(\"root.2.2/episodic_memory_research\") AND done(\"root.2.3/rag_research\") AND done(\"root.2.4/memory_management_research\")"
+  }
+}

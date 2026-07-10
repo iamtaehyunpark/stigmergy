@@ -1,0 +1,11 @@
+{
+  "task_id": "root.5",
+  "reasoning": "The task requires surveying terminology from four specific research notes already present in shared memory. Since the source data is available and the task involves a single coherent analytical output (the canonical standard), it is best handled by executing the analysis directly rather than spawning subtasks. I will read the four research notes, identify key terms and variations, resolve conflicts, and produce the canonical terminology standard.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.5/canonical_terminology_standard",
+      "description": "A document defining the canonical terms for the guide, mapping them to common variations, and specifying usage rules."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "run_id": "L2_r2",
+  "task_id": "L2",
+  "converged": true,
+  "root_outputs": [
+    "root/comparative_report"
+  ],
+  "root_outputs_done": [
+    "root/comparative_report"
+  ],
+  "llm_calls": 9,
+  "max_depth": 1,
+  "agent_count": 4,
+  "total_spawns": 3,
+  "conflict_count": 0,
+  "schema_mismatches": 0,
+  "trigger_refs": 3,
+  "schema_agreements": 3,
+  "trigger_fire_errors": 0,
+  "trigger_never_fired_ready": 0,
+  "defer_count": 0,
+  "cross_branch_read_events": 0,
+  "cross_branch_unique_pairs": 0,
+  "self_role_parallel": 0,
+  "self_role_gated": 1,
+  "interface_owed_self": 0,
+  "interface_owed_delegated": 0,
+  "termination": "natural",
+  "rail_hit": "",
+  "qualitative": "Converged with a shallow graph matching the broad human decomposition."
+}

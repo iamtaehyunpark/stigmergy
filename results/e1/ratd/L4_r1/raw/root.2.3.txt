@@ -1,0 +1,53 @@
+{
+  "task_id": "root.2.3",
+  "reasoning": "The task requires comprehensive research on RAG patterns and hybrid memory approaches. This is a knowledge-intensive task that can be effectively decomposed into parallel research streams covering different aspects of RAG (architectures, retrieval methods, re-ranking, and integration with memory). Each subtask can proceed independently since they cover distinct technical domains. I will take the integration role to synthesize these findings into a coherent research document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.3.1",
+      "goal": "Research core RAG architectures and patterns",
+      "capsule": "This subtask investigates fundamental RAG architectures including naive RAG, modular RAG, and agentic RAG patterns. It serves the ROOT GOAL by establishing the foundational architectural patterns that underpin retrieval-augmented generation in LLM agents.",
+      "outputs": [
+        {
+          "path": "root.2.3.1/rag_architectures",
+          "description": "Research notes on core RAG architectures: naive, modular, agentic, and advanced patterns with their trade-offs."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.3.2",
+      "goal": "Research hybrid retrieval methods and re-ranking strategies",
+      "capsule": "This subtask examines hybrid retrieval combining dense and sparse methods, vector search with keyword search, and re-ranking techniques. It serves the ROOT GOAL by covering the retrieval mechanisms that determine what information reaches the LLM.",
+      "outputs": [
+        {
+          "path": "root.2.3.2/hybrid_retrieval",
+          "description": "Research notes on hybrid retrieval methods, vector-sparse combinations, and re-ranking strategies for improving retrieval quality."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.3.3",
+      "goal": "Research RAG integration with long-term memory systems",
+      "capsule": "This subtask explores how RAG patterns integrate with episodic, semantic, and procedural memory systems in LLM agents. It serves the ROOT GOAL by connecting retrieval patterns to the broader memory architecture discussed in other chapters.",
+      "outputs": [
+        {
+          "path": "root.2.3.3/memory_integration",
+          "description": "Research notes on integrating RAG with long-term memory systems, including context management, memory retrieval strategies, and hybrid approaches."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Synthesize research findings into comprehensive RAG research document",
+    "outputs": [
+      {
+        "path": "root.2.3/rag_research",
+        "description": "Integrated research notes on RAG architectures, hybrid retrieval, re-ranking, and integration patterns for LLM agent memory."
+      }
+    ],
+    "condition": "done(\"root.2.3.1/rag_architectures\") AND done(\"root.2.3.2/hybrid_retrieval\") AND done(\"root.2.3.3/memory_integration\")"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.3.2",
+  "reasoning": "The task requires researching hybrid retrieval methods and re-ranking strategies. This is a focused research task that can be completed in a single effort by synthesizing knowledge about dense/sparse retrieval combinations, vector search, keyword search, and re-ranking techniques. The output is a single research notes document, so decomposition is unnecessary and would add overhead.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.3.2/hybrid_retrieval",
+      "description": "Research notes on hybrid retrieval methods, vector-sparse combinations, and re-ranking strategies for improving retrieval quality."
+    }
+  ]
+}

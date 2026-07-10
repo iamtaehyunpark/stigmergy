@@ -1,0 +1,26 @@
+{"ts": 1783663958.0125358, "event": "planner_call", "n": 1, "context_chars": 1863, "churn": {"added": 7, "removed": 0, "modified": 0}, "remaining": 7}
+{"ts": 1783663976.369319, "event": "write", "path": "root.1/research", "author": "root.1", "chars": 2761}
+{"ts": 1783663976.3708243, "event": "write", "path": "root.1/draft", "author": "root.1", "chars": 4913}
+{"ts": 1783663985.8252485, "event": "planner_call", "n": 2, "context_chars": 11909, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 6}
+{"ts": 1783664011.1333423, "event": "write", "path": "root.2/research", "author": "root.2", "chars": 3556}
+{"ts": 1783664011.1348226, "event": "write", "path": "root.2/draft", "author": "root.2", "chars": 7346}
+{"ts": 1783664019.2896872, "event": "planner_call", "n": 3, "context_chars": 22522, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 5}
+{"ts": 1783664043.0257056, "event": "write", "path": "root.3/research", "author": "root.3", "chars": 2607}
+{"ts": 1783664043.0271442, "event": "write", "path": "root.3/draft", "author": "root.3", "chars": 7446}
+{"ts": 1783664050.0446615, "event": "planner_call", "n": 4, "context_chars": 32301, "churn": {"added": 0, "removed": 0, "modified": 1}, "remaining": 4}
+{"ts": 1783664067.8246624, "event": "write", "path": "root.4/research", "author": "root.4", "chars": 2837}
+{"ts": 1783664067.8262208, "event": "write", "path": "root.4/draft", "author": "root.4", "chars": 5477}
+{"ts": 1783664073.8128338, "event": "planner_call", "n": 5, "context_chars": 40347, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 3}
+{"ts": 1783664088.56546, "event": "write", "path": "root.5/glossary", "author": "root.5", "chars": 6674}
+{"ts": 1783664092.9740524, "event": "planner_call", "n": 6, "context_chars": 46735, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 2}
+{"ts": 1783664218.056141, "event": "schema_mismatch", "agent": "root.6", "declared": "root.6/edited_chapter_1"}
+{"ts": 1783664218.0578532, "event": "write", "path": "root.6/edited_chapter_1", "author": "root.6", "chars": 15}
+{"ts": 1783664218.0595527, "event": "schema_mismatch", "agent": "root.6", "declared": "root.6/edited_chapter_2"}
+{"ts": 1783664218.0608497, "event": "write", "path": "root.6/edited_chapter_2", "author": "root.6", "chars": 15}
+{"ts": 1783664218.061874, "event": "schema_mismatch", "agent": "root.6", "declared": "root.6/edited_chapter_3"}
+{"ts": 1783664218.0630007, "event": "write", "path": "root.6/edited_chapter_3", "author": "root.6", "chars": 15}
+{"ts": 1783664218.0643678, "event": "schema_mismatch", "agent": "root.6", "declared": "root.6/edited_chapter_4"}
+{"ts": 1783664218.0659285, "event": "write", "path": "root.6/edited_chapter_4", "author": "root.6", "chars": 15}
+{"ts": 1783664220.557767, "event": "planner_call", "n": 7, "context_chars": 46294, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 1}
+{"ts": 1783664241.5302863, "event": "write", "path": "root/final_guide", "author": "root.7", "chars": 9331}
+{"ts": 1783664242.3680086, "event": "planner_call", "n": 8, "context_chars": 55228, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 0}

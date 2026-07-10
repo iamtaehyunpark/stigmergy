@@ -1,0 +1,38 @@
+{"ts": 1783664947.9795768, "event": "planner_call", "n": 1, "context_chars": 2227, "churn": {"added": 16, "removed": 0, "modified": 0}, "remaining": 16}
+{"ts": 1783664959.0681586, "event": "write", "path": "root.1/terminology_survey", "author": "root.1", "chars": 4749}
+{"ts": 1783664977.0295703, "event": "planner_call", "n": 2, "context_chars": 11726, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 15}
+{"ts": 1783664987.225424, "event": "write", "path": "root.2/canonical_standard", "author": "root.2", "chars": 4195}
+{"ts": 1783665004.039688, "event": "planner_call", "n": 3, "context_chars": 15588, "churn": {"added": 0, "removed": 0, "modified": 4}, "remaining": 14}
+{"ts": 1783665014.155965, "event": "write", "path": "root.3.1/research", "author": "root.3.1", "chars": 4020}
+{"ts": 1783665029.779469, "event": "planner_call", "n": 4, "context_chars": 19326, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 13}
+{"ts": 1783665043.1102843, "event": "write", "path": "root.3.2/research", "author": "root.3.2", "chars": 5011}
+{"ts": 1783665057.8052247, "event": "planner_call", "n": 5, "context_chars": 24120, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 12}
+{"ts": 1783665071.0679216, "event": "write", "path": "root.3.3/research", "author": "root.3.3", "chars": 5081}
+{"ts": 1783665084.8351157, "event": "planner_call", "n": 6, "context_chars": 28976, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 11}
+{"ts": 1783665096.0732117, "event": "write", "path": "root.3.4/research", "author": "root.3.4", "chars": 4544}
+{"ts": 1783665108.903594, "event": "planner_call", "n": 7, "context_chars": 33305, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 10}
+{"ts": 1783665118.5205185, "event": "write", "path": "root.4.1/draft", "author": "root.4.1", "chars": 4286}
+{"ts": 1783665130.2989292, "event": "planner_call", "n": 8, "context_chars": 37330, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 9}
+{"ts": 1783665143.2008622, "event": "write", "path": "root.4.2/draft", "author": "root.4.2", "chars": 5419}
+{"ts": 1783665153.9674547, "event": "planner_call", "n": 9, "context_chars": 42488, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 8}
+{"ts": 1783665167.4123752, "event": "write", "path": "root.4.3/draft", "author": "root.4.3", "chars": 5802}
+{"ts": 1783665177.1070156, "event": "planner_call", "n": 10, "context_chars": 48029, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 7}
+{"ts": 1783665193.4271467, "event": "write", "path": "root.4.4/draft", "author": "root.4.4", "chars": 7581}
+{"ts": 1783665202.3193147, "event": "planner_call", "n": 11, "context_chars": 55349, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 6}
+{"ts": 1783665211.669202, "event": "write", "path": "root.5.1/edited_chapter", "author": "root.5.1", "chars": 4265}
+{"ts": 1783665219.2314508, "event": "planner_call", "n": 12, "context_chars": 59353, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 5}
+{"ts": 1783665229.6611571, "event": "write", "path": "root.5.2/edited_chapter", "author": "root.5.2", "chars": 4409}
+{"ts": 1783665236.1366937, "event": "planner_call", "n": 13, "context_chars": 63501, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 4}
+{"ts": 1783665245.743025, "event": "write", "path": "root.5.3/edited_chapter", "author": "root.5.3", "chars": 4000}
+{"ts": 1783665245.7449458, "event": "state_truncation", "dropped_entries": 1, "kept_entries": 12}
+{"ts": 1783665251.0347083, "event": "planner_call", "n": 14, "context_chars": 62514, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 3}
+{"ts": 1783665263.063811, "event": "write", "path": "root.5.4/edited_chapter", "author": "root.5.4", "chars": 5631}
+{"ts": 1783665263.0658572, "event": "state_truncation", "dropped_entries": 3, "kept_entries": 11}
+{"ts": 1783665267.1534595, "event": "planner_call", "n": 15, "context_chars": 59617, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 2}
+{"ts": 1783665280.4865553, "event": "write", "path": "root.6/glossary", "author": "root.6", "chars": 5965}
+{"ts": 1783665280.4882839, "event": "state_truncation", "dropped_entries": 4, "kept_entries": 11}
+{"ts": 1783665282.9833949, "event": "planner_call", "n": 16, "context_chars": 60136, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 1}
+{"ts": 1783665407.57395, "event": "schema_mismatch", "agent": "root.7", "declared": "root/final_guide"}
+{"ts": 1783665407.5758622, "event": "write", "path": "root/final_guide", "author": "root.7", "chars": 15}
+{"ts": 1783665407.5772774, "event": "state_truncation", "dropped_entries": 4, "kept_entries": 12}
+{"ts": 1783665408.4762878, "event": "planner_call", "n": 17, "context_chars": 59721, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 0}

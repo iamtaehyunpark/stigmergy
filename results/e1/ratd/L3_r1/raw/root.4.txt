@@ -1,0 +1,53 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The task requires producing a high-quality technical chapter involving research, drafting, and editing. To ensure depth and quality, I will decompose this into parallel research streams for the three main topics (Hierarchical Memory, Self-Reflection, Future Directions) and a sequential drafting/editing phase. This allows for focused expertise on each sub-topic before integration. I will take the self_role of integrating the research into a draft and performing the final consistency edit to produce the required output.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Research Hierarchical Memory Systems",
+      "capsule": "This subtask investigates multi-level memory architectures, such as short-term vs. long-term memory separation and vector database hierarchies. It provides the foundational technical content for the first section of Chapter 4.",
+      "outputs": [
+        {
+          "path": "root.4.1/research_hierarchical",
+          "description": "Detailed notes and key concepts on hierarchical memory systems."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Research Self-Reflection and Meta-Cognitive Memory",
+      "capsule": "This subtask explores mechanisms where agents critique their own outputs and store insights for future improvement. It provides the content for the second section of Chapter 4, focusing on agent autonomy and learning.",
+      "outputs": [
+        {
+          "path": "root.4.2/research_self_reflection",
+          "description": "Detailed notes and key concepts on self-reflection and meta-cognitive memory patterns."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Research Emerging Trends and Future Directions",
+      "capsule": "This subtask identifies cutting-edge developments, such as neuro-symbolic integration, continuous learning, and standardized memory protocols. It provides the forward-looking content for the final section of Chapter 4.",
+      "outputs": [
+        {
+          "path": "root.4.3/research_future_trends",
+          "description": "Detailed notes and key concepts on emerging trends and future directions in LLM memory."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Draft and Edit Chapter 4",
+    "outputs": [
+      {
+        "path": "root.4/chapter_4_final",
+        "description": "The final, edited text for Chapter 4, integrating all research into a cohesive narrative."
+      }
+    ],
+    "condition": "done(\"root.4.1/research_hierarchical\") AND done(\"root.4.2/research_self_reflection\") AND done(\"root.4.3/research_future_trends\")"
+  }
+}
