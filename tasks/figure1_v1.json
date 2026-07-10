@@ -1,0 +1,7 @@
+[
+  {
+    "id": "f01",
+    "task": "Produce a bilingual (EN/KR) API style guide for a payments platform, in two parts developed by separate teams: Part A defines the canonical terminology and naming conventions (endpoint nouns, error-code vocabulary, casing rules); Part B writes the worked integration tutorial with code samples. The tutorial MUST use the canonical terminology exactly - any term drift between parts is a defect. Part A's conventions are not fixed in advance; they emerge from Part A's research.",
+    "source": "Figure-1 candidate v1 (spec 1.2): dependency is inside Part B's content, not its interface; engineered so the cross-branch need is discovered mid-execution"
+  }
+]
