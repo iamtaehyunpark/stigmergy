@@ -394,7 +394,7 @@ class Runtime:
                 f"YOUR TASK: {agent.task}",
                 f"DECLARED OUTPUTS: {json.dumps(declared, ensure_ascii=False)}",
                 "RELEVANT MEMORY:",
-                "\n".join(f"- {k}: {v[:1000]}" for k, v in self.visible_entries(agent)) or "(empty)",
+                "\n".join(f"- {k}: {v[:4000]}" for k, v in self.visible_entries(agent)) or "(empty)",
             ]
         )
         worker = self.call_worker(prompt)

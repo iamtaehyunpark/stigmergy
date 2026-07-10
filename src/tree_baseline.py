@@ -189,7 +189,7 @@ class BaselineRun:
                 f"YOUR TASK: {t['goal']}",
                 f"DECLARED OUTPUTS: {json.dumps(declared, ensure_ascii=False)}",
                 "RELEVANT MEMORY:",
-                "\n".join(f"- {k}: {v[:1000]}" for k, v in memory) or "(empty)",
+                "\n".join(f"- {k}: {v[:4000]}" for k, v in memory) or "(empty)",
             ]
         )
         raw = ""

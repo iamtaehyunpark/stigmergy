@@ -1,0 +1,367 @@
+[
+  {
+    "run_id": "f01_r1",
+    "system": "ratd",
+    "converged": true,
+    "llm_calls": 12,
+    "defer_count": 0,
+    "defer_wake_fires": 0,
+    "emergent_cross_edges": 0,
+    "emergent_edges": [],
+    "cross_branch_unique_pairs": 1,
+    "terminology_paths": [
+      "root.1/canonical_terminology"
+    ],
+    "tutorial_paths": [
+      "root.2/integration_tutorial"
+    ],
+    "detection_ok": true,
+    "term_count": 24,
+    "matched_count": 2,
+    "consistency": 0.08333333333333333,
+    "terms": [
+      "/v1/payment-methods",
+      "/v1/transactions/{id}",
+      "AUTH_001",
+      "AUTH_002",
+      "AUTH_003",
+      "CATEGORY_CODE",
+      "INSUFFICIENT_FUNDS",
+      "INVALID_CARD_NUMBER",
+      "SCREAMING_SNAKE_CASE",
+      "VAL_001",
+      "VAL_002",
+      "card_number",
+      "case-sensitivity",
+      "content-type",
+      "error-handling",
+      "error_code",
+      "field_name",
+      "kebab-case",
+      "multi-word",
+      "payment-methods",
+      "snake_case",
+      "transaction_id",
+      "tx_123",
+      "x-api-key"
+    ],
+    "matched": [
+      "INSUFFICIENT_FUNDS",
+      "error_code"
+    ]
+  },
+  {
+    "run_id": "f01_r2",
+    "system": "ratd",
+    "converged": true,
+    "llm_calls": 10,
+    "defer_count": 0,
+    "defer_wake_fires": 0,
+    "emergent_cross_edges": 0,
+    "emergent_edges": [],
+    "cross_branch_unique_pairs": 1,
+    "terminology_paths": [
+      "root.1/terminology_guide"
+    ],
+    "tutorial_paths": [
+      "root.2/tutorial_draft"
+    ],
+    "detection_ok": true,
+    "term_count": 20,
+    "matched_count": 11,
+    "consistency": 0.55,
+    "terms": [
+      "/response",
+      "/v1/balances",
+      "/v1/cards",
+      "/v1/customers",
+      "/v1/invoices",
+      "/v1/payments",
+      "/v1/refunds",
+      "/v1/subscriptions",
+      "AUTH_0001",
+      "AUTH_0002",
+      "DOMAIN_4_LETTERS",
+      "PAY_0001",
+      "PAY_0002",
+      "SYS_0001",
+      "SYS_0002",
+      "UPPER_SNAKE_CASE",
+      "customer_name",
+      "payment_id",
+      "refund_amount",
+      "snake_case"
+    ],
+    "matched": [
+      "/v1/balances",
+      "/v1/cards",
+      "/v1/customers",
+      "/v1/payments",
+      "/v1/refunds",
+      "DOMAIN_4_LETTERS",
+      "PAY_0001",
+      "customer_name",
+      "payment_id",
+      "refund_amount",
+      "snake_case"
+    ]
+  },
+  {
+    "run_id": "f01_r3",
+    "system": "ratd",
+    "converged": true,
+    "llm_calls": 12,
+    "defer_count": 0,
+    "defer_wake_fires": 0,
+    "emergent_cross_edges": 0,
+    "emergent_edges": [],
+    "cross_branch_unique_pairs": 1,
+    "terminology_paths": [
+      "root.1/canonical_terminology"
+    ],
+    "tutorial_paths": [
+      "root.2/integration_tutorial"
+    ],
+    "detection_ok": true,
+    "term_count": 23,
+    "matched_count": 0,
+    "consistency": 0.0,
+    "terms": [
+      "/v1/payment-methods",
+      "/v1/transactions/{id}",
+      "AUTH_001",
+      "AUTH_002",
+      "AUTH_003",
+      "CATEGORY_CODE",
+      "INSUFFICIENT_FUNDS",
+      "INVALID_CARD_NUMBER",
+      "SCREAMING_SNAKE_CASE",
+      "VAL_001",
+      "card_number",
+      "case-sensitivity",
+      "content-type",
+      "error-handling",
+      "error_code",
+      "field_name",
+      "kebab-case",
+      "multi-word",
+      "payment-methods",
+      "snake_case",
+      "transaction_id",
+      "tx_123",
+      "x-api-key"
+    ],
+    "matched": []
+  },
+  {
+    "run_id": "f01_r4",
+    "system": "ratd",
+    "converged": true,
+    "llm_calls": 10,
+    "defer_count": 0,
+    "defer_wake_fires": 0,
+    "emergent_cross_edges": 0,
+    "emergent_edges": [],
+    "cross_branch_unique_pairs": 1,
+    "terminology_paths": [
+      "root.1/terminology_guide"
+    ],
+    "tutorial_paths": [
+      "root.2/tutorial_draft"
+    ],
+    "detection_ok": true,
+    "term_count": 19,
+    "matched_count": 11,
+    "consistency": 0.5789473684210527,
+    "terms": [
+      "/customers",
+      "/disputes",
+      "/invoices",
+      "/merchants",
+      "/payment_methods",
+      "/payment_transactions",
+      "/refunds",
+      "/webhooks",
+      "AUTH_0001",
+      "DOMAIN_4_DIGITS",
+      "PAY_0001",
+      "PAY_0002",
+      "SCREAMING_SNAKE_CASE",
+      "SYS_0001",
+      "lowercase_snake_case",
+      "payment_methods",
+      "payment_transactions",
+      "snake_case",
+      "transaction_id"
+    ],
+    "matched": [
+      "/customers",
+      "/payment_methods",
+      "/payment_transactions",
+      "/refunds",
+      "PAY_0001",
+      "SCREAMING_SNAKE_CASE",
+      "lowercase_snake_case",
+      "payment_methods",
+      "payment_transactions",
+      "snake_case",
+      "transaction_id"
+    ]
+  },
+  {
+    "run_id": "f01_r1",
+    "system": "baseline",
+    "converged": true,
+    "llm_calls": 4,
+    "defer_count": 0,
+    "defer_wake_fires": 0,
+    "emergent_cross_edges": 0,
+    "planned_cross_branch_unique_pairs": 5,
+    "terminology_paths": [
+      "root.1/naming_conventions",
+      "root.1/terminology_glossary"
+    ],
+    "tutorial_paths": [
+      "root.2/integration_tutorial"
+    ],
+    "detection_ok": true,
+    "term_count": 13,
+    "matched_count": 2,
+    "consistency": 0.15384615384615385,
+    "terms": [
+      "/api/v1/",
+      "/api/v1/payment-methods",
+      "SPECIFIC_CODE",
+      "casing_standards",
+      "endpoint_nouns",
+      "error_code_structure",
+      "http_headers",
+      "json_keys",
+      "kebab-case",
+      "payment-methods",
+      "query_params",
+      "snake_case",
+      "url_paths"
+    ],
+    "matched": [
+      "/api/v1/",
+      "SPECIFIC_CODE"
+    ]
+  },
+  {
+    "run_id": "f01_r2",
+    "system": "baseline",
+    "converged": true,
+    "llm_calls": 4,
+    "defer_count": 0,
+    "defer_wake_fires": 0,
+    "emergent_cross_edges": 0,
+    "planned_cross_branch_unique_pairs": 5,
+    "terminology_paths": [
+      "root.1/naming_conventions",
+      "root.1/terminology_glossary"
+    ],
+    "tutorial_paths": [
+      "root.2/integration_tutorial"
+    ],
+    "detection_ok": true,
+    "term_count": 11,
+    "matched_count": 3,
+    "consistency": 0.2727272727272727,
+    "terms": [
+      "/v1/{resource}",
+      "SPECIFIC_CODE",
+      "casing_standards",
+      "endpoint_nouns",
+      "error_code_structure",
+      "http_headers",
+      "json_keys",
+      "kebab-case",
+      "query_params",
+      "snake_case",
+      "url_paths"
+    ],
+    "matched": [
+      "SPECIFIC_CODE",
+      "kebab-case",
+      "snake_case"
+    ]
+  },
+  {
+    "run_id": "f01_r3",
+    "system": "baseline",
+    "converged": true,
+    "llm_calls": 4,
+    "defer_count": 0,
+    "defer_wake_fires": 0,
+    "emergent_cross_edges": 0,
+    "planned_cross_branch_unique_pairs": 5,
+    "terminology_paths": [
+      "root.1/naming_conventions",
+      "root.1/terminology_glossary"
+    ],
+    "tutorial_paths": [
+      "root.2/integration_tutorial"
+    ],
+    "detection_ok": true,
+    "term_count": 11,
+    "matched_count": 3,
+    "consistency": 0.2727272727272727,
+    "terms": [
+      "/v1/{resource}",
+      "SPECIFIC_CODE",
+      "casing_standards",
+      "endpoint_nouns",
+      "error_code_structure",
+      "http_headers",
+      "json_keys",
+      "kebab-case",
+      "query_params",
+      "snake_case",
+      "url_paths"
+    ],
+    "matched": [
+      "SPECIFIC_CODE",
+      "kebab-case",
+      "snake_case"
+    ]
+  },
+  {
+    "run_id": "f01_r4",
+    "system": "baseline",
+    "converged": true,
+    "llm_calls": 4,
+    "defer_count": 0,
+    "defer_wake_fires": 0,
+    "emergent_cross_edges": 0,
+    "planned_cross_branch_unique_pairs": 5,
+    "terminology_paths": [
+      "root.1/naming_conventions",
+      "root.1/terminology_glossary"
+    ],
+    "tutorial_paths": [
+      "root.2/integration_tutorial"
+    ],
+    "detection_ok": true,
+    "term_count": 11,
+    "matched_count": 2,
+    "consistency": 0.18181818181818182,
+    "terms": [
+      "/v1/{resource}",
+      "SPECIFIC_CODE",
+      "casing_standards",
+      "endpoint_nouns",
+      "error_code_structure",
+      "http_headers",
+      "json_keys",
+      "kebab-case",
+      "query_params",
+      "snake_case",
+      "url_paths"
+    ],
+    "matched": [
+      "SPECIFIC_CODE",
+      "snake_case"
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {
+    "id": "f01",
+    "task": "Produce a bilingual (EN/KR) developer style guide for 'Cheonma', an internal payments platform, in two independently-owned parts. Part A (platform standards team): research Cheonma's legacy services and write the canonical terminology standard - endpoint nouns, error-code vocabulary, and casing rules. Cheonma's conventions are idiosyncratic house style discovered from its legacy code, not industry defaults; they are unknown until Part A publishes them. Part B (developer relations team): write the worked integration tutorial with runnable code samples for the checkout and refund flows. Company handbook rule, applying to the whole guide: documentation ships only if every identifier, endpoint name, and error code appearing anywhere in the guide matches the published canonical standard exactly; term drift between parts is a shipping defect.",
+    "source": "Figure-1 candidate v2. Delta from v1: terminology made idiosyncratic/unguessable (invention cannot accidentally match - the spec's decisiveness lever); the consistency requirement restated as a global audit property of the deliverable instead of a Part-B instruction (weaker spawn-time signal for root to pre-plan the A->B edge). v1 result: root planned the edge in 4/4 runs, zero emergent edges."
+  }
+]

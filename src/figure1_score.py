@@ -60,11 +60,19 @@ def load_entries(run_dir: Path) -> dict[str, str]:
 
 
 def split_parts(entries: dict[str, str]) -> tuple[list[str], list[str]]:
-    """Return (terminology_paths, tutorial_paths), excluding the final root/ integrated artifact."""
+    """Return (terminology_paths, tutorial_paths) at the interface level only.
+
+    Only depth-1 namespaces (root.N/...) count: these are the branch
+    interfaces other branches can actually reference and read. Deeper
+    artifacts (root.N.M/...) are internal working products invisible
+    outside their branch; counting their terms in the denominator
+    penalized whichever system decomposed more deeply (the v1 scoring
+    asymmetry). The final integrated root/ artifact is excluded.
+    """
     term_paths, tut_paths = [], []
     for path in sorted(entries):
         ns = path.split("/")[0]
-        if ns == "root":
+        if ns == "root" or ns.count(".") != 1:
             continue
         key = path.split("/", 1)[1] if "/" in path else path
         if TERMINOLOGY_KEY.search(key):

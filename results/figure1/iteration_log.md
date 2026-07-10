@@ -78,3 +78,63 @@ consistency).
   `results/figure1/FIGURE1_scores.json`, prints the comparison table)
 - Then: `FIGURE1.md` with the side-by-side graphs (RATD graph.png vs
   baseline graph.png) and the consistency gap.
+
+## Run 1 (task v1) — no emergent edges; measurement confounded; NOT a decisiveness verdict
+
+Runs 2026-07-10, 8/8 converged (RATD 4, baseline 4), zero conflicts,
+zero rails, RATD schema agreement 22/22.
+
+- **Registered risk #1 realized**: root pre-planned the A→B edge in
+  4/4 RATD runs (root.2 gated on root.1's terminology interface).
+  Zero DEFERs, zero emergent cross edges. The v1 task text's "MUST
+  use the canonical terminology" made the dependency plannable at
+  spawn time; the graphs RATD grew are trees a planner could write.
+- Headline consistency as first scored (RATD 20.8% vs baseline
+  22.0%) is **not a valid decisiveness verdict**; two measurement
+  defects dominated it:
+  1. **Scoring asymmetry**: the term denominator included Part-A's
+     *child* artifacts (root.1.1/…, root.1.2/…) that the tutorial
+     author could never see - penalizing exactly the system that
+     decomposes more deeply. Fixed: `split_parts` now scores
+     interface-level (depth-1) artifacts only, both systems alike.
+     Rescoring v1 under the fixed metric flips the sign (RATD 30.3%
+     vs baseline 22.0%, `FIGURE1_scores_interface_metric.json`) -
+     i.e., the v1 "baseline wins" was metric-sensitive; neither
+     direction is claimable from v1.
+  2. **Worker context truncation severed the payload**: worker
+     memory values were sliced to 1000 chars. RATD's bimodal spread
+     (0%, 4.8% vs 39.3%, 39.3%) is fully explained: in r1/r3 the
+     terminology doc (~2830 chars) led with ~1000 chars of prose -
+     ZERO identifier terms survived into the tutorial author's view
+     (0/0 extractable); in r2/r4 terms led the doc and the tutorial
+     used 11 of the 12-14 visible ones (79-92% of what it saw). The
+     model was faithful to what it read in every run; the runtime
+     logged the cross-branch read as successful while delivering
+     none of the vocabulary. Fixed symmetrically: worker memory
+     slice 1000 → 4000 chars in both `phase2.py` and
+     `tree_baseline.py`. Theory implication logged in
+     THEORY_VS_REALITY ("reads are grants, not delivery").
+- Baseline behaved as designed: 4 planner+worker calls/run, planned
+  tree with planned cross-branch reads, emergent 0 by construction.
+
+## Iteration → task v2 + measurement fixes (pre-registered before run 2)
+
+- `tasks/figure1_v2.json`: terminology made idiosyncratic house
+  style ("Cheonma", discovered from legacy code, not industry
+  defaults) so invention cannot accidentally match - the spec's
+  decisiveness lever; the consistency requirement restated as a
+  global audit property of the final deliverable rather than a
+  Part-B instruction, weakening the spawn-time signal that let root
+  pre-plan the edge. If root still plans the edge in v2, that is
+  recorded as evidence that statable dependencies get planned and
+  the emergent-DAG advantage requires genuinely unforeseeable
+  dependencies (v3 would need mid-execution dependency injection).
+- Declared: run 2 changes task wording AND the truncation limit
+  together (both systems symmetrically). v1↔v2 deltas are therefore
+  not attributable to either alone; the decisiveness comparison is
+  within-run-2, RATD-vs-baseline.
+- Run 2 protocol: same as run 1 with `--tasks tasks/figure1_v2.json`
+  and out-dirs `results/figure1_v2/{ratd,baseline}`, then
+  `python3 -m src.figure1_score --ratd-dir results/figure1_v2/ratd
+  --baseline-dir results/figure1_v2/baseline --out
+  results/figure1_v2/FIGURE1_scores.json`.
