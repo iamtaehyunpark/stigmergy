@@ -1,0 +1,498 @@
+<title>L4_r3</title>
+<h1>Run: L4_r3</h1>
+<h2>Metrics</h2><table border=1>
+<tr><td>run_id</td><td>L4_r3</td></tr>
+<tr><td>task_id</td><td>L4</td></tr>
+<tr><td>converged</td><td>True</td></tr>
+<tr><td>root_outputs</td><td>[&#x27;root.5/canonical_terminology_standard&#x27;, &#x27;root/drafting_plan&#x27;]</td></tr>
+<tr><td>root_outputs_done</td><td>[&#x27;root.5/canonical_terminology_standard&#x27;, &#x27;root/drafting_plan&#x27;]</td></tr>
+<tr><td>llm_calls</td><td>12</td></tr>
+<tr><td>max_depth</td><td>1</td></tr>
+<tr><td>agent_count</td><td>6</td></tr>
+<tr><td>total_spawns</td><td>5</td></tr>
+<tr><td>conflict_count</td><td>0</td></tr>
+<tr><td>schema_mismatches</td><td>0</td></tr>
+<tr><td>trigger_refs</td><td>5</td></tr>
+<tr><td>schema_agreements</td><td>5</td></tr>
+<tr><td>trigger_fire_errors</td><td>0</td></tr>
+<tr><td>trigger_never_fired_ready</td><td>0</td></tr>
+<tr><td>defer_count</td><td>0</td></tr>
+<tr><td>cross_branch_read_events</td><td>8</td></tr>
+<tr><td>cross_branch_unique_pairs</td><td>4</td></tr>
+<tr><td>self_role_parallel</td><td>0</td></tr>
+<tr><td>self_role_gated</td><td>1</td></tr>
+<tr><td>interface_owed_self</td><td>0</td></tr>
+<tr><td>interface_owed_delegated</td><td>0</td></tr>
+<tr><td>termination</td><td>natural</td></tr>
+<tr><td>rail_hit</td><td></td></tr>
+<tr><td>qualitative</td><td>Converged with a shallow graph matching the broad human decomposition.</td></tr>
+</table>
+<h2>Agent graph</h2>
+<img src="data:image/png;base64,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K1euJAD04MEDKisrI09PTxIIBBQQEEBRUVEUEhJCbdu2JUtLS8rIyJCts6Zt79y5QwkJCWRkZET29vaUkJBACQkJlJiYWKPsX3zxBbm6usrud/311191/iKSIq5fv04dOnSodCfKm7+Bu3fvch1V7XSugL58+ZJ69uxJ3bp1U+jWI5FIRO3bt69QRHk8Hvn6+pJAIKCPP/64VvedqpqiV+E9PT0JAG3fvr3C9OTkZCorK6PAwEACQMuXL68wv6CggExMTKh58+ayew3laUtEZGpqSv3795crb3JyMtWvX59u3bolm6YrBfSff/6h5ORkpa7z2bNnNHr06Eo7D/jfnSjOzs5K3Z620LkCSkR069YtsrCwoHHjxim0/OHDhyv8D7Rx40YiIjp27Bg1aNCAHB0d6d69e8qMrDS1LaD5+flVzrexsSEAVFBQUGmel5cXAaDff/9d7rZE8hfQFy9eULt27Wjbtm0VputCAT169ChZWFjQgAEDlL7u3NxcatOmDQkEAtktYQBIIBBU+odVV+jkWfU2bdrg4MGDCA8PR3BwsNzLe3p6on///gCAr776SnaLzZAhQ3D69GkUFxejd+/euHv3rlJzawILC4tK00QiEfLy8mBoaAgrK6tK81u2bAkAyMnJkautovbt24ecnBwcOHAArq6usldQUBAA4JdffpFNqyvfkVQqxZIlSzBs2DB4eHggJiZGqet//Pgxhg0bBlNTU/z222+oV69ehT5IP/roI6VuT1vozEWkN7m5uWH16tX46quv0KFDB4wcOVKu5Tdv3owff/wRK1eurDC9Y8eOOH36NH766SdYW1srM7LG0tPTg4GBAcrKylBaWlppFMinT58CeH03hDxtFeXh4YFTp05Vmh4XF4fly5fjgw8+wMSJEwEAjRo1Ung7muLhw4eYMGECEhISsHnzZkyfPl2p6y8tLcWHH36Ix48fIz09HS1atECPHj3g6emJCxcuQCgUonHjxkrdptbgeheYa9OnTycTExPKzMyUe1lt7Iyjtofw1Z3fHTRoEAGgP//8s9K87t27E4/HoytXrsjdloioYcOG5OTkJPv7k08+qXCIX1N18RD+7Nmz1KZNG7KxsaH09HSlr18qldLEiROpfv36dOHChQrzXr16Rf7+/rRz506lb1db6HwBLSsrIzc3N7K2tqa8vDyu46icqgpoVlYW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">
+<p>Edges (spawn = parent created child; waits-on = trigger dependency, producer path &rarr; consumer):</p><table border=1><tr><th>from</th><th>to</th><th>kind</th></tr>
+<tr><td>root</td><td>root.1</td><td>spawn</td></tr>
+<tr><td>root</td><td>root.2</td><td>spawn</td></tr>
+<tr><td>root</td><td>root.3</td><td>spawn</td></tr>
+<tr><td>root</td><td>root.4</td><td>spawn</td></tr>
+<tr><td>root</td><td>root.5</td><td>spawn</td></tr>
+<tr><td>root.1/research_notes</td><td>root.5</td><td>waits-on</td></tr>
+<tr><td>root.2/research_notes</td><td>root.5</td><td>waits-on</td></tr>
+<tr><td>root.3/research_notes</td><td>root.5</td><td>waits-on</td></tr>
+<tr><td>root.4/research_notes</td><td>root.5</td><td>waits-on</td></tr>
+<tr><td>root.5/canonical_terminology_standard</td><td>root (self_role)</td><td>waits-on</td></tr>
+</table>
+<h2>Agent roster</h2>
+<details><summary><b>root.1</b>: Research Chapter 1: Short-term/Context Window Memory</summary><table border=1>
+<tr><td>task</td><td>Research Chapter 1: Short-term/Context Window Memory</td></tr>
+<tr><td>capsule</td><td>This subtask investigates the mechanisms of short-term memory in LLM agents, such as context windows, sliding windows, and attention mechanisms. It serves the ROOT GOAL by providing the technical foundation for the first chapter of the field guide.</td></tr>
+<tr><td>condition</td><td>None</td></tr>
+<tr><td>expected_outputs</td><td>[{&#x27;path&#x27;: &#x27;root.1/research_notes&#x27;, &#x27;description&#x27;: &#x27;Detailed research notes on short-term memory mechanisms, including key concepts, architectures, and limitations.&#x27;}]</td></tr>
+</table></details>
+<details><summary><b>root.2</b>: Research Chapter 2: Long-term/Vector Store Memory</summary><table border=1>
+<tr><td>task</td><td>Research Chapter 2: Long-term/Vector Store Memory</td></tr>
+<tr><td>capsule</td><td>This subtask investigates long-term memory systems, focusing on vector databases, embedding models, and retrieval-augmented generation (RAG) techniques. It serves the ROOT GOAL by providing the technical foundation for the second chapter of the field guide.</td></tr>
+<tr><td>condition</td><td>None</td></tr>
+<tr><td>expected_outputs</td><td>[{&#x27;path&#x27;: &#x27;root.2/research_notes&#x27;, &#x27;description&#x27;: &#x27;Detailed research notes on long-term memory systems, including vector stores, embeddings, and retrieval strategies.&#x27;}]</td></tr>
+</table></details>
+<details><summary><b>root.3</b>: Research Chapter 3: Episodic/Experience Replay Memory</summary><table border=1>
+<tr><td>task</td><td>Research Chapter 3: Episodic/Experience Replay Memory</td></tr>
+<tr><td>capsule</td><td>This subtask investigates episodic memory systems, focusing on experience replay, trajectory storage, and learning from past interactions. It serves the ROOT GOAL by providing the technical foundation for the third chapter of the field guide.</td></tr>
+<tr><td>condition</td><td>None</td></tr>
+<tr><td>expected_outputs</td><td>[{&#x27;path&#x27;: &#x27;root.3/research_notes&#x27;, &#x27;description&#x27;: &#x27;Detailed research notes on episodic memory systems, including experience replay and trajectory management.&#x27;}]</td></tr>
+</table></details>
+<details><summary><b>root.4</b>: Research Chapter 4: Semantic/Graph-based Memory</summary><table border=1>
+<tr><td>task</td><td>Research Chapter 4: Semantic/Graph-based Memory</td></tr>
+<tr><td>capsule</td><td>This subtask investigates semantic memory systems, focusing on knowledge graphs, ontologies, and structured reasoning. It serves the ROOT GOAL by providing the technical foundation for the fourth chapter of the field guide.</td></tr>
+<tr><td>condition</td><td>None</td></tr>
+<tr><td>expected_outputs</td><td>[{&#x27;path&#x27;: &#x27;root.4/research_notes&#x27;, &#x27;description&#x27;: &#x27;Detailed research notes on semantic memory systems, including knowledge graphs and structured data representation.&#x27;}]</td></tr>
+</table></details>
+<details><summary><b>root.5</b>: Survey Terminology and Define Canonical Standard</summary><table border=1>
+<tr><td>task</td><td>Survey Terminology and Define Canonical Standard</td></tr>
+<tr><td>capsule</td><td>This subtask surveys the terminology used in the source domains of all four chapters to identify variations and conflicts. It serves the ROOT GOAL by producing the canonical terminology standard that all subsequent drafting and glossary creation must adhere to, preventing term drift.</td></tr>
+<tr><td>condition</td><td>done(&quot;root.1/research_notes&quot;) AND done(&quot;root.2/research_notes&quot;) AND done(&quot;root.3/research_notes&quot;) AND done(&quot;root.4/research_notes&quot;)</td></tr>
+<tr><td>expected_outputs</td><td>[{&#x27;path&#x27;: &#x27;root.5/canonical_terminology_standard&#x27;, &#x27;description&#x27;: &#x27;A document defining the canonical terms for the guide, mapping them to common variations, and specifying usage rules.&#x27;}]</td></tr>
+</table></details>
+<h2>Circuit (trigger table C, verbatim from state.sqlite)</h2><table border=1><tr><th>rule id</th><th>condition &phi;</th><th>wakes agent &sigma;</th><th>fired</th></tr>
+<tr><td>L4_r3:root.5</td><td>done(&quot;root.1/research_notes&quot;) AND done(&quot;root.2/research_notes&quot;) AND done(&quot;root.3/research_notes&quot;) AND done(&quot;root.4/research_notes&quot;)</td><td>root.5</td><td>YES</td></tr>
+<tr><td>L4_r3:root:self</td><td>done(&quot;root.5/canonical_terminology_standard&quot;)</td><td>root</td><td>YES</td></tr>
+</table>
+<h2>Trajectory (50 events)</h2><table border=1><tr><th>t+s</th><th>event</th><th>what happened</th></tr>
+<tr><td>     0.0</td><td>enqueue</td><td>enqueue: root</td></tr>
+<tr><td>     0.0</td><td>agent_start</td><td>agent_start: root</td></tr>
+<tr><td>     0.0</td><td>route_context</td><td>root routing context built (7978 chars)</td></tr>
+<tr><td>    10.7</td><td>route</td><td>root decided: SPAWN</td></tr>
+<tr><td>    10.7</td><td>spawn</td><td>root spawned root.1 (condition: none - starts now) outputs: [&#x27;root.1/research_notes&#x27;]</td></tr>
+<tr><td>    10.7</td><td>enqueue</td><td>enqueue: root.1</td></tr>
+<tr><td>    10.7</td><td>spawn</td><td>root spawned root.2 (condition: none - starts now) outputs: [&#x27;root.2/research_notes&#x27;]</td></tr>
+<tr><td>    10.7</td><td>enqueue</td><td>enqueue: root.2</td></tr>
+<tr><td>    10.7</td><td>spawn</td><td>root spawned root.3 (condition: none - starts now) outputs: [&#x27;root.3/research_notes&#x27;]</td></tr>
+<tr><td>    10.7</td><td>enqueue</td><td>enqueue: root.3</td></tr>
+<tr><td>    10.7</td><td>spawn</td><td>root spawned root.4 (condition: none - starts now) outputs: [&#x27;root.4/research_notes&#x27;]</td></tr>
+<tr><td>    10.7</td><td>enqueue</td><td>enqueue: root.4</td></tr>
+<tr><td>    10.7</td><td>spawn</td><td>root spawned root.5 (condition: done(&quot;root.1/research_notes&quot;) AND done(&quot;root.2/research_notes&quot;) AND done(&quot;root.3/research_notes&quot;) AND done(&quot;root.4/research_notes&quot;)) outputs: [&#x27;root.5/canonical_terminology_standard&#x27;]</td></tr>
+<tr><td>    10.7</td><td>trigger_add</td><td>circuit += rule [L4_r3:root.5]: when done(&quot;root.1/research_notes&quot;) AND done(&quot;root.2/research_notes&quot;) AND done(&quot;root.3/research_notes&quot;) AND done(&quot;root.4/research_notes&quot;) wake root.5</td></tr>
+<tr><td>    10.7</td><td>self_role</td><td>root takes self_role (gated) outputs [&#x27;root/drafting_plan&#x27;] condition: done(&quot;root.5/canonical_terminology_standard&quot;)</td></tr>
+<tr><td>    10.7</td><td>trigger_add</td><td>circuit += rule [L4_r3:root:self]: when done(&quot;root.5/canonical_terminology_standard&quot;) wake root</td></tr>
+<tr><td>    10.7</td><td>agent_start</td><td>agent_start: root.1</td></tr>
+<tr><td>    10.7</td><td>route_context</td><td>root.1 routing context built (7857 chars)</td></tr>
+<tr><td>    12.5</td><td>route</td><td>root.1 decided: EXECUTE</td></tr>
+<tr><td>    20.1</td><td>write</td><td>root.1 wrote root.1/research_notes (2868 chars)</td></tr>
+<tr><td>    20.1</td><td>agent_start</td><td>agent_start: root.2</td></tr>
+<tr><td>    20.1</td><td>route_context</td><td>root.2 routing context built (7866 chars)</td></tr>
+<tr><td>    22.1</td><td>route</td><td>root.2 decided: EXECUTE</td></tr>
+<tr><td>    38.0</td><td>write</td><td>root.2 wrote root.2/research_notes (6384 chars)</td></tr>
+<tr><td>    38.1</td><td>agent_start</td><td>agent_start: root.3</td></tr>
+<tr><td>    38.1</td><td>route_context</td><td>root.3 routing context built (7846 chars)</td></tr>
+<tr><td>    39.8</td><td>route</td><td>root.3 decided: EXECUTE</td></tr>
+<tr><td>    50.5</td><td>write</td><td>root.3 wrote root.3/research_notes (4158 chars)</td></tr>
+<tr><td>    50.5</td><td>agent_start</td><td>agent_start: root.4</td></tr>
+<tr><td>    50.5</td><td>route_context</td><td>root.4 routing context built (7829 chars)</td></tr>
+<tr><td>    52.4</td><td>route</td><td>root.4 decided: EXECUTE</td></tr>
+<tr><td>    63.9</td><td>write</td><td>root.4 wrote root.4/research_notes (4519 chars)</td></tr>
+<tr><td>    63.9</td><td>trigger_fire</td><td>rule [L4_r3:root.5] FIRED -&gt; root.5 enqueued</td></tr>
+<tr><td>    63.9</td><td>enqueue</td><td>enqueue: root.5</td></tr>
+<tr><td>    63.9</td><td>agent_start</td><td>agent_start: root.5</td></tr>
+<tr><td>    63.9</td><td>cross_branch_read</td><td>root.5 read root.1/research_notes (cross-branch)</td></tr>
+<tr><td>    63.9</td><td>cross_branch_read</td><td>root.5 read root.2/research_notes (cross-branch)</td></tr>
+<tr><td>    63.9</td><td>cross_branch_read</td><td>root.5 read root.3/research_notes (cross-branch)</td></tr>
+<tr><td>    63.9</td><td>cross_branch_read</td><td>root.5 read root.4/research_notes (cross-branch)</td></tr>
+<tr><td>    63.9</td><td>route_context</td><td>root.5 routing context built (10806 chars)</td></tr>
+<tr><td>    65.8</td><td>route</td><td>root.5 decided: EXECUTE</td></tr>
+<tr><td>    65.8</td><td>cross_branch_read</td><td>root.5 read root.1/research_notes (cross-branch)</td></tr>
+<tr><td>    65.8</td><td>cross_branch_read</td><td>root.5 read root.2/research_notes (cross-branch)</td></tr>
+<tr><td>    65.8</td><td>cross_branch_read</td><td>root.5 read root.3/research_notes (cross-branch)</td></tr>
+<tr><td>    65.8</td><td>cross_branch_read</td><td>root.5 read root.4/research_notes (cross-branch)</td></tr>
+<tr><td>    80.0</td><td>write</td><td>root.5 wrote root.5/canonical_terminology_standard (5623 chars)</td></tr>
+<tr><td>    80.0</td><td>trigger_fire</td><td>rule [L4_r3:root:self] FIRED -&gt; root enqueued</td></tr>
+<tr><td>    80.0</td><td>enqueue</td><td>enqueue: root</td></tr>
+<tr><td>    80.0</td><td>self_role_start</td><td>root self_role work begins</td></tr>
+<tr><td>    88.3</td><td>write</td><td>root wrote root/drafting_plan (3109 chars)</td></tr>
+</table>
+<h2>Global memory D (6 entries, accumulation order)</h2>
+<details><summary><b>root.1/research_notes</b> &mdash; 2868 chars by root.1</summary><pre># Research Notes: Short-term/Context Window Memory
+
+## 1. Definition and Scope
+Short-term memory in LLM agents refers to the immediate context available to the model during inference. Unlike long-term memory (vector stores, databases), this is transient, bounded by the model&#x27;s context window, and directly influences the current generation.
+
+## 2. Key Mechanisms
+
+### A. Context Window
+- **Definition**: The maximum number of tokens (input + output) an LLM can process in a single forward pass.
+- **Current Standards**: Ranges from 4k (older models) to 128k+ (modern models like GPT-4, Claude 3, Gemini).
+- **Limitation**: Fixed upper bound; exceeding it requires truncation or summarization.
+
+### B. Attention Mechanism
+- **Self-Attention**: Allows the model to weigh the importance of different tokens in the context window relative to each other.
+- **Recency Bias**: Models often attend more strongly to recent tokens (end of context) than distant ones (beginning), a phenomenon known as &quot;lost in the middle.&quot;
+
+### C. Context Management Strategies
+1. **Truncation**: Removing oldest tokens when the limit is reached. Simple but loses historical context.
+2. **Summarization**: Compressing older dialogue turns into a summary to preserve key information while reducing token count.
+3. **Sliding Window**: Keeping only the most recent N tokens.
+4. **Key-Value Caching**: Storing attention states for previous tokens to speed up inference, though this is more of an optimization than a memory strategy per se.
+
+## 3. Architectural Considerations
+- **Statelessness**: LLMs are inherently stateless; short-term memory is constructed by the application layer (the agent framework) by prepending history to the prompt.
+- **Tokenization**: Different models use different tokenizers (BPE, SentencePiece), affecting how &quot;words&quot; map to context slots. Punctuation and whitespace consume tokens.
+
+## 4. Limitations and Challenges
+- **Capacity Constraints**: Complex tasks may require more context than the window allows.
+- **Noise Sensitivity**: Irrelevant information in the context window can degrade performance (distractor tokens).
+- **Cost**: Longer contexts increase computational cost and latency.
+- **Consistency**: Maintaining coherent persona or instructions across a long context window is difficult due to attention decay.
+
+## 5. Terminology Survey (Preliminary)
+- *Context Window*: Standard term.
+- *Short-term Memory*: Often used interchangeably with &quot;conversation history&quot; or &quot;prompt context.&quot;
+- *Attention*: Core mechanism.
+- *Token Limit*: Hard constraint.
+- *Recency Bias*: Observed behavior.
+
+## 6. References for Further Reading
+- Vaswani et al., &quot;Attention Is All You Need&quot; (2017)
+- OpenAI API Documentation on Context Windows
+- Anthropic Research on Claude&#x27;s Context Handling
+- &quot;Lost in the Middle: How Language Models Use Long Contexts&quot; (Liu et al., 2023)</pre></details>
+<details><summary><b>root.2/research_notes</b> &mdash; 6384 chars by root.2</summary><pre># Research Notes: Chapter 2 - Long-term/Vector Store Memory
+
+## 1. Core Concepts &amp; Definitions
+- **Long-term Memory**: Persistent storage of information beyond the immediate context window, allowing agents to recall past interactions, facts, or skills over extended periods.
+- **Vector Store (Vector Database)**: A specialized database designed to store, index, and retrieve high-dimensional vectors (embeddings) efficiently. Key operations include similarity search (e.g., cosine similarity, Euclidean distance).
+- **Embeddings**: Dense vector representations of data (text, images, etc.) generated by neural networks (e.g., Sentence-BERT, OpenAI Embeddings). They capture semantic meaning, enabling semantic search.
+- **Retrieval-Augmented Generation (RAG)**: A paradigm where an LLM retrieves relevant context from an external knowledge base (like a vector store) before generating a response, improving accuracy and reducing hallucinations.
+
+## 2. Vector Store Architectures &amp; Technologies
+- **In-Memory vs. Disk-Based**: 
+  - *In-Memory*: Fast retrieval, limited by RAM (e.g., FAISS, Chroma in-memory mode).
+  - *Disk-Based*: Scalable, persistent, slightly slower (e.g., Pinecone, Weaviate, Milvus, Qdrant).
+- **Indexing Strategies**:
+  - *Brute Force*: Linear scan, accurate but slow for large datasets.
+  - *Approximate Nearest Neighbor (ANN)*: Trade-off between speed and accuracy.
+    - *HNSW (Hierarchical Navigable Small World)*: Graph-based, high recall, fast search. Widely used (e.g., in Milvus, Qdrant).
+    - *IVF (Inverted File Index)*: Clusters vectors, searches within clusters. Good for large datasets.
+    - *LSH (Locality-Sensitive Hashing)*: Hash-based, fast but lower recall.
+- **Key Vendors/Libraries**:
+  - *FAISS*: Facebook AI Similarity Search, research-focused, highly optimized.
+  - *Chroma*: Developer-friendly, embedded, good for prototyping.
+  - *Pinecone*: Fully managed cloud service, easy integration.
+  - *Weaviate*: Hybrid search (vector + keyword), GraphQL API.
+  - *Milvus*: Scalable, open-source, supports billion-scale vectors.
+  - *Qdrant*: Rust-based, high performance, filterable vector search.
+
+## 3. Embedding Models &amp; Strategies
+- **Model Selection**: 
+  - *General Purpose*: OpenAI `text-embedding-ada-002`, BGE (BAAI General Embedding), E5.
+  - *Domain-Specific*: Fine-tuned models for legal, medical, or technical domains.
+- **Embedding Granularity**:
+  - *Document-level*: Embed entire documents. Good for broad context.
+  - *Chunk-level*: Split documents into smaller chunks (e.g., 500-1000 tokens). Improves retrieval precision.
+  - *Sentence-level*: Embed individual sentences. High precision, higher storage cost.
+- **Hybrid Embeddings**: Combining multiple models or modalities (e.g., text + metadata) for richer representations.
+
+## 4. Retrieval Strategies &amp; Optimization
+- **Similarity Metrics**:
+  - *Cosine Similarity*: Measures angle between vectors, insensitive to magnitude. Most common.
+  - *Euclidean Distance*: Measures straight-line distance. Sensitive to magnitude.
+  - *Dot Product*: Similar to cosine but considers magnitude. Used in some ANN libraries.
+- **Retrieval Techniques**:
+  - *Simple Vector Search*: Query embedding vs. stored embeddings.
+  - *Hybrid Search*: Combines vector search with keyword (BM25) or metadata filtering. Improves recall for exact matches.
+  - *Re-ranking*: After initial retrieval, use a cross-encoder model (e.g., Cohere Rerank, BGE Reranker) to re-score and reorder results for higher precision.
+  - *Multi-Query Retrieval*: Generate multiple query variations from the user&#x27;s input to retrieve diverse relevant chunks.
+  - *Contextual Compression*: Retrieve chunks, then compress or summarize them to fit context window while retaining key info.
+- **Metadata Filtering**: Use structured metadata (e.g., date, source, author) to filter results before or during vector search. Crucial for personalization and access control.
+
+## 5. Memory Management &amp; Lifecycle
+- **Storage &amp; Indexing**:
+  - *Chunking Strategies*: Recursive character splitting, semantic chunking (using LLMs to identify boundaries), or fixed-size with overlap.
+  - *Index Updates*: Handling new data (insertions) and outdated data (deletions/updates). Incremental indexing vs. full re-indexing.
+- **Recall &amp; Forgetting**:
+  - *Active Recall*: Periodically query the vector store to reinforce important memories.
+  - *Decay Mechanisms*: Reduce the weight or relevance of older memories over time, or explicitly delete irrelevant data.
+  - *Consolidation*: Merge similar memories or summarize clusters of memories to save space and improve retrieval efficiency.
+- **Scalability Challenges**:
+  - *Latency*: Ensuring fast retrieval as the dataset grows.
+  - *Cost*: Storage and compute costs for large-scale vector stores.
+  - *Consistency*: Maintaining data integrity across distributed systems.
+
+## 6. Integration with Agent Frameworks
+- **LangChain**: Provides abstractions for vector stores (`VectorStore` interface), retrievers (`VectorStoreRetriever`), and memory (`VectorStoreRetrieverMemory`).
+- **LlamaIndex**: Focuses on data indexing and retrieval, with advanced features like query pipelines and hybrid search.
+- **Custom Implementations**: Direct integration with vector store APIs for fine-grained control.
+
+## 7. Best Practices &amp; Pitfalls
+- **Best Practices**:
+  - Choose the right chunk size and overlap for your use case.
+  - Use hybrid search for better recall.
+  - Implement re-ranking for higher precision.
+  - Regularly evaluate retrieval quality (e.g., using MRR, NDCG).
+  - Monitor and optimize index performance.
+- **Pitfalls**:
+  - *Semantic Drift*: Embeddings may not capture nuanced meanings over time.
+  - *Cold Start*: Difficulty retrieving relevant information for new topics with few examples.
+  - *Over-retrieval*: Retrieving too much irrelevant context, overwhelming the LLM.
+  - *Under-retrieval*: Missing key information due to poor embedding quality or retrieval strategy.
+
+## 8. Emerging Trends
+- **Multimodal Vector Stores**: Storing and retrieving embeddings for text, images, audio, and video.
+- **Graph-Vector Hybrids**: Combining vector stores with knowledge graphs for structured reasoning.
+- **On-Device Vector Stores**: Lightweight vector databases for edge devices.
+- **Self-Improving Memory**: Agents that automatically update and refine their memory based on feedback.</pre></details>
+<details><summary><b>root.3/research_notes</b> &mdash; 4158 chars by root.3</summary><pre># Research Notes: Chapter 3 - Episodic/Experience Replay Memory
+
+## 1. Core Concept Definition
+Episodic memory in LLM agents refers to the storage and retrieval of specific past interactions, trajectories, or experiences. Unlike semantic memory (general knowledge) or working memory (current context), episodic memory allows agents to learn from history, avoid repeating mistakes, and generalize from similar past situations.
+
+## 2. Key Architectural Patterns
+
+### A. Experience Replay Buffers
+- **Origin**: Reinforcement Learning (RL), specifically DQN (Deep Q-Networks).
+- **Mechanism**: A fixed-size buffer stores tuples of (state, action, reward, next_state). During training, mini-batches are sampled uniformly or prioritized.
+- **Adaptation for LLMs**: 
+  - Tuples become (prompt, response, feedback/score, context).
+  - Used for fine-tuning (RLHF/DPO) or online adaptation.
+  - **Challenge**: LLM outputs are high-dimensional and non-stationary; standard RL replay assumptions often break.
+
+### B. Trajectory Management
+- **Definition**: Storing complete sequences of agent interactions (multi-turn dialogues, tool-use chains).
+- **Structure**: 
+  - Nodes: Individual steps (user query, agent thought, tool call, observation).
+  - Edges: Temporal/causal links.
+- **Retrieval**: 
+  - Similarity search over trajectory embeddings.
+  - Prefix matching for early-stage alignment.
+  - Graph-based traversal for complex reasoning paths.
+
+### C. Episodic Retrieval-Augmented Generation (RAG)
+- **Mechanism**: Before generating a response, the agent retrieves relevant past episodes from a vector database.
+- **Key Components**: 
+  - Embedding model for episode representation.
+  - Vector index (FAISS, Pinecone, etc.).
+  - Re-ranking module for precision.
+- **Use Case**: Personalized assistants, consistent character behavior, debugging past errors.
+
+## 3. Critical Challenges &amp; Solutions
+
+### A. Catastrophic Forgetting
+- **Problem**: New experiences overwrite or interfere with old ones.
+- **Solutions**: 
+  - Elastic Weight Consolidation (EWC) analogs for LLMs.
+  - Replay-based regularization during fine-tuning.
+  - Modular memory architectures (separate buffers for different domains).
+
+### B. Scalability &amp; Efficiency
+- **Problem**: Storing full trajectories is expensive; retrieval latency increases with buffer size.
+- **Solutions**: 
+  - Summarization: Compress episodes into concise summaries.
+  - Hierarchical memory: Short-term (working) vs. long-term (episodic) buffers.
+  - Approximate Nearest Neighbor (ANN) search for fast retrieval.
+
+### C. Noise &amp; Irrelevance
+- **Problem**: Not all past experiences are useful; some are misleading.
+- **Solutions**: 
+  - Prioritized replay: Weight experiences by reward/surprise.
+  - Filtering: Remove low-quality or redundant episodes.
+  - Confidence scoring: Only retrieve high-confidence matches.
+
+## 4. Emerging Trends
+
+### A. Self-Reflective Episodic Memory
+- Agents explicitly reflect on past episodes to extract lessons.
+- Example: &quot;Why did this tool call fail?&quot; -&gt; Store the failure mode and correction.
+
+### B. Multi-Agent Episodic Sharing
+- Agents share experiences across a team.
+- Requires consensus mechanisms and conflict resolution.
+
+### C. Neuro-Symbolic Integration
+- Combining neural episodic retrieval with symbolic reasoning over past events.
+- Enables causal analysis of past trajectories.
+
+## 5. Canonical Terminology Survey (Preliminary)
+- **Episode**: A single interaction or trajectory segment.
+- **Replay Buffer**: Storage for past experiences.
+- **Trajectory**: A sequence of states/actions/observations.
+- **Retrieval-Augmented Generation (RAG)**: Using retrieved episodes to guide generation.
+- **Prioritized Replay**: Sampling experiences based on importance.
+- **Catastrophic Forgetting**: Loss of old knowledge due to new learning.
+
+## 6. References &amp; Further Reading
+- Mnih et al. (2015): Human-level control through deep reinforcement learning (DQN).
+- Schaul et al. (2015): Prioritized Experience Replay.
+- Lewis et al. (2020): Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.
+- Recent papers on LLM agent memory (e.g., MemGPT, AutoGPT memory modules).</pre></details>
+<details><summary><b>root.4/research_notes</b> &mdash; 4519 chars by root.4</summary><pre># Research Notes: Chapter 4 - Semantic/Graph-based Memory
+
+## 1. Core Concepts &amp; Definitions
+*   **Semantic Memory**: Long-term memory of meanings, concepts, and facts, distinct from episodic (event-based) memory. In LLM agents, this refers to structured knowledge that persists across sessions and provides context-independent grounding.
+*   **Knowledge Graph (KG)**: A directed graph where nodes represent entities/concepts and edges represent relationships. It enables explicit reasoning and traversal.
+*   **Vector Database (Vector DB)**: Stores high-dimensional embeddings. Enables semantic similarity search but lacks explicit structural relationships.
+*   **GraphRAG**: A hybrid approach combining Retrieval-Augmented Generation (RAG) with Knowledge Graphs. It uses KGs to provide structured context and vector search for dense semantic matching.
+*   **Ontology**: A formal representation of knowledge as a set of concepts within a domain and the relationships between those concepts. Crucial for schema definition in KGs.
+
+## 2. Architectural Patterns
+*   **Hybrid Memory Systems**: Most modern agents use a combination of:
+    *   *Vector Store*: For fast, approximate semantic retrieval of unstructured text chunks.
+    *   *Graph Store*: For precise, relational queries (e.g., &quot;Who is the CEO of Company X?&quot;).
+*   **Graph Construction Pipeline**:
+    1.  *Entity Extraction*: Identify entities (NER) from text.
+    2.  *Relation Extraction*: Identify relationships between entities.
+    3.  *Graph Population*: Insert nodes/edges into a graph database (e.g., Neo4j, Amazon Neptune).
+    4.  *Embedding Generation*: Create vector embeddings for nodes/edges to enable hybrid search.
+*   **Query Execution**:
+    *   *Cypher/Gremlin Queries*: For exact structural matches.
+    *   *Vector Search on Nodes*: For semantic similarity of entities.
+    *   *Multi-hop Reasoning*: Traversing the graph to connect distant concepts.
+
+## 3. Key Technologies &amp; Tools
+*   **Graph Databases**: Neo4j (Cypher), Amazon Neptune, ArangoDB, TigerGraph.
+*   **Vector Databases**: Pinecone, Weaviate (supports hybrid search), Milvus, Qdrant.
+*   **LLM Frameworks with Graph Support**:
+    *   *LangChain*: Has `GraphCypherQAChain` and `GraphQAChain`.
+    *   *LlamaIndex*: Supports `KnowledgeGraphIndex` and `PropertyGraphIndex`.
+    *   *Microsoft GraphRAG*: A specific implementation for community detection and summarization over large corpora.
+
+## 4. Advantages over Pure Vector RAG
+*   **Explicit Relationships**: Captures &quot;A is related to B&quot; explicitly, not just via embedding proximity.
+*   **Multi-hop Reasoning**: Can answer questions requiring multiple steps of inference (e.g., &quot;Find all customers who bought product X and also bought product Y&quot;).
+*   **Hallucination Reduction**: Grounding answers in explicit graph structures reduces reliance on LLM&#x27;s internal parametric knowledge.
+*   **Explainability**: The path taken through the graph can be shown to the user as evidence.
+
+## 5. Challenges &amp; Limitations
+*   **Construction Cost**: Extracting accurate entities and relations from text is computationally expensive and error-prone.
+*   **Schema Rigidity**: Defining an ontology requires domain expertise. Dynamic schemas are hard to manage.
+*   **Scalability**: Graph queries can become slow on very large graphs without proper indexing.
+*   **Maintenance**: Keeping the graph up-to-date with new information requires continuous ingestion pipelines.
+
+## 6. Terminology Survey (for Standards Track)
+*   *Common Terms*: Knowledge Graph, Entity, Relation, Node, Edge, Ontology, Schema, Cypher, Gremlin, Vector Embedding, Hybrid Search, GraphRAG, Multi-hop Reasoning, Entity Resolution, Relation Extraction.
+*   *Potential Drift Points*:
+    *   &quot;Semantic Memory&quot; vs. &quot;Knowledge Graph&quot;: Sometimes used interchangeably, but KG is a specific implementation of semantic memory.
+    *   &quot;Vector DB&quot; vs. &quot;Graph DB&quot;: Distinct technologies, but often combined.
+    *   &quot;RAG&quot; vs. &quot;GraphRAG&quot;: GraphRAG is a subset/extension of RAG.
+
+## 7. Recommended Structure for Chapter 4
+1.  **Introduction**: Defining Semantic Memory in Agents.
+2.  **Knowledge Graphs 101**: Nodes, Edges, Ontologies.
+3.  **Building the Graph**: Extraction, Population, and Maintenance.
+4.  **Hybrid Retrieval**: Combining Vector and Graph Search.
+5.  **Case Studies**: GraphRAG, LangChain/LlamaIndex implementations.
+6.  **Challenges &amp; Best Practices**: Schema design, scalability, accuracy.
+7.  **Conclusion**: The future of structured memory in agents.</pre></details>
+<details><summary><b>root.5/canonical_terminology_standard</b> &mdash; 5623 chars by root.5</summary><pre># Canonical Terminology Standard for LLM Agent Memory Systems
+
+## 1. Purpose
+This document defines the canonical terminology for the technical field guide on LLM agent memory systems. It resolves ambiguities and variations found in source research (Chapters 1-4) to ensure consistency across the guide. All chapters and the glossary must adhere to these definitions.
+
+## 2. Canonical Terms &amp; Definitions
+
+### 2.1 Memory Types
+| Canonical Term | Definition | Common Variations/Drift Points | Usage Rule |
+| :--- | :--- | :--- | :--- |
+| **Context Window** | The maximum number of tokens an LLM can process in a single forward pass. | Prompt context, immediate context, short-term memory (ambiguous). | Use &quot;Context Window&quot; for the hard limit. Use &quot;Working Memory&quot; for the active content within it. |
+| **Working Memory** | The transient, active context available to the model during inference, constructed by the application layer. | Short-term memory, conversation history, prompt history. | Use &quot;Working Memory&quot; to distinguish from biological &quot;short-term memory&quot; or vague &quot;history&quot;. |
+| **Long-term Memory** | Persistent storage of information beyond the immediate context window, allowing recall over extended periods. | Persistent memory, external memory. | Use &quot;Long-term Memory&quot; as the umbrella term for Vector, Episodic, and Semantic stores. |
+| **Episodic Memory** | Storage and retrieval of specific past interactions, trajectories, or experiences (state-action-reward tuples). | Experience replay, trajectory memory, interaction history. | Use &quot;Episodic Memory&quot; for agent-specific past events. Use &quot;Trajectory&quot; for the sequence of steps. |
+| **Semantic Memory** | Long-term memory of meanings, concepts, and facts, distinct from episodic memory. Often implemented via Knowledge Graphs. | Knowledge base, factual memory, conceptual memory. | Use &quot;Semantic Memory&quot; for the cognitive function. Use &quot;Knowledge Graph&quot; for the implementation. |
+
+### 2.2 Storage &amp; Retrieval Mechanisms
+| Canonical Term | Definition | Common Variations/Drift Points | Usage Rule |
+| :--- | :--- | :--- | :--- |
+| **Vector Store** | A specialized database designed to store, index, and retrieve high-dimensional vectors (embeddings) efficiently. | Vector database, embedding store, ANN index. | Use &quot;Vector Store&quot; as the primary term. Use &quot;Vector Database&quot; interchangeably if referring to the software product. |
+| **Embedding** | A dense vector representation of data (text, images) generated by a neural network, capturing semantic meaning. | Vector, representation, latent space point. | Use &quot;Embedding&quot; for the data object. Use &quot;Vector&quot; for the mathematical structure. |
+| **Knowledge Graph (KG)** | A directed graph where nodes represent entities/concepts and edges represent relationships. | Graph database, semantic network, ontology (incorrect). | Use &quot;Knowledge Graph&quot; for the data structure. Use &quot;Ontology&quot; for the schema/definition of concepts. |
+| **Retrieval-Augmented Generation (RAG)** | A paradigm where an LLM retrieves relevant context from an external knowledge base before generating a response. | Augmented generation, context injection. | Use &quot;RAG&quot; as the standard acronym. |
+| **GraphRAG** | A hybrid approach combining RAG with Knowledge Graphs to provide structured context and dense semantic matching. | Graph-based RAG, KG-RAG. | Use &quot;GraphRAG&quot; as the specific term for this hybrid architecture. |
+
+### 2.3 Operational Concepts
+| Canonical Term | Definition | Common Variations/Drift Points | Usage Rule |
+| :--- | :--- | :--- | :--- |
+| **Trajectory** | A complete sequence of agent interactions (multi-turn dialogues, tool-use chains). | Episode, interaction log, session history. | Use &quot;Trajectory&quot; for the full sequence. Use &quot;Episode&quot; for a single interaction or segment. |
+| **Experience Replay** | A mechanism where past experiences (trajectories) are stored in a buffer and sampled for learning or retrieval. | Replay buffer, memory replay. | Use &quot;Experience Replay&quot; for the process. Use &quot;Replay Buffer&quot; for the storage component. |
+| **Recency Bias** | The tendency of models to attend more strongly to recent tokens (end of context) than distant ones. | End-of-context bias, lost in the middle (phenomenon). | Use &quot;Recency Bias&quot; for the behavior. Use &quot;Lost in the Middle&quot; to cite the specific research phenomenon. |
+| **Catastrophic Forgetting** | The loss of old knowledge or skills due to new learning or experience updates. | Interference, overwriting. | Use &quot;Catastrophic Forgetting&quot; as the standard term. |
+
+## 3. Usage Rules &amp; Constraints
+1. **No Term Drift**: Do not use non-canonical terms (e.g., &quot;short-term memory&quot; for &quot;Working Memory&quot;) without explicit mapping in the first instance.
+2. **Consistency**: All chapters must use the canonical terms exactly as defined.
+3. **Glossary Alignment**: The final glossary must reflect these canonical definitions.
+4. **Contextual Clarity**: When introducing a term, provide the canonical definition. Avoid ambiguous synonyms.
+
+## 4. Mapping of Source Variations
+- *Chapter 1*: &quot;Short-term Memory&quot; -&gt; **Working Memory**; &quot;Context Window&quot; -&gt; **Context Window** (kept).
+- *Chapter 2*: &quot;Vector Database&quot; -&gt; **Vector Store**; &quot;Embeddings&quot; -&gt; **Embedding**.
+- *Chapter 3*: &quot;Episode&quot; -&gt; **Episode** (kept); &quot;Trajectory&quot; -&gt; **Trajectory** (kept); &quot;Experience Replay&quot; -&gt; **Experience Replay**.
+- *Chapter 4*: &quot;Semantic Memory&quot; -&gt; **Semantic Memory**; &quot;Knowledge Graph&quot; -&gt; **Knowledge Graph**; &quot;GraphRAG&quot; -&gt; **GraphRAG**.
+
+## 5. Approval
+This standard is derived from the survey of Chapters 1-4 research notes and is approved for use in the final guide assembly.</pre></details>
+<details><summary><b>root/drafting_plan</b> &mdash; 3109 chars by root</summary><pre># Drafting and Assembly Plan for LLM Agent Memory Systems Field Guide
+
+## 1. Objective
+Produce a 4-chapter technical field guide that is technically accurate, stylistically consistent, and strictly adheres to the `root.5/canonical_terminology_standard`. The plan covers drafting, consistency editing, glossary creation, and final assembly.
+
+## 2. Phase 1: Chapter Drafting
+Each chapter will be drafted based on its specific research domain, but authors must immediately apply the canonical terms defined in the standard.
+
+*   **Chapter 1: Foundations of Agent Memory**
+    *   *Focus:* Context Window vs. Working Memory; definitions of Long-term, Episodic, and Semantic memory.
+    *   *Constraint:* Do not use &quot;short-term memory&quot; or &quot;prompt context&quot; as primary terms. Use **Context Window** and **Working Memory**.
+*   **Chapter 2: Vector-Based Retrieval Systems**
+    *   *Focus:* Embeddings, Vector Stores, and standard RAG pipelines.
+    *   *Constraint:* Use **Vector Store** (not Vector Database unless referring to software products). Use **Embedding** for the data object.
+*   **Chapter 3: Structured Memory and Knowledge Graphs**
+    *   *Focus:* Knowledge Graphs, Ontologies, and GraphRAG.
+    *   *Constraint:* Distinguish **Knowledge Graph** (data structure) from **Ontology** (schema). Use **GraphRAG** for the hybrid architecture.
+*   **Chapter 4: Operational Dynamics and Trajectories**
+    *   *Focus:* Trajectories, Episodes, and Experience Replay mechanisms.
+    *   *Constraint:* Use **Trajectory** for full sequences and **Episode** for segments. Use **Experience Replay** for the sampling process.
+
+## 3. Phase 2: Consistency Editing (Term Drift Check)
+After initial drafts are complete, a dedicated editing pass will scan all chapters for term drift.
+
+*   **Action:** Compare all instances of memory-related terms against the `root.5/canonical_terminology_standard` table.
+*   **Correction:** Replace any non-canonical variations (e.g., &quot;interaction history&quot; -&gt; &quot;Trajectory&quot;, &quot;factual memory&quot; -&gt; &quot;Semantic Memory&quot;) with the canonical term.
+*   **Validation:** Ensure definitions in the text match the canonical definitions exactly.
+
+## 4. Phase 3: Glossary Generation
+*   **Action:** Extract all canonical terms and their definitions from the standard.
+*   **Output:** Create a unified `glossary.md` file.
+*   **Constraint:** The glossary must not introduce new terms not present in the canonical standard. It serves as the single source of truth for the reader.
+
+## 5. Phase 4: Final Assembly
+*   **Action:** Combine the edited chapters and the glossary into the final document structure.
+*   **Structure:**
+    1.  Title Page
+    2.  Table of Contents
+    3.  Chapter 1
+    4.  Chapter 2
+    5.  Chapter 3
+    6.  Chapter 4
+    7.  Glossary
+*   **Final Review:** Check for cross-references and ensure the narrative flow is coherent across chapters.
+
+## 6. Success Criteria
+*   Zero instances of term drift (non-canonical terms used where canonical ones are required).
+*   All chapters reference the correct canonical definitions.
+*   Glossary is complete and consistent with the text.
+</pre></details>
