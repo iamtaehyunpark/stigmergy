@@ -33,6 +33,7 @@ from ..phase1 import (
 from . import addresses
 from .circuit import Circuit, gate_refs
 from .doctor import DOCTOR_K, build_dossier, dossier_text, validate_repair
+from .induction import Induction
 from .store import (
     DEFAULT_LIST_K,
     ROUTING_FETCH_BUDGET,
@@ -96,17 +97,25 @@ class RunMetrics:
     failure: dict[str, Any]
     interleaving: list[str]
     qualitative: str
+    doctor_calls: int = 0        # LLM calls spent inside doctor cycles (EM3 repair economy)
+    induction: dict[str, Any] | None = None  # EM3: mechanized-failure provenance
 
 
 class Runtime:
     def __init__(self, run_id: str, root_task: dict[str, Any], prompts: dict[str, str],
-                 config: Config, out_dir: Path):
+                 config: Config, out_dir: Path, *, list_enabled: bool = True,
+                 induction: "Induction | None" = None):
         self.run_id = run_id
         self.root_task = root_task
         self.harness = prompts["harness"]
         self.worker_prompt = prompts["worker"]
         self.doctor_prompt = prompts["doctor"]
         self.config = config
+        # EM knobs: Arm B removes LIST from the action space (EM1); the
+        # induction mechanizes a systemic failure (EM3). Both default off,
+        # so an ordinary run is byte-identical to the spec runtime.
+        self.list_enabled = list_enabled
+        self.induction = induction
         self.out_dir = out_dir
         self.out_dir.mkdir(parents=True, exist_ok=True)
         self.trace_path = self.out_dir / "trace.jsonl"
@@ -118,6 +127,7 @@ class Runtime:
         self.defer_seq = 0
         self.promotions = 0
         self.doctor_cycles = 0
+        self.doctor_calls = 0
         self.repair_index = 1
         self.prior_cycles: list[dict[str, Any]] = []
         self.interleaving: list[str] = []
@@ -233,6 +243,12 @@ class Runtime:
                 self.execute(agent, action)
             elif action["action"] == "SPAWN":
                 self.spawn(agent, action)
+                if self.induction and self.induction.drop_after_spawn(agent):
+                    # EM3 H2: the spawn side-effects stand; the agent's own
+                    # continuation is dropped, abandoning its interface pins.
+                    self.queue = [s for s in self.queue if s.task_id != agent.task_id]
+                    self.log("induction_drop", mode=self.induction.mode, agent=agent.task_id)
+                    self.circuit.set_agent_state(agent.task_id, "dropped")
             elif action["action"] == "DEFER":
                 self.defer(agent, action)
         self.interleaving.append(f"end:{agent.task_id}")
@@ -306,6 +322,12 @@ class Runtime:
                 self.log("route_repair", agent=agent.task_id, attempt=call_index + 1, notes=notes)
                 continue
             kind = parsed["action"]
+            if kind == "LIST" and not self.list_enabled:
+                # EM1 Arm B: discovery is removed from the action space.
+                notes = ["LIST is not available in this configuration; decide from the "
+                         "catalog already in your context, or DEFER on an EXISTING pin"]
+                self.log("route_repair", agent=agent.task_id, attempt=call_index + 1, notes=notes)
+                continue
             if kind == "LIST":
                 prefix = parsed.get("namespace_prefix")
                 k = parsed.get("k") or DEFAULT_LIST_K
@@ -476,8 +498,14 @@ class Runtime:
         # in-flight work is visible and reservable.
         self._materialize_pins(declared, agent.task_id, owed, act="execute")
         self.circuit.set_agent_state(agent.task_id, "executing")
-        prompt = self.worker_context(agent, declared)
-        worker = self.call_worker(prompt, [o["path"] for o in declared])
+        worker = self.induction.worker_result(self.circuit, agent, declared) if self.induction else None
+        if worker is not None:
+            # EM3 H1/H3: mechanized worker outcome; the model is not called.
+            self.log("induction_worker", mode=self.induction.mode, agent=agent.task_id,
+                     detail=self.induction.detail)
+        else:
+            prompt = self.worker_context(agent, declared)
+            worker = self.call_worker(prompt, [o["path"] for o in declared])
         returned: dict[str, dict[str, Any]] = {}
         if isinstance(worker, dict):
             for item in worker.get("outputs", []):
@@ -610,6 +638,7 @@ class Runtime:
         for attempt in range(DOCTOR_ATTEMPTS):
             message = prompt if attempt == 0 else build_repair_message(prompt, raw, notes)
             self.llm_calls += 1
+            self.doctor_calls += 1
             raw = call_model(self.doctor_prompt, message, self.config)
             doc, notes = validate_repair(raw, self.circuit, self.repair_index)
             if doc is not None and not notes:
@@ -723,6 +752,10 @@ class Runtime:
             failure=final,
             interleaving=self.interleaving,
             qualitative=qualitative,
+            doctor_calls=self.doctor_calls,
+            induction=({"mode": self.induction.mode, "target": self.induction.target,
+                        "fired": self.induction.fired, "detail": self.induction.detail}
+                       if self.induction else None),
         )
 
     def _qualitative(self, outcome: str, final: dict[str, Any]) -> str:
@@ -778,7 +811,8 @@ def run_cli(args: argparse.Namespace) -> int:
                 print(f"clearing partial {run_id} (no metrics.json; stale trace/state would corrupt the rerun)", flush=True)
                 shutil.rmtree(run_dir)
             print(f"running {run_id}...", flush=True)
-            runtime = Runtime(run_id, task, prompts, config, run_dir)
+            runtime = Runtime(run_id, task, prompts, config, run_dir,
+                              list_enabled=not args.no_list)
             metrics = runtime.run()
             all_metrics.append(metrics)
             print(f"  {run_id}: {metrics.outcome} ({metrics.llm_calls} calls, "
@@ -833,6 +867,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--task-ids", default="", help="comma-separated; empty = all")
     parser.add_argument("--out-dir", default="results/mc0")
     parser.add_argument("--repetitions", type=int, default=3)
+    parser.add_argument("--no-list", action="store_true",
+                        help="EM1 Arm B: remove LIST from the action space")
     parser.add_argument("--provider", default=os.environ.get("RATD_PROVIDER", DEFAULT_PROVIDER))
     parser.add_argument("--model", default=os.environ.get("RATD_MODEL", DEFAULT_MODEL))
     parser.add_argument("--local-endpoint", default=os.environ.get("RATD_LOCAL_ENDPOINT", DEFAULT_LOCAL_ENDPOINT))

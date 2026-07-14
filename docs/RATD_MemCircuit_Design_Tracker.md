@@ -142,6 +142,33 @@ Conflict resolution policy (0/68 runs — scoped by A′: zero-conflict evidence
 
 ---
 
+## PART E — Toward a production agentic substrate (post-PoC; surfaced during EM validation)
+
+**Framing note (user discussion, 2026-07-13):** the EM-series validates the *substrate*; the discussion established that a production agentic system needs a different *agent model* on the same substrate. This part separates what the PoC keeps from what a later phase redesigns. **Nothing here blocks v1.0** — these are next-phase [CHOOSE]s. Organizing principle: **substrate survives; agent model is the redesign scope.**
+
+**THESIS (root-cause, user 2026-07-13):** the recurring friction across the E- and EM-series traces to one wrong premise — *the "agents" are single-round QA LLM calls, not agents.* Promotion-as-a-term, the absent per-agent checklist, "can't edit a codebase," even the oversize/`max_tokens` truncation (a real agent builds incrementally with tools; a one-shot call dumps 20k chars and is cut off) are all **symptoms** of that premise, not independent problems. **Sequencing (committed): redesign the per-agent scope first — genuine ReAct, tool-using, multi-round agents — then stack system improvements (parallelism, retrieval, human-in-loop, budgets) on top.** Building the system layer on single-shot agents is building on sand *for that layer*; the coordination substrate beneath it is sound and is reused. Redesign is the **urgent next phase** after the current proofs complete; the EM results are the substrate validation the redesign inherits.
+
+**Substrate (KEEP — agent-model-agnostic, the reusable core):** control/data-plane split · circuit as pure gate machinery (pins as status *latches*, boolean gates over statuses/states only, exactly-once CAS firing, dead-gate/liveness) · pins as the write-once-friendly checklist primitive · catalog as the shared progress board · memory D as a write-once knowledge log · doctor + observability/provenance/failure-recovery. The circuit **never reads memory content** — it watches pin *status*; that is the whole reason it survives any agent-model change.
+
+### E1 — Agent = tool/skill user, not artifact-emitter [STATUS: UNDECIDED — reframes the action grammar]
+Current action space (EXECUTE/SPAWN/DEFER/LIST/FETCH) has no tool call; "do work" is quietly equated with "write an artifact." Genuine agents act on the world via tools/skills (edit a repo, call an API). Add a TOOL action. Consequence: real deliverables/effects live in external systems the tools drive; memory D holds coordination state + harvested knowledge, not the output (see E3).
+
+### E2 — Effect-fulfillment: a second D→C event [STATUS: UNDECIDED — extends the single fulfillment edge]
+Today the only event that flips a pin `promised→done` is a **memory write**. A tool-using agent discharges its obligation with a **verified external effect**, not a write. Add "a verified effect fulfills a pin" beside "a write fulfills a pin." The circuit stays pure (still only watches the status latch); what changes is *which events may set the latch*. Drags in idempotency, effect-verification, and rollback that write-once never modeled. Effects are ordered and non-replayable — resolve against the A′1 snapshot-replay assumption.
+
+### E3 — Memory D as knowledge, not deliverables [STATUS: LEANING — clarifies A5]
+Reframe (user, 2026-07-13): the store is **harvested knowledge / shared working memory** accumulated across the trajectory, not the task output; emitting an artifact is optional. This makes write-once a *feature* — immutable, provenanced knowledge; conflict-free reads; an auditable trajectory. "Correcting" knowledge = **supersession** (a new write-once entry the catalog head points at — the version-log), never in-place mutation. Open: typed knowledge (fact / decision / observation + source + confidence) vs opaque bodies · head/supersession semantics · retrieval by relevance — the parked librarian (A6-c) becomes **load-bearing** here, not optional.
+
+### E4 — Per-agent ReAct executor + living checklist [STATUS: UNDECIDED — the biggest runtime change]
+Today an agent is single-shot: one routing decision + one production, then `done`. Multi-step is realized *across* agents (tree + gates + coarse defer/wake), never *within* an agent. A genuine agent runs observe→reason→act→re-observe rounds until its local pins are all `done`, and does not lose the goal because it continuously re-observes its own board. Checklist options: **(a) fine-grained pins the agent creates and fulfills one-by-one inside the loop** — write-once-clean, reuses the pin primitive, circuit still fires downstream off the flips (**preferred**); (b) a mutable/versioned scratchpad rewritten each round — needed only if the checklist must be *re-planned* mid-task (ties to the parked append/version-log surface). Goal-persistence today comes from re-provisioning ROOT GOAL+capsule+catalog every invocation; ReAct adds self-observed progress on top. **Insight: a pin IS the write-once-friendly todo item** (open→done without mutation), so the checklist primitive already exists — what's absent is the loop that walks it.
+
+### E5 — Doctor: effect-compensation [STATUS: UNDECIDED — extends C3]
+The doctor only re-spawns *memory* producers. Recovery from a failed *side-effect* (half-applied migration, partial deploy) is **compensation/rollback**, not "reassign the pin and rewrite" — a failure class none of EM3's inductions exercise. C3 privileges would extend accordingly.
+
+**Evidence pointer:** EM findings carry into the redesign — they are substrate results, agent-model-independent: zero-conflict coordination; gate semantics; and the doctor's reach *and* limits (EM0 `t15_r3`: a `completed("root.5")` integrator gate that a pin-level repair cannot revive, because the *agent* stays terminally failed even after its pin is reproduced — motivates E5 and an agent-level revive privilege).
+
+---
+
 ## Decision log
 | Date | Section | Decision | Rationale pointer |
 |---|---|---|---|
@@ -152,9 +179,14 @@ Conflict resolution policy (0/68 runs — scoped by A′: zero-conflict evidence
 | 2026-07-12 | A1 | Descriptive-naming as advisory convention, never load-bearing (semantics travel in summaries) | blind defer was a plausible-name guess |
 | 2026-07-12 | B1 | Two term types: `done(pin)`, `completed(agent)` | expresses L3_r1's actual intent |
 | 2026-07-12 | Remaining | A1 details, A′1 snapshot-at-dequeue, B4 warn-then-dossier, B6 read-yes/write-no, C1–C5 as leaned — filled by Claude per stop-asking instruction | tracker v0.2 leans |
+| 2026-07-13 | Part E | **Substrate/agent-model split:** circuit + pins + catalog + memory + doctor survive; the *agent model* (single-shot → tool-using ReAct) is the redesign scope. Not a total rebuild | user discussion; EM validates the substrate the redesign keeps |
+| 2026-07-13 | E3 | Memory D reframed as harvested knowledge / working memory (deliverables optional); write-once becomes a feature; corrections via supersession, not mutation | user: "the file system is to keep the knowledge harvested by multiple agents throughout the trajectory" |
+| 2026-07-13 | E1/E2 | Add a TOOL action + effect-fulfillment (a *verified effect* fulfills a pin — a 2nd D→C event beside a write); circuit stays pure (watches the status latch only) | user: genuine agents use tools/skills, not just artifact emission |
+| 2026-07-13 | E4 | Per-agent ReAct executor (observe→act→re-observe) + living checklist; pins are already the write-once-friendly checklist item — the missing piece is the loop that walks it | user: multi-round REACT; observe continuously; complete one-by-one; don't lose the goal |
 
-**STATUS: ALL SECTIONS RATIFIED → compiled into `RATD_Memory_Circuit_Spec.md` v1.0.**
+**STATUS: PART A–C RATIFIED → compiled into `RATD_Memory_Circuit_Spec.md` v1.0. PART E is post-v1.0 forward design (non-blocking); no E-item is built until ratified.**
 
 ## Changelog
 - v0.1 — Tracker created from the E-series design worksheet + Claude's review (compile-grants synthesis, bounded discovery, abandonment chain, R1–R3 standing requirements, vocabulary table).
 - v0.2 — Concurrency semantics added after the serialization realization: Part A′ (scoping note on the 68-run serial record; A′1 snapshot semantics; A′2 in-flight visibility/reservation, sixth failure class; A′3 interleaving-recording policy), B1 atomic-firing invariant, B5 race-safe quiescence + claimed-but-never-completed in the failure predicate, A3 write-once upgraded to near-forced, Part D scoped.
+- v0.3 — Part E added (post-PoC, non-blocking) from the EM-validation discussion (2026-07-13): substrate/agent-model split; E1 tool action; E2 effect-fulfillment (2nd D→C event); E3 memory-as-knowledge reframe; E4 per-agent ReAct executor + living checklist (pins already are the write-once checklist item); E5 doctor effect-compensation. Motivating evidence: EM0 `t15_r3` completed()-gate limitation.

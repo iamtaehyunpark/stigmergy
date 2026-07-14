@@ -24,7 +24,13 @@ MAX_LIST_K = 50
 ROUTING_FETCH_BUDGET = 8_000    # chars, per routing step, across fetches
 WORKER_FETCH_BUDGET = 24_000    # chars, per worker step
 SINGLE_EMISSION_MAX = 12_000    # A5 output rule: larger artifacts must be numeric families
-FALLBACK_PROVENANCES = ("fallback", "oversize_fallback", "worker_invalid")
+# B5 failure predicate inputs. oversize_fallback is deliberately NOT here:
+# a single artifact over the 12k A5 cap is still delivered (full body stored,
+# tagged oversize_fallback on the entry, visibly truncated on FETCH) — it's
+# observable (see schema.family_audit), not a systemic failure. Only a
+# substituted/omitted body (fallback, worker_invalid) counts as failing.
+# (Design call, 2026-07-13: oversize = observable, not failure.)
+FALLBACK_PROVENANCES = ("fallback", "worker_invalid")
 
 
 class Store:

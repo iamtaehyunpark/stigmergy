@@ -152,6 +152,11 @@ class PlannerRun:
         self.out_dir.mkdir(parents=True, exist_ok=True)
         self.trace_path = self.out_dir / "trace.jsonl"
         self.entries: dict[str, str] = {}
+        # Prompts are instance attributes so a subclass (EM2's A5-symmetric
+        # planner) can swap them without altering this frozen E1 baseline;
+        # defaults reproduce the E1 behavior exactly.
+        self.replan_prompt = REPLAN_PROMPT
+        self.worker_prompt = WORKER_PROMPT
         self.llm_calls = 0
         self.planner_calls = 0
         self.truncation_events = 0
@@ -210,7 +215,7 @@ class PlannerRun:
         for attempt in range(3):
             prompt = message if attempt == 0 else build_repair_message(message, raw, notes)
             self.llm_calls += 1
-            raw = call_model(REPLAN_PROMPT, prompt, self.config)
+            raw = call_model(self.replan_prompt, prompt, self.config)
             tasks, notes = parse_and_validate_replan(raw, set(self.entries), completed_ids)
             if tasks is not None and not notes:
                 break
@@ -245,7 +250,7 @@ class PlannerRun:
         worker: dict[str, Any] = {"outputs": []}
         for attempt in range(3):
             self.llm_calls += 1
-            raw = call_model(WORKER_PROMPT, prompt, self.config)
+            raw = call_model(self.worker_prompt, prompt, self.config)
             try:
                 parsed = json.loads(raw)
             except json.JSONDecodeError:
