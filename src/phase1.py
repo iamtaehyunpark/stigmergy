@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import http.client
 import json
 import os
 import re
@@ -147,15 +148,31 @@ def call_local(system_prompt: str, user_message: str, config: Config) -> str:
     return _http_json_text(req, provider="local")
 
 
-def _http_json_text(req: urllib.request.Request, provider: str) -> str:
-    try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"{provider} API error {exc.code}: {body}") from exc
-    except urllib.error.URLError as exc:
-        raise RuntimeError(f"{provider} API connection failed: {exc.reason}") from exc
+def _http_json_text(req: urllib.request.Request, provider: str,
+                    timeout: int = 600, retries: int = 4) -> str:
+    # A single transient endpoint blip or a slow generation (large
+    # max_tokens can exceed a short socket timeout) must NOT crash a
+    # multi-hour unattended run. Retry transient failures with backoff;
+    # only 4xx (a real client error) fails fast.
+    data = None
+    for attempt in range(retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as exc:
+            body = exc.read().decode("utf-8", errors="replace")
+            if 500 <= exc.code < 600 and attempt < retries:
+                time.sleep(2 ** attempt)
+                continue
+            raise RuntimeError(f"{provider} API error {exc.code}: {body}") from exc
+        except (urllib.error.URLError, http.client.HTTPException,
+                TimeoutError, ConnectionError, OSError) as exc:
+            if attempt < retries:
+                time.sleep(2 ** attempt)
+                continue
+            raise RuntimeError(f"{provider} API connection failed after "
+                               f"{retries + 1} attempts: {exc}") from exc
     if provider == "anthropic":
         parts = []
         for item in data.get("content", []):
