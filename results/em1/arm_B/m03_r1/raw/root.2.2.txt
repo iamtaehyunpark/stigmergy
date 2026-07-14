@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The canonical standard is available and contains all necessary terminology for the lighting section (brightness_level, scene_identifier, lighting/status, LIT_WRN_01, etc.). The task is to write a single tutorial section with runnable config samples in two languages. This is a focused writing task that can be completed in one EXECUTE action without needing to spawn sub-agents. I will produce the bilingual content adhering strictly to the canonical terms.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_lighting",
+      "description": "Bilingual tutorial section for lighting-scene flow with runnable config samples."
+    }
+  ]
+}

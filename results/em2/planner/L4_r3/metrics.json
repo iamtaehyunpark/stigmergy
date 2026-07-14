@@ -1,0 +1,46 @@
+{
+  "run_id": "L4_r3",
+  "task_id": "L4",
+  "system": "planner",
+  "converged": true,
+  "planner_done": true,
+  "planner_failed": false,
+  "stalled": false,
+  "root_outputs": [
+    "root/final_guide"
+  ],
+  "llm_calls": 33,
+  "planner_calls": 17,
+  "worker_tasks_completed": 16,
+  "mean_context_chars_per_decision": 41767.0,
+  "max_context_chars": 62370,
+  "truncation_events": 6,
+  "plan_churn": {
+    "added": 16,
+    "removed": 0,
+    "modified": 3
+  },
+  "rail_hit": "",
+  "termination": "natural",
+  "a5": {
+    "oversize_events": 1,
+    "provenance": {
+      "root.1/terminology_survey": "worker",
+      "root.2/canonical_standard": "worker",
+      "root.3.1/research": "worker",
+      "root.3.2/draft": "worker",
+      "root.3.3/final_chapter_1": "worker",
+      "root.4.1/research": "worker",
+      "root.4.2/draft": "worker",
+      "root.4.3/final_chapter_2": "worker",
+      "root.5.1/research": "worker",
+      "root.5.2/draft": "worker",
+      "root.5.3/final_chapter_3": "worker",
+      "root.6.1/research": "worker",
+      "root.6.2/draft": "worker",
+      "root.6.3/final_chapter_4": "worker",
+      "root.7/glossary": "worker",
+      "root/final_guide": "oversize_fallback"
+    }
+  }
+}

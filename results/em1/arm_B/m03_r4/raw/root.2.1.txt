@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.1",
+  "reasoning": "The canonical standard is available and contains all necessary terminology for the HVAC section. The task is to write a single tutorial section with runnable config samples in two languages. This is a focused writing task that can be completed in one execution step without needing to spawn sub-agents. I will use the exact terms from root.1/canonical_standard to ensure consistency.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_hvac",
+      "description": "Bilingual tutorial section for HVAC control flow with runnable config samples."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "run_id": "G1_t15_r3",
+  "task_id": "t15",
+  "outcome": "failed",
+  "converged": false,
+  "termination": "natural",
+  "rail_hit": "",
+  "llm_calls": 22,
+  "agent_count": 7,
+  "max_depth": 1,
+  "doctor_cycles": 2,
+  "root_pins": [
+    "root/business_plan"
+  ],
+  "root_pins_done": [],
+  "pins_total": 8,
+  "pins_done": 7,
+  "pins_failed": 0,
+  "pins_abandoned": 1,
+  "gates_total": 1,
+  "gates_fired": 0,
+  "gates_dead": 1,
+  "conflict_count": 0,
+  "fallback_writes": 0,
+  "entry_count": 7,
+  "fetch_count": 2,
+  "defer_count": 0,
+  "promotion_count": 0,
+  "starved_agents": [
+    "root"
+  ],
+  "failure": {
+    "unmet_root_pins": [
+      {
+        "address": "root/business_plan",
+        "owner": "root",
+        "status": "abandoned",
+        "note": "The complete, integrated business plan document combining all sections."
+      }
+    ],
+    "dead_gates": [
+      {
+        "id": "G1_t15_r3:root:self",
+        "condition": "completed(\"root.1\") AND completed(\"root.2\") AND completed(\"root.3\") AND completed(\"root.4\") AND completed(\"root.5\")",
+        "author": "root",
+        "mechanism": "self_role-gate",
+        "unresolvable_refs": [
+          "completed(root.5)"
+        ],
+        "consequence_agent": "root"
+      }
+    ],
+    "abandoned_pins": [
+      {
+        "address": "root/business_plan",
+        "owner": "root",
+        "owner_state": "starved"
+      }
+    ],
+    "fallback_writes": [],
+    "failing": true
+  },
+  "interleaving": [
+    "start:root",
+    "end:root",
+    "start:root.1",
+    "end:root.1",
+    "start:root.2",
+    "end:root.2",
+    "start:root.3",
+    "end:root.3",
+    "start:root.4",
+    "end:root.4",
+    "start:root.5",
+    "end:root.5",
+    "start:_doctor.1",
+    "end:_doctor.1"
+  ],
+  "qualitative": "Failed: 1 unmet root pins, 1 dead gates, 1 abandoned pins.",
+  "doctor_calls": 4,
+  "induction": null
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "root.4",
+  "reasoning": "Chapter 4 is a substantial technical writing task covering multiple advanced topics (consolidation, multi-agent sharing, debugging, future directions). To ensure depth and quality, I will decompose it into parallel research/drafting subtasks for each major topic, then integrate them with a consistency edit. This matches the pattern of other chapters and ensures thorough coverage within the call budget.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Research and draft section on memory consolidation and distillation patterns",
+      "capsule": "Cover techniques for consolidating episodic memory into semantic knowledge, including summarization, clustering, and distillation methods. Discuss trade-offs between retention fidelity and storage efficiency. This forms the first major section of Chapter 4.",
+      "outputs": [
+        {"path": "root.4.1/consolidation_draft", "description": "Draft section on memory consolidation and distillation patterns"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Research and draft section on multi-agent memory sharing and coordination",
+      "capsule": "Cover architectures for shared memory across multiple agents, including publish-subscribe patterns, memory marketplaces, conflict resolution, and privacy-preserving sharing. This forms the second major section of Chapter 4.",
+      "outputs": [
+        {"path": "root.4.2/multi_agent_memory_draft", "description": "Draft section on multi-agent memory sharing and coordination"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Research and draft section on memory debugging, observability, and evaluation",
+      "capsule": "Cover techniques for debugging memory systems, including tracing, replay, memory audits, and quantitative evaluation metrics. Discuss tools and methodologies for diagnosing memory-related failures. This forms the third major section of Chapter 4.",
+      "outputs": [
+        {"path": "root.4.3/debugging_draft", "description": "Draft section on memory debugging, observability, and evaluation"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.4",
+      "goal": "Research and draft section on emerging research directions and open problems",
+      "capsule": "Cover cutting-edge research directions such as neuro-symbolic memory, lifelong learning architectures, memory-augmented reasoning, and open problems in the field. This forms the fourth major section of Chapter 4.",
+      "outputs": [
+        {"path": "root.4.4/future_directions_draft", "description": "Draft section on emerging research directions and open problems"}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate all section drafts into a cohesive Chapter 4, perform consistency editing, and produce the final chapter draft",
+    "outputs": [
+      {"path": "root.4/chapter_4_draft", "description": "Final edited draft of Chapter 4 on advanced memory patterns and future directions"}
+    ],
+    "condition": "completed(\"root.4.1\") AND completed(\"root.4.2\") AND completed(\"root.4.3\") AND completed(\"root.4.4\")"
+  }
+}

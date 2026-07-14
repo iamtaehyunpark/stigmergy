@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task is to write the bilingual lighting-scene flow tutorial. I have already fetched the canonical standard and the HVAC tutorial for style reference. The canonical standard provides the exact terms needed: `brightness_level`, `color_temperature`, `power_state`, `scene_identifier`, and channels like `lighting/status`, `lighting/metrics`, `lighting/alerts`, plus alarm codes like `LIT_ERR_01`. The task is self-contained and small enough to execute directly without spawning subtasks. I will follow the structure of the HVAC tutorial (EN/DE sections, YAML configs, JSON payloads) to ensure consistency.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_lighting",
+      "description": "Bilingual tutorial section for lighting-scene flow with runnable config samples."
+    }
+  ]
+}

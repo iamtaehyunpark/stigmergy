@@ -1,0 +1,50 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The go-to-market strategy is a comprehensive document covering acquisition, launch, partnerships, and growth loops. It is complex enough to benefit from decomposition into parallel subtasks (consumer acquisition, merchant acquisition, launch strategy, growth loops) to ensure depth and quality. I will spawn subtasks for each major component and take the integration role myself to assemble the final strategy.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Define consumer-side user acquisition strategy.",
+      "capsule": "Focus on acquiring end-users (reviewers and readers) in Korea. Analyze channels like KakaoTalk, Naver, Instagram, and offline campaigns. Define messaging, incentives for early adopters, and cost-per-acquisition estimates. This serves the ROOT GOAL by detailing how the platform gains its user base.",
+      "outputs": [
+        {"path": "root.4.1/consumer_acquisition", "description": "Consumer acquisition channels, messaging, and incentives"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Define merchant-side acquisition and partnership strategy.",
+      "capsule": "Focus on acquiring local businesses to list and engage on the platform. Define sales motions, partnership tiers, and value propositions for merchants. This serves the ROOT GOAL by detailing how the platform gains its supply side.",
+      "outputs": [
+        {"path": "root.4.2/merchant_acquisition", "description": "Merchant acquisition channels, sales motions, and partnership tiers"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Design the phased launch strategy.",
+      "capsule": "Define the geographic and category rollout plan (e.g., starting with Seoul and food/dining). Outline pre-launch buzz, launch events, and post-launch stabilization. This serves the ROOT GOAL by providing a concrete timeline for market entry.",
+      "outputs": [
+        {"path": "root.4.3/launch_strategy", "description": "Phased launch plan including geography, categories, and timeline"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.4",
+      "goal": "Define growth loops and retention mechanics.",
+      "capsule": "Design viral loops, referral programs, and engagement features that drive organic growth. Focus on Korean-specific behaviors (e.g., Kakao sharing, community-driven content). This serves the ROOT GOAL by ensuring sustainable, low-cost growth after launch.",
+      "outputs": [
+        {"path": "root.4.4/growth_loops", "description": "Viral loops, referral programs, and retention mechanics"}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate subtask outputs into a cohesive go-to-market strategy.",
+    "outputs": [
+      {"path": "root.4/go_to_market", "description": "Go-to-market strategy including acquisition, launch, and growth plans"}
+    ],
+    "condition": "completed(\"root.4.1\") AND completed(\"root.4.2\") AND completed(\"root.4.3\") AND completed(\"root.4.4\")"
+  }
+}

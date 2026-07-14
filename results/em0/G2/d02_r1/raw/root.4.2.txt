@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.2",
+  "reasoning": "The task is to define the merchant-side acquisition and partnership strategy. This is a focused strategic document that can be completed in a single execution step without needing to decompose further. I have the necessary context from the capsule and the root goal. No external data dependencies are required to draft this strategy.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.2/merchant_acquisition",
+      "description": "Merchant acquisition channels, sales motions, and partnership tiers"
+    }
+  ]
+}

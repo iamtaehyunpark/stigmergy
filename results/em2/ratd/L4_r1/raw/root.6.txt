@@ -1,0 +1,11 @@
+{
+  "task_id": "root.6",
+  "reasoning": "The terminology survey (root.5/terminology_survey) is done and has been fetched. It contains a comprehensive matrix of synonyms, canonical term selections, rationales, and implementation notes. My task is to synthesize this into the canonical terminology standard. The survey already does most of the heavy lifting; I need to format it into a clean, authoritative standard document that serves as the single source of truth. This is a straightforward synthesis task that can be completed in a single EXECUTE action.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.6/canonical_terminology_standard",
+      "description": "The canonical terminology standard for the entire guide"
+    }
+  ]
+}

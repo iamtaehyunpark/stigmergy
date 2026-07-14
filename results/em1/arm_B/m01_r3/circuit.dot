@@ -1,0 +1,33 @@
+digraph circuit {
+  rankdir=LR;
+  compound=true;
+  node [fontname="Helvetica", fontsize=10, style="filled,rounded"];
+  edge [fontname="Helvetica", fontsize=8, color="#888888"];
+  subgraph cluster_agents { label="agents (control plane)"; color="#cccccc";
+    a_root [shape=box, fillcolor="#bfe3c6", label="root\n[done]"];
+    a_root_1 [shape=box, fillcolor="#bfe3c6", label="root.1\n[done]"];
+    a_root_2 [shape=box, fillcolor="#bfe3c6", label="root.2\n[done]"];
+  }
+  a_root -> a_root_1 [style=dotted, color="#bbbbbb", arrowhead=empty];
+  a_root -> a_root_2 [style=dotted, color="#bbbbbb", arrowhead=empty];
+  p_root_1_legacy_survey [shape=ellipse, fillcolor="#bfe3c6", label="root.1/legacy_survey\n(done)"];
+  a_root_1 -> p_root_1_legacy_survey [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_1_canonical_standard [shape=ellipse, fillcolor="#bfe3c6", label="root.1/canonical_standard\n(done)"];
+  a_root_1 -> p_root_1_canonical_standard [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_2_tutorial_en [shape=ellipse, fillcolor="#bfe3c6", label="root.2/tutorial_en\n(done)"];
+  a_root_2 -> p_root_2_tutorial_en [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_2_tutorial_kr [shape=ellipse, fillcolor="#bfe3c6", label="root.2/tutorial_kr\n(done)"];
+  a_root_2 -> p_root_2_tutorial_kr [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_2_migration_map [shape=ellipse, fillcolor="#bfe3c6", label="root.2/migration_map\n(done)"];
+  a_root_2 -> p_root_2_migration_map [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_consistency_report [shape=ellipse, fillcolor="#bfe3c6", label="root/consistency_report\n(done)"];
+  a_root -> p_root_consistency_report [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_cheonma_style_guide [shape=ellipse, fillcolor="#bfe3c6", label="root/cheonma_style_guide\n(done)"];
+  a_root -> p_root_cheonma_style_guide [style=solid, color="#7aa7d0", arrowhead=none];
+  a_root_1 -> a_root_2 [style=solid, color="#3a9a52", label="completed"];
+  a_root_1 -> a_root [style=solid, color="#3a9a52", label="completed"];
+  a_root_2 -> a_root [style=solid, color="#3a9a52", label="completed"];
+  label="run m01_r3
+outcome: converged
+pins 7/7 done, gates 2 fired/0 dead, doctor 0"; labelloc="b"; fontsize=11;
+}

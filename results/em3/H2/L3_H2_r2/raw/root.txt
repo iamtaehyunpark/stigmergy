@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The task requires producing a 4-chapter technical field guide with research, drafting, editing, a glossary, and assembly. This is too large for a single EXECUTE action. I will decompose it into parallel chapter subtasks (each handling research, draft, and edit for one chapter), a glossary subtask, and take the final assembly role myself. Each chapter subtask will produce its own chapter content. The glossary will be built in parallel. I will then assemble everything into the final guide.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research, draft, and edit Chapter 1: Introduction to LLM Agent Memory Systems",
+      "capsule": "This subtask produces Chapter 1, which introduces the concept of memory in LLM agents, defines key terminology, and outlines the landscape of memory architectures. It must include original research, a full draft, and a consistency edit. The output will be used in the final assembly.",
+      "outputs": [
+        {"path": "root.1/chapter_1_draft", "description": "Final edited draft of Chapter 1 on introduction to LLM agent memory systems"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Research, draft, and edit Chapter 2: Short-Term and Working Memory Mechanisms",
+      "capsule": "This subtask produces Chapter 2, covering short-term memory, context windows, attention mechanisms, and working memory patterns in LLM agents. It must include original research, a full draft, and a consistency edit. The output will be used in the final assembly.",
+      "outputs": [
+        {"path": "root.2/chapter_2_draft", "description": "Final edited draft of Chapter 2 on short-term and working memory mechanisms"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Research, draft, and edit Chapter 3: Long-Term Memory Architectures",
+      "capsule": "This subtask produces Chapter 3, covering long-term memory systems including vector databases, knowledge graphs, episodic memory stores, and retrieval-augmented generation patterns. It must include original research, a full draft, and a consistency edit. The output will be used in the final assembly.",
+      "outputs": [
+        {"path": "root.3/chapter_3_draft", "description": "Final edited draft of Chapter 3 on long-term memory architectures"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Research, draft, and edit Chapter 4: Advanced Memory Patterns and Future Directions",
+      "capsule": "This subtask produces Chapter 4, covering advanced topics such as memory consolidation, multi-agent memory sharing, memory debugging, and emerging research directions. It must include original research, a full draft, and a consistency edit. The output will be used in the final assembly.",
+      "outputs": [
+        {"path": "root.4/chapter_4_draft", "description": "Final edited draft of Chapter 4 on advanced memory patterns and future directions"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Compile a unified glossary of terms used across all chapters",
+      "capsule": "This subtask produces a comprehensive glossary of technical terms related to LLM agent memory systems. It should define terms consistently and be structured for easy reference. The glossary will be included in the final assembly.",
+      "outputs": [
+        {"path": "root.5/glossary", "description": "Unified glossary of terms for the LLM agent memory field guide"}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Assemble the final field guide from all chapter drafts and the glossary",
+    "outputs": [
+      {"path": "root/final_field_guide", "description": "The complete 4-chapter technical field guide to LLM agent memory systems, assembled from all chapter drafts and the glossary"}
+    ],
+    "condition": "done(\"root.1/chapter_1_draft\") AND done(\"root.2/chapter_2_draft\") AND done(\"root.3/chapter_3_draft\") AND done(\"root.4/chapter_4_draft\") AND done(\"root.5/glossary\")"
+  }
+}

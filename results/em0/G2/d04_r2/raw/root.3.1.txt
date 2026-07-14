@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.1",
+  "reasoning": "The task is to draft a localized announcement post for the Japanese market. This is a creative writing task that can be completed in a single focused effort without needing to decompose further. I have all the necessary context from the capsule to produce a high-quality draft tailored to Japanese business culture. No external dependencies or data fetches are required to begin this creative task.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.1/announcement_draft",
+      "description": "Draft of the localized announcement post for JP."
+    }
+  ]
+}

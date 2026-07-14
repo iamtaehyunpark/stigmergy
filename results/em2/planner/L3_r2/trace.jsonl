@@ -1,0 +1,25 @@
+{"ts": 1783940184.1134303, "event": "planner_call", "n": 1, "context_chars": 1863, "churn": {"added": 7, "removed": 0, "modified": 0}, "remaining": 7}
+{"ts": 1783940208.1010432, "event": "write", "path": "root.1/research", "author": "root.1", "chars": 3457, "provenance": "worker"}
+{"ts": 1783940208.1024532, "event": "write", "path": "root.1/draft", "author": "root.1", "chars": 7207, "provenance": "worker"}
+{"ts": 1783940216.7409468, "event": "planner_call", "n": 2, "context_chars": 14950, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 6}
+{"ts": 1783940231.5486343, "event": "write", "path": "root.2/research", "author": "root.2", "chars": 2379, "provenance": "worker"}
+{"ts": 1783940231.5500748, "event": "write", "path": "root.2/draft", "author": "root.2", "chars": 4385, "provenance": "worker"}
+{"ts": 1783940239.1063173, "event": "planner_call", "n": 3, "context_chars": 21425, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 5}
+{"ts": 1783940261.3008633, "event": "write", "path": "root.3/research", "author": "root.3", "chars": 3368, "provenance": "worker"}
+{"ts": 1783940261.3025575, "event": "write", "path": "root.3/draft", "author": "root.3", "chars": 6380, "provenance": "worker"}
+{"ts": 1783940267.8832724, "event": "planner_call", "n": 4, "context_chars": 30897, "churn": {"added": 0, "removed": 0, "modified": 1}, "remaining": 4}
+{"ts": 1783940291.8812907, "event": "write", "path": "root.4/research", "author": "root.4", "chars": 3335, "provenance": "worker"}
+{"ts": 1783940291.8828638, "event": "write", "path": "root.4/draft", "author": "root.4", "chars": 8439, "provenance": "worker"}
+{"ts": 1783940298.3495843, "event": "planner_call", "n": 5, "context_chars": 42407, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 3}
+{"ts": 1783940312.1024814, "event": "write", "path": "root.5/glossary", "author": "root.5", "chars": 5243, "provenance": "worker"}
+{"ts": 1783940316.5379655, "event": "planner_call", "n": 6, "context_chars": 47354, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 2}
+{"ts": 1783940357.3114927, "event": "write", "path": "root.6/edit_ch1", "author": "root.6", "chars": 5251, "provenance": "worker"}
+{"ts": 1783940357.3137662, "event": "write", "path": "root.6/edit_ch2", "author": "root.6", "chars": 4265, "provenance": "worker"}
+{"ts": 1783940357.3156378, "event": "write", "path": "root.6/edit_ch3", "author": "root.6", "chars": 4484, "provenance": "worker"}
+{"ts": 1783940357.317155, "event": "write", "path": "root.6/edit_ch4", "author": "root.6", "chars": 5172, "provenance": "worker"}
+{"ts": 1783940357.3189, "event": "state_truncation", "dropped_entries": 2, "kept_entries": 11}
+{"ts": 1783940360.272545, "event": "planner_call", "n": 7, "context_chars": 55256, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 1}
+{"ts": 1783940415.9936097, "event": "oversize_truncation", "agent": "root.7", "path": "root/field_guide"}
+{"ts": 1783940415.9960628, "event": "write", "path": "root/field_guide", "author": "root.7", "chars": 12032, "provenance": "oversize_fallback"}
+{"ts": 1783940415.9974647, "event": "state_truncation", "dropped_entries": 4, "kept_entries": 10}
+{"ts": 1783940416.8943124, "event": "planner_call", "n": 8, "context_chars": 60136, "churn": {"added": 0, "removed": 0, "modified": 0}, "remaining": 0}

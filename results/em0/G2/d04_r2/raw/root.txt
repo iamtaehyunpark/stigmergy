@@ -1,0 +1,80 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires producing localized launch kits for 6 markets and a global consistency review. This is a large, parallelizable workload. I will spawn one subtask per market to handle the localization (announcement, FAQ, pricing) for that specific region. I will take the self_role of conducting the global consistency review, which depends on all market kits being completed. This decomposition ensures parallel progress and a final quality gate.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Produce localized launch kit for the US market.",
+      "capsule": "Create an announcement post, FAQ, and pricing page copy tailored for the US market. Use standard US English, appropriate cultural references, and USD pricing conventions. This serves the root goal by delivering one of the six required market kits.",
+      "outputs": [
+        {"path": "root.1/announcement_post", "description": "Localized announcement post for US market."},
+        {"path": "root.1/faq", "description": "Localized FAQ for US market."},
+        {"path": "root.1/pricing_page_copy", "description": "Localized pricing page copy for US market."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Produce localized launch kit for the South Korea (KR) market.",
+      "capsule": "Create an announcement post, FAQ, and pricing page copy tailored for the South Korean market. Use Korean language, appropriate cultural nuances, and KRW pricing conventions. This serves the root goal by delivering one of the six required market kits.",
+      "outputs": [
+        {"path": "root.2/announcement_post", "description": "Localized announcement post for KR market."},
+        {"path": "root.2/faq", "description": "Localized FAQ for KR market."},
+        {"path": "root.2/pricing_page_copy", "description": "Localized pricing page copy for KR market."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Produce localized launch kit for the Japan (JP) market.",
+      "capsule": "Create an announcement post, FAQ, and pricing page copy tailored for the Japanese market. Use Japanese language, appropriate cultural nuances, and JPY pricing conventions. This serves the root goal by delivering one of the six required market kits.",
+      "outputs": [
+        {"path": "root.3/announcement_post", "description": "Localized announcement post for JP market."},
+        {"path": "root.3/faq", "description": "Localized FAQ for JP market."},
+        {"path": "root.3/pricing_page_copy", "description": "Localized pricing page copy for JP market."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Produce localized launch kit for the Germany (DE) market.",
+      "capsule": "Create an announcement post, FAQ, and pricing page copy tailored for the German market. Use German language, appropriate cultural nuances, and EUR pricing conventions. This serves the root goal by delivering one of the six required market kits.",
+      "outputs": [
+        {"path": "root.4/announcement_post", "description": "Localized announcement post for DE market."},
+        {"path": "root.4/faq", "description": "Localized FAQ for DE market."},
+        {"path": "root.4/pricing_page_copy", "description": "Localized pricing page copy for DE market."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Produce localized launch kit for the Brazil (BR) market.",
+      "capsule": "Create an announcement post, FAQ, and pricing page copy tailored for the Brazilian market. Use Brazilian Portuguese, appropriate cultural nuances, and BRL pricing conventions. This serves the root goal by delivering one of the six required market kits.",
+      "outputs": [
+        {"path": "root.5/announcement_post", "description": "Localized announcement post for BR market."},
+        {"path": "root.5/faq", "description": "Localized FAQ for BR market."},
+        {"path": "root.5/pricing_page_copy", "description": "Localized pricing page copy for BR market."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.6",
+      "goal": "Produce localized launch kit for the India (IN) market.",
+      "capsule": "Create an announcement post, FAQ, and pricing page copy tailored for the Indian market. Use English (Indian context) or Hindi if appropriate, appropriate cultural nuances, and INR pricing conventions. This serves the root goal by delivering one of the six required market kits.",
+      "outputs": [
+        {"path": "root.6/announcement_post", "description": "Localized announcement post for IN market."},
+        {"path": "root.6/faq", "description": "Localized FAQ for IN market."},
+        {"path": "root.6/pricing_page_copy", "description": "Localized pricing page copy for IN market."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Conduct a global consistency review of all 6 market launch kits.",
+    "outputs": [
+      {"path": "root/global_consistency_review", "description": "A review document assessing consistency, quality, and localization accuracy across all 6 market kits."}
+    ],
+    "condition": "completed(\"root.1\") AND completed(\"root.2\") AND completed(\"root.3\") AND completed(\"root.4\") AND completed(\"root.5\") AND completed(\"root.6\")"
+  }
+}

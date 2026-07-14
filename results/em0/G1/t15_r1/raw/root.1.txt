@@ -1,0 +1,41 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires a comprehensive market analysis covering multiple distinct dimensions: market size/growth, user demographics, cultural nuances, and regulatory environment. These are independent research areas that can be parallelized effectively. Spawning subtasks for each dimension allows for deeper, more focused analysis than a single agent could produce in one pass. I will take the integration role to synthesize these inputs into the final market_analysis pin.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Analyze market size, growth trends, and key drivers for local services in Korea.",
+      "capsule": "Research the total addressable market for local services (dining, beauty, home services, etc.) in South Korea. Identify CAGR, key growth drivers (e.g., mobile penetration, gig economy), and segment opportunities. This provides the quantitative foundation for the business plan.",
+      "outputs": [
+        {"path": "root.1.1/market_size_and_growth", "description": "Data on market size, CAGR, and key growth drivers for Korean local services"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Profile user demographics and digital behavior regarding local reviews.",
+      "capsule": "Analyze the demographics of Korean consumers who use local review platforms. Focus on age groups, gender splits, device usage (mobile vs. desktop), and behavioral patterns (frequency of review reading/writing). This informs the target audience and product design.",
+      "outputs": [
+        {"path": "root.1.2/user_demographics_and_behavior", "description": "Demographic and behavioral profile of Korean local review users"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.3",
+      "goal": "Identify cultural nuances and regulatory constraints in the Korean market.",
+      "capsule": "Investigate cultural factors affecting review trust (e.g., preference for visual content, influence of influencers, skepticism of fake reviews). Also, outline relevant regulations (e.g., Consumer Protection Act, data privacy laws, advertising standards) that impact review platforms. This ensures the business model is culturally and legally viable.",
+      "outputs": [
+        {"path": "root.1.3/cultural_and_regulatory_context", "description": "Cultural nuances and regulatory environment for review platforms in Korea"}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Synthesize subtask outputs into a comprehensive market analysis.",
+    "outputs": [
+      {"path": "root.1/market_analysis", "description": "Comprehensive market analysis for Korean local-review platform"}
+    ],
+    "condition": "completed(\"root.1.1\") AND completed(\"root.1.2\") AND completed(\"root.1.3\")"
+  }
+}

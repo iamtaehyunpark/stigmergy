@@ -1,0 +1,57 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires two distinct outputs: a survey of legacy naming conventions and a new canonical standard. These are logically sequential (survey informs standard) but can be handled efficiently by a single agent or decomposed into parallel survey subtasks followed by an integration step. Given the need for consistency and the moderate complexity, I will spawn three parallel subtasks to survey each legacy pipeline (aligner, variant-caller, annotator). I will then take the self_role of integrating these surveys into the final `legacy_survey` document and defining the `canonical_standard`. This ensures parallel discovery of legacy terms while maintaining a single point of decision for the new standard.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Survey the legacy aligner pipeline for naming conventions.",
+      "capsule": "Investigate the legacy 'aligner' pipeline. Identify all stage names, file-format tags, and quality-flag codes used. Output a structured list of these legacy terms. This data is required for the comprehensive legacy survey.",
+      "outputs": [
+        {
+          "path": "root.1.1/aligner_legacy_terms",
+          "description": "List of legacy stage names, file-format tags, and quality-flag codes from the aligner pipeline."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Survey the legacy variant-caller pipeline for naming conventions.",
+      "capsule": "Investigate the legacy 'variant-caller' pipeline. Identify all stage names, file-format tags, and quality-flag codes used. Output a structured list of these legacy terms. This data is required for the comprehensive legacy survey.",
+      "outputs": [
+        {
+          "path": "root.1.2/variant_caller_legacy_terms",
+          "description": "List of legacy stage names, file-format tags, and quality-flag codes from the variant-caller pipeline."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.3",
+      "goal": "Survey the legacy annotator pipeline for naming conventions.",
+      "capsule": "Investigate the legacy 'annotator' pipeline. Identify all stage names, file-format tags, and quality-flag codes used. Output a structured list of these legacy terms. This data is required for the comprehensive legacy survey.",
+      "outputs": [
+        {
+          "path": "root.1.3/annotator_legacy_terms",
+          "description": "List of legacy stage names, file-format tags, and quality-flag codes from the annotator pipeline."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate legacy surveys and define the canonical terminology standard.",
+    "outputs": [
+      {
+        "path": "root.1/legacy_survey",
+        "description": "Consolidated record of all legacy stage names, file-format tags, and quality-flag codes from all three pipelines."
+      },
+      {
+        "path": "root.1/canonical_standard",
+        "description": "The published canonical terminology standard including stage nouns, file-format vocabulary, and quality-flag casing rules. Contains only new canonical terms."
+      }
+    ],
+    "condition": "completed(\"root.1.1\") AND completed(\"root.1.2\") AND completed(\"root.1.3\")"
+  }
+}

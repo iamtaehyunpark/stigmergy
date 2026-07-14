@@ -1,0 +1,61 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The task requires producing three distinct but related artifacts (announcement, FAQ, pricing) for the German market. These are independent enough to be parallelized but small enough that spawning three sub-agents might be overkill given the call limit. However, to ensure high quality and cultural nuance for each specific document type, spawning specialized subtasks is a robust approach. I will spawn three subtasks, one for each artifact, and take a self-role to integrate and review them for consistency before fulfilling the interface pins.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Draft the localized announcement post for the German market.",
+      "capsule": "Create a compelling announcement post in German, adhering to local cultural norms and tone. This serves the root goal by providing the primary marketing message for the DE launch. It should be engaging, professional, and culturally appropriate for German audiences.",
+      "outputs": [
+        {
+          "path": "root.4.1/announcement_draft",
+          "description": "Draft of the German announcement post."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Draft the localized FAQ for the German market.",
+      "capsule": "Create a comprehensive FAQ in German, addressing common customer questions with culturally relevant examples and tone. This serves the root goal by providing support content for the DE launch. Ensure legal and privacy concerns typical in Germany are addressed if relevant.",
+      "outputs": [
+        {
+          "path": "root.4.2/faq_draft",
+          "description": "Draft of the German FAQ."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Draft the localized pricing page copy for the German market.",
+      "capsule": "Create pricing page copy in German, using EUR currency and local formatting conventions. This serves the root goal by providing the commercial offer details for the DE launch. Ensure clarity on VAT (MwSt) inclusion/exclusion as per German norms.",
+      "outputs": [
+        {
+          "path": "root.4.3/pricing_draft",
+          "description": "Draft of the German pricing page copy."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Review and finalize the German launch kit artifacts.",
+    "outputs": [
+      {
+        "path": "root.4/announcement_post",
+        "description": "Localized announcement post for DE market."
+      },
+      {
+        "path": "root.4/faq",
+        "description": "Localized FAQ for DE market."
+      },
+      {
+        "path": "root.4/pricing_page_copy",
+        "description": "Localized pricing page copy for DE market."
+      }
+    ],
+    "condition": "completed(\"root.4.1\") AND completed(\"root.4.2\") AND completed(\"root.4.3\")"
+  }
+}

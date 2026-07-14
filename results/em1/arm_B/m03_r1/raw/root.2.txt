@@ -1,0 +1,53 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The canonical standard is available and defines all terms I must use. The task requires writing four substantial bilingual tutorial sections with runnable configuration samples. This is too large for a single EXECUTE action due to length and complexity constraints. I will SPAWN three subtasks for the three technical tutorial sections (HVAC, Lighting, Alarms), and take the Migration Notes section as my self_role, since it directly depends on the canonical standard and serves as the bridge between legacy and new terms. Each subtask will be independent and can run in parallel.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Write the bilingual HVAC control flow tutorial section with runnable configuration samples.",
+      "capsule": "Produce the HVAC control flow tutorial in both English and German. Use only the canonical terms from root.1/canonical_standard (e.g., temperature_setpoint, operation_mode, hvac/status channel). Include runnable configuration samples showing how to set setpoints, read current values, and change operation modes. Output must go to root.2/tutorial_hvac.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_hvac",
+          "description": "Bilingual tutorial section for HVAC control flow with runnable config samples."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Write the bilingual lighting-scene flow tutorial section with runnable configuration samples.",
+      "capsule": "Produce the lighting-scene flow tutorial in both English and German. Use only the canonical terms from root.1/canonical_standard (e.g., brightness_level, scene_identifier, lighting/status channel). Include runnable configuration samples showing how to set brightness, switch scenes, and read status. Output must go to root.2/tutorial_lighting.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_lighting",
+          "description": "Bilingual tutorial section for lighting-scene flow with runnable config samples."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Write the bilingual alarm handling tutorial section with runnable configuration samples.",
+      "capsule": "Produce the alarm handling tutorial in both English and German. Use only the canonical alarm codes from root.1/canonical_standard (e.g., HVAC_ERR_01, LIT_WRN_01) and canonical telemetry channels (hvac/alerts, lighting/alerts, access/alerts). Include runnable configuration samples showing how to subscribe to alerts, parse alarm codes, and trigger responses. Output must go to root.2/tutorial_alarms.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_alarms",
+          "description": "Bilingual tutorial section for alarm handling with runnable config samples."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Write the bilingual migration notes mapping legacy terms to canonical replacements.",
+    "outputs": [
+      {
+        "path": "root.2/tutorial_migration",
+        "description": "Bilingual migration notes mapping legacy terms to canonical replacements."
+      }
+    ],
+    "condition": null
+  }
+}

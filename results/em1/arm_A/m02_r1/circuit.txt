@@ -1,0 +1,28 @@
+# m02_r1
+outcome: converged  qualitative: Quiesced clean on the first pass: all root pins fulfilled, no dead gates, no fallback writes.
+
+## agents (state)
+  root             done       depth=0 parent=None
+  root.1           done       depth=1 parent=root
+  root.1.1         done       depth=2 parent=root.1
+  root.1.2         done       depth=2 parent=root.1
+  root.1.3         done       depth=2 parent=root.1
+  root.2           done       depth=1 parent=root
+
+## pins (status · owner · note)
+  root.1.1/aligner_legacy_terms      done       root.1.1       List of legacy stage names, file-format tags, and quality-fl
+  root.1.2/variant_caller_legacy_terms done       root.1.2       List of legacy stage names, file-format tags, and quality-fl
+  root.1.3/annotator_legacy_terms    done       root.1.3       List of legacy stage names, file-format tags, and quality-fl
+  root.1/canonical_standard          done       root.1         The published canonical terminology standard including stage
+  root.1/legacy_survey               done       root.1         Record of all legacy stage names, file-format tags, and qual
+  root.2/migration_map               done       root.2         Explicit mapping of legacy stage names and flag codes to the
+  root.2/tutorial_en                 done       root.2         The English version of the worked pipeline tutorial with run
+  root.2/tutorial_jp                 done       root.2         The Japanese version of the worked pipeline tutorial with ru
+  root/style_guide_index             done       root           The final index/assembly of the Yuten Developer Style Guide,
+
+## gates (fired/dead · mechanism · condition)
+  [fired] root-spawn     completed("root.1")
+  [fired] self_role-gate completed("root.1") AND completed("root.2")
+  [fired] self_role-gate completed("root.1.1") AND completed("root.1.2") AND completed("root.1.3")
+
+## catalog audit: CLEAN

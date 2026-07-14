@@ -1,0 +1,65 @@
+# d04_r2
+outcome: converged  qualitative: Quiesced clean on the first pass: all root pins fulfilled, no dead gates, no fallback writes.
+
+## agents (state)
+  root             done       depth=0 parent=None
+  root.1           done       depth=1 parent=root
+  root.2           done       depth=1 parent=root
+  root.2.1         done       depth=2 parent=root.2
+  root.2.2         done       depth=2 parent=root.2
+  root.2.3         done       depth=2 parent=root.2
+  root.3           done       depth=1 parent=root
+  root.3.1         done       depth=2 parent=root.3
+  root.3.2         done       depth=2 parent=root.3
+  root.3.3         done       depth=2 parent=root.3
+  root.4           done       depth=1 parent=root
+  root.4.1         done       depth=2 parent=root.4
+  root.4.2         done       depth=2 parent=root.4
+  root.4.3         done       depth=2 parent=root.4
+  root.5           done       depth=1 parent=root
+  root.5.1         done       depth=2 parent=root.5
+  root.5.2         done       depth=2 parent=root.5
+  root.5.3         done       depth=2 parent=root.5
+  root.6           done       depth=1 parent=root
+
+## pins (status · owner · note)
+  root.1/announcement_post           done       root.1         Localized announcement post for US market.
+  root.1/faq                         done       root.1         Localized FAQ for US market.
+  root.1/pricing_page_copy           done       root.1         Localized pricing page copy for US market.
+  root.2.1/announcement_draft        done       root.2.1       Draft of the localized announcement post in Korean.
+  root.2.2/faq_draft                 done       root.2.2       Draft of the localized FAQ in Korean.
+  root.2.3/pricing_draft             done       root.2.3       Draft of the localized pricing page copy in Korean.
+  root.2/announcement_post           done       root.2         Localized announcement post for KR market.
+  root.2/faq                         done       root.2         Localized FAQ for KR market.
+  root.2/pricing_page_copy           done       root.2         Localized pricing page copy for KR market.
+  root.3.1/announcement_draft        done       root.3.1       Draft of the localized announcement post for JP.
+  root.3.2/faq_draft                 done       root.3.2       Draft of the localized FAQ for JP.
+  root.3.3/pricing_draft             done       root.3.3       Draft of the localized pricing page copy for JP.
+  root.3/announcement_post           done       root.3         Localized announcement post for JP market.
+  root.3/faq                         done       root.3         Localized FAQ for JP market.
+  root.3/pricing_page_copy           done       root.3         Localized pricing page copy for JP market.
+  root.4.1/announcement_draft        done       root.4.1       Draft of the German announcement post.
+  root.4.2/faq_draft                 done       root.4.2       Draft of the German FAQ.
+  root.4.3/pricing_draft             done       root.4.3       Draft of the German pricing page copy.
+  root.4/announcement_post           done       root.4         Localized announcement post for DE market.
+  root.4/faq                         done       root.4         Localized FAQ for DE market.
+  root.4/pricing_page_copy           done       root.4         Localized pricing page copy for DE market.
+  root.5.1/announcement_draft        done       root.5.1       Draft of the localized announcement post for BR.
+  root.5.2/faq_draft                 done       root.5.2       Draft of the localized FAQ for BR.
+  root.5.3/pricing_draft             done       root.5.3       Draft of the localized pricing page copy for BR.
+  root.5/announcement_post           done       root.5         Localized announcement post for BR market.
+  root.5/faq                         done       root.5         Localized FAQ for BR market.
+  root.5/pricing_page_copy           done       root.5         Localized pricing page copy for BR market.
+  root.6/announcement_post           done       root.6         Localized announcement post for IN market.
+  root.6/faq                         done       root.6         Localized FAQ for IN market.
+  root.6/pricing_page_copy           done       root.6         Localized pricing page copy for IN market.
+  root/global_consistency_review     done       root           A review document assessing consistency, quality, and locali
+
+## gates (fired/dead · mechanism · condition)
+  [fired] self_role-gate completed("root.1") AND completed("root.2") AND completed("root.3") AND completed("root.4") AND completed("root.5") AND completed("root.6")
+  [fired] self_role-gate completed("root.2.1") AND completed("root.2.2") AND completed("root.2.3")
+  [fired] self_role-gate completed("root.3.1") AND completed("root.3.2") AND completed("root.3.3")
+  [fired] self_role-gate completed("root.4.1") AND completed("root.4.2") AND completed("root.4.3")
+  [fired] self_role-gate completed("root.5.1") AND completed("root.5.2") AND completed("root.5.3")
+
+## catalog audit: CLEAN

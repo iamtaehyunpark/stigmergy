@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4.4",
+  "reasoning": "The task is to define growth loops and retention mechanics for a Korean local-review platform. This is a focused strategic design task that can be completed in a single execution step without needing to decompose further. I have sufficient context from the capsule and general knowledge of Korean digital culture (Kakao, Naver, gamification trends) to produce a comprehensive output. No external data fetches are required as this is a creative/strategic definition task.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4.4/growth_loops",
+      "description": "Viral loops, referral programs, and retention mechanics"
+    }
+  ]
+}

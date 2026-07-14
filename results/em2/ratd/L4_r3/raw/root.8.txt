@@ -1,0 +1,11 @@
+{
+  "task_id": "root.8",
+  "reasoning": "The canonical terminology standard (root.6/canonical_terminology_standard) is already fetched and contains all 8 core terms with definitions, usage rules, and prohibited ambiguities. The task is to create a unified glossary from this standard. This is a straightforward transformation task that can be completed in a single EXECUTE action. I will format the glossary entries clearly with term, definition, usage notes, and cross-references where appropriate.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.8/unified_glossary",
+      "description": "Unified glossary of all terms used in the guide"
+    }
+  ]
+}

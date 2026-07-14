@@ -1,0 +1,57 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires surveying three specific legacy controllers and then synthesizing a canonical standard. This is a two-phase process: data gathering followed by standard definition. I will spawn three parallel subtasks to survey each controller (hvac-controller, lighting-bridge, access-gateway) to populate the legacy_survey. I will take the self_role of synthesizing the canonical_standard based on the completed surveys. This ensures parallel discovery and a single point of truth for the standard.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Survey hvac-controller for legacy point names, telemetry channels, and alarm codes.",
+      "capsule": "Investigate the hvac-controller legacy system. Record all point names (e.g., temperature setpoints), telemetry channels (e.g., airflow rates), and alarm codes (e.g., filter faults). Output a structured list of these legacy terms. This data is required for the global legacy survey.",
+      "outputs": [
+        {
+          "path": "root.1.1/hvac_legacy_terms",
+          "description": "List of legacy point names, telemetry channels, and alarm codes from hvac-controller."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Survey lighting-bridge for legacy point names, telemetry channels, and alarm codes.",
+      "capsule": "Investigate the lighting-bridge legacy system. Record all point names (e.g., scene triggers), telemetry channels (e.g., lux levels), and alarm codes (e.g., driver failures). Output a structured list of these legacy terms. This data is required for the global legacy survey.",
+      "outputs": [
+        {
+          "path": "root.1.2/lighting_legacy_terms",
+          "description": "List of legacy point names, telemetry channels, and alarm codes from lighting-bridge."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.3",
+      "goal": "Survey access-gateway for legacy point names, telemetry channels, and alarm codes.",
+      "capsule": "Investigate the access-gateway legacy system. Record all point names (e.g., door states), telemetry channels (e.g., credential scans), and alarm codes (e.g., forced entry). Output a structured list of these legacy terms. This data is required for the global legacy survey.",
+      "outputs": [
+        {
+          "path": "root.1.3/access_legacy_terms",
+          "description": "List of legacy point names, telemetry channels, and alarm codes from access-gateway."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Aggregate legacy surveys into root.1/legacy_survey and define root.1/canonical_standard.",
+    "outputs": [
+      {
+        "path": "root.1/legacy_survey",
+        "description": "Complete inventory of legacy point names, telemetry channels, and alarm codes from all three controllers."
+      },
+      {
+        "path": "root.1/canonical_standard",
+        "description": "The canonical terminology standard listing only new canonical terms for points, telemetry channels, and alarm codes."
+      }
+    ],
+    "condition": "completed(\"root.1.1\") AND completed(\"root.1.2\") AND completed(\"root.1.3\")"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The schema design is available and defines the data model (Users, Todos, Tags, Todo_Tags). I need to implement the backend API. This is a substantial task involving server setup, database connection, authentication logic, and CRUD endpoints for todos and tags. I will decompose this into parallel subtasks for the core server setup/auth, the Todo CRUD endpoints, and the Tag CRUD endpoints, then integrate them myself.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Implement server setup, database connection, and authentication middleware.",
+      "capsule": "Create the Express server entry point, configure PostgreSQL connection (using pg or knex), and implement JWT-based authentication middleware for protecting routes. This forms the foundation for the API.",
+      "outputs": [
+        {"path": "root.2.1/server_setup", "description": "Code for server initialization, DB connection, and auth middleware."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Implement CRUD endpoints for Todos.",
+      "capsule": "Implement RESTful endpoints for creating, reading, updating, and deleting todos. Include filtering by status/priority and association with tags. Use the schema from root.1/schema_design.",
+      "outputs": [
+        {"path": "root.2.2/todo_routes", "description": "Code for Todo CRUD routes and controllers."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Implement CRUD endpoints for Tags.",
+      "capsule": "Implement RESTful endpoints for managing tags and associating them with todos. This complements the Todo routes.",
+      "outputs": [
+        {"path": "root.2.3/tag_routes", "description": "Code for Tag CRUD routes and controllers."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate subtask outputs into final backend code and generate API documentation.",
+    "outputs": [
+      {"path": "root.2/backend_code", "description": "Backend API implementation code."},
+      {"path": "root.2/api_docs", "description": "API documentation describing endpoints and request/response formats."}
+    ],
+    "condition": "completed(\"root.2.1\") AND completed(\"root.2.2\") AND completed(\"root.2.3\")"
+  }
+}

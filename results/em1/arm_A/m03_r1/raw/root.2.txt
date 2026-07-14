@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2",
+  "reasoning": "I have fetched both the canonical standard and the legacy survey. I now have all the information needed to write the bilingual integration tutorial and migration notes. The task involves writing four distinct sections (HVAC tutorial, lighting tutorial, alarm tutorial, migration notes), each in both English and German, with runnable configuration samples. This is substantial but can be completed in a single EXECUTE action since I have all the reference data and the content is well-defined. I will produce all four assigned interface pins in one go.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {"path": "root.2/tutorial_hvac", "description": "Bilingual (EN/DE) tutorial section for HVAC control flow with runnable config samples."},
+    {"path": "root.2/tutorial_lighting", "description": "Bilingual (EN/DE) tutorial section for lighting-scene flow with runnable config samples."},
+    {"path": "root.2/tutorial_alarms", "description": "Bilingual (EN/DE) tutorial section for alarm handling with runnable config samples."},
+    {"path": "root.2/migration_notes", "description": "Bilingual (EN/DE) migration notes mapping legacy point names and alarm codes to canonical replacements."}
+  ]
+}

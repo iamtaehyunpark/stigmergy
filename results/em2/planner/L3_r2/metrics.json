@@ -1,0 +1,44 @@
+{
+  "run_id": "L3_r2",
+  "task_id": "L3",
+  "system": "planner",
+  "converged": true,
+  "planner_done": true,
+  "planner_failed": false,
+  "stalled": false,
+  "root_outputs": [
+    "root/field_guide"
+  ],
+  "llm_calls": 15,
+  "planner_calls": 8,
+  "worker_tasks_completed": 7,
+  "mean_context_chars_per_decision": 34286.0,
+  "max_context_chars": 60136,
+  "truncation_events": 2,
+  "plan_churn": {
+    "added": 7,
+    "removed": 0,
+    "modified": 1
+  },
+  "rail_hit": "",
+  "termination": "natural",
+  "a5": {
+    "oversize_events": 1,
+    "provenance": {
+      "root.1/research": "worker",
+      "root.1/draft": "worker",
+      "root.2/research": "worker",
+      "root.2/draft": "worker",
+      "root.3/research": "worker",
+      "root.3/draft": "worker",
+      "root.4/research": "worker",
+      "root.4/draft": "worker",
+      "root.5/glossary": "worker",
+      "root.6/edit_ch1": "worker",
+      "root.6/edit_ch2": "worker",
+      "root.6/edit_ch3": "worker",
+      "root.6/edit_ch4": "worker",
+      "root/field_guide": "oversize_fallback"
+    }
+  }
+}

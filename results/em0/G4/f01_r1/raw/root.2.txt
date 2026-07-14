@@ -1,0 +1,23 @@
+{
+  "task_id": "root.2",
+  "reasoning": "I have all the necessary data from root.1: the canonical standard, the legacy-to-canonical mapping, and the legacy survey. I can now write all four tutorial sections (checkout, refund, error handling, and migration notes) in both English and Korean, ensuring every identifier, endpoint, and error code matches the canonical standard exactly. The task is large but can be completed in a single EXECUTE action by producing all four output pins.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_checkout",
+      "description": "Bilingual tutorial section for the checkout flow with runnable code samples."
+    },
+    {
+      "path": "root.2/tutorial_refund",
+      "description": "Bilingual tutorial section for the refund flow with runnable code samples."
+    },
+    {
+      "path": "root.2/tutorial_error_handling",
+      "description": "Bilingual tutorial section for error handling with runnable code samples."
+    },
+    {
+      "path": "root.2/tutorial_migration_notes",
+      "description": "Bilingual migration notes mapping legacy identifiers to canonical replacements."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "root.4",
+  "reasoning": "Chapter 4 is a substantial piece of technical writing covering multiple advanced topics (consolidation, multi-agent sharing, debugging, future directions). To ensure depth and quality, I will decompose it into parallel research/drafting subtasks for each major topic, followed by an integration and editing pass. This allows parallel work on independent sections while ensuring a cohesive final product through a dedicated self-role for assembly and consistency editing.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Research and draft section on memory consolidation and distillation techniques.",
+      "capsule": "This subtask covers how agents consolidate short-term memories into long-term structures, including summarization, hierarchical compression, and knowledge distillation methods. It should cover techniques like memory pruning, importance scoring, and periodic consolidation cycles. Output a well-researched draft section.",
+      "outputs": [
+        {"path": "root.4.1/consolidation_draft", "description": "Draft section on memory consolidation and distillation techniques"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Research and draft section on multi-agent memory sharing and coordination.",
+      "capsule": "This subtask covers how multiple agents share, synchronize, and coordinate through shared memory systems. Topics include shared memory architectures, conflict resolution, memory ownership, cross-agent retrieval, and collaborative memory formation. Output a well-researched draft section.",
+      "outputs": [
+        {"path": "root.4.2/multi_agent_memory_draft", "description": "Draft section on multi-agent memory sharing and coordination"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Research and draft section on memory debugging, observability, and evaluation.",
+      "capsule": "This subtask covers techniques for debugging agent memory systems, including observability tools, memory tracing, evaluation metrics for memory quality, common failure modes, and diagnostic methods. Output a well-researched draft section.",
+      "outputs": [
+        {"path": "root.4.3/memory_debugging_draft", "description": "Draft section on memory debugging, observability, and evaluation"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.4",
+      "goal": "Research and draft section on emerging research directions and future trends.",
+      "capsule": "This subtask covers cutting-edge research directions in LLM agent memory, including neuro-symbolic memory, lifelong learning architectures, memory-augmented training, and speculative future paradigms. Output a well-researched draft section.",
+      "outputs": [
+        {"path": "root.4.4/future_directions_draft", "description": "Draft section on emerging research directions and future trends"}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate all section drafts into a cohesive Chapter 4, perform consistency editing, and produce the final chapter draft.",
+    "outputs": [
+      {"path": "root.4/chapter_4_draft", "description": "Final edited draft of Chapter 4 on advanced memory patterns and future directions"}
+    ],
+    "condition": "done(\"root.4.1/consolidation_draft\") AND done(\"root.4.2/multi_agent_memory_draft\") AND done(\"root.4.3/memory_debugging_draft\") AND done(\"root.4.4/future_directions_draft\")"
+  }
+}

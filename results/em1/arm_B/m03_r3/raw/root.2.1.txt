@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.1",
+  "reasoning": "The canonical standard is available and fetched. I have all the necessary terminology (point nouns, telemetry channels, alarm codes) to write the HVAC tutorial. The task is self-contained and can be completed in a single execution step by generating the bilingual content with runnable configuration samples adhering strictly to the fetched standard.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_hvac",
+      "description": "Bilingual tutorial section for HVAC control flow with runnable config samples."
+    }
+  ]
+}

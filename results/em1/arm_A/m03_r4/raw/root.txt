@@ -1,0 +1,36 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires producing a bilingual developer style guide split into two parts. Part A (survey and canonical standard) must complete before Part B (tutorial and migration notes) can begin, because Part B depends on the canonical terms and the legacy-to-canonical mapping. I will spawn two main subtasks: root.1 for Part A and root.2 for Part B. root.2 will be gated on the completion of root.1. Each subtask will further decompose as needed. I will take a self_role to perform final integration and validation to ensure term consistency across both parts.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Survey legacy controllers and produce the canonical terminology standard for Halden.",
+      "capsule": "This subtask handles Part A. It must survey the three legacy controllers (hvac-controller, lighting-bridge, access-gateway) to record all legacy point names, telemetry channels, and alarm codes. Then it must define the canonical terminology standard (point nouns, telemetry-channel vocabulary, alarm-code casing rules). The published standard lists only new canonical terms. This output is a hard dependency for Part B's migration notes and consistency checks.",
+      "outputs": [
+        {"path": "root.1/legacy_survey", "description": "Complete inventory of legacy point names, telemetry channels, and alarm codes from all three controllers."},
+        {"path": "root.1/canonical_standard", "description": "The canonical terminology standard listing only new canonical terms for points, telemetry channels, and alarm codes."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write the bilingual integration tutorial and migration notes for Halden.",
+      "capsule": "This subtask handles Part B. It writes a worked integration tutorial with runnable configuration samples in EN/DE, covering HVAC control flow, lighting-scene flow, alarm handling, and migration notes. The migration notes must map every legacy point name and alarm code to its canonical replacement. This subtask depends on root.1's outputs to ensure all terms match the canonical standard exactly.",
+      "outputs": [
+        {"path": "root.2/tutorial_hvac", "description": "Bilingual (EN/DE) tutorial section for HVAC control flow with runnable config samples."},
+        {"path": "root.2/tutorial_lighting", "description": "Bilingual (EN/DE) tutorial section for lighting-scene flow with runnable config samples."},
+        {"path": "root.2/tutorial_alarms", "description": "Bilingual (EN/DE) tutorial section for alarm handling with runnable config samples."},
+        {"path": "root.2/migration_notes", "description": "Bilingual (EN/DE) migration notes mapping legacy point names and alarm codes to canonical replacements."}
+      ],
+      "condition": "completed(\"root.1\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate both parts into the final bilingual developer style guide and validate term consistency.",
+    "outputs": [
+      {"path": "root/style_guide_final", "description": "The complete, validated, bilingual developer style guide for Halden, combining Part A and Part B with zero term drift."}
+    ],
+    "condition": "completed(\"root.1\") AND completed(\"root.2\")"
+  }
+}

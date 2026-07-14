@@ -1,0 +1,52 @@
+{
+  "run_id": "G4_f01_r3",
+  "task_id": "f01",
+  "outcome": "converged",
+  "converged": true,
+  "termination": "natural",
+  "rail_hit": "",
+  "llm_calls": 8,
+  "agent_count": 3,
+  "max_depth": 1,
+  "doctor_cycles": 0,
+  "root_pins": [
+    "root/consistency_report"
+  ],
+  "root_pins_done": [
+    "root/consistency_report"
+  ],
+  "pins_total": 8,
+  "pins_done": 8,
+  "pins_failed": 0,
+  "pins_abandoned": 0,
+  "gates_total": 2,
+  "gates_fired": 2,
+  "gates_dead": 0,
+  "conflict_count": 0,
+  "fallback_writes": 0,
+  "entry_count": 8,
+  "fetch_count": 3,
+  "defer_count": 0,
+  "promotion_count": 0,
+  "starved_agents": [],
+  "failure": {
+    "unmet_root_pins": [],
+    "dead_gates": [],
+    "abandoned_pins": [],
+    "fallback_writes": [],
+    "failing": false
+  },
+  "interleaving": [
+    "start:root",
+    "end:root",
+    "start:root.1",
+    "end:root.1",
+    "start:root.2",
+    "end:root.2",
+    "start:root",
+    "end:root"
+  ],
+  "qualitative": "Quiesced clean on the first pass: all root pins fulfilled, no dead gates, no fallback writes.",
+  "doctor_calls": 0,
+  "induction": null
+}

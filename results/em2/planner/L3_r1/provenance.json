@@ -1,0 +1,16 @@
+{
+  "root.1/research": "worker",
+  "root.1/draft": "worker",
+  "root.2/research": "worker",
+  "root.2/draft": "worker",
+  "root.3/research": "worker",
+  "root.3/draft": "worker",
+  "root.4/research": "worker",
+  "root.4/draft": "worker",
+  "root.5/glossary": "worker",
+  "root.6/edit_ch1": "worker",
+  "root.6/edit_ch2": "worker",
+  "root.6/edit_ch3": "worker",
+  "root.6/edit_ch4": "worker",
+  "root/field_guide": "oversize_fallback"
+}

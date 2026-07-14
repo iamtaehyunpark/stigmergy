@@ -1,0 +1,50 @@
+{
+  "task_id": "root.4",
+  "reasoning": "Chapter 4 is a substantial technical writing task covering multiple advanced topics (consolidation, multi-agent sharing, debugging, future directions). It requires original research, drafting, and editing. To ensure depth and quality, I will decompose it into parallel research subtasks for each major topic, then integrate them into a cohesive draft and perform a final edit. This approach allows parallel work on independent topics while maintaining a clear integration path.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Research and draft section on memory consolidation techniques",
+      "capsule": "Investigate and write about memory consolidation patterns in LLM agents, including rehearsal strategies, distillation methods, hierarchical summarization, and decay mechanisms. This section should cover how agents transition short-term working memory into long-term stored knowledge, with concrete examples and architectural patterns.",
+      "outputs": [
+        {"path": "root.4.1/consolidation_research", "description": "Research notes and draft text on memory consolidation techniques for LLM agents"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Research and draft section on multi-agent memory sharing",
+      "capsule": "Investigate and write about how multiple LLM agents share, synchronize, and coordinate through shared memory systems. Cover topics like shared memory spaces, memory routing, conflict resolution, privacy boundaries, and emergent coordination patterns. Include architectural diagrams described in text.",
+      "outputs": [
+        {"path": "root.4.2/multi_agent_memory_research", "description": "Research notes and draft text on multi-agent memory sharing patterns"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Research and draft section on memory debugging and observability",
+      "capsule": "Investigate and write about techniques for debugging, monitoring, and observing LLM agent memory systems. Cover logging strategies, memory state inspection, tracing memory access patterns, identifying memory leaks or corruption, and tools/frameworks for memory observability.",
+      "outputs": [
+        {"path": "root.4.3/memory_debugging_research", "description": "Research notes and draft text on memory debugging and observability techniques"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.4",
+      "goal": "Research and draft section on emerging research directions",
+      "capsule": "Investigate and write about cutting-edge research directions in LLM agent memory, including neuro-symbolic memory, embodied memory, continuous learning without catastrophic forgetting, memory-augmented architectures beyond standard RAG, and open research questions. This section should be forward-looking and identify key challenges.",
+      "outputs": [
+        {"path": "root.4.4/future_directions_research", "description": "Research notes and draft text on emerging research directions in agent memory"}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate all section drafts into a cohesive Chapter 4 and perform final consistency edit",
+    "outputs": [
+      {"path": "root.4/chapter_4_draft", "description": "Final edited draft of Chapter 4 on advanced memory patterns and future directions"}
+    ],
+    "condition": "completed(\"root.4.1\") AND completed(\"root.4.2\") AND completed(\"root.4.3\") AND completed(\"root.4.4\")"
+  }
+}

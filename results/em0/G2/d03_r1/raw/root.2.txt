@@ -1,0 +1,50 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The task is to research and draft Chapter 2 on Architectures for Agent Memory. This is a substantial writing task that benefits from decomposition into parallel research streams for different architectural patterns (vector, key-value, graph, hybrid). I will spawn subtasks for each architecture type, then take the integration role to assemble the final draft. This ensures comprehensive coverage and parallel execution.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Research and draft section on vector database architectures for agent memory.",
+      "capsule": "This subtask covers vector-based memory systems, including embedding models, similarity search, and vector database implementations. It should discuss trade-offs in dimensionality, indexing strategies, and retrieval accuracy. This forms the first major section of Chapter 2.",
+      "outputs": [
+        {"path": "root.2.1/vector_memory_section", "description": "Draft section on vector database architectures for agent memory."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Research and draft section on key-value store architectures for agent memory.",
+      "capsule": "This subtask covers key-value based memory systems, including exact-match retrieval, caching strategies, and structured data storage. It should discuss when KV stores are preferable to vector search and how they integrate with agent workflows. This forms the second major section of Chapter 2.",
+      "outputs": [
+        {"path": "root.2.2/kv_memory_section", "description": "Draft section on key-value store architectures for agent memory."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Research and draft section on graph-based memory architectures for agent memory.",
+      "capsule": "This subtask covers graph-based memory systems, including knowledge graphs, relationship modeling, and traversal-based retrieval. It should discuss how graphs enable reasoning over connected facts and multi-hop queries. This forms the third major section of Chapter 2.",
+      "outputs": [
+        {"path": "root.2.3/graph_memory_section", "description": "Draft section on graph-based memory architectures for agent memory."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.4",
+      "goal": "Research and draft section on hybrid memory architectures for agent memory.",
+      "capsule": "This subtask covers hybrid approaches that combine multiple memory types, including routing strategies, fallback mechanisms, and unified interfaces. It should discuss how to architect systems that leverage the strengths of each approach. This forms the fourth major section of Chapter 2.",
+      "outputs": [
+        {"path": "root.2.4/hybrid_memory_section", "description": "Draft section on hybrid memory architectures for agent memory."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Assemble the final Chapter 2 draft from all subsections, adding introduction, conclusion, and ensuring narrative coherence.",
+    "outputs": [
+      {"path": "root.2/chapter_2_draft", "description": "Draft text for Chapter 2 of the field guide."}
+    ],
+    "condition": "completed(\"root.2.1\") AND completed(\"root.2.2\") AND completed(\"root.2.3\") AND completed(\"root.2.4\")"
+  }
+}

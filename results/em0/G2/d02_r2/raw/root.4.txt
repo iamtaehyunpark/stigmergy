@@ -1,0 +1,41 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The go-to-market strategy is a complex, multi-faceted task requiring distinct expertise in user acquisition, partnership development, and launch planning. Decomposing it into parallel subtasks allows for deeper, more specialized analysis of each component. I will spawn three subtasks for these core areas and take on the integration role to synthesize them into the final deliverable.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Develop user acquisition and marketing tactics for Korean consumers.",
+      "capsule": "Focus on digital channels popular in Korea (Kakao, Naver, Instagram, YouTube) and offline strategies. Define target personas, messaging, and growth loops specific to the Korean market context.",
+      "outputs": [
+        {"path": "root.4.1/user_acquisition_strategy", "description": "Detailed user acquisition channels, marketing tactics, and growth loops for Korean consumers."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Develop partnership strategies with local businesses and influencers.",
+      "capsule": "Identify key partnership targets (local business associations, influencers, payment providers) and define value propositions and engagement models for B2B and B2B2C growth.",
+      "outputs": [
+        {"path": "root.4.2/partnership_strategy", "description": "Partnership strategies including targets, value propositions, and engagement models for local businesses and influencers."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Create a phased launch plan and community-building approach.",
+      "capsule": "Define a timeline for launch phases (beta, public launch, expansion), key milestones, and specific tactics for building an engaged community of reviewers and business owners.",
+      "outputs": [
+        {"path": "root.4.3/launch_plan", "description": "Phased launch plan with timelines, milestones, and community-building tactics."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate subtask outputs into a cohesive go-to-market strategy.",
+    "outputs": [
+        {"path": "root.4/go_to_market", "description": "Go-to-market strategy including acquisition, marketing, and launch plan"}
+    ],
+    "condition": "completed(\"root.4.1\") AND completed(\"root.4.2\") AND completed(\"root.4.3\")"
+  }
+}

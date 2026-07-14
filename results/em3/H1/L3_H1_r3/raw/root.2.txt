@@ -1,0 +1,53 @@
+{
+  "task_id": "root.2",
+  "reasoning": "Chapter 2 is a substantial technical writing task requiring research, drafting, and editing. To manage scope and ensure quality, I will decompose it into three parallel subtasks: research, drafting, and editing. The research subtask will gather information on short-term memory, context windows, and attention mechanisms. The drafting subtask will produce the initial chapter text based on the research. The editing subtask will refine the draft for consistency and clarity. I will take the self_role of integrating these outputs into the final chapter draft.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Research short-term and working memory mechanisms in LLM agents.",
+      "capsule": "This subtask conducts original research on short-term memory, context windows, attention mechanisms, and working memory patterns in LLM agents. It should cover technical details, current best practices, and relevant examples. The output will serve as the foundation for the chapter draft.",
+      "outputs": [
+        {
+          "path": "root.2.1/research_notes",
+          "description": "Comprehensive research notes on short-term and working memory mechanisms in LLM agents"
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Draft Chapter 2 based on research notes.",
+      "capsule": "This subtask writes the initial draft of Chapter 2, incorporating the research findings. The draft should be well-structured, technically accurate, and engaging. It will cover short-term memory, context windows, attention mechanisms, and working memory patterns in LLM agents.",
+      "outputs": [
+        {
+          "path": "root.2.2/chapter_2_initial_draft",
+          "description": "Initial draft of Chapter 2 on short-term and working memory mechanisms"
+        }
+      ],
+      "condition": "done(\"root.2.1/research_notes\")"
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Edit and refine the Chapter 2 draft for consistency and clarity.",
+      "capsule": "This subtask performs a consistency edit on the Chapter 2 draft. It should check for technical accuracy, clarity, flow, and consistency with the overall field guide's style. The output will be the final edited draft of Chapter 2.",
+      "outputs": [
+        {
+          "path": "root.2.3/chapter_2_edited_draft",
+          "description": "Final edited draft of Chapter 2 on short-term and working memory mechanisms"
+        }
+      ],
+      "condition": "done(\"root.2.2/chapter_2_initial_draft\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the edited Chapter 2 draft into the final output pin.",
+    "outputs": [
+      {
+        "path": "root.2/chapter_2_draft",
+        "description": "Final edited draft of Chapter 2 on short-term and working memory mechanisms"
+      }
+    ],
+    "condition": "done(\"root.2.3/chapter_2_edited_draft\")"
+  }
+}

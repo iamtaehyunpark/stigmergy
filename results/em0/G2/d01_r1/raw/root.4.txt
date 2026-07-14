@@ -1,0 +1,11 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The previous action failed validation because the task_id field was missing. I have all the necessary context from the fetched backend code and the catalog status of the frontend code. I will now execute the task to write the integration tests, ensuring the task_id is included in the JSON output.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.4/integration_tests",
+      "description": "Integration test suite for the todo app, covering backend API endpoints and frontend interaction flows."
+    }
+  ]
+}

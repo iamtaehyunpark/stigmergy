@@ -1,0 +1,59 @@
+{
+  "task_id": "root.3",
+  "reasoning": "Chapter 3 is a substantial technical writing task covering vector databases, knowledge graphs, episodic memory, and RAG patterns. It requires research, drafting, and editing. To manage scope and ensure quality, I will decompose into parallel research subtasks for each major topic, then have a dedicated drafting subtask and a final editing subtask. I will take the self_role of producing the chapter's internal outline and section summaries to guide the drafters, ensuring structural coherence before the full draft is written.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.3.1",
+      "goal": "Research vector database architectures for LLM long-term memory",
+      "capsule": "Investigate vector databases (e.g., FAISS, Pinecone, Weaviate, Milvus) used for storing and retrieving semantic embeddings in agent memory systems. Cover indexing strategies (HNSW, IVF), similarity metrics, scalability, and latency trade-offs. Output a structured research summary.",
+      "outputs": [
+        {"path": "root.3.1/vector_db_research", "description": "Research summary on vector database architectures for agent memory"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.2",
+      "goal": "Research knowledge graph integration for agent memory",
+      "capsule": "Investigate how knowledge graphs (e.g., Neo4j, RDF stores) are used to store structured, relational memory for agents. Cover schema design, graph traversal for retrieval, hybrid vector-graph retrieval, and consistency maintenance. Output a structured research summary.",
+      "outputs": [
+        {"path": "root.3.2/kg_research", "description": "Research summary on knowledge graph integration for agent memory"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.3",
+      "goal": "Research episodic memory stores and RAG patterns",
+      "capsule": "Investigate episodic memory architectures (storing past interactions, experiences, and outcomes) and Retrieval-Augmented Generation patterns (hybrid retrieval, re-ranking, query rewriting). Cover how these complement vector and graph stores. Output a structured research summary.",
+      "outputs": [
+        {"path": "root.3.3/episodic_rag_research", "description": "Research summary on episodic memory stores and RAG patterns"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3.4",
+      "goal": "Draft Chapter 3 based on research outputs",
+      "capsule": "Synthesize the three research summaries into a cohesive, well-structured draft of Chapter 3. Follow the outline provided by root.3/self_role. Ensure technical accuracy, clear explanations, and appropriate depth for a field guide audience. Include section headings, code snippets or pseudocode where helpful, and cross-references to concepts.",
+      "outputs": [
+        {"path": "root.3.4/chapter_3_raw_draft", "description": "Raw draft of Chapter 3 on long-term memory architectures"}
+      ],
+      "condition": "done(\"root.3.1/vector_db_research\") AND done(\"root.3.2/kg_research\") AND done(\"root.3.3/episodic_rag_research\") AND done(\"root.3/chapter_3_outline\")"
+    },
+    {
+      "id": "root.3.5",
+      "goal": "Edit and finalize Chapter 3 draft",
+      "capsule": "Perform a consistency edit on the raw draft: check for technical accuracy, clarity, flow, terminology consistency, and alignment with the field guide's tone. Fix any issues, polish prose, and produce the final edited version that fulfills the interface pin.",
+      "outputs": [
+        {"path": "root.3/chapter_3_draft", "description": "Final edited draft of Chapter 3 on long-term memory architectures"}
+      ],
+      "condition": "done(\"root.3.4/chapter_3_raw_draft\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Create chapter outline and section summaries to guide drafting",
+    "outputs": [
+      {"path": "root.3/chapter_3_outline", "description": "Detailed outline and section summaries for Chapter 3"}
+    ],
+    "condition": null
+  }
+}

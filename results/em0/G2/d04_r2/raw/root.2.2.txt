@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task is to draft a localized FAQ for the South Korean market. This is a self-contained writing task that does not require external data or subtask decomposition. I have the assigned pin 'root.2.2/faq_draft' which I need to fulfill. I will execute the task directly by generating a comprehensive FAQ in Korean, addressing common customer questions with culturally appropriate answers.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.2/faq_draft",
+      "description": "Draft of the localized FAQ in Korean."
+    }
+  ]
+}

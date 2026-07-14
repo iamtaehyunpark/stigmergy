@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task is to write the bilingual lighting-scene flow tutorial. I have already fetched the canonical standard (root.1/canonical_standard) and the HVAC tutorial (root.2/tutorial_hvac) for style reference. The canonical standard provides the necessary terms: `brightness`, `color_temperature`, `scene_id`, `power_state`, `halden.lighting.status`, `halden.lighting.usage`, `halden.lighting.alerts`, and alarm codes like `HAL_LIGHT_WARN_01`. I have all the information needed to execute this task directly without further subdivision or fetching. I will produce the content following the structure and bilingual format of the HVAC tutorial.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_lighting",
+      "description": "Bilingual tutorial section for lighting-scene flow with runnable config samples."
+    }
+  ]
+}

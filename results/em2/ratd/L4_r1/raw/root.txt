@@ -1,0 +1,93 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires a 4-chapter technical field guide with a strict terminology standard that must be established before chapters are finalized. The workflow has two main tracks: (1) a standards track that surveys terminology and produces a canonical standard, and (2) a content track that researches, drafts, and edits four chapters. The standards track must complete its survey and publish the standard before chapters can be consistency-edited. I will spawn subtasks for each chapter's research and drafting, a terminology survey task, a standard synthesis task, a glossary task, and a final assembly task. I will take the self_role of coordinating the final assembly and ensuring the terminology standard is applied.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research and draft Chapter 1: Introduction to LLM Agent Memory Systems",
+      "capsule": "This subtask produces the foundational chapter covering definitions, history, and high-level architecture of memory systems in LLM agents. It must conduct independent research and produce a complete draft. The draft will later be edited for consistency with the canonical terminology standard.",
+      "outputs": [
+        {"path": "root.1/chapter_1_research", "description": "Research notes and sources for Chapter 1"},
+        {"path": "root.1/chapter_1_draft", "description": "Full draft of Chapter 1"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Research and draft Chapter 2: Short-Term and Working Memory Mechanisms",
+      "capsule": "This subtask covers short-term memory, context windows, attention mechanisms, and working memory patterns in LLM agents. It must conduct independent research and produce a complete draft. The draft will later be edited for consistency with the canonical terminology standard.",
+      "outputs": [
+        {"path": "root.2/chapter_2_research", "description": "Research notes and sources for Chapter 2"},
+        {"path": "root.2/chapter_2_draft", "description": "Full draft of Chapter 2"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Research and draft Chapter 3: Long-Term Memory and Knowledge Persistence",
+      "capsule": "This subtask covers long-term memory architectures including vector databases, knowledge graphs, episodic memory, and semantic memory systems. It must conduct independent research and produce a complete draft. The draft will later be edited for consistency with the canonical terminology standard.",
+      "outputs": [
+        {"path": "root.3/chapter_3_research", "description": "Research notes and sources for Chapter 3"},
+        {"path": "root.3/chapter_3_draft", "description": "Full draft of Chapter 3"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Research and draft Chapter 4: Advanced Memory Patterns and Multi-Agent Memory",
+      "capsule": "This subtask covers advanced topics including memory compression, retrieval-augmented generation, multi-agent shared memory, and emergent memory behaviors. It must conduct independent research and produce a complete draft. The draft will later be edited for consistency with the canonical terminology standard.",
+      "outputs": [
+        {"path": "root.4/chapter_4_research", "description": "Research notes and sources for Chapter 4"},
+        {"path": "root.4/chapter_4_draft", "description": "Full draft of Chapter 4"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Survey terminology used across all chapter source domains and produce a terminology survey",
+      "capsule": "This subtask surveys the actual terminology used in the research sources for all four chapters. It identifies synonyms, conflicting terms, and domain-specific jargon. The output is a comprehensive terminology survey that feeds into the canonical standard. This must run in parallel with chapter drafting but its output is needed before the standard is synthesized.",
+      "outputs": [
+        {"path": "root.5/terminology_survey", "description": "Comprehensive survey of terminology used across all chapter source domains"}
+      ],
+      "condition": "done(\"root.1/chapter_1_research\") AND done(\"root.2/chapter_2_research\") AND done(\"root.3/chapter_3_research\") AND done(\"root.4/chapter_4_research\")"
+    },
+    {
+      "id": "root.6",
+      "goal": "Synthesize the canonical terminology standard from the terminology survey",
+      "capsule": "This subtask takes the terminology survey and produces the guide's canonical terminology standard. It resolves conflicts, selects preferred terms, and defines exact usage rules. This standard is the single source of truth for all terms used in the guide. Every chapter and the glossary must use these terms exactly.",
+      "outputs": [
+        {"path": "root.6/canonical_terminology_standard", "description": "The canonical terminology standard for the entire guide"}
+      ],
+      "condition": "done(\"root.5/terminology_survey\")"
+    },
+    {
+      "id": "root.7",
+      "goal": "Consistency-edit all four chapters against the canonical terminology standard",
+      "capsule": "This subtask takes all four chapter drafts and the canonical terminology standard, and edits each chapter to ensure exact compliance with the standard. Any term drift is corrected. The output is four consistency-edited chapters ready for assembly.",
+      "outputs": [
+        {"path": "root.7/chapter_1_edited", "description": "Consistency-edited Chapter 1"},
+        {"path": "root.7/chapter_2_edited", "description": "Consistency-edited Chapter 2"},
+        {"path": "root.7/chapter_3_edited", "description": "Consistency-edited Chapter 3"},
+        {"path": "root.7/chapter_4_edited", "description": "Consistency-edited Chapter 4"}
+      ],
+      "condition": "done(\"root.6/canonical_terminology_standard\") AND done(\"root.1/chapter_1_draft\") AND done(\"root.2/chapter_2_draft\") AND done(\"root.3/chapter_3_draft\") AND done(\"root.4/chapter_4_draft\")"
+    },
+    {
+      "id": "root.8",
+      "goal": "Create the unified glossary from the canonical terminology standard",
+      "capsule": "This subtask creates a comprehensive glossary of all terms used in the guide, derived directly from the canonical terminology standard. Each entry includes the canonical term, definition, and usage notes. The glossary must use the canonical terms exactly.",
+      "outputs": [
+        {"path": "root.8/unified_glossary", "description": "Unified glossary of all terms used in the guide"}
+      ],
+      "condition": "done(\"root.6/canonical_terminology_standard\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Assemble the final field guide from edited chapters and glossary, performing a final quality pass",
+    "outputs": [
+      {"path": "root/final_field_guide", "description": "The complete 4-chapter technical field guide with glossary, fully assembled and quality-checked"}
+    ],
+    "condition": "done(\"root.7/chapter_1_edited\") AND done(\"root.7/chapter_2_edited\") AND done(\"root.7/chapter_3_edited\") AND done(\"root.7/chapter_4_edited\") AND done(\"root.8/unified_glossary\")"
+  }
+}

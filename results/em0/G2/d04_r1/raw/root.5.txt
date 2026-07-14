@@ -1,0 +1,32 @@
+{
+  "task_id": "root.5",
+  "reasoning": "The task requires producing three distinct but related artifacts (announcement, FAQ, pricing) for the Brazilian market. These are independent enough to be parallelized but small enough that spawning three sub-agents might be overkill given the call limit. However, to ensure high quality and cultural nuance for each piece, I will spawn two subtasks: one for the announcement post and one for the FAQ, and I will handle the pricing page copy myself as the self_role. This balances parallelism with direct control over the most data-sensitive artifact (pricing).",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.5.1",
+      "goal": "Write the localized announcement post for the Brazilian market.",
+      "capsule": "Create an engaging announcement post in Brazilian Portuguese. Use a warm, enthusiastic tone typical of Brazilian marketing. Highlight key product benefits and include a clear call to action. This serves the ROOT GOAL by providing the first touchpoint for Brazilian users.",
+      "outputs": [
+        {"path": "root.5/announcement_post", "description": "Localized announcement post for the BR market."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5.2",
+      "goal": "Write the localized FAQ for the Brazilian market.",
+      "capsule": "Create a comprehensive FAQ in Brazilian Portuguese. Address common questions about the product, support, and usage. Ensure the tone is helpful and accessible. This serves the ROOT GOAL by reducing friction for Brazilian users seeking information.",
+      "outputs": [
+        {"path": "root.5/faq", "description": "Localized FAQ for the BR market."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Write the localized pricing page copy for the Brazilian market.",
+    "outputs": [
+      {"path": "root.5/pricing_page_copy", "description": "Localized pricing page copy for the BR market."}
+    ],
+    "condition": null
+  }
+}

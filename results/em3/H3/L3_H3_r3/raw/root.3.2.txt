@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.2",
+  "reasoning": "The task is to produce a focused research summary on knowledge graph integration for LLM long-term memory. This is a well-defined, single-domain research task that can be completed in one execution step without needing to decompose further. There are no external dependencies; the required knowledge is internal. I will EXECUTE and write the research summary directly to the assigned pin.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.2/kg_research",
+      "description": "Research summary on knowledge graph integration for LLM memory"
+    }
+  ]
+}
