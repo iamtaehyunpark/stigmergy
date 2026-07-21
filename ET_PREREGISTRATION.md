@@ -325,3 +325,10 @@ byte-identical across all four variants by construction.
   any divergent cell runs the full pre-registered n=4. Approved by Taehyun
   before any level-3+ run. Distinct-outcome counts are reported alongside
   all cell statistics; the §4 variance rule applies to executed reps.
+- **2026-07-21 (during L4 rep 1, directed by Taehyun): single rep for
+  levels 4–5.** After six consecutive cells (L1–L3, all arms) verified
+  byte-identical across reps 1–2, rep 2 is dropped for L4/L5 ("It's just
+  byte-identical replication. Waste of time."). L4/L5 cells therefore run
+  n=1 by design; determinism at those levels rests on the L1–L3
+  verification plus the identical serving/scheduling conditions, and is
+  stated as an assumption (not a per-cell verification) in the report.
