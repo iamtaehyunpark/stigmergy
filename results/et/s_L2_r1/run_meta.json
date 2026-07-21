@@ -1,0 +1,25 @@
+{
+  "run_id": "s_L2_r1",
+  "arm": "s",
+  "task": {
+    "id": "L2",
+    "task": "Write a comparative report on the top 3 vector database products: features, pricing, and performance, ending with a recommendation. Deliver the final artifact under global/final/ (e.g. global/final/report.md).",
+    "source": "E1 L2 verbatim + v2 delivery convention. 3 parallel + synthesis."
+  },
+  "provider": "local",
+  "model": "qwen3.6",
+  "temperature": 0.0,
+  "max_tokens": 16000,
+  "local_endpoint": "http://127.0.0.1:8001/v1/chat/completions",
+  "rails": {
+    "max_llm_calls": 300,
+    "wall_clock_s": 3600.0,
+    "r_max": 30,
+    "window_rounds": 8,
+    "prompt_char_cap": 800000
+  },
+  "harness_files": {
+    "prompts/et/harness_stig.md": "bd9710fb85229a2f22c791b375368a96b521429ad5fb4db56a6b99cabd0a0860"
+  },
+  "started_at": "2026-07-20T22:26:31-0500"
+}

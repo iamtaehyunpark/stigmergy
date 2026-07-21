@@ -1,0 +1,25 @@
+{
+  "run_id": "r_L4_r1",
+  "arm": "r",
+  "task": {
+    "id": "L4",
+    "task": "Write a 4-chapter technical field guide to LLM agent memory systems. Each chapter needs its own research, a draft, and a consistency edit; the book needs a unified glossary and a final assembly pass. Additionally, a separate standards track must first survey the terminology actually used in each chapter's source domain and publish the guide's canonical terminology standard - the standard emerges from that survey and is not fixed in advance; every chapter and the glossary must use the canonical terms exactly, and term drift anywhere in the guide is a defect. Deliver the final artifacts under global/final/ (multi-part deliverables as separate files, e.g. global/final/chapter_1.md ... global/final/standard.md).",
+    "source": "E1 L4 verbatim + v2 delivery convention. Deep + discovery: the canonical standard emerges mid-run and every consumer must adapt to it."
+  },
+  "provider": "local",
+  "model": "qwen3.6",
+  "temperature": 0.0,
+  "max_tokens": 16000,
+  "local_endpoint": "http://127.0.0.1:8001/v1/chat/completions",
+  "rails": {
+    "max_llm_calls": 300,
+    "wall_clock_s": 3600.0,
+    "r_max": 30,
+    "window_rounds": 8,
+    "prompt_char_cap": 800000
+  },
+  "harness_files": {
+    "prompts/et/harness_ratd.md": "eefa3b3710a0b4252e3ad8a70fdfbb78b6e4290349e4d385c2281403d9f21243"
+  },
+  "started_at": "2026-07-21T00:45:46-0500"
+}

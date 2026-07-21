@@ -1,0 +1,40 @@
+{
+  "run_id": "s_L1_r2",
+  "arm": "s",
+  "task_id": "L1",
+  "wall_clock_s": 14.0,
+  "llm_calls": 1,
+  "prompt_tokens": 2806,
+  "completion_tokens": 874,
+  "total_tokens": 3680,
+  "n_agents": 1,
+  "n_rules": 0,
+  "rules_fired": 0,
+  "rule_edits_by_nonauthor": 0,
+  "global_artifacts": 1,
+  "divergent_artifacts": 0,
+  "mean_prompt_chars": 11390.0,
+  "max_prompt_chars": 11390,
+  "health": {
+    "quiescent": true,
+    "rail_hit": "",
+    "root_state": "done",
+    "waiting_at_end": [],
+    "failed_agents": [],
+    "systemic_failure": false,
+    "failure_reasons": []
+  },
+  "per_agent": {
+    "root": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 1,
+      "parent": null,
+      "prompt_tokens": 2806,
+      "completion_tokens": 874,
+      "prompt_chars_per_round": [
+        11390
+      ]
+    }
+  }
+}

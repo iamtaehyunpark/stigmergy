@@ -1,0 +1,25 @@
+{
+  "run_id": "r_L1_r3",
+  "arm": "r",
+  "task": {
+    "id": "L1",
+    "task": "Write a one-page explainer of vector embeddings for junior developers: what they are, how similarity search works at a high level, and three practical do/don't tips for using them in an application. Deliver the final artifact under global/final/ (e.g. global/final/explainer.md).",
+    "source": "E1 L1 verbatim + v2 delivery convention. Single artifact, no decomposition needed."
+  },
+  "provider": "local",
+  "model": "qwen3.6",
+  "temperature": 0.0,
+  "max_tokens": 16000,
+  "local_endpoint": "http://127.0.0.1:8001/v1/chat/completions",
+  "rails": {
+    "max_llm_calls": 300,
+    "wall_clock_s": 3600.0,
+    "r_max": 30,
+    "window_rounds": 8,
+    "prompt_char_cap": 800000
+  },
+  "harness_files": {
+    "prompts/et/harness_ratd.md": "eefa3b3710a0b4252e3ad8a70fdfbb78b6e4290349e4d385c2281403d9f21243"
+  },
+  "started_at": "2026-07-20T22:18:39-0500"
+}

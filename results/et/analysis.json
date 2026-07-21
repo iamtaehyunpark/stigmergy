@@ -1,0 +1,3933 @@
+[
+  {
+    "run_id": "p_L1_r1",
+    "arm": "p",
+    "level": "L1",
+    "llm_calls": 5,
+    "total_tokens": 16082,
+    "prompt_chars_mean": 12265.8,
+    "prompt_chars_max": 16491,
+    "prompt_chars_p90": 13241,
+    "rounds_per_agent": {
+      "root": 5
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 3022
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "p_L1_r2",
+    "arm": "p",
+    "level": "L1",
+    "llm_calls": 5,
+    "total_tokens": 16082,
+    "prompt_chars_mean": 12265.8,
+    "prompt_chars_max": 16491,
+    "prompt_chars_p90": 13241,
+    "rounds_per_agent": {
+      "root": 5
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 3022
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "p_L1_r3",
+    "arm": "p",
+    "level": "L1",
+    "llm_calls": 5,
+    "total_tokens": 16082,
+    "prompt_chars_mean": 12265.8,
+    "prompt_chars_max": 16491,
+    "prompt_chars_p90": 13241,
+    "rounds_per_agent": {
+      "root": 5
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 3022
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "p_L1_r4",
+    "arm": "p",
+    "level": "L1",
+    "llm_calls": 5,
+    "total_tokens": 16082,
+    "prompt_chars_mean": 12265.8,
+    "prompt_chars_max": 16491,
+    "prompt_chars_p90": 13241,
+    "rounds_per_agent": {
+      "root": 5
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 3022
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "p_L2_r1",
+    "arm": "p",
+    "level": "L2",
+    "llm_calls": 21,
+    "total_tokens": 170534,
+    "prompt_chars_mean": 29321.095238095237,
+    "prompt_chars_max": 90959,
+    "prompt_chars_p90": 75028,
+    "rounds_per_agent": {
+      "root": 9,
+      "a1": 4,
+      "a2": 4,
+      "a3": 4
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 14
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 16
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 18
+      }
+    ],
+    "adaptation_count": 3,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 838,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 838,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 838,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 5,
+        "path": "agents/a1/pinecone_research.md",
+        "writer": "a1",
+        "chars": 14154,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 5,
+        "path": "agents/a2/weaviate_research.md",
+        "writer": "a2",
+        "chars": 14290,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 5,
+        "path": "agents/a3/qdrant_research.md",
+        "writer": "a3",
+        "chars": 14463,
+        "truncated": false
+      }
+    ],
+    "handoff_count": 6,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 16036,
+      "a1": 14108,
+      "a2": 14244,
+      "a3": 14419
+    },
+    "resumes_per_agent": {
+      "root": 1
+    },
+    "rules_fired": 1,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "p_L2_r2",
+    "arm": "p",
+    "level": "L2",
+    "llm_calls": 21,
+    "total_tokens": 170534,
+    "prompt_chars_mean": 29321.095238095237,
+    "prompt_chars_max": 90959,
+    "prompt_chars_p90": 75028,
+    "rounds_per_agent": {
+      "root": 9,
+      "a1": 4,
+      "a2": 4,
+      "a3": 4
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 14
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 16
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 18
+      }
+    ],
+    "adaptation_count": 3,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 838,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 838,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 838,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 5,
+        "path": "agents/a1/pinecone_research.md",
+        "writer": "a1",
+        "chars": 14154,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 5,
+        "path": "agents/a2/weaviate_research.md",
+        "writer": "a2",
+        "chars": 14290,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 5,
+        "path": "agents/a3/qdrant_research.md",
+        "writer": "a3",
+        "chars": 14463,
+        "truncated": false
+      }
+    ],
+    "handoff_count": 6,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 16036,
+      "a1": 14108,
+      "a2": 14244,
+      "a3": 14419
+    },
+    "resumes_per_agent": {
+      "root": 1
+    },
+    "rules_fired": 1,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "p_L3_r1",
+    "arm": "p",
+    "level": "L3",
+    "llm_calls": 133,
+    "total_tokens": 2543565,
+    "prompt_chars_mean": 83463.5112781955,
+    "prompt_chars_max": 239791,
+    "prompt_chars_p90": 160930,
+    "rounds_per_agent": {
+      "root": 15,
+      "a1": 8,
+      "a2": 10,
+      "a3": 16,
+      "a4": 9,
+      "a5": 10,
+      "a6": 14,
+      "a7": 28,
+      "a8": 13,
+      "a9": 10
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 186
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 188
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 190
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 192
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 194
+      }
+    ],
+    "adaptation_count": 5,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 4,
+        "path": "agents/a1/research.md",
+        "writer": "a1",
+        "chars": 4195,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 4,
+        "path": "agents/a1/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20130,
+        "truncated": true
+      },
+      {
+        "reader": "a3",
+        "round": 5,
+        "path": "agents/a1/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 4660,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 4680,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 2,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 4604,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 2,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 16770,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 2,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 7798,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 4680,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 4604,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 16770,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 7798,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 4,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 4,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 4,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 5,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 7798,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 5,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 4604,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 5,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 16770,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 6,
+        "path": "agents/a9/glossary.md",
+        "writer": "a9",
+        "chars": 20123,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 19,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 20,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 21,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 16770,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 6,
+        "path": "global/chapter_1_edited.md",
+        "writer": "a5",
+        "chars": 20151,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/chapter_2_edited.md",
+        "writer": "a6",
+        "chars": 20151,
+        "truncated": true
+      }
+    ],
+    "handoff_count": 51,
+    "handoff_truncated": 19,
+    "externalized_chars_per_agent": {
+      "root": 3301,
+      "a1": 28775,
+      "a4": 34156,
+      "a2": 28884,
+      "a3": 80615,
+      "a9": 47017,
+      "a5": 38763,
+      "a6": 51489,
+      "a8": 39321,
+      "a7": 87648
+    },
+    "resumes_per_agent": {
+      "root": 2
+    },
+    "rules_fired": 2,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "p_L3_r2",
+    "arm": "p",
+    "level": "L3",
+    "llm_calls": 133,
+    "total_tokens": 2543565,
+    "prompt_chars_mean": 83463.5112781955,
+    "prompt_chars_max": 239791,
+    "prompt_chars_p90": 160930,
+    "rounds_per_agent": {
+      "root": 15,
+      "a1": 8,
+      "a2": 10,
+      "a3": 16,
+      "a4": 9,
+      "a5": 10,
+      "a6": 14,
+      "a7": 28,
+      "a8": 13,
+      "a9": 10
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 186
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 188
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 190
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 192
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 194
+      }
+    ],
+    "adaptation_count": 5,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 4,
+        "path": "agents/a1/research.md",
+        "writer": "a1",
+        "chars": 4195,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 4,
+        "path": "agents/a1/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20130,
+        "truncated": true
+      },
+      {
+        "reader": "a3",
+        "round": 5,
+        "path": "agents/a1/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 4660,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 4680,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 2,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 4604,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 2,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 16770,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 2,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 7798,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1194,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 4680,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 4604,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 16770,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 7798,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 4,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 4,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 4,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 5,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 7798,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 5,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 4604,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 5,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 16770,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 6,
+        "path": "agents/a9/glossary.md",
+        "writer": "a9",
+        "chars": 20123,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 19,
+        "path": "agents/root/style_guide.md",
+        "writer": "root",
+        "chars": 1181,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 20,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 21,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 16770,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 6,
+        "path": "global/chapter_1_edited.md",
+        "writer": "a5",
+        "chars": 20151,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/chapter_2_edited.md",
+        "writer": "a6",
+        "chars": 20151,
+        "truncated": true
+      }
+    ],
+    "handoff_count": 51,
+    "handoff_truncated": 19,
+    "externalized_chars_per_agent": {
+      "root": 3301,
+      "a1": 28775,
+      "a4": 34156,
+      "a2": 28884,
+      "a3": 80615,
+      "a9": 47017,
+      "a5": 38763,
+      "a6": 51489,
+      "a8": 39321,
+      "a7": 87648
+    },
+    "resumes_per_agent": {
+      "root": 2
+    },
+    "rules_fired": 2,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "p_L4_r1",
+    "arm": "p",
+    "level": "L4",
+    "llm_calls": 158,
+    "total_tokens": 3557454,
+    "prompt_chars_mean": 95579.61392405063,
+    "prompt_chars_max": 264300,
+    "prompt_chars_p90": 163165,
+    "rounds_per_agent": {
+      "root": 21,
+      "a1": 5,
+      "a2": 10,
+      "a3": 10,
+      "a4": 7,
+      "a5": 15,
+      "a6": 24,
+      "a7": 23,
+      "a8": 22,
+      "a9": 21
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 2,
+        "tool": "spawn",
+        "seq": 11
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 15
+      },
+      {
+        "agent": "root",
+        "round": 4,
+        "tool": "spawn",
+        "seq": 23
+      },
+      {
+        "agent": "root",
+        "round": 5,
+        "tool": "spawn",
+        "seq": 34
+      },
+      {
+        "agent": "root",
+        "round": 12,
+        "tool": "spawn",
+        "seq": 161
+      },
+      {
+        "agent": "root",
+        "round": 17,
+        "tool": "spawn",
+        "seq": 237
+      },
+      {
+        "agent": "root",
+        "round": 18,
+        "tool": "spawn",
+        "seq": 241
+      },
+      {
+        "agent": "root",
+        "round": 19,
+        "tool": "spawn",
+        "seq": 249
+      },
+      {
+        "agent": "root",
+        "round": 20,
+        "tool": "spawn",
+        "seq": 260
+      }
+    ],
+    "adaptation_count": 9,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/project_plan.md",
+        "writer": "root",
+        "chars": 1362,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/project_plan.md",
+        "writer": "root",
+        "chars": 1362,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/project_plan.md",
+        "writer": "root",
+        "chars": 1362,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 3,
+        "path": "global/surveys/short_term_memory_terms.md",
+        "writer": "a1",
+        "chars": 19662,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/project_plan.md",
+        "writer": "root",
+        "chars": 1362,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/surveys/short_term_memory_terms.md",
+        "writer": "a1",
+        "chars": 19662,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 8,
+        "path": "global/surveys/long_term_memory_terms.md",
+        "writer": "a2",
+        "chars": 20165,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 9,
+        "path": "global/surveys/memory_architectures_terms.md",
+        "writer": "a3",
+        "chars": 20169,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 10,
+        "path": "global/surveys/memory_evaluation_terms.md",
+        "writer": "a4",
+        "chars": 20166,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/surveys/short_term_memory_terms.md",
+        "writer": "a1",
+        "chars": 19662,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/surveys/long_term_memory_terms.md",
+        "writer": "a2",
+        "chars": 20165,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/surveys/memory_architectures_terms.md",
+        "writer": "a3",
+        "chars": 20169,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/surveys/memory_evaluation_terms.md",
+        "writer": "a4",
+        "chars": 20166,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "global/surveys/long_term_memory_terms.md",
+        "writer": "a2",
+        "chars": 20169,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "global/surveys/memory_architectures_terms.md",
+        "writer": "a3",
+        "chars": 14780,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "global/surveys/memory_evaluation_terms.md",
+        "writer": "a4",
+        "chars": 4749,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 3,
+        "path": "global/surveys/long_term_memory_terms.md",
+        "writer": "a2",
+        "chars": 2544,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 14,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20143,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 15,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20147,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 16,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 15803,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20143,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 2,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20147,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20143,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 15803,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 2,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20147,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20143,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 4,
+        "path": "global/surveys/short_term_memory_terms.md",
+        "writer": "a1",
+        "chars": 19662,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 3,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 15803,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 2,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20147,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20143,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/surveys/long_term_memory_terms.md",
+        "writer": "a2",
+        "chars": 20165,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 3,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 15803,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20147,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 5,
+        "path": "global/surveys/long_term_memory_terms.md",
+        "writer": "a2",
+        "chars": 20169,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 4,
+        "path": "global/surveys/memory_architectures_terms.md",
+        "writer": "a3",
+        "chars": 20169,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 3,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 15803,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 6,
+        "path": "global/surveys/long_term_memory_terms.md",
+        "writer": "a2",
+        "chars": 2544,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 5,
+        "path": "global/surveys/memory_architectures_terms.md",
+        "writer": "a3",
+        "chars": 14780,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 4,
+        "path": "global/surveys/memory_evaluation_terms.md",
+        "writer": "a4",
+        "chars": 20166,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 5,
+        "path": "global/surveys/memory_evaluation_terms.md",
+        "writer": "a4",
+        "chars": 4749,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 8,
+        "path": "agents/a6/chapter_1.md",
+        "writer": "a6",
+        "chars": 13969,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 14,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20143,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 16,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20143,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 15,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20147,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 17,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20147,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 16,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 15803,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 14,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20143,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 18,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 15803,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 15,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 20147,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 19,
+        "path": "global/surveys/short_term_memory_terms.md",
+        "writer": "a1",
+        "chars": 19662,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 16,
+        "path": "global/standard.md",
+        "writer": "a5",
+        "chars": 15803,
+        "truncated": false
+      }
+    ],
+    "handoff_count": 51,
+    "handoff_truncated": 27,
+    "externalized_chars_per_agent": {
+      "root": 2687,
+      "a2": 42465,
+      "a3": 35726,
+      "a4": 24669,
+      "a5": 120392,
+      "a6": 104506,
+      "a7": 117113,
+      "a8": 146656,
+      "a9": 131413
+    },
+    "resumes_per_agent": {
+      "root": 2
+    },
+    "rules_fired": 2,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": false,
+      "rail_hit": "wall_clock",
+      "root_state": "waiting",
+      "waiting_at_end": [
+        "root"
+      ],
+      "failed_agents": [],
+      "systemic_failure": true
+    }
+  },
+  {
+    "run_id": "p_L5_r1",
+    "arm": "p",
+    "level": "L5",
+    "llm_calls": 24,
+    "total_tokens": 211504,
+    "prompt_chars_mean": 28411.291666666668,
+    "prompt_chars_max": 69076,
+    "prompt_chars_p90": 41558,
+    "rounds_per_agent": {
+      "root": 4,
+      "a1": 6,
+      "a2": 6,
+      "a3": 4,
+      "a4": 4
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "global/final/inventory.md",
+        "writer": "root",
+        "chars": 4962,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "global/final/inventory.md",
+        "writer": "root",
+        "chars": 4962,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "global/final/inventory.md",
+        "writer": "root",
+        "chars": 4962,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "global/final/inventory.md",
+        "writer": "root",
+        "chars": 4962,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 3,
+        "path": "global/final/tutorial.md",
+        "writer": "a1",
+        "chars": 4997,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 3,
+        "path": "global/final/reference.md",
+        "writer": "a2",
+        "chars": 10877,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 3,
+        "path": "global/final/migration.md",
+        "writer": "a3",
+        "chars": 9056,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 3,
+        "path": "global/final/faq.md",
+        "writer": "a4",
+        "chars": 6602,
+        "truncated": false
+      }
+    ],
+    "handoff_count": 8,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 1703,
+      "a1": 4935,
+      "a2": 10813
+    },
+    "resumes_per_agent": {
+      "root": 1
+    },
+    "rules_fired": 1,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "r_L1_r1",
+    "arm": "r",
+    "level": "L1",
+    "llm_calls": 5,
+    "total_tokens": 17118,
+    "prompt_chars_mean": 13121.4,
+    "prompt_chars_max": 17426,
+    "prompt_chars_p90": 14106,
+    "rounds_per_agent": {
+      "root": 5
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 3096
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "r_L1_r2",
+    "arm": "r",
+    "level": "L1",
+    "llm_calls": 5,
+    "total_tokens": 17118,
+    "prompt_chars_mean": 13121.4,
+    "prompt_chars_max": 17426,
+    "prompt_chars_p90": 14106,
+    "rounds_per_agent": {
+      "root": 5
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 3096
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "r_L1_r3",
+    "arm": "r",
+    "level": "L1",
+    "llm_calls": 5,
+    "total_tokens": 17118,
+    "prompt_chars_mean": 13121.4,
+    "prompt_chars_max": 17426,
+    "prompt_chars_p90": 14106,
+    "rounds_per_agent": {
+      "root": 5
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 3096
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "r_L1_r4",
+    "arm": "r",
+    "level": "L1",
+    "llm_calls": 5,
+    "total_tokens": 17118,
+    "prompt_chars_mean": 13121.4,
+    "prompt_chars_max": 17426,
+    "prompt_chars_p90": 14106,
+    "rounds_per_agent": {
+      "root": 5
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 3096
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "r_L2_r1",
+    "arm": "r",
+    "level": "L2",
+    "llm_calls": 6,
+    "total_tokens": 36358,
+    "prompt_chars_mean": 20399,
+    "prompt_chars_max": 39130,
+    "prompt_chars_p90": 25824,
+    "rounds_per_agent": {
+      "root": 6
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 13870
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "r_L2_r2",
+    "arm": "r",
+    "level": "L2",
+    "llm_calls": 6,
+    "total_tokens": 36358,
+    "prompt_chars_mean": 20399,
+    "prompt_chars_max": 39130,
+    "prompt_chars_p90": 25824,
+    "rounds_per_agent": {
+      "root": 6
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 13870
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "r_L3_r1",
+    "arm": "r",
+    "level": "L3",
+    "llm_calls": 64,
+    "total_tokens": 834252,
+    "prompt_chars_mean": 52867.65625,
+    "prompt_chars_max": 139255,
+    "prompt_chars_p90": 104612,
+    "rounds_per_agent": {
+      "root": 15,
+      "a1": 9,
+      "a2": 9,
+      "a3": 10,
+      "a4": 21
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 15
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 17
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 19
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 21
+      },
+      {
+        "agent": "root",
+        "round": 4,
+        "tool": "circuit.add_rule",
+        "seq": 25
+      }
+    ],
+    "adaptation_count": 5,
+    "handoffs": [
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1654,
+        "truncated": false
+      },
+      {
+        "reader": "a1",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1654,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1654,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1654,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/final/chapter_1.md",
+        "writer": "a1",
+        "chars": 18652,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/final/chapter_2.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/final/chapter_3.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/final/chapter_4.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 8,
+        "path": "global/final/chapter_2.md",
+        "writer": "a2",
+        "chars": 3308,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 8,
+        "path": "global/final/chapter_3.md",
+        "writer": "a3",
+        "chars": 5674,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 8,
+        "path": "global/final/chapter_4.md",
+        "writer": "a4",
+        "chars": 12929,
+        "truncated": false
+      }
+    ],
+    "handoff_count": 11,
+    "handoff_truncated": 3,
+    "externalized_chars_per_agent": {
+      "root": 19488,
+      "a2": 23244,
+      "a1": 18588,
+      "a3": 25610,
+      "a4": 71994
+    },
+    "resumes_per_agent": {
+      "root": 1
+    },
+    "rules_fired": 2,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "r_L3_r2",
+    "arm": "r",
+    "level": "L3",
+    "llm_calls": 64,
+    "total_tokens": 834252,
+    "prompt_chars_mean": 52867.65625,
+    "prompt_chars_max": 139255,
+    "prompt_chars_p90": 104612,
+    "rounds_per_agent": {
+      "root": 15,
+      "a1": 9,
+      "a2": 9,
+      "a3": 10,
+      "a4": 21
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 15
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 17
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 19
+      },
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "spawn",
+        "seq": 21
+      },
+      {
+        "agent": "root",
+        "round": 4,
+        "tool": "circuit.add_rule",
+        "seq": 25
+      }
+    ],
+    "adaptation_count": 5,
+    "handoffs": [
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1654,
+        "truncated": false
+      },
+      {
+        "reader": "a1",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1654,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1654,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 2,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1654,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/final/chapter_1.md",
+        "writer": "a1",
+        "chars": 18652,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/final/chapter_2.md",
+        "writer": "a2",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/final/chapter_3.md",
+        "writer": "a3",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 7,
+        "path": "global/final/chapter_4.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "root",
+        "round": 8,
+        "path": "global/final/chapter_2.md",
+        "writer": "a2",
+        "chars": 3308,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 8,
+        "path": "global/final/chapter_3.md",
+        "writer": "a3",
+        "chars": 5674,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 8,
+        "path": "global/final/chapter_4.md",
+        "writer": "a4",
+        "chars": 12929,
+        "truncated": false
+      }
+    ],
+    "handoff_count": 11,
+    "handoff_truncated": 3,
+    "externalized_chars_per_agent": {
+      "root": 19488,
+      "a2": 23244,
+      "a1": 18588,
+      "a3": 25610,
+      "a4": 71994
+    },
+    "resumes_per_agent": {
+      "root": 1
+    },
+    "rules_fired": 2,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "r_L4_r1",
+    "arm": "r",
+    "level": "L4",
+    "llm_calls": 114,
+    "total_tokens": 2215459,
+    "prompt_chars_mean": 80958.80701754386,
+    "prompt_chars_max": 183513,
+    "prompt_chars_p90": 152661,
+    "rounds_per_agent": {
+      "root": 3,
+      "a1": 5,
+      "a2": 5,
+      "a3": 12,
+      "a4": 11,
+      "a5": 7,
+      "a6": 16,
+      "a7": 14,
+      "a8": 14,
+      "a9": 13,
+      "a10": 14
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 985,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 985,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 985,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 985,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 4,
+        "path": "agents/a1/terminology_survey.md",
+        "writer": "a1",
+        "chars": 17794,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 5,
+        "path": "agents/a2/terminology_survey.md",
+        "writer": "a2",
+        "chars": 20133,
+        "truncated": true
+      },
+      {
+        "reader": "a3",
+        "round": 6,
+        "path": "agents/a2/terminology_survey.md",
+        "writer": "a2",
+        "chars": 1372,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "agents/a1/terminology_survey.md",
+        "writer": "a1",
+        "chars": 17794,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "agents/a2/terminology_survey.md",
+        "writer": "a2",
+        "chars": 20133,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "agents/a3/terminology_survey.md",
+        "writer": "a3",
+        "chars": 20133,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "agents/a4/terminology_survey.md",
+        "writer": "a4",
+        "chars": 20133,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "agents/a2/terminology_survey.md",
+        "writer": "a2",
+        "chars": 1372,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "agents/a3/terminology_survey.md",
+        "writer": "a3",
+        "chars": 12072,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "agents/a4/terminology_survey.md",
+        "writer": "a4",
+        "chars": 11381,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20163,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20163,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20163,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 1,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20163,
+        "truncated": true
+      },
+      {
+        "reader": "a10",
+        "round": 1,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20163,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 2,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20167,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 2,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20167,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 2,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20167,
+        "truncated": true
+      },
+      {
+        "reader": "a9",
+        "round": 2,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20167,
+        "truncated": true
+      },
+      {
+        "reader": "a10",
+        "round": 2,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 20167,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 4221,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 3,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 4221,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 3,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 4221,
+        "truncated": false
+      },
+      {
+        "reader": "a9",
+        "round": 3,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 4221,
+        "truncated": false
+      },
+      {
+        "reader": "a10",
+        "round": 3,
+        "path": "global/standards/canonical_standard.md",
+        "writer": "a5",
+        "chars": 4221,
+        "truncated": false
+      }
+    ],
+    "handoff_count": 29,
+    "handoff_truncated": 14,
+    "externalized_chars_per_agent": {
+      "root": 952,
+      "a1": 17747,
+      "a2": 21325,
+      "a4": 31334,
+      "a3": 32025,
+      "a5": 44144,
+      "a6": 71293,
+      "a7": 61881,
+      "a8": 62567,
+      "a9": 71182,
+      "a10": 42056
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 6,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "waiting",
+      "waiting_at_end": [
+        "root"
+      ],
+      "failed_agents": [],
+      "systemic_failure": true
+    }
+  },
+  {
+    "run_id": "r_L5_r1",
+    "arm": "r",
+    "level": "L5",
+    "llm_calls": 18,
+    "total_tokens": 177977,
+    "prompt_chars_mean": 33486.666666666664,
+    "prompt_chars_max": 45932,
+    "prompt_chars_p90": 45470,
+    "rounds_per_agent": {
+      "root": 18
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 27299
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L1_r1",
+    "arm": "s",
+    "level": "L1",
+    "llm_calls": 1,
+    "total_tokens": 3680,
+    "prompt_chars_mean": 11390,
+    "prompt_chars_max": 11390,
+    "prompt_chars_p90": 11390,
+    "rounds_per_agent": {
+      "root": 1
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 2592
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L1_r2",
+    "arm": "s",
+    "level": "L1",
+    "llm_calls": 1,
+    "total_tokens": 3680,
+    "prompt_chars_mean": 11390,
+    "prompt_chars_max": 11390,
+    "prompt_chars_p90": 11390,
+    "rounds_per_agent": {
+      "root": 1
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 2592
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L1_r3",
+    "arm": "s",
+    "level": "L1",
+    "llm_calls": 1,
+    "total_tokens": 3680,
+    "prompt_chars_mean": 11390,
+    "prompt_chars_max": 11390,
+    "prompt_chars_p90": 11390,
+    "rounds_per_agent": {
+      "root": 1
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 2592
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L1_r4",
+    "arm": "s",
+    "level": "L1",
+    "llm_calls": 1,
+    "total_tokens": 3680,
+    "prompt_chars_mean": 11390,
+    "prompt_chars_max": 11390,
+    "prompt_chars_p90": 11390,
+    "rounds_per_agent": {
+      "root": 1
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 2592
+    },
+    "resumes_per_agent": {},
+    "rules_fired": 0,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L2_r1",
+    "arm": "s",
+    "level": "L2",
+    "llm_calls": 3,
+    "total_tokens": 11312,
+    "prompt_chars_mean": 11621.666666666666,
+    "prompt_chars_max": 12013,
+    "prompt_chars_p90": 11602,
+    "rounds_per_agent": {
+      "root": 3
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 9282
+    },
+    "resumes_per_agent": {
+      "root": 2
+    },
+    "rules_fired": 2,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L2_r2",
+    "arm": "s",
+    "level": "L2",
+    "llm_calls": 3,
+    "total_tokens": 11312,
+    "prompt_chars_mean": 11621.666666666666,
+    "prompt_chars_max": 12013,
+    "prompt_chars_p90": 11602,
+    "rounds_per_agent": {
+      "root": 3
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 9282
+    },
+    "resumes_per_agent": {
+      "root": 2
+    },
+    "rules_fired": 2,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L3_r1",
+    "arm": "s",
+    "level": "L3",
+    "llm_calls": 43,
+    "total_tokens": 313336,
+    "prompt_chars_mean": 25850.116279069767,
+    "prompt_chars_max": 87235,
+    "prompt_chars_p90": 86299,
+    "rounds_per_agent": {
+      "root": 7,
+      "a1": 3,
+      "a2": 6,
+      "a3": 4,
+      "a4": 9,
+      "a5": 2,
+      "a6": 6,
+      "a7": 4,
+      "a8": 2
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 5,
+        "tool": "spawn",
+        "seq": 251
+      },
+      {
+        "agent": "root",
+        "round": 5,
+        "tool": "spawn",
+        "seq": 253
+      }
+    ],
+    "adaptation_count": 2,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1112,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1112,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1112,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1112,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 4,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 4,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 4,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 4,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 5109,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 4,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 5109,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 2,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 5109,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      }
+    ],
+    "handoff_count": 35,
+    "handoff_truncated": 7,
+    "externalized_chars_per_agent": {
+      "root": 1727,
+      "a1": 123,
+      "a2": 18102,
+      "a3": 19169,
+      "a4": 25976,
+      "a6": 46613,
+      "a7": 48060
+    },
+    "resumes_per_agent": {
+      "root": 6,
+      "a1": 2,
+      "a2": 5,
+      "a3": 3,
+      "a4": 8,
+      "a5": 1,
+      "a6": 5,
+      "a7": 3,
+      "a8": 1
+    },
+    "rules_fired": 36,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L3_r2",
+    "arm": "s",
+    "level": "L3",
+    "llm_calls": 43,
+    "total_tokens": 313336,
+    "prompt_chars_mean": 25850.116279069767,
+    "prompt_chars_max": 87235,
+    "prompt_chars_p90": 86299,
+    "rounds_per_agent": {
+      "root": 7,
+      "a1": 3,
+      "a2": 6,
+      "a3": 4,
+      "a4": 9,
+      "a5": 2,
+      "a6": 6,
+      "a7": 4,
+      "a8": 2
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 5,
+        "tool": "spawn",
+        "seq": 251
+      },
+      {
+        "agent": "root",
+        "round": 5,
+        "tool": "spawn",
+        "seq": 253
+      }
+    ],
+    "adaptation_count": 2,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1112,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1112,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1112,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/plan.md",
+        "writer": "root",
+        "chars": 1112,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 4,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 4,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 4,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "root",
+        "round": 4,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 5109,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a6",
+        "round": 3,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 1,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      },
+      {
+        "reader": "a6",
+        "round": 4,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 5109,
+        "truncated": false
+      },
+      {
+        "reader": "a8",
+        "round": 2,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 5109,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_1_draft.md",
+        "writer": "a1",
+        "chars": 17926,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_2_draft.md",
+        "writer": "a2",
+        "chars": 17045,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_3_draft.md",
+        "writer": "a3",
+        "chars": 19233,
+        "truncated": false
+      },
+      {
+        "reader": "a7",
+        "round": 4,
+        "path": "global/chapter_4_draft.md",
+        "writer": "a4",
+        "chars": 20150,
+        "truncated": true
+      }
+    ],
+    "handoff_count": 35,
+    "handoff_truncated": 7,
+    "externalized_chars_per_agent": {
+      "root": 1727,
+      "a1": 123,
+      "a2": 18102,
+      "a3": 19169,
+      "a4": 25976,
+      "a6": 46613,
+      "a7": 48060
+    },
+    "resumes_per_agent": {
+      "root": 6,
+      "a1": 2,
+      "a2": 5,
+      "a3": 3,
+      "a4": 8,
+      "a5": 1,
+      "a6": 5,
+      "a7": 3,
+      "a8": 1
+    },
+    "rules_fired": 36,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L4_r1",
+    "arm": "s",
+    "level": "L4",
+    "llm_calls": 33,
+    "total_tokens": 203779,
+    "prompt_chars_mean": 14876.121212121212,
+    "prompt_chars_max": 34760,
+    "prompt_chars_p90": 16352,
+    "rounds_per_agent": {
+      "root": 5,
+      "a1": 10,
+      "a2": 2,
+      "a3": 8,
+      "a4": 6,
+      "a5": 2
+    },
+    "adaptation_events": [
+      {
+        "agent": "root",
+        "round": 3,
+        "tool": "circuit.add_rule",
+        "seq": 85
+      }
+    ],
+    "adaptation_count": 1,
+    "handoffs": [
+      {
+        "reader": "a1",
+        "round": 1,
+        "path": "agents/root/project_plan.md",
+        "writer": "root",
+        "chars": 1722,
+        "truncated": false
+      },
+      {
+        "reader": "a2",
+        "round": 1,
+        "path": "agents/root/project_plan.md",
+        "writer": "root",
+        "chars": 1722,
+        "truncated": false
+      },
+      {
+        "reader": "a3",
+        "round": 1,
+        "path": "agents/root/project_plan.md",
+        "writer": "root",
+        "chars": 1722,
+        "truncated": false
+      },
+      {
+        "reader": "a4",
+        "round": 1,
+        "path": "agents/root/project_plan.md",
+        "writer": "root",
+        "chars": 1722,
+        "truncated": false
+      },
+      {
+        "reader": "a5",
+        "round": 2,
+        "path": "agents/root/project_plan.md",
+        "writer": "root",
+        "chars": 1722,
+        "truncated": false
+      }
+    ],
+    "handoff_count": 5,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 2431,
+      "a1": 15802,
+      "a2": 20353,
+      "a3": 46959,
+      "a4": 24769
+    },
+    "resumes_per_agent": {
+      "root": 4,
+      "a1": 9,
+      "a2": 1,
+      "a3": 7,
+      "a4": 5,
+      "a5": 1
+    },
+    "rules_fired": 28,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  },
+  {
+    "run_id": "s_L5_r1",
+    "arm": "s",
+    "level": "L5",
+    "llm_calls": 10,
+    "total_tokens": 93902,
+    "prompt_chars_mean": 19681.4,
+    "prompt_chars_max": 41497,
+    "prompt_chars_p90": 17545,
+    "rounds_per_agent": {
+      "root": 10
+    },
+    "adaptation_events": [],
+    "adaptation_count": 0,
+    "handoffs": [],
+    "handoff_count": 0,
+    "handoff_truncated": 0,
+    "externalized_chars_per_agent": {
+      "root": 27838
+    },
+    "resumes_per_agent": {
+      "root": 9
+    },
+    "rules_fired": 9,
+    "rule_eval_errors": 0,
+    "rule_edits_by_nonauthor": 0,
+    "cross_workspace_writes": 0,
+    "divergences": 0,
+    "duplicate_commit_paths": {},
+    "health": {
+      "quiescent": true,
+      "rail_hit": "",
+      "root_state": "done",
+      "waiting_at_end": [],
+      "failed_agents": [],
+      "systemic_failure": false
+    }
+  }
+]

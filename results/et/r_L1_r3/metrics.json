@@ -1,0 +1,44 @@
+{
+  "run_id": "r_L1_r3",
+  "arm": "r",
+  "task_id": "L1",
+  "wall_clock_s": 17.7,
+  "llm_calls": 5,
+  "prompt_tokens": 16085,
+  "completion_tokens": 1033,
+  "total_tokens": 17118,
+  "n_agents": 1,
+  "n_rules": 0,
+  "rules_fired": 0,
+  "rule_edits_by_nonauthor": 0,
+  "global_artifacts": 1,
+  "divergent_artifacts": 0,
+  "mean_prompt_chars": 13121.4,
+  "max_prompt_chars": 17426,
+  "health": {
+    "quiescent": true,
+    "rail_hit": "",
+    "root_state": "done",
+    "waiting_at_end": [],
+    "failed_agents": [],
+    "systemic_failure": false,
+    "failure_reasons": []
+  },
+  "per_agent": {
+    "root": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 5,
+      "parent": null,
+      "prompt_tokens": 16085,
+      "completion_tokens": 1033,
+      "prompt_chars_per_round": [
+        9982,
+        10396,
+        13697,
+        14106,
+        17426
+      ]
+    }
+  }
+}

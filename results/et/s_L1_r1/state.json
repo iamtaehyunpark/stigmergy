@@ -1,0 +1,39 @@
+{
+  "agents": {
+    "root": {
+      "role": "stig",
+      "state": "done",
+      "parent": null,
+      "task": "Write a one-page explainer of vector embeddings for junior developers: what they are, how similarity search works at a high level, and three practical do/don't tips for using them in an application. Deliver the final artifact under global/final/ (e.g. global/final/explainer.md).",
+      "capsule": "",
+      "initial_refs": [],
+      "spawned_by_rule": null,
+      "rounds": 1,
+      "done_summary": "Delivered one-page vector embeddings explainer to global/final/explainer.md.",
+      "fail_reason": ""
+    }
+  },
+  "workspaces": {
+    "agents/root/explainer_draft.md": {
+      "content": "# Vector Embeddings: A Quick Guide for Junior Developers\n\n## What Are Vector Embeddings?\n\nImagine you want a computer to understand that \"king\" and \"queen\" are related, or that \"happy\" and \"joyful\" mean similar things. Computers don't understand words; they understand numbers. **Vector embeddings** are the bridge between human language (or images, audio, etc.) and numerical representation.\n\nAn embedding is a list of numbers (a vector) that captures the *meaning* of a piece of data. For example, the word \"cat\" might be represented as `[0.25, -0.12, 0.88, ...]` in a high-dimensional space. The magic is that words with similar meanings end up close together in this space, while unrelated words are far apart.\n\n## How Similarity Search Works\n\nOnce data is converted into vectors, we can find similar items by measuring the distance between their vectors. The most common method is **Cosine Similarity**, which measures the angle between two vectors:\n\n- **Angle \u2248 0\u00b0**: Vectors point in the same direction \u2192 High similarity (e.g., \"dog\" and \"puppy\")\n- **Angle \u2248 90\u00b0**: Vectors are orthogonal \u2192 No similarity (e.g., \"dog\" and \"table\")\n- **Angle \u2248 180\u00b0**: Vectors point in opposite directions \u2192 Dissimilar (e.g., \"hot\" and \"cold\")\n\n**Similarity search** works by:\n1. Converting your query (e.g., \"pet that barks\") into a vector\n2. Comparing it against a database of pre-computed vectors\n3. Returning the items with the smallest angle (highest cosine similarity)\n\nThis is how search engines, recommendation systems, and AI assistants find relevant content quickly.\n\n## Three Practical Do/Don't Tips\n\n### \u2705 DO: Normalize your vectors before comparing\nMany similarity metrics (especially cosine similarity) assume vectors are normalized (length = 1). If your vectors have different magnitudes, the results can be skewed. Most embedding libraries provide a normalization function\u2014use it.\n\n### \u274c DON'T: Mix embedding models in the same index\nVectors from different models (e.g., OpenAI's `text-embedding-3-small` vs. `text-embedding-ada-002`) live in different mathematical spaces. Comparing them is like comparing apples to oranges. Stick to one model per index.\n\n### \u2705 DO: Chunk your text intelligently\nEmbedding a 10,000-word document as a single vector loses nuance. Instead, split text into meaningful chunks (e.g., paragraphs or sections) and embed each separately. This allows your search to find relevant passages, not just general topics.\n\n---\n*Remember: Embeddings turn meaning into math. Treat them with care, and they'll power surprisingly intelligent features in your applications.*",
+      "author": "root",
+      "writes": 1
+    }
+  },
+  "global": {
+    "global/final/explainer.md": {
+      "head": 1,
+      "divergent": false,
+      "versions": [
+        {
+          "version": 1,
+          "author": "root",
+          "round": 1,
+          "summary": "One-page explainer on vector embeddings: definition, similarity search, and 3 do/don't tips for junior developers.",
+          "content": "# Vector Embeddings: A Quick Guide for Junior Developers\n\n## What Are Vector Embeddings?\n\nImagine you want a computer to understand that \"king\" and \"queen\" are related, or that \"happy\" and \"joyful\" mean similar things. Computers don't understand words; they understand numbers. **Vector embeddings** are the bridge between human language (or images, audio, etc.) and numerical representation.\n\nAn embedding is a list of numbers (a vector) that captures the *meaning* of a piece of data. For example, the word \"cat\" might be represented as `[0.25, -0.12, 0.88, ...]` in a high-dimensional space. The magic is that words with similar meanings end up close together in this space, while unrelated words are far apart.\n\n## How Similarity Search Works\n\nOnce data is converted into vectors, we can find similar items by measuring the distance between their vectors. The most common method is **Cosine Similarity**, which measures the angle between two vectors:\n\n- **Angle \u2248 0\u00b0**: Vectors point in the same direction \u2192 High similarity (e.g., \"dog\" and \"puppy\")\n- **Angle \u2248 90\u00b0**: Vectors are orthogonal \u2192 No similarity (e.g., \"dog\" and \"table\")\n- **Angle \u2248 180\u00b0**: Vectors point in opposite directions \u2192 Dissimilar (e.g., \"hot\" and \"cold\")\n\n**Similarity search** works by:\n1. Converting your query (e.g., \"pet that barks\") into a vector\n2. Comparing it against a database of pre-computed vectors\n3. Returning the items with the smallest angle (highest cosine similarity)\n\nThis is how search engines, recommendation systems, and AI assistants find relevant content quickly.\n\n## Three Practical Do/Don't Tips\n\n### \u2705 DO: Normalize your vectors before comparing\nMany similarity metrics (especially cosine similarity) assume vectors are normalized (length = 1). If your vectors have different magnitudes, the results can be skewed. Most embedding libraries provide a normalization function\u2014use it.\n\n### \u274c DON'T: Mix embedding models in the same index\nVectors from different models (e.g., OpenAI's `text-embedding-3-small` vs. `text-embedding-ada-002`) live in different mathematical spaces. Comparing them is like comparing apples to oranges. Stick to one model per index.\n\n### \u2705 DO: Chunk your text intelligently\nEmbedding a 10,000-word document as a single vector loses nuance. Instead, split text into meaningful chunks (e.g., paragraphs or sections) and embed each separately. This allows your search to find relevant passages, not just general topics.\n\n---\n*Remember: Embeddings turn meaning into math. Treat them with care, and they'll power surprisingly intelligent features in your applications.*"
+        }
+      ]
+    }
+  },
+  "rules": {}
+}

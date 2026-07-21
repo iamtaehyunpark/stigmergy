@@ -1,0 +1,25 @@
+{
+  "run_id": "s_L5_r1",
+  "arm": "s",
+  "task": {
+    "id": "L5",
+    "task": "Produce the complete developer documentation suite for 'Loom', a workflow-orchestration HTTP API, working ONLY from the twelve fragmentary source excerpts below - no other knowledge of Loom exists, and the fragments contradict each other in places. The suite has four documents: (1) a getting-started tutorial, (2) a full endpoint reference for the current version (2.2), (3) a v1-to-v2 migration guide, (4) a troubleshooting FAQ. Before the documents can be trusted, the API's actual current surface (endpoints, authentication, execution statuses, webhook events, limits) must be reconciled from the fragments and published as a canonical API inventory that records each reconciliation decision and its justification. Every document must match the inventory exactly - any disagreement between a document and the inventory, or between two documents, is a defect. Contradictions discovered only while drafting must be fed back: update the inventory and reconcile every affected document. Deliver the inventory and all four documents under global/final/ (e.g. global/final/inventory.md, global/final/tutorial.md, global/final/reference.md, global/final/migration.md, global/final/faq.md).\n\nSOURCE FRAGMENTS:\n[F1] Release 2.0 notes: The /run endpoint has been renamed to /executions. POST /executions starts a workflow; the old /run remains available as a deprecated alias until 2.2.\n[F2] Changelog 2.1: Removed the deprecated /run alias ahead of schedule due to a security issue (CVE-2025-1188).\n[F3] Launch blog draft (v2): Authentication now uses scoped API keys passed in the X-Loom-Key header. OAuth2 support is planned but has not shipped.\n[F4] Support ticket #4821 (resolved, 2.1 era): Customer confused - docs said Bearer tokens in the Authorization header. Engineer reply: that was v1; v2 uses X-Loom-Key. The v1 Bearer scheme still works, but only on the /v1/* legacy prefix.\n[F5] Release 2.0 notes: GET /executions/{id} returns a status field with one of: queued, running, succeeded, failed.\n[F6] Changelog 2.2: Added 'cancelled' status and POST /executions/{id}/cancel. Rate limit raised from 60 to 120 requests/min per key.\n[F7] Internal memo (undated): rate limiting is 100 requests/min per key across all v2 endpoints.\n[F8] Release 2.0 notes: Webhooks are configured via PUT /hooks with events: execution.finished, execution.failed.\n[F9] Changelog 2.1: BREAKING - webhook event names normalized: execution.succeeded replaces execution.finished; execution.finished is removed.\n[F10] Support ticket #5102: Customer reports receiving execution.cancelled webhooks. Engineer reply: yes, added silently in 2.2 alongside the cancel endpoint; the docs were never updated.\n[F11] Release 2.0 notes: Workflow definitions are uploaded as YAML to POST /workflows; maximum definition size 512 KB.\n[F12] Changelog 2.2: JSON workflow definitions are now accepted alongside YAML on POST /workflows; the size limit is unified at 1 MB. Added GET /workflows/{id}/versions to list definition versions.",
+    "source": "ET L5 new construction (spec 2): spec-then-build with contradictory sources. The correct decomposition (which documents are affected by which reconciliations) is unknowable until the audit and the drafting interact; contradictions planted so that some surface only during drafting (F7 vs F6; F10 vs F8/F9; F2 vs F1). Iteration-heavy by design: inventory updates must propagate to affected documents."
+  },
+  "provider": "local",
+  "model": "qwen3.6",
+  "temperature": 0.0,
+  "max_tokens": 16000,
+  "local_endpoint": "http://127.0.0.1:8001/v1/chat/completions",
+  "rails": {
+    "max_llm_calls": 300,
+    "wall_clock_s": 3600.0,
+    "r_max": 30,
+    "window_rounds": 8,
+    "prompt_char_cap": 800000
+  },
+  "harness_files": {
+    "prompts/et/harness_stig.md": "bd9710fb85229a2f22c791b375368a96b521429ad5fb4db56a6b99cabd0a0860"
+  },
+  "started_at": "2026-07-21T02:51:46-0500"
+}

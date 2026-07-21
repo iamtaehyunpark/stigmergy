@@ -1,0 +1,39 @@
+{
+  "agents": {
+    "root": {
+      "role": "ratd",
+      "state": "done",
+      "parent": null,
+      "task": "Write a one-page explainer of vector embeddings for junior developers: what they are, how similarity search works at a high level, and three practical do/don't tips for using them in an application. Deliver the final artifact under global/final/ (e.g. global/final/explainer.md).",
+      "capsule": "",
+      "initial_refs": [],
+      "spawned_by_rule": null,
+      "rounds": 5,
+      "done_summary": "Delivered global/final/explainer.md: one-page explainer of vector embeddings covering what they are, how similarity search works, and three practical do/don't tips for junior developers.",
+      "fail_reason": ""
+    }
+  },
+  "workspaces": {
+    "agents/root/explainer.md": {
+      "content": "# Vector Embeddings: A Quick Guide for Junior Developers\n\n## What Are Vector Embeddings?\n\nA **vector embedding** is a way to turn something \u2014 a word, a sentence, an image, a user profile \u2014 into a list of numbers (a *vector*) that captures its meaning in a mathematical space.\n\nThink of it like this: the words \"cat\" and \"kitten\" end up as vectors that are close together, while \"cat\" and \"airplane\" are far apart. The model that produces these vectors (an *embedding model*) has learned, from massive amounts of data, which things are similar and which are not.\n\nKey properties:\n- **Fixed length**: Every embedding from a given model has the same number of dimensions (e.g., 768 or 1536), regardless of input size.\n- **Semantic proximity**: Similar inputs produce similar vectors. Distance between vectors \u2248 difference in meaning.\n- **Model-dependent**: Embeddings from different models live in different spaces and are not interchangeable.\n\n## How Similarity Search Works (High Level)\n\n1. **Embed everything once**: You run your documents, products, or queries through the embedding model and store the resulting vectors in a vector database (e.g., Pinecone, Weaviate, pgvector).\n\n2. **Embed the query at search time**: When a user searches, you embed their query with the *same* model.\n\n3. **Find the nearest neighbors**: The database computes a distance metric (usually **cosine similarity** or **Euclidean distance**) between the query vector and every stored vector, then returns the closest matches.\n\n4. **Return results**: The top-k nearest vectors correspond to the most semantically relevant items.\n\n> **Analogy**: Imagine every document is a pin on a giant map. Similar documents cluster together. A search query drops its own pin, and the system finds the nearest neighbors on that map.\n\nUnder the hood, production systems use **approximate nearest neighbor (ANN)** algorithms (like HNSW or IVF) to search millions of vectors in milliseconds \u2014 exact search would be too slow at scale.\n\n## Three Practical Do/Don't Tips\n\n### \u2705 DO: Use the same embedding model for indexing and querying\nIf you embed your documents with Model A but embed queries with Model B, the vectors live in incompatible spaces and similarity scores become meaningless. Lock in one model and stick with it.\n\n### \u274c DON'T: Treat embeddings as a replacement for keyword search\nEmbeddings excel at semantic similarity but struggle with exact matches, rare terms, and structured filters. Combine them with traditional search (BM25, full-text indexes) for best results. Many vector databases support hybrid search out of the box.\n\n### \u2705 DO: Normalize your embeddings before computing cosine similarity\nMost embedding models output vectors of varying magnitudes. Normalizing to unit length ensures cosine similarity equals dot product, which is faster and numerically stable. Many vector databases do this automatically \u2014 check your provider's docs.\n\n---\n\n*That's the essentials. Embeddings let you search by meaning, not just by words. Use them wisely alongside traditional tools, and always keep your model consistent.*\n",
+      "author": "root",
+      "writes": 1
+    }
+  },
+  "global": {
+    "global/final/explainer.md": {
+      "head": 1,
+      "divergent": false,
+      "versions": [
+        {
+          "version": 1,
+          "author": "root",
+          "round": 3,
+          "summary": "One-page explainer of vector embeddings for junior devs: what they are, how similarity search works, and 3 practical do/don't tips",
+          "content": "# Vector Embeddings: A Quick Guide for Junior Developers\n\n## What Are Vector Embeddings?\n\nA **vector embedding** is a way to turn something \u2014 a word, a sentence, an image, a user profile \u2014 into a list of numbers (a *vector*) that captures its meaning in a mathematical space.\n\nThink of it like this: the words \"cat\" and \"kitten\" end up as vectors that are close together, while \"cat\" and \"airplane\" are far apart. The model that produces these vectors (an *embedding model*) has learned, from massive amounts of data, which things are similar and which are not.\n\nKey properties:\n- **Fixed length**: Every embedding from a given model has the same number of dimensions (e.g., 768 or 1536), regardless of input size.\n- **Semantic proximity**: Similar inputs produce similar vectors. Distance between vectors \u2248 difference in meaning.\n- **Model-dependent**: Embeddings from different models live in different spaces and are not interchangeable.\n\n## How Similarity Search Works (High Level)\n\n1. **Embed everything once**: You run your documents, products, or queries through the embedding model and store the resulting vectors in a vector database (e.g., Pinecone, Weaviate, pgvector).\n\n2. **Embed the query at search time**: When a user searches, you embed their query with the *same* model.\n\n3. **Find the nearest neighbors**: The database computes a distance metric (usually **cosine similarity** or **Euclidean distance**) between the query vector and every stored vector, then returns the closest matches.\n\n4. **Return results**: The top-k nearest vectors correspond to the most semantically relevant items.\n\n> **Analogy**: Imagine every document is a pin on a giant map. Similar documents cluster together. A search query drops its own pin, and the system finds the nearest neighbors on that map.\n\nUnder the hood, production systems use **approximate nearest neighbor (ANN)** algorithms (like HNSW or IVF) to search millions of vectors in milliseconds \u2014 exact search would be too slow at scale.\n\n## Three Practical Do/Don't Tips\n\n### \u2705 DO: Use the same embedding model for indexing and querying\nIf you embed your documents with Model A but embed queries with Model B, the vectors live in incompatible spaces and similarity scores become meaningless. Lock in one model and stick with it.\n\n### \u274c DON'T: Treat embeddings as a replacement for keyword search\nEmbeddings excel at semantic similarity but struggle with exact matches, rare terms, and structured filters. Combine them with traditional search (BM25, full-text indexes) for best results. Many vector databases support hybrid search out of the box.\n\n### \u2705 DO: Normalize your embeddings before computing cosine similarity\nMost embedding models output vectors of varying magnitudes. Normalizing to unit length ensures cosine similarity equals dot product, which is faster and numerically stable. Many vector databases do this automatically \u2014 check your provider's docs.\n\n---\n\n*That's the essentials. Embeddings let you search by meaning, not just by words. Use them wisely alongside traditional tools, and always keep your model consistent.*\n"
+        }
+      ]
+    }
+  },
+  "rules": {}
+}

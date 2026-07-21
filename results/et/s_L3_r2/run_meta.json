@@ -1,0 +1,25 @@
+{
+  "run_id": "s_L3_r2",
+  "arm": "s",
+  "task": {
+    "id": "L3",
+    "task": "Write a 4-chapter technical field guide to LLM agent memory systems. Each chapter needs its own research, a draft, and a consistency edit; the book needs a unified glossary and a final assembly pass. Deliver the final artifacts under global/final/ (multi-part deliverables as separate files, e.g. global/final/chapter_1.md ... global/final/glossary.md).",
+    "source": "E1 L3 verbatim + v2 delivery convention. Depth 3, ~12-15 leaves."
+  },
+  "provider": "local",
+  "model": "qwen3.6",
+  "temperature": 0.0,
+  "max_tokens": 16000,
+  "local_endpoint": "http://127.0.0.1:8001/v1/chat/completions",
+  "rails": {
+    "max_llm_calls": 300,
+    "wall_clock_s": 3600.0,
+    "r_max": 30,
+    "window_rounds": 8,
+    "prompt_char_cap": 800000
+  },
+  "harness_files": {
+    "prompts/et/harness_stig.md": "bd9710fb85229a2f22c791b375368a96b521429ad5fb4db56a6b99cabd0a0860"
+  },
+  "started_at": "2026-07-21T00:29:13-0500"
+}

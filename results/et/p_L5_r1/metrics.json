@@ -1,0 +1,103 @@
+{
+  "run_id": "p_L5_r1",
+  "arm": "p",
+  "task_id": "L5",
+  "wall_clock_s": 362.2,
+  "llm_calls": 24,
+  "prompt_tokens": 189002,
+  "completion_tokens": 22502,
+  "total_tokens": 211504,
+  "n_agents": 5,
+  "n_rules": 1,
+  "rules_fired": 1,
+  "rule_edits_by_nonauthor": 0,
+  "global_artifacts": 5,
+  "divergent_artifacts": 0,
+  "mean_prompt_chars": 28411.291666666668,
+  "max_prompt_chars": 69076,
+  "health": {
+    "quiescent": true,
+    "rail_hit": "",
+    "root_state": "done",
+    "waiting_at_end": [],
+    "failed_agents": [],
+    "systemic_failure": false,
+    "failure_reasons": []
+  },
+  "per_agent": {
+    "root": {
+      "role": "planner",
+      "state": "done",
+      "rounds": 4,
+      "parent": null,
+      "prompt_tokens": 41656,
+      "completion_tokens": 5792,
+      "prompt_chars_per_round": [
+        14597,
+        32498,
+        37002,
+        69076
+      ]
+    },
+    "a1": {
+      "role": "worker",
+      "state": "done",
+      "rounds": 6,
+      "parent": "root",
+      "prompt_tokens": 40411,
+      "completion_tokens": 2535,
+      "prompt_chars_per_round": [
+        12410,
+        17567,
+        23126,
+        28310,
+        30111,
+        35269
+      ]
+    },
+    "a2": {
+      "role": "worker",
+      "state": "done",
+      "rounds": 6,
+      "parent": "root",
+      "prompt_tokens": 56910,
+      "completion_tokens": 8140,
+      "prompt_chars_per_round": [
+        12553,
+        17710,
+        29700,
+        41558,
+        41991,
+        53043
+      ]
+    },
+    "a3": {
+      "role": "worker",
+      "state": "done",
+      "rounds": 4,
+      "parent": "root",
+      "prompt_tokens": 26472,
+      "completion_tokens": 3527,
+      "prompt_chars_per_round": [
+        12942,
+        18096,
+        27975,
+        37237
+      ]
+    },
+    "a4": {
+      "role": "worker",
+      "state": "done",
+      "rounds": 4,
+      "parent": "root",
+      "prompt_tokens": 23553,
+      "completion_tokens": 2508,
+      "prompt_chars_per_round": [
+        13088,
+        18230,
+        25486,
+        32296
+      ]
+    }
+  }
+}

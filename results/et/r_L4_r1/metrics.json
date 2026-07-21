@@ -1,0 +1,258 @@
+{
+  "run_id": "r_L4_r1",
+  "arm": "r",
+  "task_id": "L4",
+  "wall_clock_s": 2043.1,
+  "llm_calls": 114,
+  "prompt_tokens": 2096716,
+  "completion_tokens": 118743,
+  "total_tokens": 2215459,
+  "n_agents": 11,
+  "n_rules": 8,
+  "rules_fired": 6,
+  "rule_edits_by_nonauthor": 0,
+  "global_artifacts": 8,
+  "divergent_artifacts": 0,
+  "mean_prompt_chars": 80958.80701754386,
+  "max_prompt_chars": 183513,
+  "health": {
+    "quiescent": true,
+    "rail_hit": "",
+    "root_state": "waiting",
+    "waiting_at_end": [
+      "root"
+    ],
+    "failed_agents": [],
+    "systemic_failure": true,
+    "failure_reasons": [
+      "root agent state is waiting, not done",
+      "agents waiting at quiescence (permanently stuck by definition): ['root']"
+    ]
+  },
+  "per_agent": {
+    "root": {
+      "role": "ratd",
+      "state": "waiting",
+      "rounds": 3,
+      "parent": null,
+      "prompt_tokens": 17428,
+      "completion_tokens": 3393,
+      "prompt_chars_per_round": [
+        10858,
+        29384,
+        32031
+      ]
+    },
+    "a1": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 5,
+      "parent": "root",
+      "prompt_tokens": 31424,
+      "completion_tokens": 4563,
+      "prompt_chars_per_round": [
+        10978,
+        12225,
+        30630,
+        31553,
+        49631
+      ]
+    },
+    "a2": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 5,
+      "parent": "root",
+      "prompt_tokens": 29840,
+      "completion_tokens": 5259,
+      "prompt_chars_per_round": [
+        10990,
+        12239,
+        13453,
+        35722,
+        56050
+      ]
+    },
+    "a3": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 12,
+      "parent": "root",
+      "prompt_tokens": 160356,
+      "completion_tokens": 8175,
+      "prompt_chars_per_round": [
+        10992,
+        12241,
+        13465,
+        14307,
+        32385,
+        52757,
+        54385,
+        87348,
+        107718,
+        107528,
+        106741,
+        106159
+      ]
+    },
+    "a4": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 11,
+      "parent": "root",
+      "prompt_tokens": 109881,
+      "completion_tokens": 8411,
+      "prompt_chars_per_round": [
+        11028,
+        12267,
+        13409,
+        14243,
+        14692,
+        47346,
+        67715,
+        69716,
+        71124,
+        71160,
+        71217
+      ]
+    },
+    "a5": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 7,
+      "parent": "root",
+      "prompt_tokens": 204172,
+      "completion_tokens": 11899,
+      "prompt_chars_per_round": [
+        11530,
+        90293,
+        115647,
+        160984,
+        162453,
+        163117,
+        183513
+      ]
+    },
+    "a6": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 16,
+      "parent": "root",
+      "prompt_tokens": 366726,
+      "completion_tokens": 16823,
+      "prompt_chars_per_round": [
+        11185,
+        31555,
+        51890,
+        56287,
+        58484,
+        92169,
+        112561,
+        125722,
+        162160,
+        162224,
+        155201,
+        154725,
+        153383,
+        120264,
+        120199,
+        108411
+      ]
+    },
+    "a7": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 14,
+      "parent": "root",
+      "prompt_tokens": 297252,
+      "completion_tokens": 15105,
+      "prompt_chars_per_round": [
+        11189,
+        31559,
+        51894,
+        56291,
+        58477,
+        86549,
+        106917,
+        114535,
+        144147,
+        144239,
+        131692,
+        132780,
+        131290,
+        123558
+      ]
+    },
+    "a8": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 14,
+      "parent": "root",
+      "prompt_tokens": 314279,
+      "completion_tokens": 16886,
+      "prompt_chars_per_round": [
+        11191,
+        31561,
+        51896,
+        56293,
+        58974,
+        87860,
+        108301,
+        116695,
+        152518,
+        152627,
+        140732,
+        140660,
+        138885,
+        130309
+      ]
+    },
+    "a9": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 13,
+      "parent": "root",
+      "prompt_tokens": 300304,
+      "completion_tokens": 17366,
+      "prompt_chars_per_round": [
+        11190,
+        31560,
+        51959,
+        56356,
+        58147,
+        91558,
+        111933,
+        124604,
+        159144,
+        159251,
+        151748,
+        153917,
+        152661
+      ]
+    },
+    "a10": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 14,
+      "parent": "root",
+      "prompt_tokens": 265054,
+      "completion_tokens": 10863,
+      "prompt_chars_per_round": [
+        10921,
+        31305,
+        51675,
+        56073,
+        57809,
+        78130,
+        97611,
+        100434,
+        121707,
+        121720,
+        101993,
+        98092,
+        116682,
+        97861
+      ]
+    }
+  }
+}

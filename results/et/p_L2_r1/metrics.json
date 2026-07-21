@@ -1,0 +1,90 @@
+{
+  "run_id": "p_L2_r1",
+  "arm": "p",
+  "task_id": "L2",
+  "wall_clock_s": 298.4,
+  "llm_calls": 21,
+  "prompt_tokens": 152457,
+  "completion_tokens": 18077,
+  "total_tokens": 170534,
+  "n_agents": 4,
+  "n_rules": 1,
+  "rules_fired": 1,
+  "rule_edits_by_nonauthor": 0,
+  "global_artifacts": 1,
+  "divergent_artifacts": 0,
+  "mean_prompt_chars": 29321.095238095237,
+  "max_prompt_chars": 90959,
+  "health": {
+    "quiescent": true,
+    "rail_hit": "",
+    "root_state": "done",
+    "waiting_at_end": [],
+    "failed_agents": [],
+    "systemic_failure": false,
+    "failure_reasons": []
+  },
+  "per_agent": {
+    "root": {
+      "role": "planner",
+      "state": "done",
+      "rounds": 9,
+      "parent": null,
+      "prompt_tokens": 90586,
+      "completion_tokens": 6336,
+      "prompt_chars_per_round": [
+        9031,
+        9429,
+        10989,
+        15425,
+        16011,
+        59157,
+        75028,
+        75508,
+        90959
+      ]
+    },
+    "a1": {
+      "role": "worker",
+      "state": "done",
+      "rounds": 4,
+      "parent": "root",
+      "prompt_tokens": 20863,
+      "completion_tokens": 4102,
+      "prompt_chars_per_round": [
+        9326,
+        10363,
+        25034,
+        39415
+      ]
+    },
+    "a2": {
+      "role": "worker",
+      "state": "done",
+      "rounds": 4,
+      "parent": "root",
+      "prompt_tokens": 20371,
+      "completion_tokens": 3768,
+      "prompt_chars_per_round": [
+        9384,
+        10421,
+        25219,
+        39675
+      ]
+    },
+    "a3": {
+      "role": "worker",
+      "state": "done",
+      "rounds": 4,
+      "parent": "root",
+      "prompt_tokens": 20637,
+      "completion_tokens": 3871,
+      "prompt_chars_per_round": [
+        9384,
+        10440,
+        25459,
+        40086
+      ]
+    }
+  }
+}

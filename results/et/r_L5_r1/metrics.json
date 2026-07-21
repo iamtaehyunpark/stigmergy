@@ -1,0 +1,57 @@
+{
+  "run_id": "r_L5_r1",
+  "arm": "r",
+  "task_id": "L5",
+  "wall_clock_s": 170.9,
+  "llm_calls": 18,
+  "prompt_tokens": 167833,
+  "completion_tokens": 10144,
+  "total_tokens": 177977,
+  "n_agents": 1,
+  "n_rules": 0,
+  "rules_fired": 0,
+  "rule_edits_by_nonauthor": 0,
+  "global_artifacts": 5,
+  "divergent_artifacts": 0,
+  "mean_prompt_chars": 33486.666666666664,
+  "max_prompt_chars": 45932,
+  "health": {
+    "quiescent": true,
+    "rail_hit": "",
+    "root_state": "done",
+    "waiting_at_end": [],
+    "failed_agents": [],
+    "systemic_failure": false,
+    "failure_reasons": []
+  },
+  "per_agent": {
+    "root": {
+      "role": "ratd",
+      "state": "done",
+      "rounds": 18,
+      "parent": null,
+      "prompt_tokens": 167833,
+      "completion_tokens": 10144,
+      "prompt_chars_per_round": [
+        15408,
+        15938,
+        20681,
+        25694,
+        30192,
+        35453,
+        39772,
+        45470,
+        45932,
+        45802,
+        41400,
+        36741,
+        32560,
+        32166,
+        32122,
+        31565,
+        35322,
+        40542
+      ]
+    }
+  }
+}

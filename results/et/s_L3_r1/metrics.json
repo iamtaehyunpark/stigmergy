@@ -1,0 +1,162 @@
+{
+  "run_id": "s_L3_r1",
+  "arm": "s",
+  "task_id": "L3",
+  "wall_clock_s": 1007.8,
+  "llm_calls": 43,
+  "prompt_tokens": 250713,
+  "completion_tokens": 62623,
+  "total_tokens": 313336,
+  "n_agents": 9,
+  "n_rules": 38,
+  "rules_fired": 36,
+  "rule_edits_by_nonauthor": 0,
+  "global_artifacts": 4,
+  "divergent_artifacts": 0,
+  "mean_prompt_chars": 25850.116279069767,
+  "max_prompt_chars": 87235,
+  "health": {
+    "quiescent": true,
+    "rail_hit": "",
+    "root_state": "done",
+    "waiting_at_end": [],
+    "failed_agents": [],
+    "systemic_failure": false,
+    "failure_reasons": []
+  },
+  "per_agent": {
+    "root": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 7,
+      "parent": null,
+      "prompt_tokens": 39112,
+      "completion_tokens": 4314,
+      "prompt_chars_per_round": [
+        11538,
+        12356,
+        17184,
+        11914,
+        86299,
+        12092,
+        17552
+      ]
+    },
+    "a1": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 3,
+      "parent": "root",
+      "prompt_tokens": 9438,
+      "completion_tokens": 4563,
+      "prompt_chars_per_round": [
+        12270,
+        13736,
+        12693
+      ]
+    },
+    "a2": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 6,
+      "parent": "root",
+      "prompt_tokens": 22628,
+      "completion_tokens": 4464,
+      "prompt_chars_per_round": [
+        12201,
+        13667,
+        14197,
+        13723,
+        12563,
+        29607
+      ]
+    },
+    "a3": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 4,
+      "parent": "root",
+      "prompt_tokens": 16832,
+      "completion_tokens": 4715,
+      "prompt_chars_per_round": [
+        12197,
+        15093,
+        12559,
+        31791
+      ]
+    },
+    "a4": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 9,
+      "parent": "root",
+      "prompt_tokens": 33328,
+      "completion_tokens": 6336,
+      "prompt_chars_per_round": [
+        12215,
+        15113,
+        12647,
+        13546,
+        12576,
+        19065,
+        12583,
+        32701,
+        12575
+      ]
+    },
+    "a5": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 2,
+      "parent": "root",
+      "prompt_tokens": 21333,
+      "completion_tokens": 242,
+      "prompt_chars_per_round": [
+        12197,
+        86957
+      ]
+    },
+    "a6": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 6,
+      "parent": "root",
+      "prompt_tokens": 54033,
+      "completion_tokens": 25862,
+      "prompt_chars_per_round": [
+        12160,
+        86920,
+        12701,
+        86920,
+        17642,
+        32639
+      ]
+    },
+    "a7": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 4,
+      "parent": "root",
+      "prompt_tokens": 32600,
+      "completion_tokens": 11887,
+      "prompt_chars_per_round": [
+        12475,
+        87235,
+        12836,
+        32960
+      ]
+    },
+    "a8": {
+      "role": "stig",
+      "state": "done",
+      "rounds": 2,
+      "parent": "root",
+      "prompt_tokens": 21409,
+      "completion_tokens": 240,
+      "prompt_chars_per_round": [
+        12450,
+        87210
+      ]
+    }
+  }
+}

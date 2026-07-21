@@ -1,0 +1,39 @@
+{
+  "agents": {
+    "root": {
+      "role": "planner",
+      "state": "done",
+      "parent": null,
+      "task": "Write a one-page explainer of vector embeddings for junior developers: what they are, how similarity search works at a high level, and three practical do/don't tips for using them in an application. Deliver the final artifact under global/final/ (e.g. global/final/explainer.md).",
+      "capsule": "",
+      "initial_refs": [],
+      "spawned_by_rule": null,
+      "rounds": 5,
+      "done_summary": "Delivered one-page vector embeddings explainer at global/final/explainer.md covering: what embeddings are, how similarity search works (embed \u2192 query \u2192 nearest neighbors), and 3 practical tips (same model, clean text, metadata filters).",
+      "fail_reason": ""
+    }
+  },
+  "workspaces": {
+    "agents/root/explainer.md": {
+      "content": "# Vector Embeddings: A Quick Guide for Junior Developers\n\n## What Are Vector Embeddings?\n\nA **vector embedding** is a way to turn something \u2014 a word, a sentence, an image, a user profile \u2014 into a list of numbers (a *vector*) that captures its meaning in a mathematical space.\n\nThink of it like this: the words \"king\" and \"queen\" are semantically close. An embedding model places them near each other in a high-dimensional space, so their vectors look similar. The words \"king\" and \"banana\" land far apart.\n\nThe magic is that this works for *any* kind of data. Text embeddings are the most common starting point: you feed a model a piece of text, and it returns a fixed-length vector (e.g., 384 or 1,536 numbers). Similar meanings \u2192 similar vectors.\n\n## How Similarity Search Works (High Level)\n\nOnce your data is embedded, you can find the most similar items by measuring distances between vectors. Here's the typical flow:\n\n1. **Embed your data.** Run every document, product description, or snippet through an embedding model and store the resulting vectors in a database that supports vector search (e.g., Pinecone, Weaviate, pgvector, or Milvus).\n2. **Embed the query.** When a user searches, run their query through the *same* model to get a query vector.\n3. **Find the nearest neighbors.** The database computes a similarity score (usually **cosine similarity** or **Euclidean distance**) between the query vector and every stored vector, then returns the top-k closest matches.\n\nCosine similarity measures the angle between two vectors: a score of 1.0 means they point in the same direction (very similar), 0.0 means they're orthogonal (unrelated), and -1.0 means opposite.\n\nThis is how semantic search, recommendation systems, and RAG (Retrieval-Augmented Generation) pipelines find relevant content without relying on exact keyword matches.\n\n## Three Practical Do/Don't Tips\n\n### \u2705 Do: Use the same model for embedding and querying\nAlways embed your stored data and your search queries with the **same model and version**. Mixing models (e.g., embedding docs with `text-embedding-3-small` but querying with `text-embedding-ada-002`) produces vectors in incompatible spaces, and similarity scores become meaningless.\n\n### \u274c Don't: Embed raw, uncleaned text\nGarbage in, garbage out. Strip HTML tags, normalize whitespace, remove boilerplate (nav bars, footers), and keep chunks at a consistent, sensible length (e.g., 200\u2013500 tokens). Noisy or wildly inconsistent inputs produce poor embeddings and hurt retrieval quality.\n\n### \u2705 Do: Combine vector search with metadata filters\nVector search is great at finding *semantically* similar content, but it doesn't understand hard constraints. If you need results from a specific category, date range, or language, filter by metadata *before* or *alongside* the vector search. This keeps results both relevant and precise.\n\n---\n\n*That's the essentials. Embeddings turn meaning into math \u2014 use them wisely, and they'll power some of the most useful features in your app.*\n",
+      "author": "root",
+      "writes": 1
+    }
+  },
+  "global": {
+    "global/final/explainer.md": {
+      "head": 1,
+      "divergent": false,
+      "versions": [
+        {
+          "version": 1,
+          "author": "root",
+          "round": 3,
+          "summary": "One-page explainer of vector embeddings for junior devs: what they are, how similarity search works, and 3 practical do/don't tips.",
+          "content": "# Vector Embeddings: A Quick Guide for Junior Developers\n\n## What Are Vector Embeddings?\n\nA **vector embedding** is a way to turn something \u2014 a word, a sentence, an image, a user profile \u2014 into a list of numbers (a *vector*) that captures its meaning in a mathematical space.\n\nThink of it like this: the words \"king\" and \"queen\" are semantically close. An embedding model places them near each other in a high-dimensional space, so their vectors look similar. The words \"king\" and \"banana\" land far apart.\n\nThe magic is that this works for *any* kind of data. Text embeddings are the most common starting point: you feed a model a piece of text, and it returns a fixed-length vector (e.g., 384 or 1,536 numbers). Similar meanings \u2192 similar vectors.\n\n## How Similarity Search Works (High Level)\n\nOnce your data is embedded, you can find the most similar items by measuring distances between vectors. Here's the typical flow:\n\n1. **Embed your data.** Run every document, product description, or snippet through an embedding model and store the resulting vectors in a database that supports vector search (e.g., Pinecone, Weaviate, pgvector, or Milvus).\n2. **Embed the query.** When a user searches, run their query through the *same* model to get a query vector.\n3. **Find the nearest neighbors.** The database computes a similarity score (usually **cosine similarity** or **Euclidean distance**) between the query vector and every stored vector, then returns the top-k closest matches.\n\nCosine similarity measures the angle between two vectors: a score of 1.0 means they point in the same direction (very similar), 0.0 means they're orthogonal (unrelated), and -1.0 means opposite.\n\nThis is how semantic search, recommendation systems, and RAG (Retrieval-Augmented Generation) pipelines find relevant content without relying on exact keyword matches.\n\n## Three Practical Do/Don't Tips\n\n### \u2705 Do: Use the same model for embedding and querying\nAlways embed your stored data and your search queries with the **same model and version**. Mixing models (e.g., embedding docs with `text-embedding-3-small` but querying with `text-embedding-ada-002`) produces vectors in incompatible spaces, and similarity scores become meaningless.\n\n### \u274c Don't: Embed raw, uncleaned text\nGarbage in, garbage out. Strip HTML tags, normalize whitespace, remove boilerplate (nav bars, footers), and keep chunks at a consistent, sensible length (e.g., 200\u2013500 tokens). Noisy or wildly inconsistent inputs produce poor embeddings and hurt retrieval quality.\n\n### \u2705 Do: Combine vector search with metadata filters\nVector search is great at finding *semantically* similar content, but it doesn't understand hard constraints. If you need results from a specific category, date range, or language, filter by metadata *before* or *alongside* the vector search. This keeps results both relevant and precise.\n\n---\n\n*That's the essentials. Embeddings turn meaning into math \u2014 use them wisely, and they'll power some of the most useful features in your app.*\n"
+        }
+      ]
+    }
+  },
+  "rules": {}
+}
