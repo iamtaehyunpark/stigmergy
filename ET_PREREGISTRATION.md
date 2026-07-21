@@ -314,4 +314,14 @@ byte-identical across all four variants by construction.
 
 ## Deviations
 
-(none at freeze)
+- **2026-07-21 (during L2, outcome-blind — no ladder run judged): adaptive
+  replication.** The owned serial endpoint is byte-deterministic at temp 0:
+  all L1/L2 replicates were token-identical (r_L1 17118×4, p_L1 16082×4,
+  s_L1 3680×4; L2 likewise across executed reps), invalidating the spec §2
+  assumption that temp-0 nondeterminism supplies natural variance. Amended
+  design: reps 1–2 always run; a cell whose reps 1–2 match exactly on
+  llm_calls, total_tokens, n_agents, and judge-artifact sha256
+  (src/ratd_v2/det_check.py) is recorded deterministic with effective n=1;
+  any divergent cell runs the full pre-registered n=4. Approved by Taehyun
+  before any level-3+ run. Distinct-outcome counts are reported alongside
+  all cell statistics; the §4 variance rule applies to executed reps.
