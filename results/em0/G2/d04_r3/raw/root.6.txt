@@ -1,0 +1,19 @@
+{
+  "task_id": "root.6",
+  "reasoning": "The task is to produce three localized marketing assets for the Indian market. This is a focused creative writing task that can be completed in a single execution step without needing to spawn sub-agents or fetch external data, as the localization requirements (INR pricing, Indian English tone, cultural context) are well-defined and standard. I will generate all three artifacts directly.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.6/announcement_post",
+      "description": "Localized announcement post for the IN market."
+    },
+    {
+      "path": "root.6/faq",
+      "description": "Localized FAQ for the IN market."
+    },
+    {
+      "path": "root.6/pricing_page_copy",
+      "description": "Localized pricing page copy for the IN market."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "root.2",
+  "reasoning": "I have fetched both the canonical standard and the legacy survey. I now have all the information needed to write the bilingual tutorial and migration map. The task is substantial but can be completed in a single EXECUTE action by carefully constructing the three output artifacts: the English tutorial, the Korean tutorial, and the migration map. I will ensure all identifiers, endpoints, and error codes match the canonical standard exactly.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/migration_map",
+      "description": "A detailed mapping of legacy identifiers to canonical replacements, used in the migration notes section."
+    },
+    {
+      "path": "root.2/tutorial_en",
+      "description": "The English version of the integration tutorial, including checkout, refund, error handling, and migration sections with code samples."
+    },
+    {
+      "path": "root.2/tutorial_kr",
+      "description": "The Korean version of the integration tutorial, including checkout, refund, error handling, and migration sections with code samples."
+    }
+  ]
+}

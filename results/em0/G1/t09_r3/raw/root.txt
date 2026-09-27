@@ -1,0 +1,69 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task is to build a full-stack todo app, which involves distinct phases: schema design, backend implementation, frontend implementation, and integration testing. These phases have clear dependencies (backend depends on schema, frontend depends on backend, tests depend on both). I will decompose this into four subtasks. The schema design is the first step. The backend and frontend can be developed in parallel once the schema is defined. Integration tests will run last. I will take the role of orchestrating the final assembly and ensuring the project structure is coherent.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Design the database schema and data models for the todo app.",
+      "capsule": "This subtask defines the core data structure. It should output a schema definition (e.g., SQL or NoSQL) and any necessary model classes or interfaces. This is the foundation for the backend and frontend.",
+      "outputs": [
+        {
+          "path": "root.1/schema_design",
+          "description": "Database schema definition and data models for the todo app."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Implement the backend API for the todo app.",
+      "capsule": "This subtask builds the server-side logic. It should implement CRUD operations for todos based on the schema designed in root.1. It should output the backend code and API documentation.",
+      "outputs": [
+        {
+          "path": "root.2/backend_code",
+          "description": "Backend API implementation code."
+        },
+        {
+          "path": "root.2/api_docs",
+          "description": "API documentation describing endpoints and request/response formats."
+        }
+      ],
+      "condition": "done(\"root.1/schema_design\")"
+    },
+    {
+      "id": "root.3",
+      "goal": "Implement the frontend UI for the todo app.",
+      "capsule": "This subtask builds the client-side interface. It should implement a user interface that interacts with the backend API defined in root.2. It should output the frontend code.",
+      "outputs": [
+        {
+          "path": "root.3/frontend_code",
+          "description": "Frontend UI implementation code."
+        }
+      ],
+      "condition": "done(\"root.2/api_docs\")"
+    },
+    {
+      "id": "root.4",
+      "goal": "Write integration tests for the full-stack todo app.",
+      "capsule": "This subtask ensures the system works end-to-end. It should write tests that verify the interaction between the frontend and backend, and the backend and database. It should output the test code and a report on how to run them.",
+      "outputs": [
+        {
+          "path": "root.4/integration_tests",
+          "description": "Integration test code and instructions for running them."
+        }
+      ],
+      "condition": "done(\"root.3/frontend_code\") AND done(\"root.2/backend_code\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Assemble the final project structure and documentation.",
+    "outputs": [
+      {
+        "path": "root/project_structure",
+        "description": "A summary of the final project structure, including how to set up and run the full-stack app."
+      }
+    ],
+    "condition": "completed(\"root.4\")"
+  }
+}

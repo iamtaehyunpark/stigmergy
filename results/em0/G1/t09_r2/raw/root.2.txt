@@ -1,0 +1,50 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The schema design is complete and available. The task is to implement the backend API. This is a substantial task involving server setup, database connection, authentication, and CRUD endpoints for Users, Todos, and Tags. It is best decomposed into parallel subtasks for the core server setup, User endpoints, Todo endpoints, and Tag endpoints, followed by an integration step to assemble them into the final deliverable.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Implement core server setup and database connection.",
+      "capsule": "Set up the Node.js/Express server, configure environment variables, and establish the PostgreSQL connection pool using the schema from root.1. Include basic error handling and middleware setup.",
+      "outputs": [
+        {"path": "root.2.1/server_setup", "description": "Server entry point, config, and DB connection module."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Implement User CRUD and authentication endpoints.",
+      "capsule": "Implement endpoints for user registration, login (JWT), and profile management. Use bcrypt for password hashing and jsonwebtoken for auth. Ensure endpoints are secured where appropriate.",
+      "outputs": [
+        {"path": "root.2.2/user_routes", "description": "User controller, routes, and auth middleware."}
+      ],
+      "condition": "done(\"root.2.1/server_setup\")"
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Implement Todo CRUD endpoints.",
+      "capsule": "Implement endpoints for creating, reading, updating, and deleting todos. Include filtering by status, priority, and user. Ensure proper validation and error handling.",
+      "outputs": [
+        {"path": "root.2.3/todo_routes", "description": "Todo controller and routes."}
+      ],
+      "condition": "done(\"root.2.1/server_setup\")"
+    },
+    {
+      "id": "root.2.4",
+      "goal": "Implement Tag CRUD and association endpoints.",
+      "capsule": "Implement endpoints for managing tags and associating them with todos. Handle the many-to-many relationship via the todo_tags table.",
+      "outputs": [
+        {"path": "root.2.4/tag_routes", "description": "Tag controller and routes."}
+      ],
+      "condition": "done(\"root.2.1/server_setup\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Assemble the backend API from subtask outputs and produce the final deliverable.",
+    "outputs": [
+      {"path": "root.2/backend_api", "description": "Source code and configuration for the backend API."}
+    ],
+    "condition": "completed(\"root.2.1\") AND completed(\"root.2.2\") AND completed(\"root.2.3\") AND completed(\"root.2.4\")"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.3",
+  "reasoning": "The task is to write the bilingual alarm handling tutorial section. I have already fetched the canonical standard and the sibling tutorials (HVAC and Lighting) which provide excellent templates for style, structure, and terminology. The canonical standard defines the alarm code format (`[SYSTEM]_[SEVERITY]_[NN]`) and the relevant telemetry channels (`hvac/alerts`, `lighting/alerts`, `access/alerts`). I have all the necessary information to execute this task directly without further decomposition or fetching. I will follow the established pattern: bilingual headings, bilingual descriptions, and bilingual YAML/JSON configuration samples using only canonical terms.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_alarms",
+      "description": "Bilingual tutorial section for alarm handling with runnable config samples."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires a comparative report on the top 3 vector databases. This is a multi-step process: first identifying the top 3 candidates, then researching their features, pricing, and performance, and finally synthesizing the report. I will decompose this into parallel subtasks for research and a final integration task. I will take the integration role myself to ensure the final report meets the root goal.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Identify the top 3 vector database products and research their key features.",
+      "capsule": "This subtask identifies the leading vector databases (e.g., Pinecone, Milvus, Weaviate, Qdrant, etc.) based on current market standing and researches their core features, indexing algorithms, and scalability. It produces a structured summary of features for the top 3 selected.",
+      "outputs": [
+        {"path": "root.1/top_3_selection", "description": "List of the top 3 vector databases selected for comparison with justification."},
+        {"path": "root.1/features_comparison", "description": "Detailed comparison of features for the top 3 vector databases."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Research pricing models for the top 3 vector database products.",
+      "capsule": "This subtask researches the pricing structures (free tiers, pay-as-you-go, enterprise) for the top 3 vector databases identified in root.1. It must wait for root.1 to complete to know which databases to research.",
+      "outputs": [
+        {"path": "root.2/pricing_comparison", "description": "Detailed comparison of pricing models for the top 3 vector databases."}
+      ],
+      "condition": "done(\"root.1/top_3_selection\")"
+    },
+    {
+      "id": "root.3",
+      "goal": "Research performance benchmarks for the top 3 vector database products.",
+      "capsule": "This subtask researches performance metrics (query latency, throughput, scalability benchmarks) for the top 3 vector databases identified in root.1. It must wait for root.1 to complete to know which databases to research.",
+      "outputs": [
+        {"path": "root.3/performance_comparison", "description": "Detailed comparison of performance benchmarks for the top 3 vector databases."}
+      ],
+      "condition": "done(\"root.1/top_3_selection\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Synthesize the research into a final comparative report with a recommendation.",
+    "outputs": [
+      {"path": "root/final_report", "description": "The final comparative report on the top 3 vector databases, including features, pricing, performance, and a recommendation."}
+    ],
+    "condition": "completed(\"root.1\") AND completed(\"root.2\") AND completed(\"root.3\")"
+  }
+}

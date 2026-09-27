@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task is to create a complete business plan with five major components. This is too large for a single EXECUTE action and requires parallel decomposition. I will spawn five subtasks, one for each component of the business plan, and take on the integration role myself to assemble the final document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Conduct market analysis for a Korean local-review platform.",
+      "capsule": "Analyze the Korean local services market, including size, growth trends, user demographics, and key drivers. Focus on the demand for local reviews in Korea, cultural nuances, and regulatory environment. This feeds the overall business plan's market context.",
+      "outputs": [
+        {"path": "root.1/market_analysis", "description": "Comprehensive market analysis for Korean local-review platform"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Conduct competitor analysis for the Korean local-review space.",
+      "capsule": "Identify and analyze key competitors in Korea such as Naver Place, Daum Map, Google Maps Korea, and niche review platforms. Assess their strengths, weaknesses, market share, and gaps our platform could exploit. This informs positioning and differentiation.",
+      "outputs": [
+        {"path": "root.2/competitor_analysis", "description": "Detailed competitor analysis of Korean local-review platforms"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Design the revenue model for the Korean local-review platform.",
+      "capsule": "Develop a monetization strategy including advertising, premium listings, lead generation, data licensing, and potential subscription tiers. Align with Korean business practices and user expectations. This defines how the platform generates income.",
+      "outputs": [
+        {"path": "root.3/revenue_model", "description": "Revenue model and monetization strategy for the platform"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Create a go-to-market strategy for the Korean local-review platform.",
+      "capsule": "Define user acquisition channels, launch strategy, partnerships, marketing tactics, and growth loops tailored to the Korean market. Include both consumer and merchant-side acquisition. This drives user growth and market penetration.",
+      "outputs": [
+        {"path": "root.4/go_to_market", "description": "Go-to-market strategy including acquisition, launch, and growth plans"}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Build financial projections for the Korean local-review platform.",
+      "capsule": "Create 5-year financial projections including revenue, costs, headcount, CAC, LTV, and break-even analysis. Base assumptions on the market, competitor, and revenue model analyses. This provides the financial backbone of the business plan.",
+      "outputs": [
+        {"path": "root.5/financial_projections", "description": "5-year financial projections with key metrics and assumptions"}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate all subtask outputs into a cohesive, polished business plan document.",
+    "outputs": [
+      {"path": "root/business_plan", "description": "Final integrated business plan for the Korean local-review platform"}
+    ],
+    "condition": "done(\"root.1/market_analysis\") AND done(\"root.2/competitor_analysis\") AND done(\"root.3/revenue_model\") AND done(\"root.4/go_to_market\") AND done(\"root.5/financial_projections\")"
+  }
+}

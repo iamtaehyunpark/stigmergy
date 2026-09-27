@@ -1,0 +1,22 @@
+# m02_r2
+outcome: converged  qualitative: Quiesced clean on the first pass: all root pins fulfilled, no dead gates, no fallback writes.
+
+## agents (state)
+  root             done       depth=0 parent=None
+  root.1           done       depth=1 parent=root
+  root.2           done       depth=1 parent=root
+
+## pins (status · owner · note)
+  root.1/canonical_standard          done       root.1         The published canonical terminology standard (stage nouns, f
+  root.1/legacy_survey               done       root.1         A record of all legacy stage names, file-format tags, and qu
+  root.2/tutorial_alignment          done       root.2         Bilingual tutorial section for the alignment step with runna
+  root.2/tutorial_migration_notes    done       root.2         Bilingual migration notes mapping legacy stage names and fla
+  root.2/tutorial_quality_filtering  done       root.2         Bilingual tutorial section for quality filtering with runnab
+  root.2/tutorial_variant_calling    done       root.2         Bilingual tutorial section for the variant-calling step with
+  root/final_guide_index             done       root           A master index linking to the canonical standard and the fou
+
+## gates (fired/dead · mechanism · condition)
+  [fired] root-spawn     completed("root.1")
+  [fired] self_role-gate completed("root.1") AND completed("root.2")
+
+## catalog audit: CLEAN

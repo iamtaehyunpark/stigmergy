@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.5",
+  "reasoning": "The raw draft for Chapter 3 is available and complete enough to perform a consistency edit. The task is to polish the prose, ensure technical accuracy, check terminology consistency, and adhere to field guide style. This is a focused editing task that can be completed in a single EXECUTE action without needing further decomposition or external data.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3/chapter_3_draft",
+      "description": "Final edited draft of Chapter 3 on long-term memory architectures"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.5",
+  "reasoning": "The raw draft for Chapter 3 is available and complete enough to perform a consistency edit. The task is a focused editing pass: checking technical accuracy, clarity, flow, terminology consistency, and tone alignment. This is a single-agent task that can be completed in one EXECUTE action. I will produce the final edited draft fulfilling the interface pin root.3/chapter_3_draft.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3/chapter_3_draft",
+      "description": "Final edited draft of Chapter 3 on long-term memory architectures, polished for technical accuracy, clarity, flow, and consistency."
+    }
+  ]
+}

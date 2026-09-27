@@ -1,0 +1,19 @@
+{
+  "task_id": "root.2",
+  "reasoning": "I have fetched the canonical standard and legacy survey from root.1. I now have all the information needed to write the bilingual tutorial and the migration map. The task is self-contained and can be completed in a single EXECUTE action by generating the three required artifacts: the English tutorial, the Japanese tutorial, and the migration map. I will ensure all terminology strictly matches the canonical standard.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_en",
+      "description": "The English version of the worked pipeline tutorial with runnable command-line samples."
+    },
+    {
+      "path": "root.2/tutorial_jp",
+      "description": "The Japanese version of the worked pipeline tutorial with runnable command-line samples."
+    },
+    {
+      "path": "root.2/migration_map",
+      "description": "Explicit mapping of legacy stage names and flag codes to their canonical replacements (old -> new)."
+    }
+  ]
+}

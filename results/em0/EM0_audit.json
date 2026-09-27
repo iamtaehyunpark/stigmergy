@@ -1,0 +1,617 @@
+{
+  "verdict": {
+    "G1": {
+      "pass": false,
+      "note": "converge, plain converged, no doctor fire"
+    },
+    "G2": {
+      "pass": true,
+      "note": "convergence, no new failure modes from pin machinery"
+    },
+    "G3": {
+      "pass": true,
+      "blind_defer_rejections_total": 0,
+      "note": "guessed wake gate rejected at authoring; converges w/o doctor"
+    },
+    "G4": {
+      "pass": false,
+      "promotions_seen": 0,
+      "consistencies": [
+        0.011627906976744186,
+        0.011627906976744186,
+        0.023255813953488372
+      ],
+      "note": "promotion legal-if-present (converged, no extralegal writes, consistency held)"
+    },
+    "G5": {
+      "pass": true,
+      "orphans_total": 0,
+      "note": "zero orphan entries across all runs"
+    },
+    "doctor_fires": [
+      {
+        "run": "t15_r3",
+        "outcome": "failed",
+        "cycles": 2
+      }
+    ],
+    "all_pass": false
+  },
+  "audits": {
+    "G1": [
+      {
+        "run_id": "t06_r1",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 5,
+          "pin_count": 5,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "t06_r2",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 5,
+          "pin_count": 5,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "t06_r3",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 5,
+          "pin_count": 5,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "t09_r1",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 9,
+          "pin_count": 9,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "t09_r2",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 9,
+          "pin_count": 9,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "t09_r3",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 9,
+          "pin_count": 9,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "t15_r1",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 13,
+          "pin_count": 13,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "t15_r2",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 13,
+          "pin_count": 13,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "t15_r3",
+        "outcome": "failed",
+        "converged": false,
+        "doctor_cycles": 2,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 7,
+          "pin_count": 8,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      }
+    ],
+    "G2": [
+      {
+        "run_id": "d01_r1",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 10,
+          "pin_count": 10,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d01_r2",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 9,
+          "pin_count": 9,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d01_r3",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 9,
+          "pin_count": 9,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d02_r1",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 13,
+          "pin_count": 13,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d02_r2",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 9,
+          "pin_count": 9,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d02_r3",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 6,
+          "pin_count": 6,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d03_r1",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 14,
+          "pin_count": 14,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d03_r2",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 16,
+          "pin_count": 16,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": 0.0,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d03_r3",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 19,
+          "pin_count": 19,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": 0.0,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d04_r1",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 25,
+          "pin_count": 25,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d04_r2",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 31,
+          "pin_count": 31,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "d04_r3",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 25,
+          "pin_count": 25,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": null,
+        "consistency_detection_ok": false
+      }
+    ],
+    "G3": [
+      {
+        "run_id": "L3_r1",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 19,
+          "pin_count": 19,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": 0.0,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "L3_r2",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 19,
+          "pin_count": 19,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": 0.0,
+        "consistency_detection_ok": false
+      },
+      {
+        "run_id": "L3_r3",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 19,
+          "pin_count": 19,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": 0.0,
+        "consistency_detection_ok": false
+      }
+    ],
+    "G4": [
+      {
+        "run_id": "f01_r1",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 8,
+          "pin_count": 8,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": 0.011627906976744186,
+        "consistency_detection_ok": true
+      },
+      {
+        "run_id": "f01_r2",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 8,
+          "pin_count": 8,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": 0.011627906976744186,
+        "consistency_detection_ok": true
+      },
+      {
+        "run_id": "f01_r3",
+        "outcome": "converged",
+        "converged": true,
+        "doctor_cycles": 0,
+        "promotions": 0,
+        "conflicts": 0,
+        "write_rejected": 0,
+        "blind_defer_rejections": 0,
+        "accepted_defers": [],
+        "catalog": {
+          "entry_count": 8,
+          "pin_count": 8,
+          "orphan_entries": [],
+          "entries_missing_summary": [],
+          "done_pins_without_entry": [],
+          "clean": true
+        },
+        "consistency": 0.023255813953488372,
+        "consistency_detection_ok": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "task_id": "root.4",
+  "reasoning": "The go-to-market strategy is a comprehensive document covering acquisition, launch, partnerships, and growth loops. It is complex enough to benefit from decomposition into parallel subtasks (consumer acquisition, merchant acquisition, launch plan, growth loops) to ensure depth and quality. I will spawn subtasks for each major component and take the integration role myself to assemble the final strategy.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.4.1",
+      "goal": "Define consumer-side user acquisition strategy.",
+      "capsule": "Focus on acquiring end-users (reviewers and readers) in Korea. Analyze channels like KakaoTalk, Naver, Instagram, and offline campaigns. Define messaging, incentives for early adopters, and cost-per-acquisition estimates. This feeds into the overall GTM plan.",
+      "outputs": [
+        {
+          "path": "root.4.1/consumer_acquisition",
+          "description": "Consumer acquisition channels, messaging, and incentives"
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.2",
+      "goal": "Define merchant-side acquisition strategy.",
+      "capsule": "Focus on acquiring local businesses to list and engage on the platform. Analyze B2B sales channels, partnership opportunities with local chambers of commerce, and value propositions for merchants. This ensures supply-side liquidity.",
+      "outputs": [
+        {
+          "path": "root.4.2/merchant_acquisition",
+          "description": "Merchant acquisition channels, value props, and sales strategy"
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.3",
+      "goal": "Design the launch strategy and key partnerships.",
+      "capsule": "Plan the phased launch (beta, city-by-city expansion). Identify key strategic partners (e.g., payment gateways, local influencers, media outlets) to amplify reach. Define the launch timeline and key milestones.",
+      "outputs": [
+        {
+          "path": "root.4.3/launch_and_partnerships",
+          "description": "Launch timeline, phases, and strategic partnership plan"
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4.4",
+      "goal": "Define growth loops and retention mechanics.",
+      "capsule": "Design viral loops, referral programs, and gamification elements tailored to Korean culture (e.g., Kakao sharing, point systems). Define metrics for retention and engagement. This ensures sustainable growth post-launch.",
+      "outputs": [
+        {
+          "path": "root.4.4/growth_loops",
+          "description": "Viral loops, referral programs, and retention mechanics"
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate subtask outputs into a cohesive go-to-market strategy.",
+    "outputs": [
+      {
+        "path": "root.4/go_to_market",
+        "description": "Go-to-market strategy including acquisition, launch, and growth plans"
+      }
+    ],
+    "condition": "completed(\"root.4.1\") AND completed(\"root.4.2\") AND completed(\"root.4.3\") AND completed(\"root.4.4\")"
+  }
+}

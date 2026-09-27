@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2",
+  "reasoning": "I have fetched the canonical standard and legacy survey. I now have all the information needed to write the four tutorial sections. The task is substantial but can be completed in a single focused effort by writing all four sections carefully, ensuring strict adherence to the canonical terminology. Spawning would add overhead without clear benefit since the sections are interdependent (migration notes need to reference the other sections' terms) and the total output size is manageable.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {"path": "root.2/tutorial_alignment", "description": "Bilingual tutorial section for the alignment step with runnable CLI samples."},
+    {"path": "root.2/tutorial_variant_calling", "description": "Bilingual tutorial section for the variant-calling step with runnable CLI samples."},
+    {"path": "root.2/tutorial_quality_filtering", "description": "Bilingual tutorial section for quality filtering with runnable CLI samples."},
+    {"path": "root.2/tutorial_migration_notes", "description": "Bilingual migration notes mapping legacy stage names and flag codes to canonical replacements."}
+  ]
+}

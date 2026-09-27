@@ -1,0 +1,87 @@
+{
+  "task_id": "root",
+  "reasoning": "The task is to write a 4-chapter technical field guide. This is a large artifact that requires decomposition into manageable subtasks for research, drafting, and editing per chapter, plus a glossary and final assembly. I will spawn agents for each chapter's research and drafting, and handle the glossary and final assembly myself to ensure consistency. I will also spawn consistency editors for each chapter.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Research and draft Chapter 1: Introduction to LLM Agent Memory Systems",
+      "capsule": "This subtask covers the foundational concepts of memory in LLM agents, including definitions, types of memory (short-term, long-term, episodic, semantic), and the motivation for memory systems. It produces the initial draft for Chapter 1.",
+      "outputs": [
+        {"path": "root.1/chapter_1_draft", "description": "Draft text for Chapter 1 of the field guide."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Research and draft Chapter 2: Architectures for Agent Memory",
+      "capsule": "This subtask explores specific architectural patterns for implementing memory in LLM agents, such as vector databases, key-value stores, graph-based memory, and hybrid approaches. It produces the initial draft for Chapter 2.",
+      "outputs": [
+        {"path": "root.2/chapter_2_draft", "description": "Draft text for Chapter 2 of the field guide."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Research and draft Chapter 3: Memory Management and Retrieval Strategies",
+      "capsule": "This subtask focuses on how memory is managed, including retrieval mechanisms (semantic search, keyword matching, hybrid retrieval), forgetting strategies, and memory consolidation. It produces the initial draft for Chapter 3.",
+      "outputs": [
+        {"path": "root.3/chapter_3_draft", "description": "Draft text for Chapter 3 of the field guide."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Research and draft Chapter 4: Advanced Topics and Future Directions",
+      "capsule": "This subtask covers advanced topics such as multi-agent memory sharing, memory security and privacy, evaluation metrics for memory systems, and future research directions. It produces the initial draft for Chapter 4.",
+      "outputs": [
+        {"path": "root.4/chapter_4_draft", "description": "Draft text for Chapter 4 of the field guide."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Consistency edit Chapter 1",
+      "capsule": "This subtask reviews the draft of Chapter 1 for technical accuracy, clarity, and consistency with the overall guide's tone and style. It produces an edited version of Chapter 1.",
+      "outputs": [
+        {"path": "root.5/chapter_1_edited", "description": "Edited and polished text for Chapter 1."}
+      ],
+      "condition": "done(\"root.1/chapter_1_draft\")"
+    },
+    {
+      "id": "root.6",
+      "goal": "Consistency edit Chapter 2",
+      "capsule": "This subtask reviews the draft of Chapter 2 for technical accuracy, clarity, and consistency with the overall guide's tone and style. It produces an edited version of Chapter 2.",
+      "outputs": [
+        {"path": "root.6/chapter_2_edited", "description": "Edited and polished text for Chapter 2."}
+      ],
+      "condition": "done(\"root.2/chapter_2_draft\")"
+    },
+    {
+      "id": "root.7",
+      "goal": "Consistency edit Chapter 3",
+      "capsule": "This subtask reviews the draft of Chapter 3 for technical accuracy, clarity, and consistency with the overall guide's tone and style. It produces an edited version of Chapter 3.",
+      "outputs": [
+        {"path": "root.7/chapter_3_edited", "description": "Edited and polished text for Chapter 3."}
+      ],
+      "condition": "done(\"root.3/chapter_3_draft\")"
+    },
+    {
+      "id": "root.8",
+      "goal": "Consistency edit Chapter 4",
+      "capsule": "This subtask reviews the draft of Chapter 4 for technical accuracy, clarity, and consistency with the overall guide's tone and style. It produces an edited version of Chapter 4.",
+      "outputs": [
+        {"path": "root.8/chapter_4_edited", "description": "Edited and polished text for Chapter 4."}
+      ],
+      "condition": "done(\"root.4/chapter_4_draft\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Create a unified glossary and perform final assembly of the field guide",
+    "outputs": [
+      {"path": "root/glossary", "description": "A unified glossary of terms used across all chapters."},
+      {"path": "root/final_assembly", "description": "The fully assembled 4-chapter technical field guide, including glossary and consistent formatting."}
+    ],
+    "condition": "done(\"root.5/chapter_1_edited\") AND done(\"root.6/chapter_2_edited\") AND done(\"root.7/chapter_3_edited\") AND done(\"root.8/chapter_4_edited\")"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "task_id": "root.1.3",
+  "reasoning": "The task requires a detailed sector-specific analysis for three distinct markets (dining, beauty, lifestyle) in Korea. This is a substantial research and synthesis task that benefits from parallel decomposition to ensure depth and accuracy for each sector. I will spawn three subtasks, one for each sector, and take on the integration role to compile the final sector analysis document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.3.1",
+      "goal": "Analyze the Korean dining sector (restaurants, cafes) for the local-review platform.",
+      "capsule": "Assess market maturity, review culture, user pain points with existing platforms (like Naver, Google Maps, Instagram), and specific opportunities for an authentic-review platform in the dining space. Focus on unique Korean dining habits and the influence of social media.",
+      "outputs": [
+        {
+          "path": "root.1.3.1/dining_sector_analysis",
+          "description": "Detailed analysis of the Korean dining sector including market size, review behavior, pain points, and opportunities."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.3.2",
+      "goal": "Analyze the Korean beauty sector (salons, spas, clinics) for the local-review platform.",
+      "capsule": "Assess market maturity, review culture, user pain points with existing platforms, and specific opportunities for an authentic-review platform in the beauty space. Focus on the high-trust nature of beauty services, the role of before/after photos, and the prevalence of 'fake' reviews.",
+      "outputs": [
+        {
+          "path": "root.1.3.2/beauty_sector_analysis",
+          "description": "Detailed analysis of the Korean beauty sector including market size, review behavior, pain points, and opportunities."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.3.3",
+      "goal": "Analyze the Korean lifestyle sector (fitness, hobbies, local experiences) for the local-review platform.",
+      "capsule": "Assess market maturity, review culture, user pain points with existing platforms, and specific opportunities for an authentic-review platform in the lifestyle space. Focus on niche communities, the rise of experiential consumption, and the fragmentation of review sources.",
+      "outputs": [
+        {
+          "path": "root.1.3.3/lifestyle_sector_analysis",
+          "description": "Detailed analysis of the Korean lifestyle sector including market size, review behavior, pain points, and opportunities."
+        }
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the three sector analyses into a comprehensive sector-by-sector analysis document.",
+    "outputs": [
+      {
+        "path": "root.1.3/sector_analysis",
+        "description": "Sector-by-sector analysis of dining, beauty, and lifestyle markets in Korea"
+      }
+    ],
+    "condition": "completed(\"root.1.3.1\") AND completed(\"root.1.3.2\") AND completed(\"root.1.3.3\")"
+  }
+}

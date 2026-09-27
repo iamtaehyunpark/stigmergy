@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.3",
+  "reasoning": "The task is to produce a structured research summary on episodic memory stores and RAG patterns. This is a focused research and writing task that can be completed in a single execution step without needing to decompose further. I have the necessary domain knowledge to cover memory consolidation, forgetting strategies, retrieval routing, and evaluation metrics. No external dependencies are required.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.3/episodic_rag_research",
+      "description": "Research summary on episodic memory stores and RAG patterns"
+    }
+  ]
+}

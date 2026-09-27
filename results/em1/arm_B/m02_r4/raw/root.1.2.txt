@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.2",
+  "reasoning": "The legacy survey is complete and available. I have all the information needed to define the canonical terminology standard. The task is straightforward: map the legacy terms to new canonical ones and write the standard. This can be done in a single EXECUTE action without needing to spawn subtasks or defer.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1/canonical_standard",
+      "description": "The official canonical terminology standard for Yuten, defining stage nouns, file-format vocabulary, and quality-flag casing rules. Contains only new canonical terms."
+    }
+  ]
+}

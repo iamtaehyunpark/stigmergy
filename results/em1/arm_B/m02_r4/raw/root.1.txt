@@ -1,0 +1,41 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires two distinct phases: surveying legacy data and then synthesizing a new standard. These are sequential dependencies; the standard cannot be written accurately without the survey results. I will spawn two subtasks. The first will perform the survey of the three legacy pipelines (aligner, variant-caller, annotator) and produce the `legacy_survey`. The second will take the survey results and produce the `canonical_standard`, ensuring it contains only the new terms as required. I will take the self_role of coordinating the survey execution to ensure the first step is completed.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1.1",
+      "goal": "Survey the three legacy pipelines (aligner, variant-caller, annotator) to extract all naming conventions.",
+      "capsule": "Investigate the legacy pipelines for Yuten. Identify every stage name, file-format tag, and quality-flag code used in the aligner, variant-caller, and annotator pipelines. Compile these into a comprehensive list. This output is the raw data required to define the new standard.",
+      "outputs": [
+        {
+          "path": "root.1/legacy_survey",
+          "description": "A comprehensive list of all legacy stage names, file-format tags, and quality-flag codes found in the aligner, variant-caller, and annotator pipelines."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.1.2",
+      "goal": "Define the canonical terminology standard based on the legacy survey.",
+      "capsule": "Using the legacy survey, decide on and write the canonical terminology standard for Yuten. Define stage nouns, file-format vocabulary, and quality-flag casing rules. The output must list ONLY the new canonical terms, not the legacy ones. This serves as the single source of truth for terminology.",
+      "outputs": [
+        {
+          "path": "root.1/canonical_standard",
+          "description": "The official canonical terminology standard for Yuten, defining stage nouns, file-format vocabulary, and quality-flag casing rules. Contains only new canonical terms."
+        }
+      ],
+      "condition": "done(\"root.1/legacy_survey\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Initiate and oversee the legacy survey process.",
+    "outputs": [
+      {
+        "path": "root.1/survey_initiation_log",
+        "description": "A log confirming the initiation of the legacy survey and the assignment of subtasks."
+      }
+    ],
+    "condition": null
+  }
+}

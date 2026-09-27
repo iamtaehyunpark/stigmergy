@@ -1,0 +1,15 @@
+{
+  "task_id": "root.1",
+  "reasoning": "The task requires two distinct outputs: a survey of legacy naming conventions and a new canonical standard. These are logically sequential (survey informs standard) but can be handled efficiently by a single agent or split into two subtasks. Given the need for consistency and the relatively small scope of simulating/recalling these conventions, I will execute this task directly to ensure tight coupling between the survey findings and the standard decisions, avoiding unnecessary overhead of spawning sub-agents for a task that fits within a single focused effort.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1/legacy_survey",
+      "description": "A comprehensive list of all legacy stage names, file-format tags, and quality-flag codes found in the aligner, variant-caller, and annotator pipelines."
+    },
+    {
+      "path": "root.1/canonical_standard",
+      "description": "The official canonical terminology standard for Yuten, including stage nouns, file-format vocabulary, and quality-flag casing rules. Contains only new canonical terms."
+    }
+  ]
+}

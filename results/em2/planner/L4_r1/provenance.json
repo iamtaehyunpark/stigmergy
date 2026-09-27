@@ -1,0 +1,18 @@
+{
+  "root.1/terminology_survey": "worker",
+  "root.2/canonical_standard": "worker",
+  "root.3.1/research": "worker",
+  "root.3.2/draft": "worker",
+  "root.3.3/final_chapter_1": "worker",
+  "root.4.1/research": "worker",
+  "root.4.2/draft": "worker",
+  "root.4.3/final_chapter_2": "worker",
+  "root.5.1/research": "worker",
+  "root.5.2/draft": "worker",
+  "root.5.3/final_chapter_3": "worker",
+  "root.6.1/research": "worker",
+  "root.6.2/draft": "worker",
+  "root.6.3/final_chapter_4": "worker",
+  "root.7/glossary": "worker",
+  "root/final_guide": "oversize_fallback"
+}

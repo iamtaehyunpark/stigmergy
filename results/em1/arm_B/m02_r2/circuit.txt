@@ -1,0 +1,20 @@
+# m02_r2
+outcome: converged  qualitative: Quiesced clean on the first pass: all root pins fulfilled, no dead gates, no fallback writes.
+
+## agents (state)
+  root             done       depth=0 parent=None
+  root.1           done       depth=1 parent=root
+  root.2           done       depth=1 parent=root
+
+## pins (status · owner · note)
+  root.1/canonical_standard          done       root.1         The official canonical terminology standard for Yuten, inclu
+  root.1/legacy_survey               done       root.1         A comprehensive list of all legacy stage names, file-format 
+  root.2/tutorial_en                 done       root.2         The English version of the worked pipeline tutorial, includi
+  root.2/tutorial_jp                 done       root.2         The Japanese version of the worked pipeline tutorial, includ
+  root/integration_review            done       root           A review report confirming that all terms in the tutorial (r
+
+## gates (fired/dead · mechanism · condition)
+  [fired] root-spawn     completed("root.1")
+  [fired] self_role-gate completed("root.1") AND completed("root.2")
+
+## catalog audit: CLEAN

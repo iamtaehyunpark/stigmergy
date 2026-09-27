@@ -1,0 +1,48 @@
+digraph circuit {
+  rankdir=LR;
+  compound=true;
+  node [fontname="Helvetica", fontsize=10, style="filled,rounded"];
+  edge [fontname="Helvetica", fontsize=8, color="#888888"];
+  subgraph cluster_agents { label="agents (control plane)"; color="#cccccc";
+    a_root [shape=box, fillcolor="#bfe3c6", label="root\n[done]"];
+    a_root_1 [shape=box, fillcolor="#bfe3c6", label="root.1\n[done]"];
+    a_root_2 [shape=box, fillcolor="#bfe3c6", label="root.2\n[done]"];
+    a_root_1_1 [shape=box, fillcolor="#bfe3c6", label="root.1.1\n[done]"];
+    a_root_1_2 [shape=box, fillcolor="#bfe3c6", label="root.1.2\n[done]"];
+    a_root_1_3 [shape=box, fillcolor="#bfe3c6", label="root.1.3\n[done]"];
+  }
+  a_root -> a_root_1 [style=dotted, color="#bbbbbb", arrowhead=empty];
+  a_root -> a_root_2 [style=dotted, color="#bbbbbb", arrowhead=empty];
+  a_root_1 -> a_root_1_1 [style=dotted, color="#bbbbbb", arrowhead=empty];
+  a_root_1 -> a_root_1_2 [style=dotted, color="#bbbbbb", arrowhead=empty];
+  a_root_1 -> a_root_1_3 [style=dotted, color="#bbbbbb", arrowhead=empty];
+  p_root_1_legacy_survey [shape=ellipse, fillcolor="#bfe3c6", label="root.1/legacy_survey\n(done)"];
+  a_root_1 -> p_root_1_legacy_survey [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_1_canonical_standard [shape=ellipse, fillcolor="#bfe3c6", label="root.1/canonical_standard\n(done)"];
+  a_root_1 -> p_root_1_canonical_standard [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_2_tutorial_hvac [shape=ellipse, fillcolor="#bfe3c6", label="root.2/tutorial_hvac\n(done)"];
+  a_root_2 -> p_root_2_tutorial_hvac [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_2_tutorial_lighting [shape=ellipse, fillcolor="#bfe3c6", label="root.2/tutorial_lighting\n(done)"];
+  a_root_2 -> p_root_2_tutorial_lighting [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_2_tutorial_alarms [shape=ellipse, fillcolor="#bfe3c6", label="root.2/tutorial_alarms\n(done)"];
+  a_root_2 -> p_root_2_tutorial_alarms [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_2_migration_notes [shape=ellipse, fillcolor="#bfe3c6", label="root.2/migration_notes\n(done)"];
+  a_root_2 -> p_root_2_migration_notes [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_style_guide_final [shape=ellipse, fillcolor="#bfe3c6", label="root/style_guide_final\n(done)"];
+  a_root -> p_root_style_guide_final [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_1_1_hvac_legacy_terms [shape=ellipse, fillcolor="#bfe3c6", label="root.1.1/hvac_legacy_terms\n(done)"];
+  a_root_1_1 -> p_root_1_1_hvac_legacy_terms [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_1_2_lighting_legacy_terms [shape=ellipse, fillcolor="#bfe3c6", label="root.1.2/lighting_legacy_terms\n(done)"];
+  a_root_1_2 -> p_root_1_2_lighting_legacy_terms [style=solid, color="#7aa7d0", arrowhead=none];
+  p_root_1_3_access_legacy_terms [shape=ellipse, fillcolor="#bfe3c6", label="root.1.3/access_legacy_terms\n(done)"];
+  a_root_1_3 -> p_root_1_3_access_legacy_terms [style=solid, color="#7aa7d0", arrowhead=none];
+  a_root_1 -> a_root_2 [style=solid, color="#3a9a52", label="completed"];
+  a_root_1 -> a_root [style=solid, color="#3a9a52", label="completed"];
+  a_root_2 -> a_root [style=solid, color="#3a9a52", label="completed"];
+  a_root_1_1 -> a_root_1 [style=solid, color="#3a9a52", label="completed"];
+  a_root_1_2 -> a_root_1 [style=solid, color="#3a9a52", label="completed"];
+  a_root_1_3 -> a_root_1 [style=solid, color="#3a9a52", label="completed"];
+  label="run m03_r2
+outcome: converged
+pins 10/10 done, gates 3 fired/0 dead, doctor 0"; labelloc="b"; fontsize=11;
+}

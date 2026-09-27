@@ -1,0 +1,38 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires producing a bilingual developer style guide split into two parts. Part A (survey and canonical standard) must complete before Part B (tutorial and migration notes) can proceed, because Part B depends on the canonical terms and the legacy-to-canonical mapping. I will spawn two subtasks: root.1 for Part A and root.2 for Part B. root.2 will be gated on the completion of root.1. I will take a self_role to perform a final consistency review, ensuring no term drift between the two parts, which is a shipping defect per the facilities handbook rule.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Survey legacy controllers and produce the canonical terminology standard.",
+      "capsule": "Act as the device standards team. Survey the three legacy controllers (hvac-controller, lighting-bridge, access-gateway) to record every legacy point name, telemetry channel, and alarm code. Then decide and write the canonical terminology standard covering point nouns, telemetry-channel vocabulary, and alarm-code casing rules. The published standard must list ONLY the new canonical terms. Also produce a private mapping of legacy terms to canonical terms for use by Part B.",
+      "outputs": [
+        {"path": "root.1/legacy_survey", "description": "Comprehensive list of all legacy point names, telemetry channels, and alarm codes from the three controllers."},
+        {"path": "root.1/canonical_standard", "description": "The published canonical terminology standard (EN/DE) listing only new canonical terms."},
+        {"path": "root.1/legacy_to_canonical_map", "description": "Internal mapping of every legacy term to its canonical replacement, used for migration notes."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write the bilingual integration tutorial and migration notes.",
+      "capsule": "Act as the integrator documentation team. Write a worked integration tutorial with runnable configuration samples in both English and German. Cover four sections: HVAC control flow, lighting-scene flow, alarm handling, and migration notes. The migration notes must map each legacy point name and alarm code to its canonical replacement. Every term used must match the canonical standard exactly; term drift is a shipping defect.",
+      "outputs": [
+        {"path": "root.2/tutorial_hvac", "description": "Bilingual tutorial section for HVAC control flow with runnable config samples."},
+        {"path": "root.2/tutorial_lighting", "description": "Bilingual tutorial section for lighting-scene flow with runnable config samples."},
+        {"path": "root.2/tutorial_alarms", "description": "Bilingual tutorial section for alarm handling with runnable config samples."},
+        {"path": "root.2/tutorial_migration", "description": "Bilingual migration notes mapping legacy terms to canonical replacements."}
+      ],
+      "condition": "completed(\"root.1\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Perform final consistency review and assemble the complete guide.",
+    "outputs": [
+      {"path": "root/consistency_report", "description": "Report verifying that all terms in Part B match the canonical standard from Part A, with any drift flagged."},
+      {"path": "root/developer_style_guide_index", "description": "Assembly index linking all parts of the bilingual developer style guide."}
+    ],
+    "condition": "completed(\"root.1\") AND completed(\"root.2\")"
+  }
+}

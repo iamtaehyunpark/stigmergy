@@ -1,0 +1,265 @@
+{
+  "verdict": {
+    "runs": 9,
+    "doctor_fire_rate": "9/9",
+    "healed_rate": "6/9",
+    "heal_bar": 7,
+    "dossier_correct_rate": "9/9",
+    "k_bound_respected": true,
+    "false_fires": 0,
+    "pass_bar": {
+      "healed_ge_bar": false,
+      "dossiers_all_correct": true,
+      "k_bound_respected": true,
+      "zero_false_fires": true
+    },
+    "pass": false
+  },
+  "false_positive": {
+    "scanned_healthy_runs": 63,
+    "false_fires": 0,
+    "offenders": [],
+    "organic_fires": [
+      {
+        "run": "results/em0/G1/t15_r3",
+        "outcome": "failed"
+      }
+    ]
+  },
+  "audits": [
+    {
+      "run_id": "L3_H1_r1",
+      "mode": "H1",
+      "induction_fired": true,
+      "target": "root.1",
+      "doctor_cycles": 1,
+      "doctor_fired": true,
+      "outcome": "converged-with-repair",
+      "healed": true,
+      "k_bound_ok": true,
+      "dossier_correct": true,
+      "dossier_detail": {
+        "correct": true,
+        "induced_failed_pins": [
+          "root.1/chapter_1_draft"
+        ],
+        "dossier_failed_pins": [
+          "root.1/chapter_1_draft"
+        ],
+        "dead_gates": 2
+      },
+      "repair_economy": {
+        "doctor_decision_calls": 1,
+        "repair_agent_route_calls": 1,
+        "doctor_subtree_calls": 2
+      }
+    },
+    {
+      "run_id": "L3_H1_r2",
+      "mode": "H1",
+      "induction_fired": true,
+      "target": "root.5",
+      "doctor_cycles": 1,
+      "doctor_fired": true,
+      "outcome": "converged-with-repair",
+      "healed": true,
+      "k_bound_ok": true,
+      "dossier_correct": true,
+      "dossier_detail": {
+        "correct": true,
+        "induced_failed_pins": [
+          "root.5/glossary"
+        ],
+        "dossier_failed_pins": [
+          "root.5/glossary"
+        ],
+        "dead_gates": 1
+      },
+      "repair_economy": {
+        "doctor_decision_calls": 1,
+        "repair_agent_route_calls": 1,
+        "doctor_subtree_calls": 2
+      }
+    },
+    {
+      "run_id": "L3_H1_r3",
+      "mode": "H1",
+      "induction_fired": true,
+      "target": "root.5",
+      "doctor_cycles": 1,
+      "doctor_fired": true,
+      "outcome": "converged-with-repair",
+      "healed": true,
+      "k_bound_ok": true,
+      "dossier_correct": true,
+      "dossier_detail": {
+        "correct": true,
+        "induced_failed_pins": [
+          "root.5/glossary"
+        ],
+        "dossier_failed_pins": [
+          "root.5/glossary"
+        ],
+        "dead_gates": 1
+      },
+      "repair_economy": {
+        "doctor_decision_calls": 1,
+        "repair_agent_route_calls": 1,
+        "doctor_subtree_calls": 2
+      }
+    },
+    {
+      "run_id": "L3_H2_r1",
+      "mode": "H2",
+      "induction_fired": true,
+      "target": "root.1",
+      "doctor_cycles": 1,
+      "doctor_fired": true,
+      "outcome": "converged-with-repair",
+      "healed": true,
+      "k_bound_ok": true,
+      "dossier_correct": true,
+      "dossier_detail": {
+        "correct": true,
+        "target": "root.1",
+        "abandoned_pins": [
+          "root/final_field_guide"
+        ],
+        "unmet_root_pins": [
+          "root/final_field_guide"
+        ]
+      },
+      "repair_economy": {
+        "doctor_decision_calls": 1,
+        "repair_agent_route_calls": 7,
+        "doctor_subtree_calls": 8
+      }
+    },
+    {
+      "run_id": "L3_H2_r2",
+      "mode": "H2",
+      "induction_fired": true,
+      "target": "root.1",
+      "doctor_cycles": 1,
+      "doctor_fired": true,
+      "outcome": "converged-with-repair",
+      "healed": true,
+      "k_bound_ok": true,
+      "dossier_correct": true,
+      "dossier_detail": {
+        "correct": true,
+        "target": "root.1",
+        "abandoned_pins": [
+          "root/final_field_guide"
+        ],
+        "unmet_root_pins": [
+          "root/final_field_guide"
+        ]
+      },
+      "repair_economy": {
+        "doctor_decision_calls": 1,
+        "repair_agent_route_calls": 9,
+        "doctor_subtree_calls": 10
+      }
+    },
+    {
+      "run_id": "L3_H2_r3",
+      "mode": "H2",
+      "induction_fired": true,
+      "target": "root.1",
+      "doctor_cycles": 1,
+      "doctor_fired": true,
+      "outcome": "converged-with-repair",
+      "healed": true,
+      "k_bound_ok": true,
+      "dossier_correct": true,
+      "dossier_detail": {
+        "correct": true,
+        "target": "root.1",
+        "abandoned_pins": [
+          "root/final_field_guide"
+        ],
+        "unmet_root_pins": [
+          "root/final_field_guide"
+        ]
+      },
+      "repair_economy": {
+        "doctor_decision_calls": 1,
+        "repair_agent_route_calls": 8,
+        "doctor_subtree_calls": 9
+      }
+    },
+    {
+      "run_id": "L3_H3_r1",
+      "mode": "H3",
+      "induction_fired": true,
+      "target": "root.4",
+      "doctor_cycles": 2,
+      "doctor_fired": true,
+      "outcome": "failed",
+      "healed": false,
+      "k_bound_ok": true,
+      "dossier_correct": true,
+      "dossier_detail": {
+        "correct": true,
+        "target": "root.4",
+        "dossier_fallback_writes": [
+          "root.4/chapter_4_draft"
+        ]
+      },
+      "repair_economy": {
+        "doctor_decision_calls": 3,
+        "repair_agent_route_calls": 5,
+        "doctor_subtree_calls": 8
+      }
+    },
+    {
+      "run_id": "L3_H3_r2",
+      "mode": "H3",
+      "induction_fired": true,
+      "target": "root.4",
+      "doctor_cycles": 2,
+      "doctor_fired": true,
+      "outcome": "failed",
+      "healed": false,
+      "k_bound_ok": true,
+      "dossier_correct": true,
+      "dossier_detail": {
+        "correct": true,
+        "target": "root.4",
+        "dossier_fallback_writes": [
+          "root.4/chapter_4_draft"
+        ]
+      },
+      "repair_economy": {
+        "doctor_decision_calls": 3,
+        "repair_agent_route_calls": 9,
+        "doctor_subtree_calls": 12
+      }
+    },
+    {
+      "run_id": "L3_H3_r3",
+      "mode": "H3",
+      "induction_fired": true,
+      "target": "root.4",
+      "doctor_cycles": 2,
+      "doctor_fired": true,
+      "outcome": "failed",
+      "healed": false,
+      "k_bound_ok": true,
+      "dossier_correct": true,
+      "dossier_detail": {
+        "correct": true,
+        "target": "root.4",
+        "dossier_fallback_writes": [
+          "root.4/chapter_4_draft"
+        ]
+      },
+      "repair_economy": {
+        "doctor_decision_calls": 3,
+        "repair_agent_route_calls": 9,
+        "doctor_subtree_calls": 12
+      }
+    }
+  ]
+}

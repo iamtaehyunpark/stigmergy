@@ -1,0 +1,54 @@
+{
+  "run_id": "G1_t06_r1",
+  "task_id": "t06",
+  "outcome": "converged",
+  "converged": true,
+  "termination": "natural",
+  "rail_hit": "",
+  "llm_calls": 8,
+  "agent_count": 4,
+  "max_depth": 1,
+  "doctor_cycles": 0,
+  "root_pins": [
+    "root/final_report"
+  ],
+  "root_pins_done": [
+    "root/final_report"
+  ],
+  "pins_total": 5,
+  "pins_done": 5,
+  "pins_failed": 0,
+  "pins_abandoned": 0,
+  "gates_total": 3,
+  "gates_fired": 3,
+  "gates_dead": 0,
+  "conflict_count": 0,
+  "fallback_writes": 0,
+  "entry_count": 5,
+  "fetch_count": 2,
+  "defer_count": 0,
+  "promotion_count": 0,
+  "starved_agents": [],
+  "failure": {
+    "unmet_root_pins": [],
+    "dead_gates": [],
+    "abandoned_pins": [],
+    "fallback_writes": [],
+    "failing": false
+  },
+  "interleaving": [
+    "start:root",
+    "end:root",
+    "start:root.1",
+    "end:root.1",
+    "start:root.2",
+    "end:root.2",
+    "start:root.3",
+    "end:root.3",
+    "start:root",
+    "end:root"
+  ],
+  "qualitative": "Quiesced clean on the first pass: all root pins fulfilled, no dead gates, no fallback writes.",
+  "doctor_calls": 0,
+  "induction": null
+}

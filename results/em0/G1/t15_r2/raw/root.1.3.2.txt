@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.3.2",
+  "reasoning": "The task requires a detailed analysis of the Korean beauty sector for a local-review platform. This is a focused research and synthesis task that can be completed in a single execution step without needing to spawn sub-agents. I have sufficient context from the capsule to perform the analysis directly, covering market size, review culture, pain points, and opportunities. No external data fetches are needed as this relies on general knowledge of the Korean market.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1.3.2/beauty_sector_analysis",
+      "description": "Detailed analysis of the Korean beauty sector including market size, review behavior, pain points, and opportunities."
+    }
+  ]
+}

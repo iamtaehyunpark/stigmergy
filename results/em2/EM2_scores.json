@@ -1,0 +1,309 @@
+{
+  "readings": {
+    "levels": {
+      "L3": {
+        "ratd_overall": 8.333333333333334,
+        "planner_overall": 7.666666666666667,
+        "ratd_sd": 1.1547005383792515,
+        "planner_sd": 2.309401076758503,
+        "high_variance": false,
+        "ratd_ctx": 9217.02536231884,
+        "planner_ctx": 34376.416666666664,
+        "ratd_stub_total": 0,
+        "planner_stub_total": 0,
+        "verdict": "quality parity \u2014 'equal quality at ~an order of magnitude lower, non-degrading context cost'"
+      },
+      "L4": {
+        "ratd_overall": 5,
+        "planner_overall": 5,
+        "ratd_sd": 0.0,
+        "planner_sd": 0.0,
+        "high_variance": false,
+        "ratd_ctx": 11109.978021978022,
+        "planner_ctx": 41836.39215686275,
+        "ratd_stub_total": 0,
+        "planner_stub_total": 0,
+        "verdict": "quality parity \u2014 'equal quality at ~an order of magnitude lower, non-degrading context cost'"
+      }
+    },
+    "stub_count_zero": true
+  },
+  "rows": [
+    {
+      "system": "ratd",
+      "level": "L3",
+      "run_id": "L3_r1",
+      "converged": true,
+      "llm_calls": 48,
+      "decisions": 23,
+      "mean_context_chars": 9384.434782608696,
+      "max_context_chars": 16875,
+      "stub_count": 0,
+      "incomplete_families": 0,
+      "oversize": 0,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 8,
+        "structure": 9,
+        "consistency": 9,
+        "overall": 9,
+        "rationale": "The artifact provides a technically sound and well-structured guide covering the required four chapters with substantive content. It correctly distinguishes between context windows, short-term, and long-term memory mechanisms, and offers specific technical details (e.g., HNSW vs IVF, KV caching). However, it fails to include the explicitly required 'unified glossary' covering terms used across the chapters, which is a significant omission based on the rubric's completeness criteria. The prose is consistent and the document reads as an integrated whole, but the missing glossary prevents a perfect score.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "ratd",
+      "level": "L3",
+      "run_id": "L3_r2",
+      "converged": true,
+      "llm_calls": 43,
+      "decisions": 20,
+      "mean_context_chars": 8888.25,
+      "max_context_chars": 16444,
+      "stub_count": 0,
+      "incomplete_families": 0,
+      "oversize": 1,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 10,
+        "structure": 9,
+        "consistency": 9,
+        "overall": 9,
+        "rationale": "The artifact is a high-quality, technically sound field guide that meets all rubric requirements. It contains four distinct, substantive chapters covering the required topics (context windows, retrieval, long-term architectures, advanced patterns). The glossary is comprehensive and accurately reflects terms used in the text. The structure is coherent, with clear progression from foundational concepts to advanced patterns, and the terminology is consistent throughout. Minor deductions are not warranted as the content is dense, accurate, and well-organized for the target audience of engineers.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "ratd",
+      "level": "L3",
+      "run_id": "L3_r3",
+      "converged": true,
+      "llm_calls": 48,
+      "decisions": 23,
+      "mean_context_chars": 9378.391304347826,
+      "max_context_chars": 16875,
+      "stub_count": 0,
+      "incomplete_families": 0,
+      "oversize": 1,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 6,
+        "structure": 9,
+        "consistency": 9,
+        "overall": 7,
+        "rationale": "The artifact provides high-quality, technically accurate content with a coherent structure and consistent terminology. However, it fails a critical completeness requirement: the rubric explicitly demands a 'unified glossary covering terms actually used across the chapters,' which is entirely missing from the deliverable. While the four chapters are substantive and well-organized, the absence of this required element prevents a higher score.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "ratd",
+      "level": "L4",
+      "run_id": "L4_r1",
+      "converged": true,
+      "llm_calls": 24,
+      "decisions": 13,
+      "mean_context_chars": 10888.384615384615,
+      "max_context_chars": 18052,
+      "stub_count": 0,
+      "incomplete_families": 0,
+      "oversize": 0,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 4,
+        "structure": 8,
+        "consistency": 9,
+        "overall": 5,
+        "rationale": "The artifact fails the primary requirement of Rubric L4: it does not include a 'published canonical terminology standard' that is visibly the product of a survey. While it contains a glossary and chapters, it lacks the specific meta-document or section defining the standardization process and mapping terms to chapter domains as required. The glossary exists but is not presented as the output of a survey-driven standardization effort. Consequently, the 'completeness' score is heavily penalized for this missing structural element, despite the high quality and consistency of the technical content itself.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "ratd",
+      "level": "L4",
+      "run_id": "L4_r2",
+      "converged": true,
+      "llm_calls": 27,
+      "decisions": 14,
+      "mean_context_chars": 11518.857142857143,
+      "max_context_chars": 18346,
+      "stub_count": 0,
+      "incomplete_families": 0,
+      "oversize": 0,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 4,
+        "structure": 8,
+        "consistency": 9,
+        "overall": 5,
+        "rationale": "The artifact fails the primary requirement of Rubric L4: it does not include a 'published canonical terminology standard' that is visibly the product of a survey. While it contains a glossary and chapters, it lacks the specific meta-document or section defining the standardization process and explicitly linking the terms to the chapter domains as required. The glossary exists but is not presented as the output of a survey-driven standardization effort. Consequently, the 'completeness' score is heavily penalized for this missing structural element, despite the high quality and consistency of the technical content itself.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "ratd",
+      "level": "L4",
+      "run_id": "L4_r3",
+      "converged": true,
+      "llm_calls": 25,
+      "decisions": 13,
+      "mean_context_chars": 10922.692307692309,
+      "max_context_chars": 18053,
+      "stub_count": 0,
+      "incomplete_families": 0,
+      "oversize": 0,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 4,
+        "structure": 8,
+        "consistency": 9,
+        "overall": 5,
+        "rationale": "The artifact fails the primary requirement of Rubric L4: it does not include a 'published canonical terminology standard' that is visibly the product of a survey. While it contains a glossary and chapters, it lacks the specific meta-document or section defining the standardization process and its relation to the chapter domains. The glossary exists but is not presented as the output of a survey-driven standardization effort as required. Consequently, the 'completeness' score is heavily penalized for this missing structural element, despite the high quality and consistency of the technical content itself.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "planner",
+      "level": "L3",
+      "run_id": "L3_r1",
+      "converged": true,
+      "llm_calls": 15,
+      "decisions": 8,
+      "mean_context_chars": 34316.125,
+      "max_context_chars": 60226,
+      "stub_count": 0,
+      "incomplete_families": 0,
+      "oversize": 1,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 8,
+        "structure": 9,
+        "consistency": 9,
+        "overall": 9,
+        "rationale": "The artifact is a high-quality, technically sound field guide that covers the required topics with appropriate depth for engineers. It includes four distinct chapters, a unified glossary, and consistent terminology. The primary defect is the truncation in Chapter 2 ('which is t[truncated]'), which violates the requirement for substantive, complete content in all chapters. However, the remaining content is excellent, well-structured, and free of internal contradictions.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "planner",
+      "level": "L3",
+      "run_id": "L3_r2",
+      "converged": true,
+      "llm_calls": 15,
+      "decisions": 8,
+      "mean_context_chars": 34286.0,
+      "max_context_chars": 60136,
+      "stub_count": 0,
+      "incomplete_families": 0,
+      "oversize": 1,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 4,
+        "structure": 5,
+        "consistency": 8,
+        "overall": 5,
+        "rationale": "The artifact fails the completeness requirement significantly because it is truncated; Chapter 2 ends abruptly with '[truncated: full length 24104]', and Chapters 3 and 4 are entirely missing from the provided text. While the visible content (Chapter 1, part of Chapter 2, and the Glossary) is technically accurate and well-written, the deliverable is not a 'final assembled guide' as required by the rubric. The glossary is present and consistent with the visible text, but the absence of the majority of the document prevents it from being a shippable or even acceptable draft of the full guide.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "planner",
+      "level": "L3",
+      "run_id": "L3_r3",
+      "converged": true,
+      "llm_calls": 15,
+      "decisions": 8,
+      "mean_context_chars": 34527.125,
+      "max_context_chars": 61178,
+      "stub_count": 0,
+      "incomplete_families": 0,
+      "oversize": 1,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 8,
+        "structure": 9,
+        "consistency": 9,
+        "overall": 9,
+        "rationale": "The artifact is a high-quality, technically accurate field guide that covers the required topics (context windows, RAG, memory architectures) with substantive content. It includes a unified glossary and reads as an integrated document. However, the provided text is explicitly truncated ('[truncated: full length 22833]'), which prevents full verification of the 'four distinct chapters' requirement and the completeness of the final assembled guide, resulting in a minor deduction for completeness.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "planner",
+      "level": "L4",
+      "run_id": "L4_r1",
+      "converged": true,
+      "llm_calls": 33,
+      "decisions": 17,
+      "mean_context_chars": 41976.23529411765,
+      "max_context_chars": 61310,
+      "stub_count": 0,
+      "incomplete_families": 3,
+      "oversize": 1,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 4,
+        "structure": 6,
+        "consistency": 9,
+        "overall": 5,
+        "rationale": "The artifact fails the completeness requirement by missing the explicitly required 'published canonical terminology standard' that is visibly the product of a survey. While the glossary and chapters use consistent terminology, the specific deliverable item (the standard itself, distinct from the glossary) is absent. Additionally, the chapter structure is fragmented (jumping from Ch 1 to Ch 3-6), and the text is truncated, indicating a lack of a 'final assembled guide' as required.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "planner",
+      "level": "L4",
+      "run_id": "L4_r2",
+      "converged": true,
+      "llm_calls": 33,
+      "decisions": 17,
+      "mean_context_chars": 41765.94117647059,
+      "max_context_chars": 62364,
+      "stub_count": 0,
+      "incomplete_families": 3,
+      "oversize": 1,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 4,
+        "structure": 6,
+        "consistency": 8,
+        "overall": 5,
+        "rationale": "The artifact fails the primary requirement of L4: it does not include a 'published canonical terminology standard' that is visibly the product of a survey. While it contains a glossary and uses consistent terms, it lacks the distinct 'Standard' document or section that explicitly maps terms to chapter domains as required by the rubric. Additionally, the text is truncated, missing the full content of Chapter 2 and potentially other sections, which severely impacts completeness. The terminology consistency within the provided text is good, but the missing structural element (the Standard itself) is a critical defect for this level.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    },
+    {
+      "system": "planner",
+      "level": "L4",
+      "run_id": "L4_r3",
+      "converged": true,
+      "llm_calls": 33,
+      "decisions": 17,
+      "mean_context_chars": 41767.0,
+      "max_context_chars": 62370,
+      "stub_count": 0,
+      "incomplete_families": 3,
+      "oversize": 1,
+      "judge": {
+        "accuracy": 9,
+        "completeness": 4,
+        "structure": 6,
+        "consistency": 8,
+        "overall": 5,
+        "rationale": "The artifact fails the primary requirement of L4: it does not include a 'published canonical terminology standard' that is visibly the product of a survey. While it contains a glossary and uses consistent terms, it lacks the distinct 'Standard' document or section that explicitly maps terms to chapter domains as required by the rubric. Additionally, the text is truncated, missing significant portions of Chapter 2 and potentially others, which severely impacts completeness. The consistency of terminology is good, but the missing structural element (the Standard itself) is a critical defect for this level.",
+        "artifact_truncated": false,
+        "auto": false
+      }
+    }
+  ]
+}

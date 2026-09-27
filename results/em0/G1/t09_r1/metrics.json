@@ -1,0 +1,56 @@
+{
+  "run_id": "G1_t09_r1",
+  "task_id": "t09",
+  "outcome": "converged",
+  "converged": true,
+  "termination": "natural",
+  "rail_hit": "",
+  "llm_calls": 18,
+  "agent_count": 5,
+  "max_depth": 1,
+  "doctor_cycles": 0,
+  "root_pins": [
+    "root/project_readme"
+  ],
+  "root_pins_done": [
+    "root/project_readme"
+  ],
+  "pins_total": 9,
+  "pins_done": 9,
+  "pins_failed": 0,
+  "pins_abandoned": 0,
+  "gates_total": 4,
+  "gates_fired": 4,
+  "gates_dead": 0,
+  "conflict_count": 0,
+  "fallback_writes": 0,
+  "entry_count": 9,
+  "fetch_count": 8,
+  "defer_count": 0,
+  "promotion_count": 0,
+  "starved_agents": [],
+  "failure": {
+    "unmet_root_pins": [],
+    "dead_gates": [],
+    "abandoned_pins": [],
+    "fallback_writes": [],
+    "failing": false
+  },
+  "interleaving": [
+    "start:root",
+    "end:root",
+    "start:root.1",
+    "end:root.1",
+    "start:root.2",
+    "end:root.2",
+    "start:root.3",
+    "end:root.3",
+    "start:root.4",
+    "end:root.4",
+    "start:root",
+    "end:root"
+  ],
+  "qualitative": "Quiesced clean on the first pass: all root pins fulfilled, no dead gates, no fallback writes.",
+  "doctor_calls": 0,
+  "induction": null
+}

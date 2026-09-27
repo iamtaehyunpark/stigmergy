@@ -1,0 +1,53 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires producing a bilingual developer style guide split into two parts. Part A (terminology standard) must be completed before Part B (tutorial) can be written, because Part B must strictly adhere to the canonical terms defined in Part A to avoid 'term drift'. I will spawn two subtasks: root.1 for Part A (surveying legacy pipelines and defining the standard) and root.2 for Part B (writing the tutorial). root.2 will be gated on the completion of root.1. I will take the self_role of integrating the outputs and producing the final combined guide index.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Survey Yuten's three legacy pipelines (aligner, variant-caller, annotator) and define the canonical terminology standard.",
+      "capsule": "This subtask acts as the pipeline standards team. It must first simulate/survey the legacy naming conventions for stage names, file-format tags, and quality-flag codes across the three legacy pipelines. Then, it must decide on and write the canonical terminology standard. The output standard must list ONLY the new canonical terms. This output is the single source of truth for terminology.",
+      "outputs": [
+        {
+          "path": "root.1/legacy_survey",
+          "description": "Record of all legacy stage names, file-format tags, and quality-flag codes found in the aligner, variant-caller, and annotator pipelines."
+        },
+        {
+          "path": "root.1/canonical_standard",
+          "description": "The published canonical terminology standard including stage nouns, file-format vocabulary, and quality-flag casing rules. Contains only new canonical terms."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write the bilingual (EN/JP) worked pipeline tutorial with runnable command-line samples.",
+      "capsule": "This subtask acts as the scientific documentation team. It must write a tutorial covering four sections: alignment, variant-calling, quality filtering, and migration notes. The migration notes must map legacy terms to the canonical terms defined in root.1. All terminology used in the tutorial must strictly match the canonical standard from root.1 to prevent term drift. The tutorial must be in both English and Japanese.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_en",
+          "description": "The English version of the worked pipeline tutorial with runnable command-line samples."
+        },
+        {
+          "path": "root.2/tutorial_jp",
+          "description": "The Japanese version of the worked pipeline tutorial with runnable command-line samples."
+        },
+        {
+          "path": "root.2/migration_map",
+          "description": "Explicit mapping of legacy stage names and flag codes to their canonical replacements (old -> new)."
+        }
+      ],
+      "condition": "completed(\"root.1\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the canonical standard and the bilingual tutorial into the final developer style guide.",
+    "outputs": [
+      {
+        "path": "root/style_guide_index",
+        "description": "The final index/assembly of the Yuten Developer Style Guide, linking to the canonical standard and the bilingual tutorials."
+      }
+    ],
+    "condition": "completed(\"root.1\") AND completed(\"root.2\")"
+  }
+}

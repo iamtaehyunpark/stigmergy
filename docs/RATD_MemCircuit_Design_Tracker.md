@@ -188,6 +188,7 @@ The doctor only re-spawns *memory* producers. Recovery from a failed *side-effec
 | 2026-07-13 | E4 | Per-agent ReAct executor (observe→act→re-observe) + living checklist; pins are already the write-once-friendly checklist item — the missing piece is the loop that walks it | user: multi-round REACT; observe continuously; complete one-by-one; don't lose the goal |
 | 2026-07-14 | E6 | **"Promotion" retired: creation is innate/free (write own namespace anytime, no act, no term); *promising* (pre-declaring a pin) becomes the optional forward-coordination act.** Retires promotion as a fourth authoring act in A2 | user: "the concept of promotion is useless… do it innately as if they don't have any systemical barrier"; f01 converged with 0 promotions |
 
+
 **STATUS: PART A–C RATIFIED → compiled into `RATD_Memory_Circuit_Spec.md` v1.0. PART E is post-v1.0 forward design (non-blocking); no E-item is built until ratified.**
 
 ## Changelog
@@ -195,3 +196,4 @@ The doctor only re-spawns *memory* producers. Recovery from a failed *side-effec
 - v0.2 — Concurrency semantics added after the serialization realization: Part A′ (scoping note on the 68-run serial record; A′1 snapshot semantics; A′2 in-flight visibility/reservation, sixth failure class; A′3 interleaving-recording policy), B1 atomic-firing invariant, B5 race-safe quiescence + claimed-but-never-completed in the failure predicate, A3 write-once upgraded to near-forced, Part D scoped.
 - v0.3 — Part E added (post-PoC, non-blocking) from the EM-validation discussion (2026-07-13): substrate/agent-model split; E1 tool action; E2 effect-fulfillment (2nd D→C event); E3 memory-as-knowledge reframe; E4 per-agent ReAct executor + living checklist (pins already are the write-once checklist item); E5 doctor effect-compensation. Motivating evidence: EM0 `t15_r3` completed()-gate limitation.
 - v0.4 — E6 added: "promotion" retired — creation is innate, *promising* becomes the optional coordination act (inverts A2, pairs with E4). Closes the one un-logged item from the design discussion. All seven user-raised redesign points now on record in Part E.
+

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.2",
+  "reasoning": "The task is to implement user CRUD and authentication endpoints. I have fetched the server setup and understand the existing Express app structure. The task is self-contained and small enough to be executed in a single step without needing further decomposition. I will create the user routes, controller, and auth middleware as specified.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2.2/user_routes",
+      "description": "User controller, routes, and auth middleware."
+    }
+  ]
+}

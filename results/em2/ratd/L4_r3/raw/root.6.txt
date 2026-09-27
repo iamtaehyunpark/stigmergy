@@ -1,0 +1,11 @@
+{
+  "task_id": "root.6",
+  "reasoning": "The terminology survey (root.5/terminology_survey) is done and has been fetched. It contains a detailed analysis of terminology conflicts across the four chapters and a proposed canonical terminology standard. My task is to synthesize this into the final canonical terminology standard. The survey already provides a strong draft in Section 4, but I need to formalize it into a definitive standard document that resolves all identified conflicts, establishes exact usage rules, and serves as the single source of truth. This is a synthesis and editorial task that can be completed in a single EXECUTE action.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.6/canonical_terminology_standard",
+      "description": "The canonical terminology standard for the entire guide"
+    }
+  ]
+}

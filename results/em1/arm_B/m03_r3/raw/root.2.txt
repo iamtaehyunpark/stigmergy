@@ -1,0 +1,53 @@
+{
+  "task_id": "root.2",
+  "reasoning": "The canonical standard is available and defines all required terminology. The task requires writing four distinct tutorial sections (HVAC, Lighting, Alarms, Migration) in both English and German. This is a substantial amount of content that benefits from parallel decomposition to ensure quality and completeness within the call budget. I will spawn three subtasks for the technical tutorials (HVAC, Lighting, Alarms) and handle the Migration notes myself, as they depend on synthesizing the legacy-to-canonical mappings which I have just fetched. Each subtask will be gated on the canonical standard being done (which it is) and will produce its assigned interface pin.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.2.1",
+      "goal": "Write the bilingual HVAC control flow tutorial with runnable configuration samples.",
+      "capsule": "Produce the HVAC section of the developer style guide. Include English and German text. Use only canonical terms from root.1/canonical_standard (e.g., temperature_setpoint, halden.hvac.status, HAL_HVAC_ERR_01). Provide runnable config samples showing control flow logic. Output to root.2/tutorial_hvac.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_hvac",
+          "description": "Bilingual tutorial section for HVAC control flow with runnable config samples."
+        }
+      ],
+      "condition": "done(\"root.1/canonical_standard\")"
+    },
+    {
+      "id": "root.2.2",
+      "goal": "Write the bilingual lighting-scene flow tutorial with runnable configuration samples.",
+      "capsule": "Produce the Lighting section of the developer style guide. Include English and German text. Use only canonical terms from root.1/canonical_standard (e.g., brightness, scene_id, halden.lighting.status, HAL_LIGHT_WARN_01). Provide runnable config samples showing scene activation and state management. Output to root.2/tutorial_lighting.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_lighting",
+          "description": "Bilingual tutorial section for lighting-scene flow with runnable config samples."
+        }
+      ],
+      "condition": "done(\"root.1/canonical_standard\")"
+    },
+    {
+      "id": "root.2.3",
+      "goal": "Write the bilingual alarm handling tutorial with runnable configuration samples.",
+      "capsule": "Produce the Alarm Handling section of the developer style guide. Include English and German text. Use only canonical terms from root.1/canonical_standard (e.g., HAL_HVAC_ERR_01, halden.hvac.alerts, halden.access.alerts). Provide runnable config samples showing alarm subscription, parsing, and response logic. Output to root.2/tutorial_alarms.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_alarms",
+          "description": "Bilingual tutorial section for alarm handling with runnable config samples."
+        }
+      ],
+      "condition": "done(\"root.1/canonical_standard\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Write the bilingual migration notes mapping legacy terms to canonical replacements.",
+    "outputs": [
+      {
+        "path": "root.2/tutorial_migration",
+        "description": "Bilingual migration notes mapping legacy terms to canonical replacements."
+      }
+    ],
+    "condition": "done(\"root.1/canonical_standard\")"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "root.1.3",
+  "reasoning": "The task requires a focused analysis of cultural and regulatory factors specific to the Korean market for a review platform. This is a knowledge-intensive but self-contained task that does not require external data fetching or complex decomposition. I can synthesize the necessary information regarding cultural preferences (e.g., Naver dominance, visual content importance) and regulatory constraints (PIPA, E-Commerce Act, fake review laws) directly into the assigned output pin.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.1.3/cultural_and_regulatory_landscape",
+      "description": "Analysis of cultural nuances and regulatory environment for local reviews in Korea"
+    }
+  ]
+}

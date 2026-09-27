@@ -1,0 +1,59 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires a comprehensive business plan with five distinct major sections. This is too large for a single EXECUTE action and benefits from parallel decomposition. I will spawn five subtasks, each responsible for one major section of the plan (Market Analysis, Competitor Analysis, Revenue Model, Go-to-Market Strategy, and Financial Projections). I will also take a self_role to integrate these sections into a final, cohesive business plan document.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Conduct market analysis for a Korean local-review platform.",
+      "capsule": "Analyze the South Korean market for local review platforms. Include market size, growth trends, target demographics, user behavior regarding reviews in Korea, and regulatory environment. This forms the foundation of the business plan.",
+      "outputs": [
+        {"path": "root.1/market_analysis", "description": "Detailed market analysis report including TAM/SAM/SOM, trends, and user demographics."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Perform competitor analysis for the Korean local-review space.",
+      "capsule": "Identify and analyze key competitors in South Korea (e.g., Naver Place, KakaoMap, Google Maps, local niche apps). Evaluate their strengths, weaknesses, market share, and feature sets. Identify gaps this new platform can exploit.",
+      "outputs": [
+        {"path": "root.2/competitor_analysis", "description": "Competitor landscape report with SWOT analysis and differentiation opportunities."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.3",
+      "goal": "Design the revenue model for the platform.",
+      "capsule": "Develop a sustainable revenue model tailored to the Korean market. Consider options like B2B advertising, premium listings for businesses, affiliate marketing, data monetization, or freemium features. Justify the chosen model with market evidence.",
+      "outputs": [
+        {"path": "root.3/revenue_model", "description": "Revenue model design with pricing strategies, monetization channels, and justification."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.4",
+      "goal": "Create a go-to-market strategy.",
+      "capsule": "Define how the platform will acquire its first users and businesses. Include marketing channels (social media, influencers, partnerships), launch strategy, user acquisition cost estimates, and retention tactics specific to Korean digital culture.",
+      "outputs": [
+        {"path": "root.4/go_to_market_strategy", "description": "Go-to-market plan covering launch, acquisition, retention, and marketing channels."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.5",
+      "goal": "Generate financial projections for the first five years.",
+      "capsule": "Create detailed financial projections including revenue, expenses, cash flow, and break-even analysis. Base assumptions on the revenue model and market analysis. Include key metrics like CAC, LTV, and burn rate.",
+      "outputs": [
+        {"path": "root.5/financial_projections", "description": "5-year financial forecast with P&L, cash flow, and key performance indicators."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate all subtask outputs into a final, cohesive business plan.",
+    "outputs": [
+      {"path": "root/business_plan", "description": "The complete, integrated business plan document combining all sections."}
+    ],
+    "condition": "completed(\"root.1\") AND completed(\"root.2\") AND completed(\"root.3\") AND completed(\"root.4\") AND completed(\"root.5\")"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires producing a bilingual developer style guide split into two parts: Part A (canonical terminology standard) and Part B (integration tutorial with migration notes). Part B depends on Part A because the migration notes must map legacy identifiers to the canonical terms defined in Part A, and the handbook rule requires zero term drift. Therefore, I will spawn two subtasks. Subtask 1 (Part A) will survey legacy services and produce the canonical standard. Subtask 2 (Part B) will be gated on the completion of Subtask 1 so it can use the canonical terms and produce the migration mapping. I will take a self_role to perform a final consistency review, ensuring no term drift between the two parts before the guide ships.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Survey legacy services and produce the canonical terminology standard (Part A).",
+      "capsule": "Act as the platform standards team. Survey the naming conventions of three legacy services: ledger, checkout, and merchant-portal. Record every legacy identifier, endpoint name, and error code. Then, decide on and write the canonical terminology standard, including endpoint nouns, error-code vocabulary, and casing rules. The published standard must list ONLY the new canonical terms, not the legacy ones. This output is the source of truth for the entire guide.",
+      "outputs": [
+        {
+          "path": "root.1/legacy_survey",
+          "description": "A comprehensive record of all legacy identifiers, endpoint names, and error codes from ledger, checkout, and merchant-portal services."
+        },
+        {
+          "path": "root.1/canonical_standard",
+          "description": "The canonical terminology standard for Cheonma, defining endpoint nouns, error-code vocabulary, and casing rules. Lists only new canonical terms."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write the bilingual integration tutorial with migration notes (Part B).",
+      "capsule": "Act as the developer relations team. Write a worked integration tutorial with runnable code samples in both English and Korean. Cover four sections: checkout flow, refund flow, error handling, and migration notes. The migration notes must map each legacy identifier (from root.1/legacy_survey) to its canonical replacement (from root.1/canonical_standard). Every identifier, endpoint name, and error code in this tutorial must match the canonical standard exactly to avoid term drift.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_en",
+          "description": "The English version of the integration tutorial, including checkout, refund, error handling, and migration sections with code samples."
+        },
+        {
+          "path": "root.2/tutorial_kr",
+          "description": "The Korean version of the integration tutorial, including checkout, refund, error handling, and migration sections with code samples."
+        },
+        {
+          "path": "root.2/migration_map",
+          "description": "A detailed mapping of legacy identifiers to canonical replacements, used in the migration notes section."
+        }
+      ],
+      "condition": "completed(\"root.1\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Perform final consistency review and assemble the bilingual developer style guide.",
+    "outputs": [
+      {
+        "path": "root/consistency_report",
+        "description": "A report verifying that all identifiers, endpoints, and error codes in Part B match the canonical standard from Part A exactly, with no term drift."
+      },
+      {
+        "path": "root/cheonma_style_guide",
+        "description": "The final assembled bilingual developer style guide for Cheonma, combining Part A and Part B, verified for consistency."
+      }
+    ],
+    "condition": "completed(\"root.1\") AND completed(\"root.2\")"
+  }
+}

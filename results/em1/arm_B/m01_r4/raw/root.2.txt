@@ -1,0 +1,15 @@
+{
+  "task_id": "root.2",
+  "reasoning": "I have fetched the canonical standard from root.1, which provides all the terminology, casing rules, endpoint nouns, error codes, and identifier mappings needed. I can now write both the English and Korean tutorials in a single EXECUTE action, ensuring strict adherence to the canonical standard. The tutorials will cover checkout flow, refund flow, error handling, and migration notes with runnable code samples in both languages.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_en",
+      "description": "English-language integration tutorial with runnable code samples for checkout, refund, error handling, and migration notes."
+    },
+    {
+      "path": "root.2/tutorial_kr",
+      "description": "Korean-language integration tutorial with runnable code samples for checkout, refund, error handling, and migration notes."
+    }
+  ]
+}

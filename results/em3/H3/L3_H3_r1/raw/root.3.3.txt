@@ -1,0 +1,11 @@
+{
+  "task_id": "root.3.3",
+  "reasoning": "The task is to produce a focused research summary on episodic memory and RAG patterns for LLM agents. This is a well-defined, self-contained research task that can be completed in a single execution step without needing to decompose further. No external dependencies are required; the topic is standard in the LLM agent literature. I will EXECUTE and write the research summary directly into the assigned pin.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.3.3/episodic_rag_research",
+      "description": "Research summary on episodic memory and RAG patterns for agents"
+    }
+  ]
+}

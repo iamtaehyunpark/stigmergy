@@ -1,0 +1,40 @@
+# L4_r1
+outcome: converged  qualitative: Quiesced clean on the first pass: all root pins fulfilled, no dead gates, no fallback writes.
+
+## agents (state)
+  root             done       depth=0 parent=None
+  root.1           done       depth=1 parent=root
+  root.2           done       depth=1 parent=root
+  root.3           done       depth=1 parent=root
+  root.4           done       depth=1 parent=root
+  root.5           done       depth=1 parent=root
+  root.6           done       depth=1 parent=root
+  root.7           done       depth=1 parent=root
+  root.8           done       depth=1 parent=root
+
+## pins (status · owner · note)
+  root.1/chapter_1_draft             done       root.1         Full draft of Chapter 1
+  root.1/chapter_1_research          done       root.1         Research notes and sources for Chapter 1
+  root.2/chapter_2_draft             done       root.2         Full draft of Chapter 2
+  root.2/chapter_2_research          done       root.2         Research notes and sources for Chapter 2
+  root.3/chapter_3_draft             done       root.3         Full draft of Chapter 3
+  root.3/chapter_3_research          done       root.3         Research notes and sources for Chapter 3
+  root.4/chapter_4_draft             done       root.4         Full draft of Chapter 4
+  root.4/chapter_4_research          done       root.4         Research notes and sources for Chapter 4
+  root.5/terminology_survey          done       root.5         Comprehensive survey of terminology used across all chapter 
+  root.6/canonical_terminology_standard done       root.6         The canonical terminology standard for the entire guide
+  root.7/chapter_1_edited            done       root.7         Consistency-edited Chapter 1
+  root.7/chapter_2_edited            done       root.7         Consistency-edited Chapter 2
+  root.7/chapter_3_edited            done       root.7         Consistency-edited Chapter 3
+  root.7/chapter_4_edited            done       root.7         Consistency-edited Chapter 4
+  root.8/unified_glossary            done       root.8         Unified glossary of all terms used in the guide
+  root/final_field_guide             done       root           The complete 4-chapter technical field guide with glossary, 
+
+## gates (fired/dead · mechanism · condition)
+  [fired] root-spawn     done("root.1/chapter_1_research") AND done("root.2/chapter_2_research") AND done("root.3/chapter_3_research") AND done("root.4/chapter_4_research")
+  [fired] root-spawn     done("root.5/terminology_survey")
+  [fired] root-spawn     done("root.6/canonical_terminology_standard") AND done("root.1/chapter_1_draft") AND done("root.2/chapter_2_draft") AND done("root.3/chapter_3_draft") AND done("root.4/chapter_4_draft")
+  [fired] root-spawn     done("root.6/canonical_terminology_standard")
+  [fired] self_role-gate done("root.7/chapter_1_edited") AND done("root.7/chapter_2_edited") AND done("root.7/chapter_3_edited") AND done("root.7/chapter_4_edited") AND done("root.8/unified_glossary")
+
+## catalog audit: CLEAN

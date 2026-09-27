@@ -1,0 +1,15 @@
+{
+  "task_id": "root.2",
+  "reasoning": "I have fetched both the canonical standard and the legacy survey. I have all the information needed to write the bilingual tutorial and migration notes. The task is to produce two documents (English and Japanese) that cover four sections each: alignment, variant-calling, quality filtering, and migration notes. I can complete this in a single EXECUTE action by writing both documents carefully, ensuring all terminology matches the canonical standard exactly.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_en",
+      "description": "The English version of the worked pipeline tutorial, including alignment, variant-calling, quality filtering, and migration notes."
+    },
+    {
+      "path": "root.2/tutorial_jp",
+      "description": "The Japanese version of the worked pipeline tutorial, including alignment, variant-calling, quality filtering, and migration notes."
+    }
+  ]
+}

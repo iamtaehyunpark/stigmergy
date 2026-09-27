@@ -1,0 +1,11 @@
+{
+  "task_id": "_doctor.2",
+  "reasoning": "The fallback pin root.4/chapter_4_draft contains invalid content (a schema mismatch injection) rather than actual chapter text. Since the source data is corrupted and unusable, I cannot perform a consistency edit on it. Per the task capsule instructions, when content is invalid, I must generate a placeholder or error report. I will execute the task by producing a polished placeholder document that explicitly states the source failure and provides a structural outline for Chapter 4 to fulfill the interface pin.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "_doctor.2/chapter_4_polished",
+      "description": "A polished placeholder for Chapter 4, noting the source data corruption and providing a structural outline."
+    }
+  ]
+}

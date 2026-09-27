@@ -1,0 +1,11 @@
+{
+  "task_id": "root.2.3",
+  "reasoning": "The task is to write the bilingual alarm handling tutorial. I have already fetched the canonical standard (root.1/canonical_standard) which provides the exact terminology, channel names, and alarm code formats required. I also have examples of the expected format from the HVAC and Lighting tutorials. The task is self-contained and small enough to execute directly without spawning subtasks. I will generate the content for root.2/tutorial_alarms following the established style and using only canonical terms.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {
+      "path": "root.2/tutorial_alarms",
+      "description": "Bilingual tutorial section for alarm handling with runnable config samples."
+    }
+  ]
+}

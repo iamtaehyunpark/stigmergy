@@ -1,0 +1,59 @@
+{
+  "task_id": "_doctor.1",
+  "reasoning": "The previous action failed because subtask outputs were placed under the parent namespace `_doctor.1/` instead of their own namespaces (e.g., `_doctor.1.1/`). I must correct the output paths for each subtask to comply with the wiring rule that outputs must be under the subtask's own namespace or an assigned interface pin. I will keep the same decomposition strategy but fix the paths.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "_doctor.1.1",
+      "goal": "Research and draft Chapter 1: Foundations of LLM Agent Memory.",
+      "capsule": "This chapter covers the theoretical underpinnings, types of memory (short-term, long-term, episodic, semantic), and the motivation for memory in agents. It must be technically accurate and self-contained.",
+      "outputs": [
+        {"path": "_doctor.1.1/chapter_1_draft", "description": "Draft text for Chapter 1: Foundations of LLM Agent Memory."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "_doctor.1.2",
+      "goal": "Research and draft Chapter 2: Architectures for Memory Integration.",
+      "capsule": "This chapter details specific architectural patterns for integrating memory into LLM agents, such as retrieval-augmented generation (RAG), vector databases, and memory controllers. It should focus on system design.",
+      "outputs": [
+        {"path": "_doctor.1.2/chapter_2_draft", "description": "Draft text for Chapter 2: Architectures for Memory Integration."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "_doctor.1.3",
+      "goal": "Research and draft Chapter 3: Advanced Memory Mechanisms and Challenges.",
+      "capsule": "This chapter explores advanced topics like memory consolidation, forgetting mechanisms, hallucination mitigation in memory, and scalability challenges. It addresses the 'hard problems' in the field.",
+      "outputs": [
+        {"path": "_doctor.1.3/chapter_3_draft", "description": "Draft text for Chapter 3: Advanced Memory Mechanisms and Challenges."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "_doctor.1.4",
+      "goal": "Research and draft Chapter 4: Practical Implementation and Future Directions.",
+      "capsule": "This chapter provides practical guidance for implementing memory systems, case studies, and discusses future research directions. It bridges theory and practice.",
+      "outputs": [
+        {"path": "_doctor.1.4/chapter_4_draft", "description": "Draft text for Chapter 4: Practical Implementation and Future Directions."}
+      ],
+      "condition": null
+    },
+    {
+      "id": "_doctor.1.5",
+      "goal": "Create a unified glossary of terms used across all chapters.",
+      "capsule": "This subtask creates a consistent glossary of key terms (e.g., context window, vector embedding, episodic memory) to ensure terminology consistency across the guide. It should be drafted independently but will be refined during assembly.",
+      "outputs": [
+        {"path": "_doctor.1.5/glossary_draft", "description": "Draft unified glossary for the field guide."}
+      ],
+      "condition": null
+    }
+  ],
+  "self_role": {
+    "goal": "Assemble the final field guide from chapter drafts and glossary, ensuring consistency and flow.",
+    "outputs": [
+      {"path": "root/final_field_guide", "description": "The complete 4-chapter technical field guide to LLM agent memory systems, including glossary and assembly."}
+    ],
+    "condition": "done(\"_doctor.1.1/chapter_1_draft\") AND done(\"_doctor.1.2/chapter_2_draft\") AND done(\"_doctor.1.3/chapter_3_draft\") AND done(\"_doctor.1.4/chapter_4_draft\") AND done(\"_doctor.1.5/glossary_draft\")"
+  }
+}

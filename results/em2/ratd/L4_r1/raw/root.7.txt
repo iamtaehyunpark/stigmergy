@@ -1,0 +1,11 @@
+{
+  "task_id": "root.7",
+  "reasoning": "I have the canonical terminology standard and Chapter 1 draft in full. Chapters 2-4 were truncated due to fetch budget limits. However, I can still proceed with EXECUTE because: (1) I have the full standard to check against, (2) I have Chapter 1 fully, and (3) for Chapters 2-4, I can fetch them individually in the EXECUTE step if needed, or I can work with what I have and note that the truncated portions may need re-fetching. Actually, looking at the constraints, I should EXECUTE and handle all four chapters. I have the standard fully loaded. I'll need to re-fetch chapters 2-4 during execution to get their full content, but the EXECUTE action allows me to do the work. Let me EXECUTE and produce all four edited chapters.",
+  "action": "EXECUTE",
+  "result_outputs": [
+    {"path": "root.7/chapter_1_edited", "description": "Consistency-edited Chapter 1"},
+    {"path": "root.7/chapter_2_edited", "description": "Consistency-edited Chapter 2"},
+    {"path": "root.7/chapter_3_edited", "description": "Consistency-edited Chapter 3"},
+    {"path": "root.7/chapter_4_edited", "description": "Consistency-edited Chapter 4"}
+  ]
+}

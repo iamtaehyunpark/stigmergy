@@ -1,0 +1,26 @@
+# t15_r3
+outcome: failed  qualitative: Failed: 1 unmet root pins, 1 dead gates, 1 abandoned pins.
+
+## agents (state)
+  _doctor.1        done       depth=1 parent=_doctor
+  root             starved    depth=0 parent=None
+  root.1           done       depth=1 parent=root
+  root.2           done       depth=1 parent=root
+  root.3           done       depth=1 parent=root
+  root.4           done       depth=1 parent=root
+  root.5           failed     depth=1 parent=root
+
+## pins (status · owner · note)
+  _system/dossier_1                  done       _system        doctor cycle 1 dossier
+  _system/dossier_2                  done       _system        doctor cycle 2 dossier
+  root.1/market_analysis             done       root.1         Detailed market analysis report including TAM/SAM/SOM, trend
+  root.2/competitor_analysis         done       root.2         Competitor landscape report with SWOT analysis and different
+  root.3/revenue_model               done       root.3         Revenue model design with pricing strategies, monetization c
+  root.4/go_to_market_strategy       done       root.4         Go-to-market plan covering launch, acquisition, retention, a
+  root.5/financial_projections       done       _doctor.1      5-year financial forecast with P&L, cash flow, and key perfo
+  root/business_plan                 abandoned  root           The complete, integrated business plan document combining al
+
+## gates (fired/dead · mechanism · condition)
+  [DEAD ] self_role-gate completed("root.1") AND completed("root.2") AND completed("root.3") AND completed("root.4") AND completed("root.5")
+
+## catalog audit: CLEAN

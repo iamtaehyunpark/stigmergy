@@ -1,0 +1,57 @@
+{
+  "task_id": "root",
+  "reasoning": "The root task requires producing a bilingual developer style guide split into two parts. Part A (terminology standard) must be completed before Part B (tutorial) can be written, because Part B must strictly adhere to the canonical terms defined in Part A to avoid 'term drift'. I will spawn two subtasks: root.1 for Part A (surveying legacy pipelines and defining the standard) and root.2 for Part B (writing the tutorial). root.2 will be gated on the completion of root.1. I will take the self_role of integrating the outputs and producing the final combined guide index.",
+  "action": "SPAWN",
+  "subtasks": [
+    {
+      "id": "root.1",
+      "goal": "Survey Yuten's three legacy pipelines (aligner, variant-caller, annotator) and define the canonical terminology standard.",
+      "capsule": "This subtask acts as the pipeline standards team. It must first simulate or retrieve the legacy naming conventions for stage names, file-format tags, and quality-flag codes from the three legacy pipelines. Then, it must decide on a new, unified canonical terminology standard. The output must be a strict standard listing ONLY the new canonical terms. This standard is the single source of truth for the entire guide.",
+      "outputs": [
+        {
+          "path": "root.1/legacy_survey",
+          "description": "A record of all legacy stage names, file-format tags, and quality-flag codes found in the aligner, variant-caller, and annotator pipelines."
+        },
+        {
+          "path": "root.1/canonical_standard",
+          "description": "The published canonical terminology standard (stage nouns, file-format vocabulary, quality-flag casing rules) containing ONLY the new terms."
+        }
+      ],
+      "condition": null
+    },
+    {
+      "id": "root.2",
+      "goal": "Write the bilingual (EN/JP) worked pipeline tutorial with runnable command-line samples.",
+      "capsule": "This subtask acts as the scientific documentation team. It must write four sections: alignment, variant-calling, quality filtering, and migration notes. The migration notes must map legacy terms to the new canonical terms. Crucially, every term used in this tutorial must exactly match the canonical standard produced by root.1. This subtask is gated on root.1 completing its standard.",
+      "outputs": [
+        {
+          "path": "root.2/tutorial_alignment",
+          "description": "Bilingual tutorial section for the alignment step with runnable CLI samples."
+        },
+        {
+          "path": "root.2/tutorial_variant_calling",
+          "description": "Bilingual tutorial section for the variant-calling step with runnable CLI samples."
+        },
+        {
+          "path": "root.2/tutorial_quality_filtering",
+          "description": "Bilingual tutorial section for quality filtering with runnable CLI samples."
+        },
+        {
+          "path": "root.2/tutorial_migration_notes",
+          "description": "Bilingual migration notes mapping legacy stage names and flag codes to canonical replacements."
+        }
+      ],
+      "condition": "completed(\"root.1\")"
+    }
+  ],
+  "self_role": {
+    "goal": "Integrate the canonical standard and the tutorial into a final combined guide index.",
+    "outputs": [
+      {
+        "path": "root/final_guide_index",
+        "description": "A master index linking to the canonical standard and the four tutorial sections, ensuring term consistency across the entire guide."
+      }
+    ],
+    "condition": "completed(\"root.1\") AND completed(\"root.2\")"
+  }
+}
