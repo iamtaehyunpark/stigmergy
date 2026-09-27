@@ -56,7 +56,9 @@ class Runtime:
     def __init__(self, run_id: str, arm: str, task: dict[str, Any],
                  harnesses: dict[str, str], config: Config, out_dir: Path,
                  rails: Optional[Rails] = None,
-                 model_fn: Optional[Callable[[list[dict[str, str]], bool], ModelReply]] = None):
+                 model_fn: Optional[Callable[[list[dict[str, str]], bool], ModelReply]] = None,
+                 dropped_tools: frozenset[str] = frozenset(),
+                 no_self_resume: bool = False):
         self.run_id = run_id
         self.arm = ARMS[arm]
         self.task = task
@@ -65,6 +67,9 @@ class Runtime:
         self.out_dir = out_dir
         out_dir.mkdir(parents=True, exist_ok=True)
         self.rails = rails or Rails()
+        # EF run-configuration layer: the lifecycle mechanism remains intact.
+        self.dropped_tools = frozenset(dropped_tools)
+        self.no_self_resume = bool(no_self_resume)
         self.trace = Trace(out_dir / "trace.jsonl")
         self.memory = Memory()
         self.circuit = Circuit()
@@ -231,6 +236,10 @@ class Runtime:
             "matching": lambda g: self.memory.matching(str(g)),
             "count": count,
         }
+
+    def surface_for(self, role: str) -> set[str]:
+        from .tools import SURFACES
+        return set(SURFACES[role]) - self.dropped_tools
 
     def sweep(self) -> None:
         """Re-evaluate the circuit until no rule fires (state events cascade)."""
@@ -507,6 +516,8 @@ class Runtime:
         self.trace.log("run_start", run_id=self.run_id, arm=self.arm.name,
                        task_id=self.task.get("id"), task=self.task["task"],
                        rails=vars(self.rails),
+                       surface_drop=sorted(self.dropped_tools),
+                       no_self_resume=self.no_self_resume,
                        config={"provider": self.config.provider,
                                "model": self.config.model,
                                "temperature": self.config.temperature,

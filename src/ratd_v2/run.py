@@ -27,10 +27,18 @@ HARNESS_FILES = {
 }
 
 
-def load_harnesses(harness_dir: Path, arm: str) -> tuple[dict[str, str], dict[str, str]]:
+def load_harnesses(harness_dir: Path, arm: str,
+                   override: str = "") -> tuple[dict[str, str], dict[str, str]]:
+    """Load an arm's prompts, optionally replacing role=filename entries."""
+    files = dict(HARNESS_FILES[arm])
+    for item in (o for o in override.split(",") if o):
+        role, _, fname = item.partition("=")
+        if role not in files or not fname:
+            raise SystemExit(f"--harness-override role {role!r} not in arm {arm}")
+        files[role] = fname
     texts: dict[str, str] = {}
     hashes: dict[str, str] = {}
-    for role, fname in HARNESS_FILES[arm].items():
+    for role, fname in files.items():
         path = harness_dir / fname
         texts[role] = path.read_text(encoding="utf-8")
         hashes[str(path)] = sha256_file(path)
@@ -46,6 +54,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--rep-start", type=int, default=1)
     parser.add_argument("--out-dir", default="results/et")
     parser.add_argument("--harness-dir", default="prompts/et")
+    parser.add_argument("--label", default="", help="run-id prefix instead of arm")
+    parser.add_argument("--harness-override", default="",
+                        help="role=filename[,role=filename]")
+    parser.add_argument("--surface-drop", default="",
+                        help="comma-separated tools removed for this run")
+    parser.add_argument("--no-self-resume", action="store_true",
+                        help="reject resume-typed rule targets")
     parser.add_argument("--provider", default=os.environ.get("RATD_PROVIDER", DEFAULT_PROVIDER))
     parser.add_argument("--model", default=os.environ.get("RATD_MODEL", DEFAULT_MODEL))
     parser.add_argument("--local-endpoint",
@@ -64,8 +79,11 @@ def main(argv: list[str] | None = None) -> int:
     rails = Rails(max_llm_calls=args.max_llm_calls,
                   wall_clock_s=args.wall_clock_s,
                   r_max=args.r_max, window_rounds=args.window_rounds)
+    dropped = frozenset(t for t in args.surface_drop.split(",") if t)
+    label = args.label or args.arm
     harness_dir = Path(args.harness_dir)
-    harnesses, harness_hashes = load_harnesses(harness_dir, args.arm)
+    harnesses, harness_hashes = load_harnesses(harness_dir, args.arm,
+                                               args.harness_override)
     wanted = tuple(t for t in args.task_ids.split(",") if t)
     base = Path(args.out_dir)
     summary = []
@@ -73,7 +91,7 @@ def main(argv: list[str] | None = None) -> int:
         if wanted and task["id"] not in wanted:
             continue
         for rep in range(args.rep_start, args.rep_start + args.reps):
-            run_id = f"{args.arm}_{task['id']}_r{rep}"
+            run_id = f"{label}_{task['id']}_r{rep}"
             run_dir = base / run_id
             if (run_dir / "metrics.json").exists():
                 print(f"skipping {run_id} (completed)", flush=True)
@@ -96,6 +114,9 @@ def main(argv: list[str] | None = None) -> int:
             write_json(run_dir / "run_meta.json", {
                 "run_id": run_id,
                 "arm": args.arm,
+                "label": label,
+                "surface_drop": sorted(dropped),
+                "no_self_resume": args.no_self_resume,
                 "task": task,
                 "provider": config.provider,
                 "model": config.model,
@@ -107,14 +128,15 @@ def main(argv: list[str] | None = None) -> int:
                 "started_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
             })
             metrics = Runtime(run_id, args.arm, task, harnesses, config,
-                              run_dir, rails).run()
+                              run_dir, rails, dropped_tools=dropped,
+                              no_self_resume=args.no_self_resume).run()
             h = metrics["health"]
             print(f"  -> calls={metrics['llm_calls']} agents={metrics['n_agents']} "
                   f"tokens={metrics['total_tokens']} root={h['root_state']} "
                   f"failure={h['systemic_failure']} rail={h['rail_hit'] or '-'}",
                   flush=True)
             summary.append(metrics)
-    write_json(base / f"summary_{args.arm}.json", summary)
+    write_json(base / f"summary_{label}.json", summary)
     return 0
 
 

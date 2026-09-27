@@ -192,7 +192,7 @@ class Tools:
         """Returns (result_text, is_terminal). Never raises."""
         name = call["tool"]
         args = call["args"]
-        surface = SURFACES[agent.role]
+        surface = self.rt.surface_for(agent.role)
         if name not in surface:
             return (f"ERROR: unknown tool '{name}'. Your tools: "
                     f"{', '.join(sorted(surface))}", False)
@@ -378,6 +378,12 @@ class Tools:
         except ConditionError as exc:
             return f"condition currently unevaluable: {exc}"
 
+    def _target(self, target: Any) -> dict[str, Any]:
+        target = validate_target(target)
+        if target["type"] == "resume" and self.rt.no_self_resume:
+            raise ConditionError("target.type must be one of ['spawn']")
+        return target
+
     def t_circuit_add_rule(self, agent: "Agent", args: dict[str, Any]) -> str:
         condition = args.get("condition")
         if not isinstance(condition, str) or not condition.strip():
@@ -388,7 +394,7 @@ class Tools:
         except ConditionError as exc:
             raise ToolError(f"condition unevaluable: {exc}") from None
         try:
-            target = validate_target(args.get("target"))
+            target = self._target(args.get("target"))
         except ConditionError as exc:
             raise ToolError(str(exc)) from None
         rule = self.rt.circuit.add(condition, target, agent.id, agent.rounds)
@@ -415,7 +421,7 @@ class Tools:
             changed.append("condition")
         if "target" in args:
             try:
-                rule.target = validate_target(args["target"])
+                rule.target = self._target(args["target"])
             except ConditionError as exc:
                 raise ToolError(str(exc)) from None
             changed.append("target")
@@ -476,7 +482,7 @@ class Tools:
             ocr = json.loads(raw)
             try:
                 evaluate_condition(ocr["condition"], self.rt.accessors())
-                target = validate_target(ocr.get("target"))
+                target = self._target(ocr.get("target"))
             except ConditionError as exc:
                 return result + f"; ERROR: on_complete_rule invalid ({exc}) — rule NOT installed"
             rule = self.rt.circuit.add(ocr["condition"], target, agent.id,

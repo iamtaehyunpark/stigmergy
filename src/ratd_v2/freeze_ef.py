@@ -1,0 +1,17 @@
+"""Freeze EF artifacts, verbatim predictions, and auditable harness diffs."""
+from __future__ import annotations
+import difflib, hashlib, time
+from pathlib import Path
+SPEC=Path("RATD_Experiment_Spec_EF.md")
+FILES=["prompts/ef/harness_nn.md","prompts/ef/harness_ns.md","prompts/ef/harness_rn.md","prompts/ef/harness_rs.md","prompts/ef/MANIFEST.sha256","prompts/ef/src/frame_router.md","prompts/ef/src/frame_router_spawnonly.md","tasks/ef_tasks.json","rubrics/ef/T1.md","rubrics/ef/T2.md","prompts/judge_v1.md","src/ratd_v2/run.py","src/ratd_v2/runtime.py","src/ratd_v2/tools.py","src/ratd_v2/analyze_ef.py","src/ratd_v2/judge_ef.py","src/ratd_v2/build_ef_harnesses.py"]
+def h(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def main():
+ spec=SPEC.read_text(); start=spec.index("## 4. Pre-registered predictions and readings"); end=spec.index("## 5. Deliverables",start); pred=spec[start:end].strip()
+ base=Path("prompts/ef/harness_nn.md").read_text(); lines=["# EF_PREREGISTRATION — frozen after NN/T1 replication gate","",f"Frozen: {time.strftime('%Y-%m-%d %H:%M:%S %z')}","","## Question and design","","Arm S only, 2×2 frame × action space, n=1 per cell per task (8 runs), ordered NN, NS, RN, RS within T1 then T2.","","## Predictions (verbatim from EF spec §4)","",pred,"","## Mechanical metric definitions","","Delegation event: a `spawn` trace event; a non-root delegation has causal author other than `root`. Direct versus rule-mediated is `rule` null versus set; depth is the longest parent chain from root. Explicit self-revive is successful `continue`, `wait` self-resume, or lifecycle resume; implicit reactivation is counted separately. Blocked-channel attempts are failed calls to a dropped tool or rejected resume targets. Annotation is manual by the experimenter for every activation: CONSIDERED / NOT-CONSIDERED / DELEGATED; regex hits are prefill only.","","## Frozen artifacts (sha256)",""]
+ for f in FILES: lines.append(f"- `{f}` {h(f)}")
+ lines += ["","## Harness diffs versus NN",""]
+ for c in ("ns","rn","rs"):
+  lines += [f"### {c}","","```diff","".join(difflib.unified_diff(base.splitlines(True),Path(f"prompts/ef/harness_{c}.md").read_text().splitlines(True),fromfile="harness_nn.md",tofile=f"harness_{c}.md",n=1)),"```,".rstrip(","),""]
+ lines += [f"NN is byte-identical to `prompts/et/harness_stig.md`: `{h('prompts/ef/harness_nn.md')}` = `{h('prompts/et/harness_stig.md')}`.","","## Serving config","","qwen3.6 (Qwen3.6-27B), temperature 0, vLLM max-model-len 262144, GPU 3, job 9054c77a, `enable_prefix_caching=False`, port 8001. Port 8000 is another user's server and is never used.","","## Deviations","","1. Spawn-only removal is enforced in run configuration (`--surface-drop wait,continue`, `--no-self-resume`) so dropped calls become logged tool errors; memory, circuit, scheduler, rails and caps are untouched.","2. Implicit reactivation remains in all cells. Spawn-only removes explicit agent-directed continuation, not implicit state-change/read-only reactivation. If P2 is null, this residual channel is a candidate explanation and must not license an action-space-null conclusion; it is measured separately and a fifth cell disabling it may be proposed but not run.","","## Replication rule","","NN/T1 must exactly reproduce ET `s_L3_r1`; otherwise stop and diagnose serving drift. `det_check` follows the series; n=2 only for a divergent cell.",""]
+ Path("EF_PREREGISTRATION.md").write_text("\n".join(lines)); print("wrote EF_PREREGISTRATION.md")
+if __name__ == "__main__": main()

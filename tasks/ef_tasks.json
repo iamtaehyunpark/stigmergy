@@ -1,0 +1,12 @@
+[
+  {
+    "id": "T1",
+    "task": "Write a 4-chapter technical field guide to LLM agent memory systems. Each chapter needs its own research, a draft, and a consistency edit; the book needs a unified glossary and a final assembly pass. Deliver the final artifacts under global/final/ (multi-part deliverables as separate files, e.g. global/final/chapter_1.md ... global/final/glossary.md).",
+    "source": "ET L3 verbatim (byte-identical to tasks/et_ladder.json L3)"
+  },
+  {
+    "id": "T2",
+    "task": "Create a complete business plan for a Korean local-review platform: market analysis, competitor analysis, revenue model, go-to-market, and financial projections. Deliver the final artifacts under global/final/ (multi-part deliverables as separate files, e.g. global/final/market_analysis.md ... global/final/financial_projections.md).",
+    "source": "E0 d02 verbatim + v2 delivery convention"
+  }
+]
